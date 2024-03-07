@@ -12,9 +12,9 @@ V 5. tednu ekipe predstavijo svoj predlog na zagovoru. Povratna informacija poma
 
 Predlog projekta in poročila o stanju se nadgrajujejo v celovito končno poročilo. Vsa poročila imajo v osnovi enake odstavke. V predlogu sta poudarjena odseka [**2 Potrebe naročnika**](#2-potrebe-naročnika) in [**3 Cilji projekta**](#3-cilji-projekta). Gradivo iz teh odsekov se lahko uporabi v kasnejših poročilih.
 
-## :page_with_curl: Opisni naslov, osredotočen na prednosti za naročnika
+## Opisni naslov, osredotočen na prednosti za naročnika
 
-## :information_desk_person: Ime ekipe: Člani ekipe
+## Ime ekipe: Člani ekipe
 
 ## 1 Uvod
 
@@ -34,8 +34,8 @@ Predlog projekta in poročila o stanju se nadgrajujejo v celovito končno poroč
 ## 2 Potrebe naročnika
 
 - Kdo je primarni naročnik (zunaj ekipe)?
-  - Kdo so sekundarni deležniki?
-- Kaj deležniki želijo? Zakaj?
+  - Kdo so sekundarni deležniki? - (komu še bo maša aplikacija koristila)
+- Kaj deležniki želijo? Zakaj? - (npr občani želijo čim bolj enostavno in intuitivno aplikacijo)
 - Kakšna je njihova želena splošna izkušnja?
 
 ### 2.1 Uporabniške zahteve
@@ -108,8 +108,6 @@ _Začnite zapisovati v **dnevnik sprememb**, kjer sledite vsem spremembam projek
 ### 6.3 Finančni načrt
 
 - Finančni načrt projekta po metodi COCOMO II.
-
-![COCOMO II ocena](./gradivo/img/cocomo-ii-ocena.png)
 
 ## 7 Ekipa
 
