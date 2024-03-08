@@ -1,0 +1,83 @@
+S predlogom projekta mi prepričujemo naročnika, da bo naš projekt zmagal na razpisu. Tu naj še ne varčujemo z besedami.
+
+
+1) Organizacija projekta:
+   (razporeditev dela po članih/...)
+	-> upravljanje projekta
+	  (sestanki/orodja za komunikacijo/...)
+	-> predstavitev skupine
+	  (kratek opis, znanje, izkušnje, kdo koga nadomešča ob odsotnosti, vloga v skupini(vodja/več SCRUM vlog))
+
+
+2) Obvladovanje tveganj:
+	-> identifikacija (predvidimo čim več tveganj, fajn jih je razvrstit po tipih(ljudje, oprema, zahteve, organizacija, varnost, ocene ...) - več ko jih je, bolj sposobni izpademo naročniku)
+		- poimenujemo in dodelimo oznako
+		- opišemo
+		- določimo tip - tehnologija, orodja, ljudje, organizacija, zahteve, ocenjevanje(npr časa), varnost(spletna)
+		- na kaj vpliva (projekt, izdelek, posel)
+	-> analiza
+		- verjetnost nastopa tveganja (lestvica: zelo visoka, visoka, zmerna, nizka, zelo nizka)
+		- učinek - kakšne bodo posledice (lestvica: usodne, resne, dopustne, neznatne)
+		Pomoč za analizo glede na ta dva parametra: Matrika izpostavljenosti tveganj. Glede na to jih rangiramo po pomembnosti in določimo ukrepe v koraku načrtovanja (spodaj).
+	-> načrtovanje - glede na dotično tveganje si izberemo primerno strategijo zanj:
+		- strategija izogibanja (zmanjšanje verjetnosti)
+		- strategija zmanjševanja (zmanjšanje vpliva)
+		- krizni načrt (kako gasiš požar)
+
+
+3) Projektni načrt
+	-> povzetek razdelitve projekta na aktivnosti - 3 iteracije, 
+		Projekt se začne s 1. fazo (iteracijo) (26. 2.) - predlog projekta
+		Konča se 26. 5. (pon zjutraj)
+		V načrtu upoštevaj, da se med vikendi in prazniki ne dela!
+		koliko delovnih dni? (62)
+		ČM = 1č * 1m ~= 160h
+		ČD = 1č * 1d = 8h
+		mi imamo 4č * 62d = 248 ČD 
+		seveda ne delamo 8 ur na dan (160 ur/mesec), ampak 50 - max 100 ur/mesec (2,5 - 5 ur/dan)
+	-> načrt aktivnosti
+
+Opis vsake aktivnosti vsebuje:
+oznaka
+datum začetka
+konca
+trajanje
+naziv
+obseg v ČM
+seznam ciljev (kaj želimo doseči)
+opis aktivnosti
+morebitne odvisnosti in omejitve
+pričakovani rezultati aktivnosti
+
+primeri:
+-izbira izziva
+-pregled dokumentacije
+-planiranje iteracije
+-izdelava predloga projekta
+-sestanek z naročnikom
+-izvedba retrospektive (kaj je blo dobro, kaj slabo, a je kater član skupine zelo nevešč - mu je treba pomagat, a je kdo zlo dober,izkušen, kako bomo to izkoristili ...)
+
+	-> seznam izdelkov
+		KAJ bo narejeno in KDAJ (primeri izdelkov: seznam zahtev, zapiski, delujoča login funkcionalnost ...)
+	-> časovni potek: (plantUML !)
+		- Ganttov diagram
+			* Prva iteracija naj bo podrobno razbita v skladu z našim načrtom, 
+			  ostale pa le v osnovni obliki.
+			* Označena naj bo tudi kritična pot!
+			* Lahko uporabimo barve (vsaka iteracija v svoji barvi ali pa 
+			  svoja barva za že narejene/trenutno izvajane/še ne izvajane aktivnosti)
+		- diagram PERT (odvisnosti med aktivnostmi, trajanje aktivnosti in količina drsenja posamezne aktivnosti)
+			Z njim ugotovimo trajanje projekta in kritično pot.
+			Vsaka akt. 6 števil: trajanje, drsenje, earliest start & finish, latest start & finish.
+			Aktivnost z drsenjem = 0 so na kritični poti.
+
+
+---------------
+naše iteracije:
+---------------
+1) izdelava predloga projekta
+2) ZAJEM ZAHTEV, analiza in načrtovanje, implementacija, testiranje
+3) zajem zahtev, ANALIZA IN NAČRTOVANJE, implementacija, testiranje
+4) zajem zahtev, analiza in načrtovanje, IMPLEMENTACIJA, TESTIRANJE
+
+fokus naj bo na odebeljenih aktivnostih - verjetno tudi najdlje trajajo v našem načrtu
