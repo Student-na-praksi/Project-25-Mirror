@@ -27,7 +27,38 @@ https://console.cloud.google.com/google/maps-apis/build
 
 ## Aplikacija:
 spletna stran vizualizacija stanja cest
+live tracking plugov?
 Možnost prijave:
-- plug se prijave
+- plug se prijave (ko se pluh prijavi je online, lahko začne s pluženjem?)
 - podjetje, individum - se prijavi da se prijavi za pluženje parkišišč, dvorišč
-- 
+- upravljalec -> vidi dodatne podatke, ki jih regular user ne (lokacije baz, št plugov)
+
+## Viri
+1. Najbolj uporaben Lavbičev vir je tale: https://github.com/gandalfsaxe/ecmi2017
+Lepo dokumentiran projekt, lahko nam služi kot zgled. 
+Pokriva katere Google Maps extenšne so uporabili, tudi neko demo kodo za risanje po zameljevidu in animiranje (aka. live tracking/prewiev pluženja. Za enkrat še nimam ideje kako bi drugače simulirali "live tracking") https://developers.google.com/maps/documentation/javascript/examples/overlay-symbol-animate
+
+2. Python modul za reševanje vehicle routing problem (VRP)
+https://pyvrp.org/index.html
+Tu bomo uporabli:
+- heterogeneous fleet (različna vozila, niso vsi plugi enaki)
+- muliple depots (več plužnih baz)
+- mogoče costs, s pomočjo katere bi lažje definirali prioritete
+
+
+3. Vreme (za enkrat) se osredotočimo na eni vremensko postajo v sredini Celja
+https://meteo.arso.gov.si/uploads/probase/www/observ/surface/text/sl/observation_CELJE_latest.xml
+Najbolj nas zanima zadnjih nekaj vrstic
+```
+<snow_var_desc>Skupna višina snežne odeje</snow_var_desc>
+<snow_var_unit>cm</snow_var_unit>
+<snow/>
+<rrHh_var_desc>Interval merjenja padavin</rrHh_var_desc>
+<rrHh_var_unit>h</rrHh_var_unit>
+<rrHh>24</rrHh>
+<snowNew_var_desc>Novozapadli sneg</snowNew_var_desc>
+<snowNew_var_unit>cm</snowNew_var_unit>
+<snowNew_val/>
+```
+Mogoče nek programčič ki bo avtomatsko modificiral te vrednosti, za voljo testiranja projekta, 
+potem imamo več .xml testov. Lahko jih pa tudi samo ročno spišemo.
