@@ -1,0 +1,55 @@
+@startuml
+
+skinparam componentStyle uml2
+
+actor "občan" as RC
+actor "customer" as CPS
+actor "voznik pluga" as SPD
+actor "vodja plužne izmene/manager" as MSP
+
+database "Zemljevidi" {
+    [Map]
+    '[Detailed Map]
+}
+
+database "Vremenski podatki\n(Vremenska postaja Celje)" {
+    [vremenski podatki]
+}
+
+package "Snow Plow Route Optimization System" {
+
+  package "UI" {
+    [Login Page]
+    [customer UI]
+    [citizen UI]
+    [manager UI]
+    [driver UI]
+    '[Plowing Orders UI]
+  }
+
+  RC --> [Login Page]
+  SPD --> [Login Page]
+  MSP --> [Login Page]
+  CPS --> [Login Page]
+
+  [Login Page] --> [citizen UI] : citizen
+  [Login Page] --> [driver UI] : driver
+  [Login Page] --> [manager UI] : manager
+  [Login Page] --> [customer UI] : customer
+
+  [driver UI] <-> [Plow Navigation Service]
+  [citizen UI] <-- [SnowOnRoads Service]
+  [Map] --> [SnowOnRoads Service]
+  [driver UI] <-- [SnowOnRoads Service]
+  [manager UI] <-- [SnowOnRoads Service]
+  [customer UI] <-- [SnowOnRoads Service]
+  [manager UI] <-> [Plowing Orders]
+  [Plowing Orders] --> [Plow Navigation Service]
+  [Plow Navigation Service] -->  [SnowOnRoads Service]  
+
+
+  [SnowOnRoads Service] <-- [vremenski podatki]
+}
+
+
+@enduml
