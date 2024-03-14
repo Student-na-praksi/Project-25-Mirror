@@ -1,0 +1,42 @@
+'diagram beremo od levo zgoraj do desno spodaj (tako teče čas)'
+@startuml
+hide footbox
+
+'za kosnistento barvno shemo'
+skinparam backgroundcolor transparent
+skinparam defaultTextAlignment center
+skinparam actorBorderColor black
+skinparam actorBackgroundColor white
+skinparam arrowColor black  
+skinparam sequenceLifeLineBorderColor #5FB8EC
+skinparam sequenceParticipantBorderColor #5FB8EC
+skinparam sequenceParticipantBackgroundColor white
+
+'<<ležeče>>'
+actor Referent <<actor>>
+
+participant BolnikInfo <<P>>
+participant "Mentcare-PB" as MentcarePB <<D>>
+participant Avtorizacija <<AS>>
+
+Referent -> BolnikInfo: PoglejInfo(BID)
+'aktiviramo/instanciramo objekt'
+activate Referent
+activate BolnikInfo
+
+BolnikInfo -> MentcarePB: porocilo(info, BID, UID)
+activate MentcarePB
+
+MentcarePB -> Avtorizacija: avtorizacija(info, UID)
+activate Avtorizacija
+Avtorizacija --> MentcarePB: avtorizacija
+'objekta avtorizacija ne potrebujemo več'
+deactivate Avtorizacija
+
+'v primeru da je / if = alt'
+alt avtorizacija OK
+MentcarePB --> BolnikInfo: Podatki o bolniku
+else avtorizacija napaka
+MentcarePB --> BolnikInfo: Napaka (ni dostopa)
+end
+@enduml

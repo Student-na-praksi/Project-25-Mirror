@@ -1,5 +1,4 @@
 @startuml
-
 skinparam componentStyle uml2
 
 actor "občan" as RC
@@ -15,6 +14,9 @@ database "Zemljevidi" {
 database "Vremenski podatki\n(Vremenska postaja Celje)" {
     [vremenski podatki]
 }
+
+'če zelimo da gr diagram od leve proti desni, ne od zgoraj navzdol'
+'left to right direction
 
 package "Snow Plow Route Optimization System" {
 
@@ -44,12 +46,28 @@ package "Snow Plow Route Optimization System" {
   [manager UI] <-- [SnowOnRoads Service]
   [customer UI] <-- [SnowOnRoads Service]
   [manager UI] <-> [Plowing Orders]
+  [customer UI] --> [Plowing Orders]
   [Plowing Orders] --> [Plow Navigation Service]
   [Plow Navigation Service] -->  [SnowOnRoads Service]  
 
 
   [SnowOnRoads Service] <-- [vremenski podatki]
+
+  ' nekaj primerov drugačne sintakse
+  ' elipse lavbi uporablja znotraj proces'
+  rectangle "pravokotnik" {
+    usecase "elipsa" as elipsa
+    usecase "a" as a
+    usecase "b" as b
+    usecase "c" as c
+    ' črtnakana črta'
+    a ..> b
+    'debelapuščica/dedovanje?'
+    a -|> b
+    'samo povezava'
+    a -- b
+    '.left./.right./.up./.down. pove usmerjenost'
+    b -right-> c
+  }
 }
-
-
 @enduml
