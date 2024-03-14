@@ -23,7 +23,7 @@ package "Snow Plow Route Optimization System" {
   package "UI" {
     [Login Page]
     [customer UI]
-    [citizen UI]
+    [unregisteredUser UI]
     [manager UI]
     [driver UI]
     '[Plowing Orders UI]
@@ -34,13 +34,13 @@ package "Snow Plow Route Optimization System" {
   MSP --> [Login Page]
   CPS --> [Login Page]
 
-  [Login Page] --> [citizen UI] : citizen
+  [Login Page] --> [unregisteredUser UI] : unregisteredUser
   [Login Page] --> [driver UI] : driver
   [Login Page] --> [manager UI] : manager
   [Login Page] --> [customer UI] : customer
 
   [driver UI] <-> [Plow Navigation Service]
-  [citizen UI] <-- [SnowOnRoads Service]
+  [unregisteredUser UI] <-- [SnowOnRoads Service]
   [Map] --> [SnowOnRoads Service]
   [driver UI] <-- [SnowOnRoads Service]
   [manager UI] <-- [SnowOnRoads Service]
