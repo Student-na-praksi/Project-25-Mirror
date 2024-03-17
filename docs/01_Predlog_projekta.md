@@ -58,25 +58,46 @@ Sistem mora vsakemu od deležnikov biti preprost za uporabo, brez nepotrebnih fu
 ### 2.1 Uporabniške zahteve
 
 
-Kaj je naš sistem?
-Spletna aplikacija, kamor se lahko prijavi:
-- nekdo ki pluži. Ta poda svojo lokacijo in se mu odpre polje, kjer je vnesena pot in ga le ta usmerja.
-- nekdo ki nadzira pluženje in vidi vse trenutne pluge.
-- podjetje, ki želi objaviti željo po pluženju parkirišča.
-- občan (fizična oseba), ki želi objaviti željo po pluženju dvorišča/dovozne poti do hiše, ki ni del javnih (državnih) cest.
-- neregistrirani uporabnik, ki vidi stanje spluženosti cest.
-possibly:
-- občan, ki odda svojo lokacijo in svoj cilj, ter mu aplikacija pove pot, ki je najbolj splužena.
--spletna aplikacija bo odzivna, če pričakujemo, da bo neka akcija (npr. izračun poti) potrebovala dlje, uporabimo loading scree.
+Projekt bo izvajan v treh iteracijah. V zgodnejših iteracijah prioritiziramo uporabniške zgodbe povezane z MUST HAVE zahtevami, če le-te nimajo prevelikih odvisnosti, zaradi katerih bi jih morali prestaviti v kasnejšo iteracijo.
 
 
-- Zapišite **SMART** uporabniške zgodbe na podlagi potreb in želja deležnikov. (Specific, Measurable, Achievable, Relevant, Time-bounded)
-- Uporabite predlogo "Kot <vloga> želim <akcija>, da <posledica>."
-  - npr. "Kot **_prijavljen uporabnik_** želim **_urediti podatke v svojem profilu, vključno z imenom in profilno sliko_**, da **bo profil vedno vseboval točne podatke**."
+Kot neregistriran uporabnik želim:
+- imeti dostop do zemljevida stanja spluženosti cest.
+- imeti možnost registracije, da lahko postanem Customer.
+
+Glede na to, da sem neregistriran uporabnik,:
+- ko zahtevam možnost registracije, sem preusmerjen na stran ki mi to omogoča.
+
+Kot Admin želim:
+- na zemljevidu videti lokacije Ustaljenih Plugov.
+- ob kliku na Usataljeni Plug dobiti njihovo telefonsko številko. 
+- imeti možnost urejanja števila plugov v štartni bazi in lokacije štartnih baz, da se podatki v zaledju spremenijo v realnem času.
+
+Glede na to, da sem admin,:
+- ko kliknem na Ustaljeni Plug na zemljevidu, dobim njegovo telefonsko številko.
+- ko zahtevam urejanje števila plugov v štartni bazi in lokacije štartnih baz, se te podatki posodobijo v roku 1 minute po oddani zahtevi.
+
+Kot Ustaljeni Plug želim:
+- da se mi glede na trenuten GPS izpisujejo navodila za nadaljno pot.
+- imeti možnost deaktivacije, da se lahko umaknem iz pluženja (zaradi malice, okvare, premora).
+
+Glede na to, da sem Ustaljeni Plug,:
+- ko zahtevam deaktivacijo, je ta objavljena v roku 30 sekund.
 
 
-- Za uporabniške zgodbe zapišite teste sprejemljivosti z uporabo predloge "Glede <pogoj>, ko <akcija>, potem <posledica>."
-  - npr. "Glede **_na to, da sem prijavljen uporabnik_**, ko **_zahtevam urejanje profila_** in **_posodobim profilno sliko_**, potem **_so informacije o mojem profilu posodobljene in vidne vsem uporabnikom_**."
+Kot Customer želim:
+- imeti možnost oddaje zahtevka za pluženje.
+
+Kot Samostojni Plug želim:
+- videti trenutno nalogo.
+
+Kot Manager želim:
+- videti lokacije Samostojnih Plugov in ob kliku na dotičen plug dobiti njegovo telefonsko številko.
+- imeti možnost usmeriti dotičen Samostojni Plug na zemljevidu na določeno opravilo, da se mu posodobi trenutno opravilo.
+
+Glede na to, da sem Manager,:
+- ko Samostojnemu Plugu spremenim opravilo, je ta o njem obveščen v roku 2 minut.
+
 
 
 ## 3 Cilji projekta
@@ -123,12 +144,30 @@ Optimizacija plužnih poti (npr. zaščita okolja - manjša poraba goriva, minim
 ## 4 Opis sistema
 
 
-_V okviru predloga projekta zadostuje osnutek tega poglavja._
+Predstavitev sistema glede na diagram:
+
+MUST HAVE:
+- Ustaljeni Plug: avtomatsko planiranje posebej za Zelenice (pločniki) in VOC (ceste) z vodenjem vsakega posameznega pluga.
+- Home page: Login funkcionalnost, pobarvan zemljevid stanja cest. Neregistrirano uporabnik pride samo do sem.
+- Admin: Dodajanje začetnih baz s številom plugov. Dodajanje Ustaljenih Plugov v sistem. Pregled stanja Ustaljenih Plugov na cestah.
+
+SHOULD HAVE:
+- Samostojni Plug lahko opravlja naročila.
+- Stranka se lahko registrira in odda zahtevek za pluženje dvorišča.
+- Manager vidi lokacije Samostojnih plugov in jih usmeri na opravljanje naročila.
 
 
-- Narišite blokovni diagram, ki prikazuje, kako bo predlagani sistem deloval z zunanjimi storitvami, podatkovnimi bazami ipd. Jasno označite tudi meje sistema.
-- Uporabite prejšnji diagram za predstavitev sistema.
-- Kaj so osrednji elementi predlaganega sistema?
+COULD HAVE:
+- vključitev kmetov v pluženje z VOC in Zelenice. To za sabo potegne bolj zapleten algoritem.
+- Home Page poizvedba kdaj bo neka ulica splužena.
+- Neregistriran uporabnik deli svoj GPS in cilj poti, mi pa mu povemo optimalno pot glede na spluženost cest.
+- Posodabljanje pomembnosti cest glede na poti po katerih poizvedujejo Neregistrirani uporabniki.
+
+VEČ INFORMACIJ O ALGORITMU:
+- Ceste imajo pomembnostno vrednost glede na njihovo prioritetnost (količina prometa na njej) in količino snega (integral padanja od njenega zadnjega pluženja)
+- Če hočemo uporabljati PyVRP, moramo imeti baze pluženja. To je smiselno za VOC in Zelenice, a potem kmetje ne morejo pomagati s pluženjem v smislu, ki bi bil integriran s sistemom VOC in Zelenice.
+- Če gremo snovati svoj algoritem, lahko delamo glede na to, kje so trenutni plugi. Ko se priključi nov Samostojni Plug se vsem popravijo poti. Tako Samostojni Plugi sodelujejo pri VOC in Zelenice (z določenimi omejitvami, kot je recimo pluženje glavnih cest).
+
 
 
 ## 5 Predlagan pristop
