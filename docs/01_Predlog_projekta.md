@@ -139,7 +139,7 @@ Optimizacija plužnih poti (npr. zaščita okolja - manjša poraba goriva, minim
   - Opišite dejanskega zunanjega naročnika.
 	MOC
 - Kako boste vedeli, ali je naročnik dobil želene koristi?
-	Po koncu projekta se bomo sestali z naročnikom ter opravili pregled nalog in ciljev, kjer bomo <glagol>, v kolikšni meri smo izpolnili naročnikove želje.
+	Po koncu projekta se bomo sestali z naročnikom ter opravili pregled nalog in ciljev, kjer bomo skupaj ugotovili, v kolikšni meri smo izpolnili naročnikove želje.
   - Katera merila uspeha so pomembna naročniku?
 - zadovoljstvo uporabnikov sistema (občani, vozniki pluga)
 - projekt ustreza smernicam trajnega razvoja
@@ -237,7 +237,7 @@ _Začnite zapisovati v **dnevnik sprememb**, kjer sledite vsem spremembam projek
 Ekipo sestavljamo štirje študenti (štiri študentje ? slovenščina me je zapustila) 3. letnika univerzitetnega programa Fakultete za računalništvo in informatiko.
   - Mato
   - Felipe
-  - Jobst
+  - Jobst - ima predznanja programiranja zaledja v Javi, prav tako pa ima nekaj predhodnega znanja o programskemu jeziku Python.
   - Basti: 
 
 
@@ -250,9 +250,13 @@ Ekipo sestavljamo štirje študenti (štiri študentje ? slovenščina me je zap
 ## 8 Omejitve in tveganja
 
 
-- Ali obstajajo kakšne družbene, etične, politične ali pravne omejitve?
+- Ali obstajajo kakšne družbene, etične, politične ali pravne omejitve
+	- Potrebno se bo pozanimati o zbiranju osebnih podatkov, na primer za lokacijo, ter uporabnike obvestiti o zbiranju ter uporabi teh podatkov pri ponudbi storitve.
 - Opredelite možna tveganja in strategije za obvladovanje tveganj.
 	> tle bo ful za napisat
+	- Ob izgubi dostopa do podatkov ARSO bi zgubili možnost napovedovanja vremenskih pogojev, v temu primeru bomo uporabili podatke o vremenu z strani uporabnikov na terenu.
+	- Možno je, da bi ARSO spremenil API za dostop do vremenskih podatkov, v temu primeru bomo morali prilagoditi našo aplikacijo, da bo kompatibilna z spremenjenim API-jem.
+	- Obstaja možnost okvare transporderja (recimo da telefonu zmanjka baterije), v temu primeru ne bi imeli informacij o danemu plugu - rešitev?
 - Ali boste imeli dostop do podatkov, storitev in virov, ki jih potrebujete?
 - Ali potrebujete še kaj drugega?
 
