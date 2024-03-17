@@ -18,26 +18,18 @@ V 5. tednu ekipe predstavijo svoj predlog na zagovoru. Povratna informacija poma
 Predlog projekta in poročila o stanju se nadgrajujejo v celovito končno poročilo. Vsa poročila imajo v osnovi enake odstavke. V predlogu sta poudarjena odseka [**2 Potrebe naročnika**](#2-potrebe-naročnika) in [**3 Cilji projekta**](#3-cilji-projekta). Gradivo iz teh odsekov se lahko uporabi v kasnejših poročilih.
 
 
-## Opisni naslov, osredotočen na prednosti za naročnika
+## Celovita rešitev organizacije pluženja
 
 
-## Ime ekipe: Člani ekipe
+## Jošt Eržen, Filip Gros, Sebastjan Kordiš, Matevž Vidovič
 
 
 ## 1 Uvod
 
 
-### Začetni odstavek
+Ob novozapadlem snegu se promet skoraj ustavi. Organizacije, ki se ukvarjajo s pluženjem, se na vso moč trudijo, da se situacija ne poslabša do te mere, da bi postala totalen prometni kolaps.
+Naš projekt želi biti celovita rešitev organizacije pluženja, da lahko s tem pomagamo pri koordinaciji in nadzorovanju le tega ter z algoritmičnimi pristopi pluženje naredimo učinkovitejše. Poleg tega želimo povezati pravne in fizične osebe, ki potrebujejo pluženje parkirišč in dvorišč, z izvajalci pluženja, kot so kmetje, da lahko zunaj plužne konice omogočimo to storitev, ki koristi obema stranema.
 
-
-- Kaj je projekt?
-	Projekt je namenjen reševanju prometne krize ob novo zapadlem snegu.
-- Kakšna je motivacija za ta projekt?
-	Modernizirati načrtovanje plužnih poti in tako meščanom Celja omiliti prometni kaos, ki nastane zaradi snega. 
-- Kaj je pri tem izvirnega?
-	Pri projektu bomo temeljili na že preizkušenih dobrih praksah, in sicer se bomo potrudili implementirati aplikacijo, ki bo podobna Woltu, kjer se bo lahko voznik pluga na poljubni lokaciji priklopil ali odklopil iz sistema. Algoritem bo v vsakem trenutku računal najbolj optimalen plan za pluženje cest.
-  - Še kakšen vidik za orientacijo bralca?
-	
 
 
 
@@ -45,42 +37,24 @@ Predlog projekta in poročila o stanju se nadgrajujejo v celovito končno poroč
 ### 1.1 Izzivi
 
 
-- Na kratko opišite glavne izzive za ekipo.
-	- organizacija časa
-	- spoznavanje z novimi tehnologijami, predvsem njihovo povezovanje v en celoten sistem
-	- razvoj algoritma za rešitev problema zna biti zelo kompleksna. Tudi uporaba obstoječe rešitve bo verjetno kompleksna, saj ne bo perfektno naslavljala našega problema, temveč jo bo treba prilagoditi. To zna biti zahtevno, saj takšna implementacija hitro izgubi na efektivnosti, če nismo previdni in iznajdljivi.
-	- čim bolj ustrezna delitev dela
-	- ocenjevanje zahtevnosti posameznih nalog
-  - Kako jih boste naslovili?
-	- temeljili bomo na principu javljanja, med sabo si bomo razdelili delo tako, da bo vsak implementiral tisti del, ki si ga želi (ima že izkušnje)
-	- pisanje komentarjev :-)
-	- tedenski sestanki (v fizični ali online obliki)
-	- pred pisanjem kode, bomo razmislili, kakšen mora biti output
-- podatkovne tipe/strukture bomo definirali vnaprej, ne ob pisanju funkcije
-- sprotno testiranje
-- kompleksnejše rešitve naj imajo (lahko tudi na roke narisan) graf delovanja, da je naslednjemu, ki se loti kode, lažje dojeti to funkcionalnost.
+Člani ekipe se bežno poznamo, ker smo se že nekajkrat videli na faksu, vendar še nikoli nismo med seboj sodelovali na projektu. Predvidevamo, da bodo največji izzivi za ekipo medsebojno usklajevanje, torej organizacija časa, čim bolj ustrezna delitev dela in dobra medsebojna komunikacija.
+Prav tako noben član ekipe še ni sodeloval na projektu, ki bi vseboval ravno te tehnologije, kar predstavlja svojevrsten izziv. Večina nas pozna posamezne tehnologije, vendar njihovo povezovanje v nek celoten sistem nam je precej tuje. Algoritem za rešitev problema je zelo kompleksen, vendar obstaja na internetu že veliko rešitev, zato bo iskanje najprimernejše za naš specifičen problem tudi izziv. Ocenjevanje zahtevnosti posameznih nalog nam je tudi tuje področje.
+Razvoj algoritma za rešitev problema optimizacije pluženja zna biti zelo kompleksna naloga. Tudi uporaba obstoječe rešitve bo verjetno zahtevno, saj ne bo perfektno naslavljala našega problema, temveč jo bo treba pametno prilagoditi. To zna biti zahtevno, saj takšna implementacija hitro izgubi na efektivnosti, če nismo previdni in iznajdljivi.
+Prvi sestanek bo bolj družaben. Cilj njega bo team-building. Nato se bomo dobivali vsak teden, kjer bo vsak povedal napredek na svojem delu projekta, izzive in probleme, ki jih je srečal, ter predstavil tudi možne rešitve. Cilj nam je, da celotna ekipa ve, kaj se dogaja na vsakem področju projekta. Same delitve dela v skupini se bomo lotili po principu javljanja, torej bomo poskusili ustrezati željam vseh članom ekipe. Kjer bosta dva imela enako željo, bomo prišli do kompromisa. Za področja, kjer noben želja ne bo izražena, bo tisti z največ izkušnjami prevzel nalogo. Pri programiranju se bomo držali dobrih praks (sprotno pisanje komentarjev, sprotno testiranje, pred implementiranjem funkcije premislek kaj bodo vhodi in izhodi, grafična predstavitev, vnaprej definirane podatkovne strukture, programiranje po nekaj ur na dan več dni, ne pa en dan 10 ur…)
+Ekipi sta že znana jezika Python in JavaScript, ostale tehnologije ter njihovo povezovanje pa nam še nista znana.
 
-
-  - Je tehnologija ekipi znana ali nova?
-	Pri projektu imamo namen uporabiti <seznam jezikov oz. ime stack-a>. Ekipi sta že znana jezika Python in JavaScript <in morebitne druge zadeve>, ostale tehnologije ter njihovo povezovanje pa nam še nista znana. <... DODAJ: in se jih bomo naučili ...>
 
 
 ## 2 Potrebe naročnika
 
 
-- Kdo je primarni naročnik (zunaj ekip
-e)? 
-- Kdo so sekundarni deležniki? (komu še bo maša aplikacija koristila)
+Primarni naročnik je Mestna občina Celje (v nadaljevanju MOC), sekundarni deležniki pa so Zelenice d.o.o., VOC Celje d.o.o. in ekipa predmeta Tehnologija Programske Opreme.
+Če nam uspe implementirati vse zamišljene ideje so sekundarni deležniki tudi občani, lokalna podjetja in kmetje, ki se ukvarjajo s pluženjem.
+MOC si od projekta želi izboljšano učinkovitost pluženja, zaradi česar se zmanjša možnost prometnega kolapsa in pohitri promet v snežnih razmerah, kar veča zadovoljstvo občanov.
+Podjetji, ki opravljata pluženje, si želita intuitiven in zanesljiv nadzor nad situacijo pluženja, ter zmanjšane stroške pluženja zaradi višje učinkovitosti.
+Občani in lokalna podjetja želijo možnost kontakta s kmeti, ki bi bili pripravljeni pomagati pri pluženju dvorišč in parkirišč, saj je to za večje površine izvajati ročno zelo zahtevno in zamudno, medtem ko kmet s plugom to nalogo opravi zelo hitro. Kmetje s plugom pa si želijo dostopa do nove potencialne storitvene dejavnosti.
+Sistem mora vsakemu od deležnikov biti preprost za uporabo, brez nepotrebnih funkcionalnosti, zaradi katerih bi postal zapleten. Sistem mora biti robusten, saj, če se deležniki nanj zanašajo, njegova napaka lahko povzroči prometni kolaps.
 
-
-Primarni naročnik je Mestna občina Celje, sekundarni deležniki pa so Zelenice d.o.o. in VOC Celje d.o.o. Če nam uspe implementirati vse zamišljene ideje so sekundarni deležniki tudi občani.
-(Sekundarni naročniki: občani MOC, ki bido aplikacijo tudi uporabljali?)
-
-
-- Kaj deležniki želijo? Zakaj? (npr občani želijo čim bolj enostavno in intuitivno aplikacijo)
-primarni deležnik želi, da se jim bo investicija povrnila, torej da bo aplikacija v nekaj letih vrnila svoj vložek, v obliki večjega zadovoljstva občanov, manjših stroških pluženja, hitrejšemu prometu v času sneženja... Občani želijo imeti čim bolj splužene ceste, pri čem jih ne zanima pot pluženja, le da bo cesta, po kateri morajo, splužena. Podjetji, ki opravljata pluženje pa si želita pregled nad trenutnim stanjem cest, da lažje ocenita potrebe pluženja.
-- Kakšna je njihova želena splošna izkušnja?
-Sistem je čim bolj intuitiven za uporabo (ne potrebuje izobraževanja za uporabo sistema), funkcionalen,odporen na napake, prijeten na pogled…
 ### 2.1 Uporabniške zahteve
 
 
