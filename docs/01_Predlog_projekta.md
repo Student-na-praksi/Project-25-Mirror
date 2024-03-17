@@ -184,17 +184,44 @@ _V okviru predloga projekta zadostuje osnutek tega poglavja._
 
 ## 6 Vodenje projekta
 
-
 _Začnite zapisovati v **dnevnik sprememb**, kjer sledite vsem spremembam projekta, kot je opisano v tem predlogu projekta. Za vsak vnos v dnevnik sprememb vključite naslednje podatke: datum, opis, motivacija in posledica spremembe._
+
+ZA DNEVNIK SPREMEMB JE NA VAJAH RAZJASNIL, DA TU GRE ZA SPREMEMBE PRI IDEJI PROJEKTA. PAČ TO NI VEZANO NA POSAMEZNIKA PA KAJ JE ZDAJ VSAK OD NAS USPEL NAREDIT, AMPAK JE FORA KAKO MI PIVOTIRAMO STVARI GLEDE PROJEKTA SPROT.
+IN POMOJE JE TUD REKU, DA TRENUTNO ŠE NI VELIK SPREMEMB PROJEKTA. POMJE VSEEN LAHKO NAPIŠEMO KAKO SMO POSTOPNO IZOBLIKOVAL SVOJO IDEJO PA KAJ SMO KEJ SCRAPPAL, AMPAK NI PA ŠE TEH PIVOTOV.
+POMOJE PRIMER PIVOTA POL BI BIL, DA SE ODLOČMO, DA NEKE FUNKCIONALNOSTI NE BO, AL PA DA ENA NOVA BO, AL PA DA SPREMENIMO TEHNOLOGIJO V KERI SMO REKL DA DELAMO, PA TAKE STVARI.
 
 
 - Kateri razvojni proces in dobre prakse boste uporabili?
 	- razvojni proces: XP?, SCRUM?, kaj drugega?
 	- dobre prakse: 
+
+Verjetno tud tole iz README paše zraven:
+Če nič drugega, lahko drug drugemu postavite različice treh Scrum vprašanj:
+1. Kaj sem naredil od zadnjega sestanka?
+2. Kaj bom naredil do naslednjega sestanka?
+3. Kaj me ovira pri napredovanju?
+
+<!-- end of the list -->
+</p>
+
+!!!!!!!!!!!!!!!!!!!!!
+KOT IDEJO ZA DOBRE PRAKSE PRILAGAM SLEDEČ ODSTAVEK IZ 1.1:
+!!!!!!!!!!!!!!!!!!!!!
+{
+{
+{
+Prvi sestanek bo bolj družaben. Cilj njega bo team-building. Nato se bomo dobivali vsak teden, kjer bo vsak povedal napredek na svojem delu projekta, izzive in probleme, ki jih je srečal, ter predstavil tudi možne rešitve. Cilj nam je, da celotna ekipa ve, kaj se dogaja na vsakem področju projekta. Same delitve dela v skupini se bomo lotili po principu javljanja, torej bomo poskusili ustrezati željam vseh članom ekipe. Kjer bosta dva imela enako željo, bomo prišli do kompromisa. Za področja, kjer noben želja ne bo izražena, bo tisti z največ izkušnjami prevzel nalogo. Pri programiranju se bomo držali dobrih praks (sprotno pisanje komentarjev, sprotno testiranje, pred implementiranjem funkcije premislek kaj bodo vhodi in izhodi, grafična predstavitev, vnaprej definirane podatkovne strukture, programiranje po nekaj ur na dan več dni, ne pa en dan 10 ur…)
+
+}
+}
+}
+
+
 - Kakšen je minimalni delujoč sistem, ki ga nameravate zgraditi v naslednji iteraciji?
 	- glavna stran z zemljevidom, ki prikazuje trenutno snežno stanje na cestah (in lokacije plugov?)
 	- možnost registracije
 	- možnost prijave in odjave registriranih uporabnikov
+
 - Kakšen je vaš seznam želja glede funkcij predlaganega sistema?
 	???
 
@@ -211,6 +238,74 @@ _Začnite zapisovati v **dnevnik sprememb**, kjer sledite vsem spremembam projek
 
 
 ### 6.2 Projektni načrt
+
+Predpriprave: od 19. 2. 2024 do 26. 2. 2024,
+1. iteracija: od 26. 2. 2024 do 18. 3. 2024,
+2. iteracija: od 18. 3. 2024 do 8. 4. 2024,
+3. iteracija: od 8. 4. 2024 do 6. 5. 2024,
+4. iteracija: od 6. 5. 2024 do 31. 5. 2024.
+
+<!-- end of the list -->
+</p>
+
+
+##### 1. iteracija - samo primeri iz vaj:
+- izbira izziva
+- planiranje iteracije
+- pregled dokumentacije
+- izdelava predloga projekta
+- izvedba retrospektive iteracije
+
+
+
+##### 2. iteracija:
+- Obdelava .shp datotek kot predpriprava za izvajanje algoritma.
+- izvedba okrnjenega algoritma planiranja s pomočjo PyVRP.
+Izdelava simulacije naključnega nabora voženj po mestu - kot merilo uspešnosti algoritma pluženja.
+- Home page UI: vsebuje zemljevid stanja cest, login
+avtentikacija Admin-a in Ustaljenih Plugov
+- Admin UI - na zemljevidu vidi lokacije Ustaljenih Plugov. Ob kliku nanje dobi njihovo telefonsko številko. Ureja lahko število plugov v štartni bazi in kje so štartne baze.
+- Admin dodajanje Ustaljenih Plugov v podatkovno bazo.
+- Ustaljeni Plug GPS sharing - vsi aktivni Ustaljeni plugi delijo svojo lokacijo z Adminom.
+- Ustaljeni Plug UI - glede na trenuten GPS se mu izpisujejo navodila za nadaljno pot. Ustaljen Plug ima možnost deaktivacije - takrat se ve, da ne pluži (recimo malica ali odmor).
+
+- Testiranje enot.
+- Pisanje dokumentacije.
+- Preurejanje programske kode (refactoring).
+- Organizacija projekta.
+
+
+##### 3. iteracija:
+- Samostojni Plug UI - vidi trenutno nalogo (kater zahtevek za pluženje naj trenutno opravlja)
+- Customer registration UI
+- Customer UI za oddajanje zahtevkov za pluženje
+- Baza zahtevkov za pluženje
+- Manager - vidi lokacije Samostojnih Plugov. Ob kliku nanj dobi njihovo telefonsko številko. Usmeri jih na opravljanje naročila, ki so mu blizu.
+
+- Integracijsko testiranje komponent prve in druge iteracije.
+- Testiranje enot.
+- Pisanje dokumentacije.
+- Preurejanje programske kode (refactoring).
+- Organizacija projekta.
+
+##### 4. iteracija:
+- Vključitev kmetov v pluženje z VOC in Zelenice. To za sabo potegne potrebo po bolj zapletenem algoritmu.
+- Razvoj svojega algoritma organizacije pluženja.
+
+- Ročno testiranje sistema kot celote.
+- Izdelava dokumentacije sistema kot celote.
+- Testiranje enot.
+- Pisanje dokumentacije.
+- Preurejanje programske kode (refactoring).
+- Organizacija projekta.
+
+- Home page poizvedba kdaj bo neka ulica splužena.
+- Neregistriran uporabnik lahko deli svoj GPS in pove cilje (služba) in mu povemo po kakšni poti naj gre, ker je že splužena. Prek tega tudi vemo, katere poti so bolj obljudene, kar lahko posodablja pomembnost posameznih cest.
+
+
+<!-- end of the list -->
+</p>
+
 
 
 - Povzetek razdelitve projekta na aktivnosti s seznamom izdelkov, vključno z Ganttovim diagramom in grafom PERT.
