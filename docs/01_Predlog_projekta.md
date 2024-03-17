@@ -103,42 +103,18 @@ Glede na to, da sem Manager,:
 ## 3 Cilji projekta
 
 
-Kar so oni napisal - pomoje od tle črpamo:
-
-
-Nadzor in sledenje vremenskim pogojem v realnem času ter ukrepanje.
-Samodejno načrtovanje in koordinacija pluženja glede na podatke o vremenu, prometu in prioritetnih območjih.
-Informacijska podpora za plužna vozila (npr. mobilna aplikacija voznika) in nadzornega centra (npr. centralna spletna aplikacija).
-Vizualizacija stanja na cesti med sneženjem (npr. črna barva, ko plužno vozilo določeno pot prevozi in belo (sneg), glede na trenutne podatke).
-Sistema obveščanja prebivalcev o urnikih pluženja, varnostnih ukrepih in morebitnih omejitvah prometa (mogoče celo prikaz plužnih vozil v realnem času).
-Optimizacija plužnih poti (npr. zaščita okolja - manjša poraba goriva, minimalen čas za očiščenje prioritetnih področij ipd.)
-
-
-
-
-- Za katero težavo naročnika ste se odločili, da jo boste obravnavali?
-	
-- Brez tehničnih podrobnosti opišite koristi sistema za naročnika.
-- Kako bodo koristi podprle želeno splošno izkušnjo naročnika?
-	???
-- Kaj bodo konkretni izdelki vašega projekta?
-	Izdelek našega projekta bo spletna aplikacija, ki bo naročniku (MOC) omogočala pregled nad aktivnimi plugi in avtomatsko načrtovanje njihovih poti. Na glavni strani bo zemljevid, s katerega bodo lahko tudi neprijavljeni uporabniki prebrali snežno stanje na cestah.
-- Cilji morajo biti merljivi in preverljivi.
+Izdelek našega projekta bo celovita informacijska rešitev pluženja. V osnovi bo to spletna aplikacija, ki bo plužnim službam nudila informacijsko podporo za obsežno pluženje manjšega področja (deluje za simultano organizacijo do 100 plugov).
+Administrator ima pregled nad stanjem pluženja in lahko dodaja pluge in štartne baze pluženja, plug pa je avtomatsko voden v smeri njemu začrtanega pluženja. Posodabljanje informacij se dogaja v realnem času, torej se za potrebe pluženja mora posodobiti v največ 3 minutah.
+Zemljevid stanja na cestah je na voljo tudi neregistriranim uporabnikom in prikazuje stanje za največ 5 minut nazaj.
+Ustvarili bomo funkcionalnost, ki bo omogočala kmetom, ki se ukvarjajo s pluženjem, da se povežejo s podjetji in osebami, ki potrebujejo pluženje parkirišč ter dvorišč. Za potrebe MOC moramo omogočati hranjenje vsaj 70.000 zahtevkov naenkrat.
+Cilj je, da poskusimo ustvariti algoritem, ki bo sposoben sam najti čim bolj optimalno verzijo pluženja. Za nek del bomo ročno vnesli traso pluženja, ki se zdi najbolj smiselna, ter svoj algoritem primerjali z ročno izrisano traso - algoritem mora biti vsaj tako dober kot ročno določena trasa. To bomo preverjali s simulacijo vožnje po mestu, ki jo bomo ustvarili. Čim boljši algoritem je naš glavni cilj projekta - a če ugotovimo, da ta cilj ni dosegljiv in ne bo mogoče ustvariti algoritma, ki bi bil vsaj tako dober kot ročno izrisane trase, se bomo v kasnejših iteracijah bolj osredotočili na ostale cilje ter razširili funkcionalnosti informacijske rešitve.
 
 
 ### 3.2 Merila uspeha
 
 
-- Pri komu izven ekipe ste preverili ustreznost ideje?
-	MOC in Lavbi <3
-  - Opišite dejanskega zunanjega naročnika.
-	MOC
-- Kako boste vedeli, ali je naročnik dobil želene koristi?
-	Po koncu projekta se bomo sestali z naročnikom ter opravili pregled nalog in ciljev, kjer bomo skupaj ugotovili, v kolikšni meri smo izpolnili naročnikove želje.
-  - Katera merila uspeha so pomembna naročniku?
-- zadovoljstvo uporabnikov sistema (občani, vozniki pluga)
-- projekt ustreza smernicam trajnega razvoja
-- 
+Idejo smo predstavili primarnemu naročniku - Mestni občini Celje. Po koncu projekta (in, če bo le možno, že med iteracijami) se bomo sestali z naročnikom ter opravili pregled nalog in ciljev, kjer bomo izvedeli, v kolikšni meri smo izpolnili njihove želje.
+Naročniku je pomembno zadovoljstvo uporabnikov sistema (občani, izvajalci pluženja) ter da projekt ustreza smernicam trajnostnega razvoja, kar tudi niža stroške goriva in dela.
 
 
 ## 4 Opis sistema
