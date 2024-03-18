@@ -290,23 +290,18 @@ Organizacijsko delo 4ČD
 ### 7.1 Predznanje
 
 
-- Kakšno je predznanje ekipe?
-  - Kakšne predhodne delovne izkušnje pri razvoju programske opreme?
-  - Je kateri član ekipe že razvil kaj podobnega?
-  - Ali so orodja ekipi znana ali nova?
+Ekipo sestavljamo štirje študenti 3. letnika univerzitetnega programa Fakultete za računalništvo in informatiko. Izkušenj z realnimi projekti imamo koolektivno bolj malo. Tudi naše znanje spletnega programiranja ni na zavidljivem nivoju. To bomo poskusili nadoknaditi z večjim interesom in zagnanostjo.
 
-
-Ekipo sestavljamo štirje študenti (štiri študentje ? slovenščina me je zapustila) 3. letnika univerzitetnega programa Fakultete za računalništvo in informatiko.
-  - Mato
-  - Felipe
-  - Jobst - ima predznanja programiranja zaledja v Javi, prav tako pa ima nekaj predhodnega znanja o programskemu jeziku Python.
-  - Basti: 
+Matevž Vidovič vešč programer v Python-u, s spletnimi tehnologijami pa nima veliko izkušenj. Zanimata ga tako backend kot frontend, zato glede tega nima preferenc. Razvijanje algoritma pluženja se mu zdi zanimiv izziv za katerega že ima nekaj idej.
+Filip Gros je moralni steber naše ekipe. Izkušen programer umetnega zaznavanja v programskemu jeziku Python bo poskrbel za celovino povezanost aplikacije. Poleg Pythona je vešč tudi v jezikih Go, Java, C.
+Jošt Eržen je izkušen programer pri večjem projektu v programskemu jeziku Java, prav tako pa ima nekaj znanja v programskih jezikih Python, C in JavaScript ter SQL.
+Sebastjan Kordiš - naš strokovnjak matematike bo poskrbel za optimalne algoritme. Ima izkušnje programiranja v programskih jezikih Python, Go, Java, C ter Javascript.
 
 
 ### 7.2 Vloge
 
 
-- Kakšne so načrtovane vloge članov ekipe pri projektu?
+Pri našem projektu bomo vsi člani razvijalci. Poleg vloge razvijalca pa bo Matevž Vidovič zaradi njegove predhodne komunikacije z stranko prevzel vlogo lastnika izdelka, Filip Gros pa bo prevzel vlogo SCRUM voditelja.
 
 
 ## 8 Omejitve in tveganja
