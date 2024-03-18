@@ -119,43 +119,40 @@ Naročniku je pomembno zadovoljstvo uporabnikov sistema (občani, izvajalci plu�
 
 ## 4 Opis sistema
 
+![Opis sistema](https://teaching.lavbic.net/plantuml/png/ZLNDRXen4BxxAKPSQ0zGgSUeQeKsbH8f5CG6L8NaCB2ZhTcrlV9wgKALHyWhzTI-L-tzPrb8EI3ccx_FCvzD6d6Pe4O1MoKI9KaQtpp719c8FpA6MwCq3DJcpolA0M0A2wy29MhrvrNoACUzkLyvzkfWKKZYBCJSvy-l6r-mG-Vw-riIy8CWIHy4IWn9vx5JVrx5OY1uqNJ2XYLso2JA7OUJ7W-hEMCiG8CRJ0a6AqssTXfnI9H58_uetrMO9Q1IWvQ8H_6EtW_W5mFxMU-xIK_ifLtqWOIDt_E0rochcVTK_7gWc2JVKcbEPnu8J0fhkBucWpoc0AOEEwgwJ4cdHS7r98uXSxQBIN0RsS70m9Vg9ynZ-xLGcI6O9OOBVa33bGJ_EJKaNBujKASiRskADqeGp2rQChjJ8PVbxssM6klMiBmjaN8P3H1elc_R4xUMnbnGo2q1xSmNHs42ez7dJjU5rmDQMVIWLW0zg9KNZCV7g8M7qwL_3pUJrTSXEpffKQBDxSHPZe7L4odWvhXmTIIpLc3Ef3Ke6rbQtMhri6n8hcVBHwEJSkgOYPEgxONOdFgIGQgCveRshOHFUOT6CUrjbEqRf_Cw2Nt3FGyBvM0SAblpXt2bHjRlT3QJ2uM1lRIazqxD0En810NDyvMk85OHRlaEEtcknSMyH1dMrbTnXBCPdTYJKRJtSxcIw-tUGB8JPgsh2wCiSObzO-aeAZzSx_Yku52z6l0emMYIcP4K8jWdI1PJgf-EgkF5Gxidvxy2U_daJ7iUkdpFG_zcjhoxRcvKUuZruhaCOQQ3Qj17aZqNr87ULf4ArCREIfLNWCSgl_1UpGz64DcLxGWYPI1mvv3L7mFlhcSyXlKz5tJFuzXrdMWdpFQMCesTf9pYvQGem1ri57o7DFzF8_d55RcKb5CvfwWt4y_l-uNz0m00 "Opis sistema")
+*P.S. s črtkano črto so označene neobvezne ali pa priporočkjive razširitve sistema
 
 Predstavitev sistema glede na diagram:
-
-MUST HAVE:
-- Ustaljeni Plug: avtomatsko planiranje posebej za Zelenice (pločniki) in VOC (ceste) z vodenjem vsakega posameznega pluga.
-- Home page: Login funkcionalnost, pobarvan zemljevid stanja cest. Neregistrirano uporabnik pride samo do sem.
-- Admin: Dodajanje začetnih baz s številom plugov. Dodajanje Ustaljenih Plugov v sistem. Pregled stanja Ustaljenih Plugov na cestah.
-
-SHOULD HAVE:
-- Samostojni Plug lahko opravlja naročila.
-- Stranka se lahko registrira in odda zahtevek za pluženje dvorišča.
-- Manager vidi lokacije Samostojnih plugov in jih usmeri na opravljanje naročila.
+Na zgornjem diagramu je površinsko predstavljen sistem, ki ga želimo implementirati. Sistem lahko razdelimo na “Front-End”, ki je predstavljen v paketu UI, ter “Back-end”, ki obsega 2 glavna modula.
+- SnowOnRoads Service predstavlja podatke, ki na zemljevid mestne občine Celje proecira višino snežne odejo na vsaki izmed cest. Upošteva, kdaj se je nazadnje peljal mimo plug, kjer ob njegovem mimohodu ponastavimo višino snega na 0 cm.
+- Plow navigation algorithm pa je srce našega problema. Na podlagi stanja snega, prestavljenega z zgoraj opisanim servisom, izračuna najoptimalenjšo pot pluženja za vsakega voznika podjetja VOC in Zelenice. Izračunano pot pošlje vozniku. Le administrator lahko vpliva na parametre algoritma (predstavljene v manager UI). Algoritem upošteva vnaprej določeno prioritetno lestvico cest, kar v grobem pomeni da bodo državne, regionalne in medkrajvne ceste prej splužene kot stranske ulice. Ob intenzivnem sneženju se lahko zgodi, da bodo te ceste splužene večkrat, medtem ko bodo nekatere stranske ulice ostale nedotaknjene.
+- Plowing orders so ena izmed možnih razširitev sistema, ki jih sistem po našem mnenju naj bi vseboval (Should have). Občan, ki se je registriral, lahko postane naročnik storitev pluženja. Ko se odloči, pošlje povpraševanje po storitvi. V najkrajšem možnem času mu vodja plužne izmene (manager)odobri ali zavrne storitev. Če je povpraševanje odobreno, se vključi v Plow navigation Algorithm, ali pa se direktno dodeli vozniku pluga, če ta nima trenutno aktivne poti pluženja. 
+- TimeTillPlowArrive Service implementira funkcijonalnost povpraševanja po času, kdaj se željena ulica spluži. To ugotovimo na podlagi oddaljenosti plugov od ulice in njihovih plužnih poti. Je ena izmed opcijskih razširitev sistema (Could Have). 
 
 
-COULD HAVE:
-- vključitev kmetov v pluženje z VOC in Zelenice. To za sabo potegne bolj zapleten algoritem.
-- Home Page poizvedba kdaj bo neka ulica splužena.
-- Neregistriran uporabnik deli svoj GPS in cilj poti, mi pa mu povemo optimalno pot glede na spluženost cest.
-- Posodabljanje pomembnosti cest glede na poti po katerih poizvedujejo Neregistrirani uporabniki.
-
-VEČ INFORMACIJ O ALGORITMU:
-- Ceste imajo pomembnostno vrednost glede na njihovo prioritetnost (količina prometa na njej) in količino snega (integral padanja od njenega zadnjega pluženja)
-- Če hočemo uporabljati PyVRP, moramo imeti baze pluženja. To je smiselno za VOC in Zelenice, a potem kmetje ne morejo pomagati s pluženjem v smislu, ki bi bil integriran s sistemom VOC in Zelenice.
-- Če gremo snovati svoj algoritem, lahko delamo glede na to, kje so trenutni plugi. Ko se priključi nov Samostojni Plug se vsem popravijo poti. Tako Samostojni Plugi sodelujejo pri VOC in Zelenice (z določenimi omejitvami, kot je recimo pluženje glavnih cest).
-
-
+Sistem je v osnovi zastavljen, da zadosti štirim ciljnim množicam.
+- Občan predstavlja “navadnega” uporabnika (regular user). Ima dostop do zemljevida, na katerem je predstavljena trenutna snežna odeja na cestnem sistemu MOC
+- Naročnik je vsak občan, ki se je registriral. Lahko oddaja povpraševanja po storitvi pluženja. 
+vodja plužne izmene ali manager povpraševanja odobri ali pa jih zavrne. Ima pregled nad strenutnin stanjem, vključno z lokacijami plugov. Ob kliku na vsak plug, se mu razširi njegova entita. Tam so prikazani vsi koristni podatki o plugu in vozniku. 
+- Voznik pluga je zaposleni pri podjetju VOC ali Zelenice. Ob možni nadgradnji sistema je lahko to tudi kateri izmed lokalnih - - kmetov ali drugih oseb, ki imajo v privatni lasti mehanizacijo zmožno pluženja. Njigova glavna naloga je da plužijo po zagrtani poti.
+- Admin predstavlja le en administrativni profil, ki ima vso moč nad sistemom.
 
 ## 5 Predlagan pristop
 
+Uporabnik bo obiskal spletno stran projekta. Pokazal se mu bo zemljevid mestne občine Celje, kjer bo na vsaki cesti z barvo označeno koliko je zasnežena. Glede na njegovo vlogo (voznik pluga/manager/administrator..) mu bodo ponujene dodatne možnosti in razširitve, ki pa bodo vplivale na izračun idealne poti pluženja za dano situacijo. Sistem bo skrbel, da bodo te poti čim bolj učinkovite, to pomeni čim hitreje, čim večim ljudem plužiti cesto in omogočiti kar se da tekoč pretok vozil po cestah. 
+ 
+Za razvoj algoritma za iskanje poti bomo uporabili knjižnico PyVRP (Python vehicle routing problem)
+V Pythonu bomo napisali skripte za pripravo podatkov za PyVRP in naključne tstne primere.
+JavaScript bo poganjal background procese naše spletne strani. Spletni strežnih bo temeljil na Djangotu (odprtokodni Pythonovi rešitvi). S pomočjo SQL poizvedb in uporabe MongoDBja bomo poskrbeli za implementacijo databasa Useres. Razmišljali smo, da bi za frontend uporabili programski jezik React.
+Za delo z zemljevidom bomo uporabili nekaj APIjev, podprtih s strani Googla za uporabo v Google maps.
 
-_V okviru predloga projekta zadostuje osnutek tega poglavja._
+Komunicirali bomo s skupino preko Discorda in v skrajnih primerih po telefonu. Za nadzor verzij in vsem dostopno implementacijo projekta bomo uporabili GitHub. Za prvi izziv bomo markdown dokument urejali v Google Docs. 
 
+Ob pisanju kode si bomo pomagali z umetno inteligenco, najverjetneje ChatGPT in GitHubCopilot.
+ 
+Teste enot bomo pisali sami ali pa s pomogčjo AI. Kolikor bo šlo, bomo avtomatsko izvajali teste integracije. Izvajali bomo tudi ročno testiranje sistema kot celote, kjer bomo najprej napisali protokol izvedenih akcij in bo ročno testiranje ponovljivo. V skupini smo se dogovorili, da mora biti vsak del kode, ki se bo zlil (mergal) v main dobro stestiran. Nekaj testov bomo spisali tudi ročno, vendar jih bo večina avtomatsko generiranih. Kot del zagotavljanja kakovosti (QA), bomo drug drugemu testirali implementirane rešitve, saj je to preverjeno dobra praksa. 
 
-- Na kratko opišite, kako bo sistem deloval.
-- Katere platforme, orodja in knjižnice boste uporabljali?
-  - Kako boste sistem testirali?
-  - Kako boste ovrednotili ustrezno strategije testiranja?
+Za vsako strategijo bomo preverili njen obseg tesitranja (pokritost funkcionalnih in nefunkcionalnih zadev, pokritev tveganj…) ter število testnih primerov. Še pred vsem bomo pa temlejito peverili kodo, ki bo pisala testne primere, saj si ne želimo testirati na napačnih ali nepopolnih testnih programih. V okviru pregleda literature, si bomo pogledali smernice ISTQB (Mednarodni odbor za kvalifikacije na področju testiranja programske opreme) in standarde IEEE za načela agilnega testiranja. Intuitivnost uporabe aplikacije pa bomo testirali tako, da bomo prosili svoje bližnje, da odigrajo vlogo poskusnega začka.
 
 
 ## 6 Vodenje projekta
@@ -287,16 +284,15 @@ avtentikacija Admin-a in Ustaljenih Plugov
 - Povzetek razdelitve projekta na aktivnosti s seznamom izdelkov, vključno z Ganttovim diagramom in grafom PERT.
 
 
-![Ganttov diagram](https://teaching.lavbic.net/plantuml/svg/dPBFJy8m5CVl_IjUzA3k8aoNO48C0kB5WmTlXCE3lesoqfBs3LmC_xlTc4IcN4oJTlssd-_xqGqye-CC3JDSl5IBtO9Kc3bSNmZHzrngUXJrXV51Xay1m6fDMXcgDm2luNDajNLmcSRLgDM9DNnG0rS6QL-HwFE66k8YpvmjZ6nOwgL9AjkEoMJOUnurE3fdTx-ZdjnPAqsUxJ6x_yHPQEj9dZFuiqYjiYKVAzsB_ctJFU5pPJPOzMxUScA7neSZCYoMIXAarlBSVWYD9Yim8_1QY8spAremr8_bWPS4tGTUWarXGdDNe2iXxiJtmYCNJcBfGv-egK7u4AqbYMaKlRaj0kQijiPwZYAuxdP06dKp0_GmVUhEGACFuIevy1KpTaNMWfAVJ7naO4UK0nhvdJHoxNdbWOoilDuTyQgTmOdRtT4jWKC5v-p48CprJ_e5 "Ganttov diagram")
+![Ganttov diagram](https://teaching.lavbic.net/plantuml/png/dLZjRjf85FtFKuowFxORjRG1gcPNrQekECHTWf7vqBPLXGOym61x1jbZTyEgZv27o8lih-IzzixOu0ySJA9AJJ9Xvfnxvvvpx-HZ8B0lbfW9WLvqvHSU8PlYfO-z5xNQXq3SkEJFclf09rv6_zOG4jGZBcL4_O1G3xvjSvVxw9T5G_vJgvUSYNWLzjt0qa-v4mTEikiJdZjBduVCJlQIYyMxXLqyyTtbfmkzdMp7liz_7ABcFkDHbmI2xzaz1sVkye3OZnrG6gHBboknZ_HdxSER97krmA5iWsNkPeMJX8zP0ByYJDHMr2PemRcOyNzgBcRB42y92jnQRUFpDPaBf2uhG695qFdlOeNu0bsIcHzY_mOrtZPQjG2BqBVnJG1v8aaCjG3G2akrRsTd0v_O6vzkV1oHipFqyZso6VtjEy81-ZQmzCvtvE80q60TTgijvtL41V7ndAxnsTdBndbcYp7IhVFTdYRwGOW3aCpUaSOYEVRN015ObkSPsndrCQBRBOtW2qCComMs9WXoiPQiSX1VFncMjiCuHt5KZq8aGIvTkCSDjx5meBO1P8llRubW64Lq6sANRfDuyc1mKBUNPg4SBM6KuWqPZ_Ry4QGNwd23aOEmk-G-5LueSHePd67Vd6Zzp_eEgF5OM8hDOMHy1X1hSdzBLyWd3tTmGL4H8zazjVIXtl_yLAGXY0apXoARB2XJzuFHmt_4NHEGM8mPbr0sVqDzEDBwVncLrvLbbe9szbW4XHlkuncZ3tSE1BbTSdicxt4HCcTEESCkayjuLH9vHxyq-d15bGdUqyra63IOC60uW5ohUqtgdnpakAUT19HbT7YRDdT23yoW7299LiTiFmV3sDh4nI2q3IZVvKlv3LIE8rJjjt92w-WzRRANMkletKawMPI8s3CCTI5y7cpWU1eLqfOj4qiVMMQkHWurbf19CIoo9Nx4e28nEpZG-7hqk1WmEKiUriYP6ZfqjKQ5gyNEbxErE0NSyPdK26Hw9t_8-QwgC0h0bZn-VxlcQ70piGOgbBVP2_y2g_jetfPRK0PTWd-DtOqY7syZlbQR2nIu3_qyjZq2V4BGigG3ZWWswU8bHIiIIUkYJh44s-FXoBoUQhskQHcZg-iABr7yCxdUbs10lT2D2J3ikElm_bQHX0O0MaSHLvo03_B0VKBq6ZbSmFS-TJaAeQmUxXW7Whd49e58pXTP9pAknprjP9Zz7TkBap9fpXAozM2rWHs22-8e7fkqTM8m7cXW4LuhezZJER33gy4K13Eew2S52bVSWnkIOy3O-0D50Pc50B8b7dXlHDLMUNDpoD4h19Ach7XXL-QrFXretGfNAW9haG0NeevI1T9iZxBNgaEFOPCqVd3SWHikULGCL1kFhlJ-o6ZdCbuURaekWoon85muzpM4vEoh5B1UeOSxo3u42fqyWc4AJBzUh-UlM-jS6_tfs3XkNWMQAVu-G1KVwWw6A5XXdx8by8a2g3ZfQF3hz8EIdEoEBWKb1o0wlYFEqJPE7lVgCb7D34yuUJgyqYoZtqqDffJgBg17IOuDu2RxXrGJp9I4XN1zCNU2l10AT4C3A1qWn734RUggkcNOXcCO1vr1_NWWEYagY4J5g3B_PeEZBIbo7_J6tKoAJ-OzWa9DMYfXNDIBrJhk6wFf25hnyMezSA7Ct90qq0J5uJQf5qkqRNRqR1CjBywKIwvDXpw9fGxDKpw70YT6GIzzii1pmMMf_7OGcQLVQksHcRtj9yTMFP3akmTC9DE-_lVeU9nPPazguyKkVW9MIYdJ59h51dnHQC3DLCgFDk16XliaRYXo4aQEHuGoYrrx0Fj44xCjlUmhSK52Sr8SVourwrgtXiSDf0XgnUrMol-KRgjkgrNUMVSvR3srGYoO9a3E8fLP06sS00lPjkR4XHPMZ7RuPJZIhtEggyGjcofpe-iZk8r3tCfXDillILeuBzF2j3FHZzTeXbUL7C1fnRfgk5MmayQ9mb3yCk9eLOcZLHH7MQ4sCw7qOK3qHV9C1UEdY15uVL0_43w5f7hxzvR3lU8ibMbQqt4V7W3L8rKUMpMSzNuwhPA9zD54b6CBEhOrxUYJVIhVFwLWUC1jFbEc06CtyMRn0BdX0VR8LWuqSenAsoYmNF68oqSysCbCjblOSD1CB5FhJ0Vc04PCKEENuzUS3I9poQV8jdv4jrDpebjQhtTSlqMccUfcWYnLZGLEZaQnmEMJ1VeV3DzhwXq-6_iZlMkfWUe4EtcSJjcKq2gR4gRDvqAKZ0a7JvraIaX16iVdX6dpn4dXz57XUTXcAgNqZQzWtkN-cc1-rjjGErO6fd94o06TC2GqI-tmMO2rZ_2_-alq_m00 "Ganttov diagram")
 
 
-**Ganttov diagram** (izvorna koda :bar_chart: [PlantUML](./gradivo/plantuml/Gantt.puml))
+**Ganttov diagram** 
+
+![PERT diagram]( "PERT diagram")
 
 
-![PERT diagram](https://teaching.lavbic.net/plantuml/svg/bL9DJyCm3BtdLrZR3MsmTUeqGLN1O9mu8DXjx90rRYdD4kHcV8Zjl-Eq7LJJE718ujX-x_b5kIoT9BTPQ-ZSpnxce7APaLntX2YBtBnAZc4bao8Zkp7gscfBu4YQaajedD2OEd0MAC-U7QC94vTRm_14QeJ1wKI8g7IV6cF1KWvlQW7u4W2IoBvN4S1TRh2cNsdMuznEx4Hqrc1RupnwcWerFHYiYvCqJ9MlM598JJQydKvcrypM8b6OoersS_nmLphFp9hDGC8RagW7XKwKUFovabGGglYUtYJ8mkLlnfOkEgkgSGTa2LT3wAOfZd5yeTd77WBd43NvNdF6Mu3X0BRWbm-UpDRRRwVs-ZUqoLgAjL9GaTP6UytfII5iq30CQzRg4bHR-4jwO6fEw5x-j3NwXwtXpm11kBSrQAU4M9mieR_eDZIzbTLgsO_vzGG_ODz7GHKTQHa9TkvRc4FmN4TwV4LSeb7ycxy1 "PERT diagram")
-
-
-**Graf PERT** (izvorna koda :bar_chart: [PlantUML](./gradivo/plantuml/PERT.puml))
+**Graf PERT** 
 
 
 ### 6.3 Finančni načrt
