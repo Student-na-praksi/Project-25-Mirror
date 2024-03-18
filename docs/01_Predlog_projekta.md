@@ -43,40 +43,40 @@ Projekt bo izvajan v treh iteracijah. V zgodnejših iteracijah prioritiziramo up
 
 
 Kot neregistriran uporabnik želim:
-- imeti dostop do zemljevida stanja spluženosti cest.
-- imeti možnost registracije, da lahko postanem Customer.
+- imeti dostop do zemljevida stanja spluženosti cest, da lahko preverim razmere.
+- imeti možnost registracije, da lahko postanem Stranka.
 
-Glede na to, da sem neregistriran uporabnik,:
+Glede na to, da sem neregistriran uporabnik:
 - ko zahtevam možnost registracije, sem preusmerjen na stran ki mi to omogoča.
 
-Kot Admin želim:
-- na zemljevidu videti lokacije Ustaljenih Plugov.
-- ob kliku na Usataljeni Plug dobiti njihovo telefonsko številko. 
+Kot Administrator želim:
+- na zemljevidu videti lokacije Ustaljenih Plugov, da imam pregled nad izvajanjem pluženja.
+- ob kliku na Usataljeni Plug dobiti njihovo telefonsko številko, da ga lahko kontaktiram. 
 - imeti možnost urejanja števila plugov v štartni bazi in lokacije štartnih baz, da se podatki v zaledju spremenijo v realnem času.
 
-Glede na to, da sem admin,:
+Glede na to, da sem admin:
 - ko kliknem na Ustaljeni Plug na zemljevidu, dobim njegovo telefonsko številko.
 - ko zahtevam urejanje števila plugov v štartni bazi in lokacije štartnih baz, se te podatki posodobijo v roku 1 minute po oddani zahtevi.
 
 Kot Ustaljeni Plug želim:
-- da se mi glede na trenuten GPS izpisujejo navodila za nadaljno pot.
+- da se mi glede na trenuten GPS izpisujejo navodila za nadaljno pot, da sledim optimalni poti pluženja.
 - imeti možnost deaktivacije, da se lahko umaknem iz pluženja (zaradi malice, okvare, premora).
 
-Glede na to, da sem Ustaljeni Plug,:
+Glede na to, da sem Ustaljeni Plug:
 - ko zahtevam deaktivacijo, je ta objavljena v roku 30 sekund.
 
 
-Kot Customer želim:
-- imeti možnost oddaje zahtevka za pluženje.
+Kot Stranka želim:
+- imeti možnost oddaje zahtevka za pluženje, da lahko s tem naročim pluženje snega za zasebnem zemljišču.
 
 Kot Samostojni Plug želim:
-- videti trenutno nalogo.
+- videti trenutno nalogo, da se lahko odpeljem do nje in jo opravim.
 
 Kot Manager želim:
-- videti lokacije Samostojnih Plugov in ob kliku na dotičen plug dobiti njegovo telefonsko številko.
+- videti lokacije Samostojnih Plugov in ob kliku na dotičen plug dobiti njegovo telefonsko številko, da ga lahko kontaktiram.
 - imeti možnost usmeriti dotičen Samostojni Plug na zemljevidu na določeno opravilo, da se mu posodobi trenutno opravilo.
 
-Glede na to, da sem Manager,:
+Glede na to, da sem Manager:
 - ko Samostojnemu Plugu spremenim opravilo, je ta o njem obveščen v roku 2 minut.
 
 
@@ -139,9 +139,9 @@ Za vsako strategijo bomo preverili njen obseg tesitranja (pokritost funkcionalni
 ## 6 Vodenje projekta
 
 #### Dnevnik sprememb:
-29.2. Začetni nabor idej za možne funkcionalnosti. Zažetek projekta.
-7.3. Omejitev idej, ki jih želimo podpirati.
-13.3. Ob stoječem sestanku smo dokončno razjasnili želje uporabniške zgodbe in arhitekturo. Sedaj definiramo potrebovane funkcionalnosti.
+- 29.2. Začetni nabor idej za možne funkcionalnosti. Zažetek projekta.
+- 7.3. Omejitev idej, ki jih želimo podpirati.
+- 13.3. Ob stoječem sestanku smo dokončno razjasnili želje uporabniške zgodbe in arhitekturo. Sedaj definiramo potrebovane funkcionalnosti.
 
 #### Izvajani procesi in prakse
 Uporabljali bomo SCRUM in Extreme Programing.
@@ -159,103 +159,231 @@ Med sestanki bomo pregledali stanje našega projekta, ocenili napredek od zadnje
 ### 6.2 Projektni načrt
 
 
-1. iteracija:
-- Izbira izziva 2h 1ČD
-- Začetni sestanek nabiranja idej 2h 1ČD
-- Pregled podatkov in začetna vizualizacija 8h 4ČD
-- Snovanje idej pristopa k algoritmu 7h  3ČD
-- Pregled obstoječih rešitev 12h   6ČD
-- Sestanki definiranja željene rešitve 15h   7ČD
-- Definiranje uporabniških zgodb in funkcionalnih zahtev 8h   4ČD
-- Planiranje naslednje iteracije 5h   3ČD
-- Pregled dokumentacije 5h   2ČD
-- Izdelava predloga projekta 15h    8ČD
-- Izvedba retrospektive iteracije 1h   1ČD
+**1. iteracija**
 
-Suma: 80h
-40ČD
+|||
+|-|-|
+|Oznaka               | A1
+|Naziv                | Izbira izziva in nabiranja idej
+|Datum začetka        | 28. 2. 2024
+|Datum konca          | 28. 2. 2024
+|Trajanje v ČD        | 1
+|Pričakovani rezultati| Seznam idej za rešitev izbranega izziva
+
+|||
+|-|-|
+|Oznaka               | A2
+|Naziv                | Pregled podatkov in začetna vizualizacija
+|Datum začetka        | 29. 2. 2024
+|Datum konca          | 29. 2. 2024
+|Trajanje v ČD        | 5
+|Pričakovani rezultati| Izdelan osnovni načrt projekta
+
+|||
+|-|-|
+|Oznaka               | A3
+|Naziv                | Pregled obstoječih rešitev
+|Datum začetka        | 1. 3. 2024
+|Datum konca          | 4. 3. 2024
+|Trajanje v ČD        | 6
+|Pričakovani rezultati| Seznam obstoječih rešitev, ki jih lahko uporabimo/prilagodimo
+
+|||
+|-|-|
+|Oznaka               | A4
+|Naziv                | Sestanki definiranja željene rešitve
+|Datum začetka        | 5. 3. 2024
+|Datum konca          | 5. 3. 2024
+|Trajanje v ČD        | 4
+|Pričakovani rezultati| Izdelan drugi načrt projekta
+
+|||
+|-|-|
+|Oznaka               | A5
+|Naziv                | Definiranje uporabniških zgodb in funkcionalnih zahtev
+|Datum začetka        | 6. 3. 2024
+|Datum konca          | 7. 3. 2024
+|Trajanje v ČD        | 6
+|Pričakovani rezultati| Seznam definiranih uporabniških zgodb in funkcionalnih zahtev
+
+|||
+|-|-|
+|Oznaka               | A6
+|Naziv                | Planiranje naslednje iteracije
+|Datum začetka        | 8. 3. 2024
+|Datum konca          | 11. 3. 2024
+|Trajanje v ČD        | 4
+|Pričakovani rezultati| Dogovorjen načrt druge iteracije
+
+|||
+|-|-|
+|Oznaka               | A7
+|Naziv                | Izdelava predloga projekta
+|Datum začetka        | 12. 3. 2024
+|Datum konca          | 15. 3. 2024
+|Trajanje v ČD        | 16
+|Pričakovani rezultati| Predlog Projekta
+
+|||
+|-|-|
+|Oznaka               | A8
+|Naziv                | Izvedba retrospektive iteracije
+|Datum začetka        | 18. 3. 2024
+|Datum konca          | 18. 3. 2024
+|Trajanje v ČD        | 4
+|Pričakovani rezultati| Seznam morebitnih izboljšav
+
+**2. iteracija**
+
+|||
+|-|-|
+|Oznaka               | A9
+|Naziv                | Implementacija okrnjenega algoritma planiranja s pomočjo PyVRP
+|Datum začetka        | 20. 3. 2024
+|Datum konca          | 2. 4. 2024
+|Trajanje v ČD        | 15
+|Pričakovani rezultati| Delujoč algoritem za načrtovanje pluženja
+
+|||
+|-|-|
+|Oznaka               | A10
+|Naziv                | Izdelava simulacije naključnega nabora voženj po mestu
+|Datum začetka        | 20. 4. 2024
+|Datum konca          | 29. 4. 2024
+|Trajanje v ČD        | 8
+|Pričakovani rezultati| Delujoča simulacija voženj
+
+|||
+|-|-|
+|Oznaka               | A11
+|Naziv                | Izdelava domače strani
+|Datum začetka        | 20. 3. 2024
+|Datum konca          | 21. 3. 2024
+|Trajanje v ČD        | 4
+|Pričakovani rezultati| Delujoča domača stran z zemljevidom stanja cest in prijavno funkcionalnostjo
+
+|||
+|-|-|
+|Oznaka               | A12
+|Naziv                | Izdelava strani administratorja
+|Datum začetka        | 25. 3. 2024
+|Datum konca          | 28. 3. 2024
+|Trajanje v ČD        | 4
+|Pričakovani rezultati| Delujoča stran administratorja
+
+|||
+|-|-|
+|Oznaka               | A13
+|Naziv                | Obdelava .shp datotek
+|Datum začetka        | 20. 3. 2024
+|Datum konca          | 20. 3. 2024
+|Trajanje v ČD        | 1
+|Pričakovani rezultati| Datoteke v primernem formatu za uporabo
+
+|||
+|-|-|
+|Oznaka               | A14
+|Naziv                | Avtentikacija Admin-a in Ustaljenih Plugov
+|Datum začetka        | 22. 3. 2024
+|Datum konca          | 22. 3. 2024
+|Trajanje v ČD        | 2
+|Pričakovani rezultati| Seznam registriranih uporabnikov
+
+|||
+|-|-|
+|Oznaka               | A15
+|Naziv                | Ustaljeni Plug GPS sharing
+|Datum začetka        | 29. 3. 2024
+|Datum konca          | 2. 4. 2024
+|Trajanje v ČD        | 6
+|Pričakovani rezultati| Omogočeno zaznavanje lokacije plugov
+
+|||
+|-|-|
+|Oznaka               | A16
+|Naziv                | Ustaljeni Plug UI
+|Datum začetka        | 29. 3. 2024
+|Datum konca          | 2. 4. 2024
+|Trajanje v ČD        | 6
+|Pričakovani rezultati| Delujoča stran za voznike plugov, kjer se glede na trenuten GPS izpisujejo navodila za nadaljno pot
+
+|||
+|-|-|
+|Oznaka               | A17
+|Naziv                | Začetni razvoj lastnega algoritma planiranja
+|Datum začetka        | 3. 4. 2024
+|Datum konca          | 4. 4. 2024
+|Trajanje v ČD        | 4
+|Pričakovani rezultati| Osnova lastnega algoritma
+
+|||
+|-|-|
+|Oznaka               | A18
+|Naziv                | Testiranje enot
+|Datum začetka        | 5. 4. 2024
+|Datum konca          | 8. 4. 2024
+|Trajanje v ČD        | 4
+|Pričakovani rezultati| Aplikacija opravi zahtevane teste
+
+|||
+|-|-|
+|Oznaka               | A19
+|Naziv                | Preurejanje programske kode
+|Datum začetka        | 5. 4. 2024
+|Datum konca          | 8. 4. 2024
+|Trajanje v ČD        | 3
+|Pričakovani rezultati| Bolje strukturirana izvorna koda
+
+|||
+|-|-|
+|Oznaka               | A20
+|Naziv                | Dokumentiranje kode
+|Datum začetka        | 9. 4. 2024
+|Datum konca          | 9. 4. 2024
+|Trajanje v ČD        | 2
+|Pričakovani rezultati| Izdelana dokumentacija
+
+|||
+|-|-|
+|Oznaka               | A21
+|Naziv                | Planiranje naslednje iteracije
+|Datum začetka        | 9. 4. 2024
+|Datum konca          | 9. 4. 2024
+|Trajanje v ČD        | 2
+|Pričakovani rezultati| Dogovorjen načrt tretje iteracije
+
+|||
+|-|-|
+|Oznaka               | A22
+|Naziv                | Izvedba retrospektive iteracije
+|Datum začetka        | 10. 4. 2024
+|Datum konca          | 10. 4. 2024
+|Trajanje v ČD        | 2
+|Pričakovani rezultati| Seznam morebitnih izboljšav
 
 
+**3. iteracija**
 
-2. iteracija:
-Obdelava .shp datotek kot predpriprava za izvajanje algoritma. 3h  2ČD
-Izvedba okrnjenega algoritma planiranja s pomočjo PyVRP. 15h  7ČD
-Izdelava simulacije naključnega nabora voženj po mestu - kot merilo uspešnosti algoritma pluženja. 15h   8ČD
-Home page UI: vsebuje zemljevid stanja cest, login 5h   2ČD
-avtentikacija Admin-a in Ustaljenih Plugov 8h    4ČD
-Admin UI - na zemljevidu vidi lokacije Ustaljenih Plugov. Ob kliku nanje dobi njihovo telefonsko številko. 8h   4ČD
-Admin lahko ureja lahko število plugov v štartni bazi in kje so štartne baze. 7h   3ČD
-Admin dodajanje Ustaljenih Plugov v podatkovno bazo. 10h   5ČD
-Ustaljeni Plug GPS sharing - vsi aktivni Ustaljeni plugi delijo svojo lokacijo z Adminom. 15h   7ČD
-Ustaljeni Plug UI - glede na trenuten GPS se mu izpisujejo navodila za nadaljno pot. 15h   7ČD
-Ustaljen Plug ima možnost deaktivacije - takrat se ve, da ne pluži (recimo malica ali odmor). 4h   2ČD
-Začetni razvoj lastnega algoritma organizacije pluženja na podlagi hevristik 12h 6ČD
-
-Testiranje enot. 8h   4ČD
-Dokumentiranje kode. 6h   3ČD
-Preurejanje programske kode (refactoring). 10h   5ČD
-Organizacija projekta. 5h   2ČD
-Planiranje naslednje iteracije 5h   2ČD
-Izvedba retrospektive iteracije 3h   2ČD
-
-Suma: 117+37 = 154h
-57+18=75ČD
+|||
+|-|-|
+|Oznaka               | A23*
+|Naziv                | Delo na 3. iteraciji
+|Datum začetka        | 10. 4. 2024
+|Datum konca          | 7. 5. 2024
+|Trajanje v ČD        | 80
+|Pričakovani rezultati| Izpolnjeni zadani cilji 3. iteracije
 
 
-3. iteracija:
-Samostojni Plug UI - vidi trenutno nalogo (kater zahtevek za pluženje naj trenutno opravlja) 5h  3ČD
-Customer registration UI 5h   2ČD
-Registracijska funkcionalnost 8h   4ČD
-Customer UI za oddajanje zahtevkov za pluženje 5h   2ČD
-Zaledna funkcionalnost zahtevkov za pluženje 7h   3ČD
-Nadaljnji razvoj algoritma organizacije pluženja. 40h   20ČD
-Manager UI - vidi lokacije Samostojnih Plugov. Ob kliku nanj dobi njihovo telefonsko številko. Usmeri jih na opravljanje naročila, ki so mu blizu. 12h   6ČD
-Vključitev kmetov v pluženje z VOC in Zelenice. To za sabo potegne potrebo po bolj zapletenem algoritmu. 15h   8ČD
-Home page poizvedba kdaj bo neka ulica splužena. 20h   10ČD
+**4. iteracija**
 
-Integracijsko testiranje komponent prve in druge iteracije. 8h   4ČD
-Testiranje enot. 8h   4ČD
-Dokumentiranje kode 7h   3ČD
-Preurejanje programske kode (refactoring). 12h   6ČD
-Izvedba retrospektive iteracije 3h   2ČD
-Organizacija projekta. 5h   3ČD
-Planiranje naslednje iteracije 6h   3ČD
-
-Suma: 117+49=166h
-58+25=83ČD
-
-Olajšana verzija:
-Razvoj plužnih zahtevkov 20ČD
-Nadaljnji razvoj algoritma 28ČD
-Home page poizvedba spluženosti ulice 10ČD
-Testiranje in dobre prakse 17ČD
-Organizacijsko delo 8ČD
-
-
-4. iteracija:
-Neregistriran uporabnik lahko deli svoj GPS in pove cilje (služba) in mu povemo po kakšni poti naj gre, ker je že splužena. 30h   15ČD
-Nadaljnji razvoj algoritma organizacije pluženja. 40h   20ČD
-Posodobitev pomembnosti posameznih cest glede na njihovo priljubljenost s strani neregistriranih uporabnikov. 30h   15ČD
-
-Ročno testiranje sistema kot celote. 12h   6ČD
-Integracijsko testiranje tretje iteracije s prejšnjima 12h   6ČD
-Testiranje enot. 6h   3ČD
-Dokumentiranje kode 7h   3ČD
-Preurejanje programske kode (refactoring). 12h   6ČD
-Organizacija projekta. 5h   2ČD
-Izvedba retrospektive iteracije 3h   2ČD
-Suma: 100+57=157h
-50+28=78ČD
-
-Olajšana verzija:
-Planiranje poti neregistriranega uporabnika 30ČD
-Nadaljnji razvoj algoritma 20ČD
-Testiranje in dobre prakse 24ČD
-Organizacijsko delo 4ČD
-
-
-<!-- end of the list -->
-</p>
+|||
+|-|-|
+|Oznaka               | A24*
+|Naziv                | Delo na 4. iteraciji
+|Datum začetka        | 8. 5. 2024
+|Datum konca          | 4. 6. 2024
+|Trajanje v ČD        | 80
+|Pričakovani rezultati| Izpolnjeni zadani cilji 4. iteracije
 
 
 
@@ -353,14 +481,15 @@ Ocena časovne zahtevnosti za naš projekt je torej približno **2,94** človek-
 
 #### 6.3.5 Finance
 
-| Strošek		 | Cena |
-|---------		 |------|
-| Delo			 |
-| Elektrika		 |
-| Kosila		 |
-| Pijače		 |
-| Kava			 |
-| Potni stroški	 |
+| Strošek		     | Cena v € |
+|----------------|----------|
+| Delo			     | 8400
+| Elektrika	     | 250
+| Kosila		     | 1400
+| Pijače		     | 560
+| Kava			     | 200
+| Potni stroški	 | 370
+| Skupaj         | 11180
 
 
 ## 7 Ekipa
