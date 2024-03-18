@@ -1,0 +1,43 @@
+@startuml
+skinparam backgroundColor transparent
+left to right direction
+
+scale 0.8
+
+<style>
+stateDiagram {
+  arrow {
+    LineColor black
+  }
+}
+</style>
+
+skinparam State {
+  BackgroundColor #e8f5fd
+  BorderColor #5FB8EC
+}
+
+skinparam defaultTextAlignment center
+
+state "<color:Blue>3. iteracija</color>" as ITER3 #ffe6e6;line:Blue : <#ffe6e6,#ffe6e6>| 28 | 48 | 76 |\n|    0 | 48 | 76 |
+state "<color:Green>Vključitev kmetov v pluženje z VOC in Zelenice</color>" as FARMERS #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 4 | 48 | 52 |\n|    0 | 48 | 52 |
+state "<color:Coral>Razvoj svojega algoritma organizacije pluženja</color>" as CUSTOM_ALGO #e8f5fd;line:Coral : <#e8f5fd,#e8f5fd>| 14 | 52 | 66 |\n|    0 | 52 | 66 |
+state "<color:Green>Ročno testiranje sistema kot celote</color>" as SYSTEM_TEST #b3ffb3;line:Green : <#b3ffb3,#b3ffb3>| 4 | 66 | 70 |\n|    0 | 66 | 70 |
+state "<color:Aqua>Izdelava dokumentacije sistema kot celote</color>" as SYSTEM_DOC #ffa366;line:Aqua : <#ffa366,Aqua>| 1 | 70 | 71 |\n|    0 | 70 | 71 |
+state "<color:Blue>4. iteracija</color>" as ITER4 #ffe6e6;line:Blue : <#ffe6e6,#ffe6e6>| 28 | 71 | 99 |\n|    0 | 71 | 99 |
+state "<color:Green>Pregled uporabniške dokumentacije</color>" as USER_DOC #b3ffb3;line:Green : <#b3ffb3,#b3ffb3>| 1 | 71 | 72 |\n|    0 | 71 | 72 |
+state "<color:Green>Pregled kodo sistema</color>" as CODE_REVIEW #b3ffb3;line:Green : <#b3ffb3,#b3ffb3>| 3 | 71 | 74 |\n|    0 | 71 | 74 |
+state "<color:Aqua>Izdelava in priprava za oddajo seminarske naloge</color>" as SEMINAR_PAPER #ffa366;line:Aqua : <#ffa366,Aqua>| 1 | 74 | 75 |\n|    0 | 74 | 75 |
+
+ITER3 --> FARMERS
+ITER3 --> CUSTOM_ALGO
+ITER3 --> SYSTEM_TEST
+CUSTOM_ALGO --> SYSTEM_TEST
+SYSTEM_TEST --> SYSTEM_DOC
+SYSTEM_DOC --> ITER4
+ITER4 --> USER_DOC
+ITER4 --> CODE_REVIEW
+ITER4 --> SEMINAR_PAPER
+CODE_REVIEW --> SEMINAR_PAPER
+USER_DOC --> SEMINAR_PAPER
+@enduml

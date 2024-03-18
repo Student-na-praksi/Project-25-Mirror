@@ -1,0 +1,106 @@
+@startuml "PERT diagram"
+
+skinparam backgroundColor transparent
+left to right direction
+
+scale 0.8
+
+<style>
+stateDiagram {
+  arrow {
+    LineColor black
+  }
+}
+</style>
+
+skinparam State {
+  BackgroundColor #e8f5fd
+  BorderColor #5FB8EC
+}
+
+skinparam defaultTextAlignment center
+'skinparam dpi 20
+
+state "<color:Green>Prva aktivnost</color>" as PREDPRIPRAVA #ffe6e6;line:darkred : <#ffe6e6,#ffe6e6>| 7 | 0 | 7 |\n|    0 | 0 | 7 |
+state "<color:Blue>1. iteracija</color>" as ITER1 #ffe6e6;line:Blue : <#ffe6e6,#ffe6e6>| 21 | 7 | 28 |\n|    0 | 7 | 28 |
+state "<color:Green>Izbira izziva in nabiranje idej</color>" as IZBIRA #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 1 | 7 | 8 |\n|    0 | 7 | 8 |
+state "<color:Green>Pregled podatkov in začetna vizualizacija</color>" as PREGLED #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 1 | 8 | 9 |\n|    0 | 8 | 9 |
+state "<color:Green>Snovanje idej pristopa k algoritmu</color>" as SNOVANJE #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 2 | 9 | 11 |\n|    0 | 9 | 11 |
+state "<color:Green>Pregled obstoječih rešitev</color>" as PREGLED_PODATKOV #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 2 | 9 | 11 |\n|    0 | 9 | 11 |
+state "<color:Green>Sestanki definiranja željene rešitve</color>" as SESTANKI #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 1 | 11 | 12 |\n|    0 | 11 | 12 |
+state "<color:Green>Definiranje uporabniških zgodb in funkcionalnih zahtev</color>" as DEFINIRANJE #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 2 | 12 | 14 |\n|    0 | 12 | 14 |
+state "<color:Green>Planiranje naslednje iteracije</color>" as PLANIRANJE #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 2 | 14 | 16 |\n|    0 | 14 | 16 |
+state "<color:Green>Pregled dokumentacije</color>" as PREGLED_DOC #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 2 | 14 | 16 |\n|    0 | 14 | 16 |
+state "<color:Green>Izdelava predloga projekta</color>" as IZDELAVA #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 4 | 16 | 20 |\n|    0 | 16 | 20 |
+state "<color:Blue>Izvedba retrospektive iteracije</color>" as RETROSPEKTIVA_IT1 #ffe6e6;line:Blue : <#ffe6e6,#ffe6e6>| 1 | 20 | 21 |\n|    0 | 20 | 21 |
+state "<color:Blue>Rezervni dan</color>" as REZERVA #ffe6e6;line:Blue : <#ffe6e6,#ffe6e6>| 1 | 21 | 22 |\n|    0 | 21 | 22 |
+state "<color:Blue>2. iteracija</color>" as ITER2 #ffe6e6;line:Blue : <#ffe6e6,#ffe6e6>| 21 | 22 | 43 |\n|    0 | 22 | 43 |
+state "<color:Coral>Izvedba okrnjenega algoritma planiranja s pomočjo PyVRP</color>" as PYVRP #ffe6e6;line:Coral : <#ffe6e6,#ffe6e6>| 10 | 22 | 32 |\n|    0 | 22 | 32 |
+state "<color:Coral>Začetni razvoj lastnega algoritma organizacije pluženja na podlagi hevristik</color>" as CUSTOM_ALGOITHM_IT2 #ffe6e6;line:Coral : <#ffe6e6,#ffe6e6>| 2 | 32 | 34 |\n|    0 | 32 | 34 |
+state "<color:Green>Izdelava simulacije naključnega nabora voženj po mestu - kot merilo uspešnosti algoritma pluženja</color>" as SIMULATION #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 8 | 22 | 30 |\n|    0 | 22 | 30 |
+state "<color:Green>Obdelava .shp datotek kot predpriprava za izvajanje algoritma</color>" as SHP_FILES_PREP #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 1 | 22 | 23 |\n|    0 | 22 | 23 |
+state "<color:Green>Home page UI: vsebuje zemljevid stanja cest, login</color>" as HOME_PAGE #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 2 | 22 | 24 |\n|    0 | 22 | 24 |
+state "<color:Green>Avtentikacija Admin-a in Ustaljenih Plugov</color>" as AUTHENTICATION #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 1 | 24 | 25 |\n|    0 | 24 | 25 |
+state "<color:Green>Admin UI - lokacije plugov, št plogov v bazah...</color>" as ADMIN_UI #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 4 | 25 | 29 |\n|    0 | 25 | 29 |
+state "<color:Green>Ustaljeni Plug GPS sharing - vsi aktivni Ustaljeni plugi delijo svojo lokacijo z Adminom.</color>" as GPS_SHARING #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 3 | 29 | 32 |\n|    0 | 29 | 32 |
+state "<color:Green>Ustaljeni Plug UI - glede na trenuten GPS se mu izpisujejo navodila za nadaljno pot, možnost deaktivacije/pavze</color>" as PLUG_UI #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 3 | 29 | 32 |\n|    0 | 29 | 32 |
+state "<color:Green>Testiranje enot</color>" as UNIT_TEST #b3ffb3;line:Green : <#b3ffb3,#b3ffb3>| 2 | 34 | 36 |\n|    0 | 34 | 36 |
+state "<color:Aqua>Izdelava dokumentacije</color>" as CODE_DOCUMENTATION_IT2 #ffa366;line:Aqua : <#ffa366,Aqua>| 1 | 36 | 37 |\n|    0 | 36 | 37 |
+state "<color:Green>Preurejanje programske kode (refactoring).</color>" as REFACTORING #b3ffb3;line:Green : <#b3ffb3,#b3ffb3>| 2 | 34 | 36 |\n|    0 | 34 | 36 |
+state "<color:Green>Planiranje naslednje iteracije</color>" as PLAN_IT3 #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 10 | 37 | 47 |\n|    0 | 37 | 47 |
+state "<color:Red>Izvedba retrospektive iteracije</color>" as RETROSPEKTIVA_IT2 #ffe6e6;line:Red : <#ffe6e6,#ffe6e6>| 1 | 47 | 48 |\n|    0 | 47 | 48 |
+state "<color:Blue>3. iteracija</color>" as ITER3 #ffe6e6;line:Blue : <#ffe6e6,#ffe6e6>| 28 | 48 | 76 |\n|    0 | 48 | 76 |
+state "<color:Green>Vključitev kmetov v pluženje z VOC in Zelenice</color>" as FARMERS #e8f5fd;line:Green : <#e8f5fd,#e8f5fd>| 4 | 48 | 52 |\n|    0 | 48 | 52 |
+state "<color:Coral>Razvoj svojega algoritma organizacije pluženja</color>" as CUSTOM_ALGO #e8f5fd;line:Coral : <#e8f5fd,#e8f5fd>| 14 | 52 | 66 |\n|    0 | 52 | 66 |
+state "<color:Green>Ročno testiranje sistema kot celote</color>" as SYSTEM_TEST #b3ffb3;line:Green : <#b3ffb3,#b3ffb3>| 4 | 66 | 70 |\n|    0 | 66 | 70 |
+state "<color:Aqua>Izdelava dokumentacije sistema kot celote</color>" as SYSTEM_DOC #ffa366;line:Aqua : <#ffa366,Aqua>| 1 | 70 | 71 |\n|    0 | 70 | 71 |
+state "<color:Blue>4. iteracija</color>" as ITER4 #ffe6e6;line:Blue : <#ffe6e6,#ffe6e6>| 28 | 71 | 99 |\n|    0 | 71 | 99 |
+state "<color:Green>Pregled uporabniške dokumentacije</color>" as USER_DOC #b3ffb3;line:Green : <#b3ffb3,#b3ffb3>| 1 | 71 | 72 |\n|    0 | 71 | 72 |
+state "<color:Green>Pregled kodo sistema</color>" as CODE_REVIEW #b3ffb3;line:Green : <#b3ffb3,#b3ffb3>| 3 | 71 | 74 |\n|    0 | 71 | 74 |
+state "<color:Aqua>Izdelava in priprava za oddajo seminarske naloge</color>" as SEMINAR_PAPER #ffa366;line:Aqua : <#ffa366,Aqua>| 1 | 74 | 75 |\n|    0 | 74 | 75 |
+
+PREDPRIPRAVA --> ITER1
+ITER1 --> IZBIRA
+IZBIRA --> PREGLED
+PREGLED --> SNOVANJE
+PREGLED --> PREGLED_PODATKOV
+PREGLED_PODATKOV --> SESTANKI
+SNOVANJE --> SESTANKI
+SESTANKI --> DEFINIRANJE
+DEFINIRANJE --> PLANIRANJE
+DEFINIRANJE --> PREGLED_DOC
+PREGLED_DOC --> IZDELAVA
+IZDELAVA --> RETROSPEKTIVA_IT1
+ITER1 --> REZERVA
+PLANIRANJE --> ITER2
+ITER2 --> PYVRP
+SHP_FILES_PREP --> CUSTOM_ALGOITHM_IT2
+SHP_FILES_PREP --> SIMULATION
+ITER2 --> SHP_FILES_PREP
+ITER2 --> HOME_PAGE
+ITER2 --> AUTHENTICATION
+AUTHENTICATION --> ADMIN_UI
+ADMIN_UI --> GPS_SHARING
+ADMIN_UI --> PLUG_UI
+PYVRP --> CUSTOM_ALGOITHM_IT2
+CUSTOM_ALGOITHM_IT2 --> UNIT_TEST
+SIMULATION --> UNIT_TEST
+SHP_FILES_PREP --> UNIT_TEST
+HOME_PAGE --> UNIT_TEST
+AUTHENTICATION --> UNIT_TEST
+GPS_SHARING --> UNIT_TEST
+PLUG_UI --> UNIT_TEST
+UNIT_TEST --> REFACTORING
+REFACTORING --> PLAN_IT3
+PLAN_IT3 --> ITER3
+ITER3 --> FARMERS
+ITER3 --> CUSTOM_ALGO
+ITER3 --> SYSTEM_TEST
+CUSTOM_ALGO --> SYSTEM_TEST
+SYSTEM_TEST --> SYSTEM_DOC
+SYSTEM_DOC --> ITER4
+ITER4 --> USER_DOC
+ITER4 --> CODE_REVIEW
+ITER4 --> SEMINAR_PAPER
+CODE_REVIEW --> SEMINAR_PAPER
+USER_DOC --> SEMINAR_PAPER
