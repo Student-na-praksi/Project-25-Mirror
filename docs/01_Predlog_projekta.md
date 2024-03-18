@@ -141,123 +141,120 @@ _V okviru predloga projekta zadostuje osnutek tega poglavja._
 
 ## 6 Vodenje projekta
 
-_Začnite zapisovati v **dnevnik sprememb**, kjer sledite vsem spremembam projekta, kot je opisano v tem predlogu projekta. Za vsak vnos v dnevnik sprememb vključite naslednje podatke: datum, opis, motivacija in posledica spremembe._
+#### Dnevnik sprememb:
+29.2. Začetni nabor idej za možne funkcionalnosti. Zažetek projekta.
+7.3. Omejitev idej, ki jih želimo podpirati.
+13.3. Ob stoječem sestanku smo dokončno razjasnili želje uporabniške zgodbe in arhitekturo. Sedaj definiramo potrebovane funkcionalnosti.
 
-ZA DNEVNIK SPREMEMB JE NA VAJAH RAZJASNIL, DA TU GRE ZA SPREMEMBE PRI IDEJI PROJEKTA. PAČ TO NI VEZANO NA POSAMEZNIKA PA KAJ JE ZDAJ VSAK OD NAS USPEL NAREDIT, AMPAK JE FORA KAKO MI PIVOTIRAMO STVARI GLEDE PROJEKTA SPROT.
-IN POMOJE JE TUD REKU, DA TRENUTNO ŠE NI VELIK SPREMEMB PROJEKTA. POMJE VSEEN LAHKO NAPIŠEMO KAKO SMO POSTOPNO IZOBLIKOVAL SVOJO IDEJO PA KAJ SMO KEJ SCRAPPAL, AMPAK NI PA ŠE TEH PIVOTOV.
-POMOJE PRIMER PIVOTA POL BI BIL, DA SE ODLOČMO, DA NEKE FUNKCIONALNOSTI NE BO, AL PA DA ENA NOVA BO, AL PA DA SPREMENIMO TEHNOLOGIJO V KERI SMO REKL DA DELAMO, PA TAKE STVARI.
+#### Izvajani procesi in prakse
+Uporabljali bomo SCRUM in Extreme Programing.
+Tedensko se bomo dobivali na stoječih sestankih ob tabli pred enem izmed laboratorijev, ki imajo tablo. Začeli bomo s tem, da vsak pove težave zadnjega tedna ter kako daleč je prišel, potem pa skupaj zasnujemo, kaj bomo izdelali v naslednjem tednu. SCRUM master bo naloge razdelil.
 
-
-- Kateri razvojni proces in dobre prakse boste uporabili?
-	- razvojni proces: XP?, SCRUM?, kaj drugega?
-	- dobre prakse: 
-
-Verjetno tud tole iz README paše zraven:
-Če nič drugega, lahko drug drugemu postavite različice treh Scrum vprašanj:
-1. Kaj sem naredil od zadnjega sestanka?
-2. Kaj bom naredil do naslednjega sestanka?
-3. Kaj me ovira pri napredovanju?
-
-<!-- end of the list -->
-</p>
-
-!!!!!!!!!!!!!!!!!!!!!
-KOT IDEJO ZA DOBRE PRAKSE PRILAGAM SLEDEČ ODSTAVEK IZ 1.1:
-!!!!!!!!!!!!!!!!!!!!!
-{
-{
-{
-Prvi sestanek bo bolj družaben. Cilj njega bo team-building. Nato se bomo dobivali vsak teden, kjer bo vsak povedal napredek na svojem delu projekta, izzive in probleme, ki jih je srečal, ter predstavil tudi možne rešitve. Cilj nam je, da celotna ekipa ve, kaj se dogaja na vsakem področju projekta. Same delitve dela v skupini se bomo lotili po principu javljanja, torej bomo poskusili ustrezati željam vseh članom ekipe. Kjer bosta dva imela enako željo, bomo prišli do kompromisa. Za področja, kjer noben želja ne bo izražena, bo tisti z največ izkušnjami prevzel nalogo. Pri programiranju se bomo držali dobrih praks (sprotno pisanje komentarjev, sprotno testiranje, pred implementiranjem funkcije premislek kaj bodo vhodi in izhodi, grafična predstavitev, vnaprej definirane podatkovne strukture, programiranje po nekaj ur na dan več dni, ne pa en dan 10 ur…)
-
-}
-}
-}
-
-
-- Kakšen je minimalni delujoč sistem, ki ga nameravate zgraditi v naslednji iteraciji?
-	- glavna stran z zemljevidom, ki prikazuje trenutno snežno stanje na cestah (in lokacije plugov?)
-	- možnost registracije
-	- možnost prijave in odjave registriranih uporabnikov
-
-- Kakšen je vaš seznam želja glede funkcij predlaganega sistema?
-	???
-
+V naslednji iteraciji želimo zgraditi glavno stran z zemljevidom, ki prikazuje trenutno snežno stanje na cestah ter osnovno delovanje algoritma. Podpirati želimo začeti osnovne pluge in administratorske dožnosti.
 
 ### 6.1 Usklajevanje ekipe
 
-
-- Kako boste razporedili in koordinirali delo v okviru ekipe?
-	Delo bomo med člane skupine razporedili glede na predznanje članov, da bo vsak dobil naloge, ki jih bo glede na svoje znanje najbolj sposoben rešiti. Člani si bodo naloge sprva izbrali sami, v kolikor pa bodo ostale določene naloge neizbrane, jih bo vodja skupine dodelil članom.
-- Kako se boste sestajali kot ekipa? Kako pogosto?
-	Sestajali se bomo tedensko v živo, v primeru, da to ne bo mogoče, pa prek aplikacije Discord.
-- Kaj nameravate doseči med sestanki?
-	Med sestanki bomo pregledali stanje našega projekta, ocenili napredek od zadnjega sestanka ter razdelili naloge, ki jih bodo člani ekipe morali opraviti do naslednjega sestanka.
+Delo bomo med člane skupine razporedili glede na predznanje članov, da bo vsak dobil naloge, ki jih bo glede na svoje znanje najbolj sposoben rešiti. Člani si bodo naloge sprva izbrali sami, v kolikor pa bodo ostale določene naloge neizbrane, jih bo vodja skupine dodelil članom.
+Sestajali se bomo tedensko v živo, v primeru, da to ne bo mogoče, pa prek aplikacije Discord. Ob tabli pred enem izmed laboratorijev bomo izvajali stoječe sestanke.
+Med sestanki bomo pregledali stanje našega projekta, ocenili napredek od zadnjega sestanka ter razdelili naloge, ki jih bodo člani ekipe morali opraviti do naslednjega sestanka. Pogovorili se bomo o problemih, ki so se pojavili v zadnem tednu in jih poskusili nasloviti. Začrtali bomo delovanje nadaljnjih funkcionalnosti ter definirali njihovo arhitekturo.
 
 
 ### 6.2 Projektni načrt
 
-Predpriprave: od 19. 2. 2024 do 26. 2. 2024,
-1. iteracija: od 26. 2. 2024 do 18. 3. 2024,
-2. iteracija: od 18. 3. 2024 do 8. 4. 2024,
-3. iteracija: od 8. 4. 2024 do 6. 5. 2024,
-4. iteracija: od 6. 5. 2024 do 31. 5. 2024.
 
-<!-- end of the list -->
-</p>
+1. iteracija:
+- Izbira izziva 2h 1ČD
+- Začetni sestanek nabiranja idej 2h 1ČD
+- Pregled podatkov in začetna vizualizacija 8h 4ČD
+- Snovanje idej pristopa k algoritmu 7h  3ČD
+- Pregled obstoječih rešitev 12h   6ČD
+- Sestanki definiranja željene rešitve 15h   7ČD
+- Definiranje uporabniških zgodb in funkcionalnih zahtev 8h   4ČD
+- Planiranje naslednje iteracije 5h   3ČD
+- Pregled dokumentacije 5h   2ČD
+- Izdelava predloga projekta 15h    8ČD
+- Izvedba retrospektive iteracije 1h   1ČD
 
-
-##### 1. iteracija - samo primeri iz vaj:
-- izbira izziva
-- planiranje iteracije
-- pregled dokumentacije
-- izdelava predloga projekta
-- izvedba retrospektive iteracije
-
-
-
-##### 2. iteracija:
-- Obdelava .shp datotek kot predpriprava za izvajanje algoritma.
-- izvedba okrnjenega algoritma planiranja s pomočjo PyVRP.
-Izdelava simulacije naključnega nabora voženj po mestu - kot merilo uspešnosti algoritma pluženja.
-- Home page UI: vsebuje zemljevid stanja cest, login
-avtentikacija Admin-a in Ustaljenih Plugov
-- Admin UI - na zemljevidu vidi lokacije Ustaljenih Plugov. Ob kliku nanje dobi njihovo telefonsko številko. Ureja lahko število plugov v štartni bazi in kje so štartne baze.
-- Admin dodajanje Ustaljenih Plugov v podatkovno bazo.
-- Ustaljeni Plug GPS sharing - vsi aktivni Ustaljeni plugi delijo svojo lokacijo z Adminom.
-- Ustaljeni Plug UI - glede na trenuten GPS se mu izpisujejo navodila za nadaljno pot. Ustaljen Plug ima možnost deaktivacije - takrat se ve, da ne pluži (recimo malica ali odmor).
-
-- Testiranje enot.
-- Pisanje dokumentacije.
-- Preurejanje programske kode (refactoring).
-- Organizacija projekta.
+Suma: 80h
+40ČD
 
 
-##### 3. iteracija:
-- Samostojni Plug UI - vidi trenutno nalogo (kater zahtevek za pluženje naj trenutno opravlja)
-- Customer registration UI
-- Customer UI za oddajanje zahtevkov za pluženje
-- Baza zahtevkov za pluženje
-- Manager - vidi lokacije Samostojnih Plugov. Ob kliku nanj dobi njihovo telefonsko številko. Usmeri jih na opravljanje naročila, ki so mu blizu.
 
-- Integracijsko testiranje komponent prve in druge iteracije.
-- Testiranje enot.
-- Pisanje dokumentacije.
-- Preurejanje programske kode (refactoring).
-- Organizacija projekta.
+2. iteracija:
+Obdelava .shp datotek kot predpriprava za izvajanje algoritma. 3h  2ČD
+Izvedba okrnjenega algoritma planiranja s pomočjo PyVRP. 15h  7ČD
+Izdelava simulacije naključnega nabora voženj po mestu - kot merilo uspešnosti algoritma pluženja. 15h   8ČD
+Home page UI: vsebuje zemljevid stanja cest, login 5h   2ČD
+avtentikacija Admin-a in Ustaljenih Plugov 8h    4ČD
+Admin UI - na zemljevidu vidi lokacije Ustaljenih Plugov. Ob kliku nanje dobi njihovo telefonsko številko. 8h   4ČD
+Admin lahko ureja lahko število plugov v štartni bazi in kje so štartne baze. 7h   3ČD
+Admin dodajanje Ustaljenih Plugov v podatkovno bazo. 10h   5ČD
+Ustaljeni Plug GPS sharing - vsi aktivni Ustaljeni plugi delijo svojo lokacijo z Adminom. 15h   7ČD
+Ustaljeni Plug UI - glede na trenuten GPS se mu izpisujejo navodila za nadaljno pot. 15h   7ČD
+Ustaljen Plug ima možnost deaktivacije - takrat se ve, da ne pluži (recimo malica ali odmor). 4h   2ČD
+Začetni razvoj lastnega algoritma organizacije pluženja na podlagi hevristik 12h 6ČD
 
-##### 4. iteracija:
-- Vključitev kmetov v pluženje z VOC in Zelenice. To za sabo potegne potrebo po bolj zapletenem algoritmu.
-- Razvoj svojega algoritma organizacije pluženja.
+Testiranje enot. 8h   4ČD
+Dokumentiranje kode. 6h   3ČD
+Preurejanje programske kode (refactoring). 10h   5ČD
+Organizacija projekta. 5h   2ČD
+Planiranje naslednje iteracije 5h   2ČD
+Izvedba retrospektive iteracije 3h   2ČD
 
-- Ročno testiranje sistema kot celote.
-- Izdelava dokumentacije sistema kot celote.
-- Testiranje enot.
-- Pisanje dokumentacije.
-- Preurejanje programske kode (refactoring).
-- Organizacija projekta.
+Suma: 117+37 = 154h
+57+18=75ČD
 
-- Home page poizvedba kdaj bo neka ulica splužena.
-- Neregistriran uporabnik lahko deli svoj GPS in pove cilje (služba) in mu povemo po kakšni poti naj gre, ker je že splužena. Prek tega tudi vemo, katere poti so bolj obljudene, kar lahko posodablja pomembnost posameznih cest.
+
+3. iteracija:
+Samostojni Plug UI - vidi trenutno nalogo (kater zahtevek za pluženje naj trenutno opravlja) 5h  3ČD
+Customer registration UI 5h   2ČD
+Registracijska funkcionalnost 8h   4ČD
+Customer UI za oddajanje zahtevkov za pluženje 5h   2ČD
+Zaledna funkcionalnost zahtevkov za pluženje 7h   3ČD
+Nadaljnji razvoj algoritma organizacije pluženja. 40h   20ČD
+Manager UI - vidi lokacije Samostojnih Plugov. Ob kliku nanj dobi njihovo telefonsko številko. Usmeri jih na opravljanje naročila, ki so mu blizu. 12h   6ČD
+Vključitev kmetov v pluženje z VOC in Zelenice. To za sabo potegne potrebo po bolj zapletenem algoritmu. 15h   8ČD
+Home page poizvedba kdaj bo neka ulica splužena. 20h   10ČD
+
+Integracijsko testiranje komponent prve in druge iteracije. 8h   4ČD
+Testiranje enot. 8h   4ČD
+Dokumentiranje kode 7h   3ČD
+Preurejanje programske kode (refactoring). 12h   6ČD
+Izvedba retrospektive iteracije 3h   2ČD
+Organizacija projekta. 5h   3ČD
+Planiranje naslednje iteracije 6h   3ČD
+
+Suma: 117+49=166h
+58+25=83ČD
+
+Olajšana verzija:
+Razvoj plužnih zahtevkov 20ČD
+Nadaljnji razvoj algoritma 28ČD
+Home page poizvedba spluženosti ulice 10ČD
+Testiranje in dobre prakse 17ČD
+Organizacijsko delo 8ČD
+
+
+4. iteracija:
+Neregistriran uporabnik lahko deli svoj GPS in pove cilje (služba) in mu povemo po kakšni poti naj gre, ker je že splužena. 30h   15ČD
+Nadaljnji razvoj algoritma organizacije pluženja. 40h   20ČD
+Posodobitev pomembnosti posameznih cest glede na njihovo priljubljenost s strani neregistriranih uporabnikov. 30h   15ČD
+
+Ročno testiranje sistema kot celote. 12h   6ČD
+Integracijsko testiranje tretje iteracije s prejšnjima 12h   6ČD
+Testiranje enot. 6h   3ČD
+Dokumentiranje kode 7h   3ČD
+Preurejanje programske kode (refactoring). 12h   6ČD
+Organizacija projekta. 5h   2ČD
+Izvedba retrospektive iteracije 3h   2ČD
+Suma: 100+57=157h
+50+28=78ČD
+
+Olajšana verzija:
+Planiranje poti neregistriranega uporabnika 30ČD
+Nadaljnji razvoj algoritma 20ČD
+Testiranje in dobre prakse 24ČD
+Organizacijsko delo 4ČD
 
 
 <!-- end of the list -->
