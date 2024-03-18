@@ -387,20 +387,19 @@ Med sestanki bomo pregledali stanje našega projekta, ocenili napredek od zadnje
 
 
 
-- Povzetek razdelitve projekta na aktivnosti s seznamom izdelkov, vključno z Ganttovim diagramom in grafom PERT.
+**Povzetek razdelitve projekta na aktivnosti s seznamom izdelkov, vključno z Ganttovim diagramom in grafom PERT.**
 
 
 ![Ganttov diagram](https://teaching.lavbic.net/plantuml/png/dLZjRjf85FtFKuowFxORjRG1gcPNrQekECHTWf7vqBPLXGOym61x1jbZTyEgZv27o8lih-IzzixOu0ySJA9AJJ9Xvfnxvvvpx-HZ8B0lbfW9WLvqvHSU8PlYfO-z5xNQXq3SkEJFclf09rv6_zOG4jGZBcL4_O1G3xvjSvVxw9T5G_vJgvUSYNWLzjt0qa-v4mTEikiJdZjBduVCJlQIYyMxXLqyyTtbfmkzdMp7liz_7ABcFkDHbmI2xzaz1sVkye3OZnrG6gHBboknZ_HdxSER97krmA5iWsNkPeMJX8zP0ByYJDHMr2PemRcOyNzgBcRB42y92jnQRUFpDPaBf2uhG695qFdlOeNu0bsIcHzY_mOrtZPQjG2BqBVnJG1v8aaCjG3G2akrRsTd0v_O6vzkV1oHipFqyZso6VtjEy81-ZQmzCvtvE80q60TTgijvtL41V7ndAxnsTdBndbcYp7IhVFTdYRwGOW3aCpUaSOYEVRN015ObkSPsndrCQBRBOtW2qCComMs9WXoiPQiSX1VFncMjiCuHt5KZq8aGIvTkCSDjx5meBO1P8llRubW64Lq6sANRfDuyc1mKBUNPg4SBM6KuWqPZ_Ry4QGNwd23aOEmk-G-5LueSHePd67Vd6Zzp_eEgF5OM8hDOMHy1X1hSdzBLyWd3tTmGL4H8zazjVIXtl_yLAGXY0apXoARB2XJzuFHmt_4NHEGM8mPbr0sVqDzEDBwVncLrvLbbe9szbW4XHlkuncZ3tSE1BbTSdicxt4HCcTEESCkayjuLH9vHxyq-d15bGdUqyra63IOC60uW5ohUqtgdnpakAUT19HbT7YRDdT23yoW7299LiTiFmV3sDh4nI2q3IZVvKlv3LIE8rJjjt92w-WzRRANMkletKawMPI8s3CCTI5y7cpWU1eLqfOj4qiVMMQkHWurbf19CIoo9Nx4e28nEpZG-7hqk1WmEKiUriYP6ZfqjKQ5gyNEbxErE0NSyPdK26Hw9t_8-QwgC0h0bZn-VxlcQ70piGOgbBVP2_y2g_jetfPRK0PTWd-DtOqY7syZlbQR2nIu3_qyjZq2V4BGigG3ZWWswU8bHIiIIUkYJh44s-FXoBoUQhskQHcZg-iABr7yCxdUbs10lT2D2J3ikElm_bQHX0O0MaSHLvo03_B0VKBq6ZbSmFS-TJaAeQmUxXW7Whd49e58pXTP9pAknprjP9Zz7TkBap9fpXAozM2rWHs22-8e7fkqTM8m7cXW4LuhezZJER33gy4K13Eew2S52bVSWnkIOy3O-0D50Pc50B8b7dXlHDLMUNDpoD4h19Ach7XXL-QrFXretGfNAW9haG0NeevI1T9iZxBNgaEFOPCqVd3SWHikULGCL1kFhlJ-o6ZdCbuURaekWoon85muzpM4vEoh5B1UeOSxo3u42fqyWc4AJBzUh-UlM-jS6_tfs3XkNWMQAVu-G1KVwWw6A5XXdx8by8a2g3ZfQF3hz8EIdEoEBWKb1o0wlYFEqJPE7lVgCb7D34yuUJgyqYoZtqqDffJgBg17IOuDu2RxXrGJp9I4XN1zCNU2l10AT4C3A1qWn734RUggkcNOXcCO1vr1_NWWEYagY4J5g3B_PeEZBIbo7_J6tKoAJ-OzWa9DMYfXNDIBrJhk6wFf25hnyMezSA7Ct90qq0J5uJQf5qkqRNRqR1CjBywKIwvDXpw9fGxDKpw70YT6GIzzii1pmMMf_7OGcQLVQksHcRtj9yTMFP3akmTC9DE-_lVeU9nPPazguyKkVW9MIYdJ59h51dnHQC3DLCgFDk16XliaRYXo4aQEHuGoYrrx0Fj44xCjlUmhSK52Sr8SVourwrgtXiSDf0XgnUrMol-KRgjkgrNUMVSvR3srGYoO9a3E8fLP06sS00lPjkR4XHPMZ7RuPJZIhtEggyGjcofpe-iZk8r3tCfXDillILeuBzF2j3FHZzTeXbUL7C1fnRfgk5MmayQ9mb3yCk9eLOcZLHH7MQ4sCw7qOK3qHV9C1UEdY15uVL0_43w5f7hxzvR3lU8ibMbQqt4V7W3L8rKUMpMSzNuwhPA9zD54b6CBEhOrxUYJVIhVFwLWUC1jFbEc06CtyMRn0BdX0VR8LWuqSenAsoYmNF68oqSysCbCjblOSD1CB5FhJ0Vc04PCKEENuzUS3I9poQV8jdv4jrDpebjQhtTSlqMccUfcWYnLZGLEZaQnmEMJ1VeV3DzhwXq-6_iZlMkfWUe4EtcSJjcKq2gR4gRDvqAKZ0a7JvraIaX16iVdX6dpn4dXz57XUTXcAgNqZQzWtkN-cc1-rjjGErO6fd94o06TC2GqI-tmMO2rZ_2_-alq_m00 "Ganttov diagram")
 
+*Ganttov diagram*
 
-**Ganttov diagram** 
 
 ![PERT diagram12](https://teaching.lavbic.net/plantuml/png/jLZRSjiu4dtdLtHD7cQtod4iIhuaut8LOz4sDxQaeYHlZMkgL908oH0fGilRxcWodv2Fo8_CK_9Vsm0l8aZAaJAL5qewe823HgFxT8SkyzSa82kOafcx27ZiEzVSum540V537A9-f7bq7a748M2BvmWS5j1PnBYlQU6CU1HEZYyqxJACVlVebHP69A9THXPYqZyq0184_B_o6y0zysaw_TJ3zH3xK_jJktoJ_LSB2pf3COtyr_iAiLVqOduwTyG83nmQPEZfpViBynfdAqtYq3c9lMX4_nSP7bluAzmCpF110-tdqcjh1lg9bbA7dovdOiPtjm6b_jKWI0WGDsA9pyFeyeqSk_e9I0W3s-mER6jW6uy6l9hFwHaz-yN37RvpIE06r85tS9dXHzddrKSuXuzm0lBpD_-ZiCh95gbmUE_5zAfr30mPanbR4eM0DJBjbhgo-4FpidehNG7q2sNX76hSlRMPie00ssmOce7vu1C1-4iApA5BbStJUyisykD9wSXP99yKFSe-aKzEfyvc5vb1G1SUMdND7HAvF15yDkJB9nhv11AsYOd7DdKhuJ7TtflTWuWX1NYh4CkGHc93doU5JM0Ti33YQm8k46_10nQjOeNGiDT_D7h_ClTcfAThGwkbKCgX5ut5fqXcIRzyOiyGqA-VqPEI9lDC1lskCVhGV_oXh8OKKTzbucOoNteIWQz_KMz9VPhnIwXgBNCuCdeVh8FEhoKVkaAim1gPTGj25E8r3yZKPry_ksYrpO8xK-5hyzXtPnZsYESBc3nNJTarRwmUte53pxOb7nsLROurdwv7Sh8-2V6SfVTbGKArt-3U-2vE7V4uKpdbs8iUvt0t5e6sWKhcQjt-zG_cOcqSwX4CMMiCmnvVY2zu2zoe4a2VkkQzZDvxiiaNnNIXiicnflXjRHBgJ0cwTnJmS4r5CjbrMhOvill3WVbXP3qQ4skqTtXlPGHad2ynAx0cPZRTq23nyJeIlqBZoRIhMUqRYyk7UkKAh6bn_QMqfX-KriGIq6chQ-TOPUrhlDjUSIRS3NmHUz13yc2DlfBVBW8XPfiL__9foM7m-wCzKFtvLqHKedBs7KOgMBNrEjEsleFfKvhX60Haa_0bU2ICAdnvi432ClLH91zZG1NSCIjYglJ8Wi4pJKHMOgx2_tey7FKV9iRzRTyQtJsWk-bxxoRd36qrRXNOo_SoPAlOImdxnFMMyPTFSbEeBt1DIBZS0_A75QQC6Ce9mNeOtniZgz_R-zfU55O-QR3yoGwo_Mb6zZXyNkCLYNX4NN1v9ACAflbr84OtGXybP2cZSN4eQWwx6qnkh7jpEC4GE3WeaqcAUeDhw-qTjE_u2hs0B2YChNUGX7GQ8x4DNM6IJPW38WEZTypGhaU0iP6fL_-k_s1E1iRjOUaYfTHfeBdB5OmamYJ1N7d_mN1Mp7yj9UOOtnPw07Fim8iNNCsnndXqP_P6rlLX7j3Ag81-gdBCiMQEWXMQ4LwZeTpYVY6d8_Zw6Vq0pOSwDC7Y2UN0yV6nIhNxOFKcO-kWx2AuWAvgpm9h95dOIveBRWT329z9mFm5qav2bbKlR6jOkGUXmJo6SIt4gCBp_N7Of6V1L-fcSDh9yCwmhTxjtljfPxHh0UzjSy1ht8-qlayIxZ1FNhOrNa0XD4Jam2gL-d7aI_x7Hx32k27gDDoRtBKyiZThacogecXyUyZ9VDzEHdZ5CfL6VQuMZ-EUDPgCKDl2gsbxFf-sgnnIz2Zxp2EkS96sgeGAhCB1-4zCjW5tjogxxdTD8Sd63tYlvAtA4m5fdsM9GCoLvG417icvqribLeQsMimMs2wX60SqZPSeoqIZ87Gf1bOyqdy4MBBF8YxSzv_75KroOroF-ga7_Y2RVPUwHdErzmz49vbfe5EnMOvLADdK-LiAifBIxLrjYLQsF7JKYhp0cZHS-oKDrzvRmrraIy2vUam5rdXCZwbk41Kjk2iQoKYSon_CUF28TGR6xoVgOJIPgMQwCUm7qnuU59ibdLEzJl5qbtYpKyqcGkm-acsNEbDPRbLPtRiw6HiuKorPO8sMj57XOWoDjl4gHBL8aQTGEpFgeV9H1Sslmv7vS5ZywcGCu5mLOGMsV_pQavwiC_SCO-Uo-wJMJWNMvFgTbro_Sv3hYoNWhPhp2-p5MhlKgQ0lXFZnqBHJQ-nvLgsSmRbUPtMkVuCLHdAU7r4zrTZcesN-UsygxMBPJWELpZVS1gz_MQXpno52yb1KE2GGMSSdgE6g7IVKROQD8dXWslixaF3lSrLT5fYcAStYrw-lqkQjbhPmvM_PFjMoBgf0idQ9bZSm1PRt3XMmsiBJQZqz-TUiaQOL_KSLpVji0YrrihHoLqkkLZIKwaFR1ezMRlQa-qjxBLhHT15ehTzHiaZMXD1A7QpSSBgMDWdaeg8AroebbXXeA6-RNjlMawL9rVTA0qLvLCBKcaIhb2ZoZQmKq8gQGA0bJQqEPF9KIniCk_RILBwBTmjfgPLAvSf0tGpRmMq5gE8D-zeEbki3TIJNsYgwrR_fKHVQJYlhlDpVXCIg3TIKJksDPcch5Q8jTwUsbkeLyJiJ1YMaPESIMag1vPEeZPLJPMbCN95IcigPTBGqVKXZPL6x19K2Q0bL0fPM3hBrqI8Lr8R-3m00 "PERT diagram12")
 
 ![PERT diagram34](https://teaching.lavbic.net/plantuml/png/bPJjRjem58R_-ogErh_qY-zsA1AbQOLKHXLefqsJa24dcS7Op35iO_GIUX6xaVrgxsjs4b02Q6L_yl4U-VZ9UrudcZ0neufEOKX7ar39kV1Raai5Mb4HcH8AJJW66hG4nSAl6docSAIP58H48yeHpaxgX3GY_PEZGo9DDLup6jgclmW0LKf-Zvy0xfZ0fFsGc_sCzaIUIECqNKkY3KxFjebNNMs17M4zg0I-hKZbeqhLoirLtMsPRfacFWPqpdKVV-WcPw6Oce-1aRcW8Wael6kCxFhBApv7ftG2pDJeY8rfupGkEE-0Hj3kkru9Ze80grXzpyrNn0lW4XgfM4ZlpWgATLX1sLvgLLXz4IlxvMTPRMllMuKedCS97yzVdWt00YPJr7812vZn-UiV56E49JnsMy04V4QEWeqm1tZJz3gkrrkRao36VMF6H2saTyDONkDKYhk8Ljj2R4b5kUFHvKAE8J8N32bG7ah5z9I2L24LR6cDmmrptiBMGw_VxGoQTxVTF6NSUZ_bUJcbWMhUoOssrqbFlZmB2HeZpKoA3LB48es6SoBj_BdKUVTwdtfzjpFekxq-70rBGJ0iRJkOg8NqdZfe2Q1sbaFRQ5jepMzpwhINFdAweE3BoTocCN7iCBnhCt-JCbggfX6qBTC8Mh4GRs5SIm6WTfuZssZxeb_-L_JB_nLzkmLSNEJtNcjx1tQlCEJemtnciZ0KxFNt1FCMvP0UUgwNk77WhCxN1BNYBbMj-0RLHFfoFQ9yfBlNxi1p7zlknuDHIfjjotjGoc_4nXp_cM8pPP-NvjZvFXqRDfmoGLLaJ1EKot0hFMwd_Q7f3UwRzwvtU81ilckLFEDQ8oJv8HuVE-i_JqR9dFICcZbZ9FilsAvbpsAcPiPDCkV0Lk9aaYIVzdqTYuoKcL16pJb2ibFShMwojblw2m00 "PERT diagram34")
 
-
-**Graf PERT** 
+*Graf PERT**
 
 
 ### 6.3 Finančni načrt
@@ -502,10 +501,10 @@ Ocena časovne zahtevnosti za naš projekt je torej približno **2,94** človek-
 
 Ekipo sestavljamo štirje študenti 3. letnika univerzitetnega programa Fakultete za računalništvo in informatiko. Izkušenj z realnimi projekti imamo koolektivno bolj malo. Tudi naše znanje spletnega programiranja ni na zavidljivem nivoju. To bomo poskusili nadoknaditi z večjim interesom in zagnanostjo.
 
-Matevž Vidovič vešč programer v Python-u, s spletnimi tehnologijami pa nima veliko izkušenj. Zanimata ga tako backend kot frontend, zato glede tega nima preferenc. Razvijanje algoritma pluženja se mu zdi zanimiv izziv za katerega že ima nekaj idej.
-Filip Gros je moralni steber naše ekipe. Izkušen programer umetnega zaznavanja v programskemu jeziku Python bo poskrbel za celovino povezanost aplikacije. Poleg Pythona je vešč tudi v jezikih Go, Java, C.
-Jošt Eržen je izkušen programer pri večjem projektu v programskemu jeziku Java, prav tako pa ima nekaj znanja v programskih jezikih Python, C in JavaScript ter SQL.
-Sebastjan Kordiš - naš strokovnjak matematike bo poskrbel za optimalne algoritme. Ima izkušnje programiranja v programskih jezikih Python, Go, Java, C ter Javascript.
+- **Matevž Vidovič** je vešč programer v Python-u, s spletnimi tehnologijami pa nima veliko izkušenj. Zanimata ga tako backend kot frontend, zato glede tega nima preferenc. Razvijanje algoritma pluženja se mu zdi zanimiv izziv, za katerega že ima nekaj idej.
+- **Filip Gros** je moralni steber naše ekipe. Izkušen programer umetnega zaznavanja v programskemu jeziku Python bo poskrbel za celovito povezanost aplikacije. Poleg Pythona je vešč tudi v jezikih Go, Java, C.
+- **Jošt Eržen** je izkušen programer pri večjem projektu v programskemu jeziku Java, prav tako pa ima nekaj znanja v programskih jezikih Python, C in JavaScript ter SQL.
+- **Sebastjan Kordiš**, naš strokovnjak matematike, bo poskrbel za optimalne algoritme. Ima izkušnje programiranja v programskih jezikih Python, Go, Java, C ter Javascript.
 
 
 ### 7.2 Vloge
@@ -553,7 +552,7 @@ Na drugi strani manjše napake v sistemu niso tako hude - nihče ni tako zelo od
 ##### Okvara transponderja (T2):
 - Verjetnost: Visoka
 - Učinek: Dopusten
-- Izpostavljenost: Srednjevis.
+- Izpostavljenost: Srednjevisoka
 
 - Opis tveganja: Obstaja možnost okvare transponderja (recimo da telefonu zmanjka baterije), v temu primeru ne bi imeli informacij o danemu plugu
 
@@ -567,7 +566,7 @@ Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne tele
 ##### Algoritem (T3):
 - Verjetnost: Zmerna
 - Učinek: Resen
-- Izpostavljenost: Srednjevis.
+- Izpostavljenost: Srednjevisoka
 
 - Opis tveganja: Zaradi pomanjkanja znanja o tem tipu algoritmov nismo sposobni razviti približno optimalnega algoritma.
 
@@ -577,9 +576,9 @@ Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne tele
 - Opis obvladovanja: Izvedli bomo okrnjeno neoptimalno verzijo algoritma, za kar bomo kompenzirali z boljšo spletno aplikacijo in uporabniško izkušnjo. Dodelane ideje za relaksirane vrste algoritma že imamo, zato smo v to opcijo sigurni.
 
 ##### Geografske datoteke (T4):
-- Verjetnost: Zelo majhna, Majhna, Zmerna, Visoka, Zelo visoka
-- Učinek: Neznaten, Dopusten, Resen, Visok
-- Izpostavljenost: Nizka, Srednjeniz., Srednja, Srednjevis., Visoka
+- Verjetnost: Zmerna
+- Učinek: Resen
+- Izpostavljenost: Srednjevisoka
 
 - Opis tveganja: Nismo še delali z geografskimi datotekami, kar bi lahko povzročilo težave, saj ne vemo, kaj so optimalna orodja zanje - tako bi lahko zašli v suboptimalna orodja, kjer bi že zgradili velik del kode.
 
@@ -605,7 +604,7 @@ Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne tele
 ##### Github merging(T6):
 - Verjetnost: Zelo majhna
 - Učinek: Dopusten
-- Izpostavljenost: Srednjeniz.
+- Izpostavljenost: Srednjenizka
 
 - Opis tveganja: Ker še nismo sodelovali pri večjih projektnih nismo vešči pri uporabi sistema Git, še posebej ne pri merge-anju v situacijah, kjer smo nespretno delali z Git-om (ne pull-ali pred commitanjem; ne odprli svojega brancha, čeprav bi to bilo potrebno; ustvarili preobsežen commit).
 
@@ -647,7 +646,7 @@ Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne tele
 ##### Specifična tehnologija (T9):
 - Verjetnost: Majhna
 - Učinek: Resen
-- Izpostavljenost: Srednjevis.
+- Izpostavljenost: Srednjevisoka
 
 - Opis tveganja: Ob razvoju odkrijemo potrebo po uporabi bolj specifične tehnologije, ki pa je ne znamo uporabljati in osebno ne poznamo osebe, ki bi nam lahko svetovala.
 
@@ -661,7 +660,7 @@ Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne tele
 ##### Bolezen (T10):
 - Verjetnost: Zmerna
 - Učinek: Resen
-- Izpostavljenost: Srednjevis.
+- Izpostavljenost: Srednjevisoka
 
 - Opis tveganja: Kot ekipa le 4 članov obstaja večja možnost, da zboli večji del ekipe (2 ali 3 bolni predstavlja večjo ustavitev sposobnosti, kot bi pri ekipi 5 članov). To bi lahko močno zamaknilo kritično pot.
 
@@ -689,7 +688,7 @@ Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne tele
 ##### MOC rez v proračunu (T12):
 - Verjetnost: Zelo majhna
 - Učinek: Usoden
-- Izpostavljenost: Srednjeniz.
+- Izpostavljenost: Srednjenizka
 
 - Opis tveganja: MOC zaradi rezov v proračunu prekliče projekt.
 
@@ -704,7 +703,7 @@ Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne tele
 ##### Sprememba zahtev (T13):
 - Verjetnost: Majhna
 - Učinek: Resen
-- Izpostavljenost: Srednjevis.
+- Izpostavljenost: Srednjevisoka
 
 - Opis tveganja: MOC vmes spremeni zahteve do te mere, da je dotedanja koda neuporabna.
 
@@ -716,7 +715,7 @@ Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne tele
 ##### Algoritem slabši od trenutnega sistema (T14):
 - Verjetnost: Visoka
 - Učinek: Resen
-- Izpostavljenost: Srednjevis.
+- Izpostavljenost: Srednjevisoka
 
 - Opis tveganja: Razvit algoritem je slabši od obstoječega sistema pluženja. To se lahko hitro zgodi, saj je težko modelirati vse majhne dejavnike, ki jih domenski eksperti posedujejo.
 
@@ -731,7 +730,7 @@ Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne tele
 ##### Precenitev sposobnosti (T15):
 - Verjetnost: Majhna
 - Učinek: Resen
-- Izpostavljenost: Srednjevis.
+- Izpostavljenost: Srednjevisoka
 
 - Opis tveganja: Hudo smo precenili trajanje aktivnosti razvoja spletne aplikacije zaradi slabe ocene svojega znanja.
 
@@ -745,7 +744,7 @@ Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne tele
 ##### Scam uporabniki (T16):
 - Verjetnost: Zelo majhna
 - Učinek: Dopusten
-- Izpostavljenost: Srednjeniz.
+- Izpostavljenost: Srednjenizka
 
 - Opis tveganja: Registracija ljudi, ki namerno želijo škodovati sistemu z veliko količino zahtevkov.
 
