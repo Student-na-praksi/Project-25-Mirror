@@ -1,0 +1,88 @@
+@startgantt "Ganttov diagram"
+
+<style>
+ganttDiagram {
+  timeline {
+    LineColor #f2f2f2
+    FontColor gray
+  }
+  task {
+    BackgroundColor #e8f5fd
+    LineColor #5FB8EC
+  }
+  arrow {
+    LineColor #5FB8EC
+  }
+  milestone {
+    BackgroundColor #e8f5fd
+    LineColor #5FB8EC
+  }
+  closed {
+    BackgroundColor #f2f2f2
+    FontColor lightgray
+  }
+}
+</style>
+
+skinparam backgroundColor transparent
+hide footbox
+language sl
+
+project starts the 19th of February 2024
+saturdays are closed
+sundays are closed
+
+[**Predpriprave** (7 dni)] as [PRED] lasts 7 days
+
+[**1. iteracija**(21 dni)] as [ITER1] lasts 3 weeks and starts at [PRED]'s end 
+[**Izbira izziva in nabiranje idej** (1 dni)] as [IZBIRA] lasts 1 days and starts at [PRED]'s end
+[**Pregled podatkov in začetna vizualizacija** (1 dni)] as [PREGLED] lasts 1 days and starts at [IZBIRA]'s end
+[**Snovanje idej pristopa k algoritmu** (2 dni)] as [SNOVANJE] lasts 2 days and starts at [PREGLED]'s end
+[**Pregled obstoječih rešitev** (2 dni)] as [PREGLED_RESENJ] lasts 2 days and starts at [PREGLED]'s end
+[**Sestanki definiranja željene rešitve** (1 dni)] as [SESTANKI] lasts 1 days and starts at [PREGLED_RESENJ]'s end
+[**Definiranje uporabniških zgodb in funkcionalnih zahtev** (2 dni)] as [DEFINIRANJE] lasts 2 days and starts at [SESTANKI]'s end
+[**Planiranje naslednje iteracije** (2 dni)] as [PLANIRANJE] lasts 2 days and starts at [DEFINIRANJE]'s end
+[**Pregled dokumentacije** (2 dni)] as [PREGLED_DOC] lasts 2 days and starts at [DEFINIRANJE]'s end
+[**Izdelava predloga projekta** (4 dni)] as [IZDELAVA] lasts 4 days and starts at [PREGLED_DOC]'s end
+[**Izvedba retrospektive iteracije** (1 dni)] as [RETRO] lasts 1 day and starts at [IZDELAVA]'s end
+[**Rezervni dan** (1 dni)] as [RIZ] lasts 1 day and starts at [RETRO]'s end
+
+[**2. iteracija** (21 dni)] as [ITER2] lasts 3 weeks and starts at [ITER1]'s end 
+[**Izvedba okrnjenega algoritma planiranja s pomočjo PyVRP** (10 dni)] as [PYVRP] lasts 10 days and starts at [ITER1]'s end
+[**Začetni razvoj lastnega algoritma organizacije pluženja na podlagi hevristik** (2 dni)] as [CUSTOM_ALGORITHM] lasts 2 days and starts at [PYVRP]'s end
+
+[**Izdelava simulacije naključnega nabora voženj po mestu - kot merilo uspešnosti algoritma pluženja** (8 dni)] as [SIMULATION] lasts 8 days and starts at [ITER1]'s end
+[**Obdelava .shp datotek kot predpriprava za izvajanje algoritma** (1 dni)] as [SHP_PREP] lasts 1 days and starts at [ITER1]'s end
+[**Home page UI: vsebuje zemljevid stanja cest, login** (2 dni)] as [HOME_PAGE] lasts 2 days and starts at [ITER1]'s end
+[**Avtentikacija Admin-a in Ustaljenih Plugov** (1 dni)] as [AUTHENTICATION] lasts 1 days and starts at [HOME_PAGE]'s end
+[**Admin UI** - lokacije plugov, št plogov v bazah... (8 dni)] as [ADMIN_UI] lasts 4 days and starts at [AUTHENTICATION]'s end
+[**Ustaljeni Plug GPS sharing - vsi aktivni Ustaljeni plugi delijo svojo lokacijo z Adminom.** (3 dni)] as [GPS_SHARING] lasts 3 days and starts at [ADMIN_UI]'s end
+[**Ustaljeni Plug UI - glede na trenuten GPS se mu izpisujejo navodila za nadaljno pot, možnost deaktivacije/pavze** (3 dni)] as [PLUG_UI] lasts 3 days and starts at [ADMIN_UI]'s end
+[**Testiranje enot.** (2 dni)] as [UNIT_TEST] lasts 2 days and starts at [CUSTOM_ALGORITHM]'s end
+[**Dokumentiranje kode.** (1 dni)] as [CODE_DOC] lasts 1 days and starts at [UNIT_TEST]'s end
+[**Preurejanje programske kode (refactoring).** (2 dni)] as [REFACTORING] lasts 2 days and starts at [CUSTOM_ALGORITHM]'s end
+[**Planiranje naslednje iteracije** (10 dni)] as [PLAN_NEXT] lasts 1 days and starts at [REFACTORING]'s end
+[**Izvedba retrospektive iteracije** ( dni)] as [RETRO_NEXT] lasts 1 days and starts at [PLAN_NEXT]'s end
+
+[**3. iteracija** (28 dni)] as [ITER3] lasts 4 weeks and starts at [ITER2]'s end
+[**Vključitev kmetov v pluženje z VOC in Zelenice** (4 dni)] as [FARMERS] lasts 4 days and starts at [ITER2]'s end
+[**Razvoj svojega algoritma organizacije pluženja** (14 dni)] as [CUSTOM_ALGO] lasts 14 days and starts at [CUSTOM_ALGORITHM]'s end
+[**Ročno testiranje sistema kot celote** (4 dni)] as [SYSTEM_TEST] lasts 4 days and starts at [CUSTOM_ALGO]'s end
+[**Izdelava dokumentacije sistema kot celote** (2 dni)] as [SYSTEM_DOC] lasts 2 days and starts at [SYSTEM_TEST]'s end
+[**Planiranje naslednje iteracije** (11 dni)] as [PLAN_NEXT_DVE] lasts 1 days and starts at [SYSTEM_DOC]'s end
+[**Izvedba retrospektive tretje iteracije** (1 dni)] as [RETRO_NEXTV2] lasts 1 days and starts at [PLAN_NEXT_DVE]'s end
+
+[**4. iteracija** (28 dni)] as [ITER4] lasts 4 weeks  and starts at [ITER3]'s end
+[**Načrtovanje poti neregirstrianim uporabnikom** (8 dni)] as [GPS_SHARING_UNREG] lasts 8 days and starts at [ITER3]'s end
+[**Nadaljnji razvoj algoritma organizacije pluženja.** ] as [FURTHER_DEV] lasts 17 days and starts at [SYSTEM_TEST]'s end
+[**Posodobitev pomembnosti posameznih cest glede na njihovo priljubljenost.** (1 dni)] as [ROAD_POPULARITY] lasts 1 days and starts at [FURTHER_DEV]'s end
+
+[**Ročno testiranje sistema kot celote.** (4 dni)] as [SYSTEM_TEST_OVERALL] lasts 4 days and starts at [ROAD_POPULARITY]'s end
+[**Integracijsko testiranje tretje iteracije s prejšnjima** (4 dni)] as [INTEGRATION_TEST] lasts 4 days and starts at [ROAD_POPULARITY]'s end
+[**Testiranje enot.** (4 dni)] as [UNIT_TEST_3] lasts 4 days and starts at [ROAD_POPULARITY]'s end
+[**Dokumentiranje kode** (2 dni)] as [CODE_DOC_3] lasts 2 days and starts at [UNIT_TEST_3]'s end
+[**Preurejanje programske kode  (refactoring).** (2 dni)] as [REFACTORING_3] lasts 2 days and starts at [UNIT_TEST_3]'s end
+[**Organizacija projekta.** (5 dni)] as [PROJECT_ORG_3] lasts 1 days and starts at [REFACTORING_3]'s end
+[**Izvedba retrospektive iteracije** (3 dni)] as [RETRO_NEXT_3] lasts 1 days and starts at [REFACTORING_3]'s end
+
+@endgantt
