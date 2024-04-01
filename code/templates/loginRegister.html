@@ -29,11 +29,19 @@
     <div class="formBox">
         <form id="registrationForm">
             <input type="text" id="registerUsername" placeholder="Username" required><br>
+            <select id="accountType" name="accountType">
+                <option value="občan">Občan</option>
+                <option value="naročnik">Naročnik</option>
+                <option value="voznik pluga">Voznik pluga</option>
+                <option value="vodja izmene">Vodja izmene</option>
+                <!-- <option value="admin">Admin</option> -->
+            </select><br>
             <div class="container">
                 <input type="password" id="registerPassword" placeholder="Password" required>
                 <!-- <i class="fas fa-eye" id="passwordToggleRegister" toggle="#registerPassword"></i><br> -->
                 <span toggle="#registerPassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
             </div>
+            <div id="passwordStrength"></div> <!-- Added div with id passwordStrength -->
             <button type="submit">Register</button>
         </form>
         <div id="registerStatus"></div>

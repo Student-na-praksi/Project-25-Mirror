@@ -15,7 +15,7 @@ body {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: space-between;
+    justify-content: normal;
     align-items: center; 
     width: 80%;
     margin: 20px auto;
@@ -76,4 +76,16 @@ h1 {
 #registerUsername,
 #loginUsername {
     width: 90%;
+}
+
+#accountType {
+    width: 100%;
+    /* margin-top: 5px; */
+    margin-bottom: 5px;
+}
+
+#passwordStrength {
+    color: rgb(27, 37, 185); 
+    font-size: small;
+    margin: 5px;
 }

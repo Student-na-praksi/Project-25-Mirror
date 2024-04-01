@@ -35,7 +35,8 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         },
         body: JSON.stringify({
             username: document.getElementById('registerUsername').value,
-            password: document.getElementById('registerPassword').value
+            password: document.getElementById('registerPassword').value,
+            type: document.getElementById('accountType').value
         })
     })
     .then(response => response.json())
@@ -61,4 +62,19 @@ document.querySelectorAll(".toggle-password").forEach(function(element) {
             input.setAttribute("type", "password");
         }
     });
+});
+
+//test password strength
+document.getElementById('registerPassword').addEventListener('input', function(e) {
+    var password = e.target.value;
+    var strength = 'Weak';
+    var strongRegex = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})');
+
+    if(strongRegex.test(password)) {
+        strength = 'Strong';
+    } else if(password.length >= 8) {
+        strength = 'Medium';
+    }
+
+    document.getElementById('passwordStrength').textContent = 'Password strength: ' + strength;
 });

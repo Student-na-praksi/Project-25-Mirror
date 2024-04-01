@@ -22,8 +22,8 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
     
 # Handle the index page
 @app.route('/')
-def index():
-    return render_template('index.html')
+def renderHtml():
+    return render_template('loginRegister.html')
 
 # Log every incoming request
 # @app.before_request
@@ -36,11 +36,12 @@ def register():
     app.logger.info('Register button clicked')
 
     try:
-        # get the JSON data from the request, and then extract the 'username' and 'password' fields.
+        # get the JSON data from the request, and then extract the 'username', 'password', and 'accountType' fields.
         data = request.get_json()
         username = data['username']
         password = data['password']
-        app.logger.info('Inserting user %s with password %s into DB', username, password)
+        accountType = data['type']
+        app.logger.info('Inserting user: %s with password: %s and account type: %s into DB', username, password, accountType)
         
         # create a new cursor object, which is used to execute SQL commands, and define a SQL query
         cursor = connection.cursor()
@@ -52,11 +53,11 @@ def register():
             app.logger.info('User %s ALREADY EXISTS!', username, password)
             return jsonify(message='Username already exists, please choose a different username'), 409
           
-        query = "INSERT INTO users (username, password_hash) VALUES (%s, %s)"
+        query = "INSERT INTO users (username, password_hash, acc_type) VALUES (%s, %s, %s)"
         # Hash the password before storing it
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-        cursor.execute(query, (username, hashed_password))
+        cursor.execute(query, (username, hashed_password, accountType))
         connection.commit()
         cursor.close()
 
