@@ -47,3 +47,18 @@ document.getElementById('registrationForm').addEventListener('submit', function(
       console.error('Error:', error);
     });
 });
+
+//show/hide password on eye click
+document.querySelectorAll(".toggle-password").forEach(function(element) {
+    element.addEventListener("click", function() {
+        console.log("Eye icon clicked"); // Log the click event
+        element.classList.toggle("fa-eye");
+        element.classList.toggle("fa-eye-slash");
+        var input = document.querySelector(element.getAttribute("toggle"));
+        if (input.getAttribute("type") === "password") {
+            input.setAttribute("type", "text");
+        } else {
+            input.setAttribute("type", "password");
+        }
+    });
+});

@@ -41,9 +41,17 @@ def register():
         username = data['username']
         password = data['password']
         app.logger.info('Inserting user %s with password %s into DB', username, password)
-
+        
         # create a new cursor object, which is used to execute SQL commands, and define a SQL query
         cursor = connection.cursor()
+        # Check if the username already exists in the database
+        query = "SELECT * FROM users WHERE username = %s"
+        cursor.execute(query, (username,))
+        result = cursor.fetchall()
+        if result:
+            app.logger.info('User %s ALREADY EXISTS!', username, password)
+            return jsonify(message='Username already exists, please choose a different username'), 409
+          
         query = "INSERT INTO users (username, password_hash) VALUES (%s, %s)"
         # Hash the password before storing it
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
