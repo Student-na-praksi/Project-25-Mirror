@@ -4,13 +4,17 @@ import mysql.connector
 import bcrypt
 import logging
 
-# Create a connection to the MySQL database
-connection = mysql.connector.connect(
-    host='localhost',
-    user='kurir',
-    password='kurir',
-    database='tpo24'
-)
+connection = None
+
+def connectToSQL():
+    # Create a connection to the MySQL database
+    conn = mysql.connector.connect(
+        host='localhost',
+        user='kurir',
+        password='kurir',
+        database='tpo24'
+    )
+    return conn
 
 # Create a new Flask web server from the Flask class
 app = Flask(__name__, static_url_path='/static')
@@ -34,8 +38,16 @@ def renderHtml():
 @app.route('/register', methods=['POST'])
 def register():
     app.logger.info('Register button clicked')
-
+    global connection
+    
     try:
+        # If the connection to the database is not established try establishing a new connection
+        if connection is None:
+            try:
+                connection = connectToSQL()
+            except Exception as e:
+                return jsonify(message='The database is unreachable'), 500 # + str(e)
+             
         # get the JSON data from the request, and then extract the 'username', 'password', and 'accountType' fields.
         data = request.get_json()
         username = data['username']
@@ -68,18 +80,32 @@ def register():
 @app.route('/login', methods=['POST'])
 def login():
     app.logger.info('Login button clicked')
+    global connection
+
     try:
+            
         # get the JSON data from the request, and then extract the 'username' and 'password' fields.
         data = request.get_json()
         username = data['username']
         password = data['password']
-        if password == "test1":
-            hashed_password = password
+        # test1 is checked logaly
+        if username == "test1":
+            if password == "test1":
+                return jsonify(message='Login successful for test1'), 200
+            else:
+                return jsonify(message='Wrong password for test1'), 401
         else:
             hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
         app.logger.info('U: %s, P: %s, HASH %s',username, password, hashed_password)
 
+        # If the connection to the database is not established try establishing a new connection
+        if connection is None:
+            try:
+                connection = connectToSQL()
+            except Exception as e:
+                return jsonify(message='The database is unreachable'), 500 # + str(e)
+            
         # create a new cursor object, which is used to execute SQL commands, and define a SQL query
         cursor = connection.cursor()
         query = "SELECT * FROM users WHERE username = %s"
@@ -93,14 +119,8 @@ def login():
         if not result:
             return jsonify(message='User not found'), 404
 
-        # test1 is not hashed
-        if result[0][2] == "test1":
-            if password == hashed_password:
-                return jsonify(message='Login successful for test1'), 200
-            else:
-                return jsonify(message='Wrong password for test1'), 401
         # Check if the hashed password matches the one in the database
-        elif bcrypt.checkpw(password.encode('utf-8'), result[0][2].encode('utf-8')):
+        if bcrypt.checkpw(password.encode('utf-8'), result[0][2].encode('utf-8')):
             return jsonify(message='Login successful'), 200
         else:
             return jsonify(message='Wrong password'), 401
