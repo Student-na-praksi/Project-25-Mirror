@@ -28,7 +28,7 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 @app.route('/')
 def renderHtml():
     return render_template('loginRegister.html')
-
+  
 # Log every incoming request
 # @app.before_request
 # def log_request():
