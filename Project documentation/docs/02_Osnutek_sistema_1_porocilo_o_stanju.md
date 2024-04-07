@@ -198,7 +198,7 @@ Business value: 4
 Pogostost uporabe: 3
 
 Osnovni tok:
-1. Ustaljeni plug na Ustaljeni plug UI klikne na gumb “Aktivacija”.
+1. Ustaljeni plug na Plug UI klikne na gumb “Aktivacija”.
 2. Sproži se tok dogodkov primera uporabe “Potrditev (de)aktivacije”.
 3. Primer uporabe “Potrditev (de)aktivacije” vrne sporočilo o uspešnosti, ki se uporabniku izpiše.
 4. Gumb “Aktivacija” se spremeni v gumb “Deaktivacija”
@@ -221,7 +221,7 @@ Business value: 4
 Pogostost uporabe: 2
 
 Osnovni tok:
-1. Ustaljeni plug na Ustaljeni plug UI klikne na gumb “Deaktivacija”.
+1. Ustaljeni plug na Plug UI klikne na gumb “Deaktivacija”.
 2. Sproži se tok dogodkov primera uporabe “Potrditev (de)aktivacije”.
 3. Primer uporabe “Potrditev (de)aktivacije” vrne sporočilo o uspešnosti, ki se uporabniku izpiše.
 4. Gumb “Deaktivacija” se spremeni v gumb “Aktivacija”
@@ -527,7 +527,22 @@ TRETJI GRAF
 
 ## 4 Opis sistema
 
-- Predstavite sistem in glavne izzive.
+![Opis sistema](https://teaching.lavbic.net/plantuml/png/ZLNDRjim3BxxAOXSsc983ZiMmuOiBTO2JMt4JJ1ixO69DK-n9HcoxA4T-WXxfPsszneb_yHndNH144YVI8hy-5794oupr2XWeqIc99CcD8yfWqAaRpqFDqPf6DqopMAU6yqrIYWofN4jUJ82p65vkxZy53QMeI6B1Dr92mPf4LUsGGFDKMBCj4Fd3JYD19SEchRnKAZSgAtaa3LHmi3pl0WDhZ5dC5ff9fZC4x9GX2RyNfus61AM6zmYp5YwPMSZ-Ea1VRwMVQS7xzdpCjmab1PTAzKF25BwMQZ2CF0pmmL_GiELXF0nDqpOK1IhTLbUjy6lb60G4FfGxMzKp6MzhWc2vNKDr4pi0ClMRkSusMqNhWzCs-spvx0T4rLY5n_RH9OvqtdjkV9dzUeBIvdacoQxkJy3WLaL4O2-KnYFt_VAgDeyT10CWE4GE1yoXCba7oFmPBuCx-1gkheyyVReh09qENXnM7FjjRHNS4Cgd4EfdaYxJaxOCNDvT9f1bgBQzMErBI4Jj6ix6MZbcjkyn8kedPwJYqIj_looAUIA9igmicF_pbxGjcrNQdLpVK0dfrQSjrZokD8afh6YMD_56OKOqxbLi2yN2YCQ6APBwlUPQ-wE2flRaJZdaAe4DtoBUrus_56lJ1clAroN-c6FdkrU-Trs78zYxxNF62D6lOweOLnard68ZfvyN663j9t34nFqV9GyWdi9HZDP6CbY17fRPCLFErJDZKSBjiFuFuR3-RXCl_6KXE6c7zx0T17wC0skdTE18-StzF8vNTYv2w_yvSt5RlAw_BTguJ86NqVK8rTALzm7RFhGwyfJaLeJoweU5fugzoxCslHW30arUyiWKGOYMmdzHLIZpVkDdKpWz8uBTiVJrDuwrPgNhDlVGcFFoQLut2c9S0jh1PyXfyVaxsycFzXYZpcvL0veyNN7mqfv_WS0"Opis sistema")
+*P.S. s črtkano črto so označene neobvezne ali pa priporočkjive razširitve sistema
+
+Predstavitev sistema glede na diagram:
+Na zgornjem diagramu je površinsko predstavljen sistem, ki ga želimo implementirati. Sistem lahko razdelimo na “Front-End”, ki je predstavljen v paketu UI, ter “Back-end”, ki obsega 2 glavna modula.
+- SnowOnRoads Service predstavlja podatke, ki na zemljevid mestne občine Celje proecira višino snežne odejo na vsaki izmed cest. Upošteva, kdaj se je nazadnje peljal mimo plug, kjer ob njegovem mimohodu ponastavimo višino snega na 0 cm.
+- Plow navigation algorithm pa je srce našega problema. Na podlagi stanja snega, prestavljenega z zgoraj opisanim servisom, izračuna najoptimalenjšo pot pluženja za vsakega voznika (na grafu Ustaljeni plug) podjetja VOC in Zelenice. Izračunano pot pošlje vozniku. Le administrator lahko vpliva na parametre algoritma (predstavljene v Manager UI). Algoritem upošteva vnaprej določeno prioritetno lestvico cest, kar v grobem pomeni da bodo državne, regionalne in medkrajvne ceste prej splužene kot stranske ulice. Ob intenzivnem sneženju se lahko zgodi, da bodo te ceste splužene večkrat, medtem ko bodo nekatere stranske ulice ostale nedotaknjene.
+- Plowing orders so ena izmed možnih razširitev sistema, ki jih sistem po našem mnenju naj bi vseboval (Should have). Občan, ki se je registriral, lahko postane stranka, torej naročnik storitev pluženja. Ko se odloči, pošlje povpraševanje po storitvi. V najkrajšem možnem času mu vodja plužne izmene (manager) odobri ali zavrne storitev. Če je povpraševanje odobreno, se vključi v Plow navigation Algorithm, ali pa se direktno dodeli vozniku pluga, če ta nima trenutno aktivne poti pluženja. 
+- TimeTillPlowArrive Service implementira funkcijonalnost povpraševanja po času, kdaj se željena ulica spluži. To ugotovimo na podlagi oddaljenosti plugov od ulice in njihovih plužnih poti. Je ena izmed opcijskih razširitev sistema (Could Have). 
+
+Sistem je v osnovi zastavljen, da zadosti štirim ciljnim množicam.
+- Občan predstavlja neregistriranega uporabnika. Ima dostop do zemljevida, na katerem je predstavljena trenutna snežna odeja na cestnem sistemu MOC
+- Stranka je vsak občan, ki se je registriral. Lahko oddaja povpraševanja po storitvi pluženja. 
+Manager povpraševanja odobri ali pa jih zavrne. Ima pregled nad strenutnin stanjem, vključno z lokacijami plugov. Ob kliku na vsak plug, se mu razširi njegova entita. Tam so prikazani vsi koristni podatki o plugu in vozniku. 
+- Voznik pluga (na grafu Ustaljeni plug) je zaposleni pri podjetju VOC ali Zelenice. Ob možni nadgradnji sistema je lahko to tudi kateri izmed lokalnih kmetov ali drugih oseb (na grafu Samostojni plug), ki imajo v privatni lasti mehanizacijo zmožno pluženja. Njigova glavna naloga je da plužijo po zagrtani poti.
+- Admin predstavlja le en administrativni profil, ki ima vso moč nad sistemom.
 
 ## 5 Trenutno stanje
 
