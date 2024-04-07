@@ -1,0 +1,159 @@
+@startuml
+skinparam backgroundcolor transparent
+skinparam defaultTextAlignment center
+skinparam usecase {
+  backgroundColor white
+  borderColor #5FB8EC
+  arrowColor black
+}
+skinparam actorBorderColor black
+skinparam actorBackgroundColor white
+
+left to right direction
+
+' scale 0.8
+' scale 20000 width
+' scale max 10024 width
+
+
+
+
+actor "Neregistriran uporabnik" AS NU
+actor "Admin" AS A
+actor "Ustaljeni plug" AS UP
+actor "Stranka" AS S
+actor "Samostojni plug" AS SP
+actor "Manager pluženja" AS MP
+
+actor "Podatkovna baza" AS PB
+
+
+rectangle "Vaš sistem" {
+  actor "Zaledni sistem" AS ZS
+  usecase "Dostop do stanja pluženja" AS DDSP
+  usecase "Registracija Stranke" AS RS
+  usecase "Prijava" AS P
+  usecase "Kontaktiranje pluga" AS KP
+  usecase "Urejanje števila plugov in štartnih baz" AS USPISP
+  usecase "Aktivacija pluga" AS AP
+  usecase "Deaktivacija pluga" AS DP
+  usecase "Oddaja zahtevka za pluženje" AS OZZP
+  usecase "Izbira naloge pluženja" AS INP
+  usecase "Usmeritev Samostojnega pluga" AS USP
+  usecase "Registracija osebja" AS RO
+  usecase "Pridobitev pozabljenega gesla" AS PPG
+  usecase "Poskus registracije" AS PR1
+  usecase "Potrditev registracije" AS PR2
+  usecase "Posodobitev štartnih baz" AS PSB
+  usecase "Potrditev (de)aktivacije" AS PDA
+  usecase "Dodajanje zahtevka" AS DZ
+  usecase "Izbira zahtevka" AS IZ
+  usecase "Dodajanje uporabnika" AS DU
+  usecase "Pozabljeno geslo" AS PG
+}
+
+' razsirjanji
+A -up-|> MP
+UP -up-|> SP
+
+NU -right-> (DDSP)
+NU -right-> (RS)
+
+A -right-> (DDSP)
+A -right-> (P)
+A -right-> (KP)
+A -right-> (USPISP)
+A -right-> (USP)
+A -right-> (RO)
+A -right-> (PPG)
+
+UP -right-> (P)
+UP -right-> (AP)
+UP -right-> (DP)
+UP -right-> (INP)
+UP -right-> (PPG)
+
+S -right-> (DDSP)
+S -right-> (P)
+S -right-> (OZZP)
+S -right-> (PPG)
+
+SP -right-> (P)
+SP -right-> (INP)
+SP -right-> (PPG)
+
+MP -right-> (DDSP)
+MP -right-> (P)
+MP -right-> (KP)
+MP -right-> (USP)
+MP -right-> (PPG)
+
+
+
+
+(RS) .right.> (PR1) : include
+(RS) .right.> (PR2) : include
+(RS) -right-> (ZS)
+
+(P) -right-> (ZS)
+
+(USPISP) .right.> (PSB) : include
+
+(AP) .right.> (PDA) : include
+
+(DP) .right.> (PDA) : include
+
+(OZZP) .right.> (DZ) : include
+
+(INP) .right.> (IZ) : include
+
+(USP) .right.> (IZ) : include
+
+(RO) .right.> (DU) : include
+
+(PPG) .right.> (PG) : include
+
+(PR1) -right-> (PB)
+
+(PR2) -right-> (PB)
+(PR2) .right.> (DU) : extend
+(ZS) .right.> (PR2) : include
+
+(PSB) -right-> (PB)
+
+(PDA) -right-> (ZS)
+
+(DZ) -right-> (PB)
+(DZ) -right-> (ZS)
+
+(IZ) .right.> (PDA) :include
+(IZ) -right-> (ZS)
+
+(DU) -right-> (PB)
+
+(PG) -right-> (PB)
+(PG) -right-> (ZS)
+
+
+
+' U1 -> (PU1)
+' U2 --> (PU2)
+' (PU4) -down-> S1
+
+' (PU3) .up.> (PU1) : extend
+' (PU5) ..> (PU4) : include
+' (PU5) -right-|> (PU2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+@enduml
