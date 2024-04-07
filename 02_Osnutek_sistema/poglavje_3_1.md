@@ -5,10 +5,10 @@
 
 ### 3.1 Primeri uporabe
 
-#### Slovar pojmov
+##### Slovar pojmov
 
-UI
-Baza - baza podatkov, podatkovna baza.
+UI - uporabniški vmesnik (User Interface). Je grafična podoba in osnovno delovanje spletne strani.
+Baza - podatkovna baza, baza podatkov.
 
 #### 3.1.1 Akterji, katere funkcionalnosti imajo na voljo.
 
@@ -464,21 +464,10 @@ Alternativni tokovi:
 
 
 #### 3.1.3 Sprejemni testi
-V tabeli. Vsak primer uporabe vsaj en sprejemni test.
 
 
-
-|||
-|-|-|
-|Oznaka               | A14
-|Naziv                | Avtentikacija Admin-a in Ustaljenih Plugov
-|Datum začetka        | 22. 3. 2024
-|Datum konca          | 22. 3. 2024
-|Trajanje v ČD        | 2
-|Pričakovani rezultati| Seznam registriranih uporabnikov
 
 
 #### 3.1.4 Diagram primerov uporabe
 
 
-#### 3.1.5 Funkcionalne zahteve, nefunkcionalne
