@@ -5,10 +5,10 @@
 
 ### 3.1 Primeri uporabe
 
-#### Slovar pojmov
+##### Slovar pojmov
 
-UI
-Baza - baza podatkov, podatkovna baza.
+UI - uporabniški vmesnik (User Interface). Je grafična podoba in osnovno delovanje spletne strani.
+Baza - podatkovna baza, baza podatkov.
 
 #### 3.1.1 Akterji, katere funkcionalnosti imajo na voljo.
 
@@ -464,18 +464,8 @@ Alternativni tokovi:
 
 
 #### 3.1.3 Sprejemni testi
-V tabeli. Vsak primer uporabe vsaj en sprejemni test.
 
 
-
-|||
-|-|-|
-|Oznaka               | A14
-|Naziv                | Avtentikacija Admin-a in Ustaljenih Plugov
-|Datum začetka        | 22. 3. 2024
-|Datum konca          | 22. 3. 2024
-|Trajanje v ČD        | 2
-|Pričakovani rezultati| Seznam registriranih uporabnikov
 
 
 #### 3.1.4 Diagram primerov uporabe
@@ -491,4 +481,3 @@ TRETJI GRAF
 
 ![DPU3_1_3](https://teaching.lavbic.net/plantuml/png/VLD1Rjim4Bph5OHxYGyEa005YXu2o55h-E88LdNHRIqoiYoP52ZAATpsCVr8R_bNbwGiYxIGYs7kpCxE3gcsAda34eva1tbLID5ncejQIA8ay1OXnbNG3YpANg6hrG_sKuLrMV0ZmYJ77oP7hAvbERIC_0h8IFVPwBxjIyLqNKZAfArz-lnz-UNRCrP1Il5cYxiQEuC_8rd8bP3BKP-b-8J9WO71o6p392lALiaIzoDT8oJiU5dDI9YGJNfXfQs2-i1uIPgwAmoOnXSmqT5KOAh9K8IZQ9KuZ5kIeIKM55GbJXmmZxDjZPT185ckW1SrGm4qnOwa4HGzCIto_e_nGpSpAVOw6TICueZMa8rCbY1y2NmMQHCDeOBW1lm0WuwT6KNeQKJVsYmWBv5gzsA6k7LKOudugRSz1i9AbIVRhRUsZD2XH0ocI953Ug4K43x3Nh5JfVyCngsVbonp6jRd7LuWuL2BWdbBhZUnPvwA7Rw14uPxXfs-LrO0ALXRzol5AwT1j5NN4ddDndg8jmykJKbgP2UOZvwWk5Xu_wj0AbxkzKEmv6GvBNj7sNp8hXUEGlUsTMoOqP2SpJQRYCfXhBDfcU5xw8LIrrcVdZ3P2UjeXPzeaCPaqJMBtq_wpMzIig3YZI-Uo9r-S7EdiatcXduvn-unzCwHTyRBzVhZrJn8_8c9Cs1qqW_9XKs_QoZn1oR-GBq6kTUbUrtQFip9LrBolEuekm4VRy11BCCqSA9Nm116_L7ez4SVWMQzAnnb3gftkO9h5zHxZOHNBgWtl4QmrAxrNXEbw_3KaSW-2iNiuOQWlRloJiLmz0fU5jTbRzXw9y_mokNy1m00)
 
-#### 3.1.5 Funkcionalne zahteve, nefunkcionalne
