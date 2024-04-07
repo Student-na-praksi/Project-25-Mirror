@@ -1,5 +1,5 @@
 body {
-    background-color: skyblue;
+    background-color: rgb(209, 241, 255);
     color: white;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@ body {
     display: flex;
     text-align: right;
     justify-content: flex-end; 
-    color: rgb(27, 37, 185); 
+    color: rgb(224, 165, 96); 
     max-width: 30ch; 
     overflow-wrap: break-word; 
     word-wrap: break-word; 
@@ -56,6 +56,7 @@ button {
 }
 
 h2 {
+    color: black;
     text-align: center;
 }
 
