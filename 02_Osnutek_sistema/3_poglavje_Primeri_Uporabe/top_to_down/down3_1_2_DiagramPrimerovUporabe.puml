@@ -1,0 +1,97 @@
+@startuml
+skinparam backgroundcolor transparent
+skinparam defaultTextAlignment center
+skinparam usecase {
+  backgroundColor white
+  borderColor #5FB8EC
+  arrowColor black
+}
+skinparam actorBorderColor black
+skinparam actorBackgroundColor white
+
+actor "Ustaljeni plug" AS UP
+actor "Samostojni plug" AS SP
+actor "Podatkovna baza" AS PB
+
+rectangle "Sistem podpore pluženju" {
+  actor "Zaledni sistem" AS ZS
+  usecase "Deaktivacija pluga" AS DP
+  usecase "Prijava" AS P
+  usecase "Posodobitev pozabljenjega gesla" AS PPG
+  usecase "Izbira naloge pluženja" AS INP
+  usecase "Registracija Stranke" AS RS
+  usecase "Aktivacija pluga" AS AP
+  usecase "Oddaja zahtevka za pluženje" AS OZZP
+  usecase "Poskus registracije" AS PR1
+  usecase "Potrditev registracije" AS PR2
+  usecase "Potrditev (de)aktivacije" AS PDA
+  usecase "Dodajanje zahtevka" AS DZ
+  usecase "Izbira zahtevka" AS IZ
+  usecase "Dodajanje uporabnika" AS DU
+  usecase "Pozabljeno geslo" AS PG
+
+  DP -[hidden]- P
+  P -[hidden]- PPG
+  PPG -[hidden]- INP
+  INP -[hidden]- RS
+  RS -[hidden]- AP
+  AP -[hidden]- OZZP
+  OZZP -[hidden]- PR1
+  PR1 -[hidden]- PR2
+  PR2 -[hidden]- PDA
+  PDA -[hidden]- DZ
+  DZ -[hidden]- IZ
+  IZ -[hidden]- DU
+  DU -[hidden]- PG
+}
+
+UP -up-|> SP
+UP -right-> (P)
+UP -right-> (AP)
+UP -right-> (DP)
+UP --> (DP)
+UP -right-> (INP)
+UP -right-> (PPG)
+
+SP -right-> (P)
+SP -right-> (INP)
+SP -right-> (PPG)
+
+(RS) .right.> (PR1) : include
+(RS) .right.> (PR2) : include
+(RS) -right-> (ZS)
+
+(P) -right-> (ZS)
+
+(AP) .right.> (PDA) : include
+
+(DP) .right.> (PDA) : include
+
+(OZZP) .right.> (DZ) : include
+
+(INP) .right.> (IZ) : include
+
+(PPG) .right.> (PG) : include
+
+(PR1) -[hidden]-> (PB)
+(PR1) -right-> (PB)
+
+(PR2) -[hidden]-> (PB)
+(PR2) -right-> (PB)
+(PR2) .right.> (DU) : include
+(ZS) .right.> (PR2) : include
+
+(PDA) -right-> (ZS)
+
+(DZ) -r[hidden]> (PB)
+(DZ) -right-> (PB) 
+(DZ) -right-> (ZS)
+
+(IZ) .right.> (PDA) :include
+(IZ) -right-> (ZS)
+
+(PG) -r[hidden]> (PB)
+(PG) -right-> (PB)
+(PG) -right-> (ZS)
+
+@enduml

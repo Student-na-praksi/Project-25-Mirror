@@ -9,57 +9,29 @@ skinparam usecase {
 skinparam actorBorderColor black
 skinparam actorBackgroundColor white
 
-' left to right direction
-
-' scale 0.8
-' scale 20000 width
-' scale max 10024 width
-
-
-
-
-' actor "Neregistriran uporabnik" AS NU
-' actor "Ustaljeni plug" AS UP
-' actor "Stranka" AS S
-' actor "Samostojni plug" AS SP
 together {
 actor "Admin" AS A
 actor "Manager pluženja" AS MP
 }
 actor "Podatkovna baza" AS PB
 
-
 rectangle "Sistem podpore pluženju" {
   actor "Zaledni sistem" AS ZS
   usecase "Dostop do stanja pluženja" AS DDSP
-  ' usecase "Registracija Stranke" AS RS
   usecase "Prijava" AS P
   usecase "Kontaktiranje pluga" AS KP
   usecase "Urejanje števila plugov in štartnih baz" AS USPISP
-  ' usecase "Aktivacija pluga" AS AP
-  ' usecase "Deaktivacija pluga" AS DP
-  ' usecase "Oddaja zahtevka za pluženje" AS OZZP
-  ' usecase "Izbira naloge pluženja" AS INP
   usecase "Usmeritev Samostojnega pluga" AS USP
   usecase "Registracija osebja" AS RO
   usecase "Pridobitev pozabljenega gesla" AS PPG
-  ' usecase "Poskus registracije" AS PR1
-  ' usecase "Potrditev registracije" AS PR2
   usecase "Posodobitev štartnih baz" AS PSB
   usecase "Potrditev (de)aktivacije" AS PDA
-  ' usecase "Dodajanje zahtevka" AS DZ
   usecase "Izbira zahtevka" AS IZ
   usecase "Dodajanje uporabnika" AS DU
   usecase "Pozabljeno geslo" AS PG
 }
 
-' razsirjanji
 A -up-|> MP
-' UP -up-|> SP
-
-' NU -down-> (DDSP)
-' NU -down-> (RS)
-
 A -down-> (DDSP)
 A -down-> (P)
 A -down-> (KP)
@@ -68,104 +40,21 @@ A -down-> (USP)
 A -down-> (RO)
 A -down-> (PPG)
 
-' UP -down-> (P)
-' UP -down-> (AP)
-' UP -down-> (DP)
-' UP -down-> (INP)
-' UP -down-> (PPG)
-
-' S -down-> (DDSP)
-' S -down-> (P)
-' S -down-> (OZZP)
-' S -down-> (PPG)
-
-' SP -down-> (P)
-' SP -down-> (INP)
-' SP -down-> (PPG)
-
 MP -down-> (DDSP)
 MP -down-> (P)
 MP -down-> (KP)
 MP -down-> (USP)
 MP -down-> (PPG)
 
-
-
-
-' (RS) .down.> (PR1) : include
-' (RS) .down.> (PR2) : include
-' (RS) -down-> (ZS)
-
 (P) -down-> (ZS)
-
 (USPISP) .down.> (PSB) : include
-
-' (AP) .down.> (PDA) : include
-
-' (DP) .down.> (PDA) : include
-
-' (OZZP) .down.> (DZ) : include
-
-' (INP) .down.> (IZ) : include
-
 (USP) .down.> (IZ) : include
-
 (RO) .down.> (DU) : include
-
 (PPG) .down.> (PG) : include
-
-
-
-
-
-
-
-
-
-
-
-
-' (PR1) -down-> (PB)
-
-' (PR2) -down-> (PB)
-' (PR2) .down.> (DU) : include
-' (ZS) .down.> (PR2) : include
-
 (PSB) -down-> (PB)
-
-' (PDA) -down-> (ZS)
-
-' (DZ) -down-> (PB)
-' (DZ) -down-> (ZS)
-
 (IZ) .down.> (PDA) :include
 (IZ) -down-> (ZS)
-
 (DU) -down-> (PB)
-
 (PG) -down-> (PB)
 (PG) -down-> (ZS)
-
-
-
-' U1 -> (PU1)
-' U2 --> (PU2)
-' (PU4) -down-> S1
-
-' (PU3) .up.> (PU1) : extend
-' (PU5) ..> (PU4) : include
-' (PU5) -down-|> (PU2)
-
-
-
-
-
-
-
-
-
-
-
-
-
 @enduml

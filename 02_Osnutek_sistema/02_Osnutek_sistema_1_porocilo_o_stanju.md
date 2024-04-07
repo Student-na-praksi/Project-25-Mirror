@@ -1,3 +1,47 @@
+# :orange_square: Osnutek sistema (1. poročilo o stanju)
+
+| [:arrow_backward:](01_Predlog_projekta.md) Prejšnji dokument |                       Trenutni dokument                       | Naslednji dokument [:arrow_forward:](03_Izvedljiv_sistem_2_porocilo_o_stanju.md) |
+| :----------------------------------------------------------- | :-----------------------------------------------------------: | -------------------------------------------------------------------------------: |
+| :yellow_square: **Predlog projekta**                         | :orange_square: **Osnutek sistema**<br>(1. poročilo o stanju) |                    :green_square: **Izvedljiv sistem**<br>(2. poročilo o stanju) |
+
+![Terminski načrt](https://teaching.lavbic.net/plantuml/svg/hPVRRjiu48Rl-HH4U-6i0RiHPJlk8WYAde2Y2xHOx5MDNamisg4bam99gniNVOGynBvBzhrsA2jAP547Tula8fcG_p-7JoFdbR6WxHgajVJPNrnlXJIne1BkxxHzHiYbiRS9loBvYRS2rXgsz3kXr8ejJuJa-I-K_e4_lb69qlJvYhclFFfUINk8uhrR3FrmDy74nQtNi8pNMkraLDpbyzLq5HqhJj-_dhzxKrm7hTMtkclbp5Oat5XLPlSpFij46Hur2NYBJCJwnfQL_Y2NBuhk4UofJC7rxlf8oMgG1l_4fIM36n5nkbBANgk_IG9olOCrfoOXgHRIcYKad7xZF4vkKHBiJaTmYmtXHRB4e6mrmixPP7IEtm4LvZZ8Bch1gUya1jcJ81aSmk4ecETXLmYsIaZwF3hdiBf-j6qwC2YLPrqdYYph9yXdhJPyQMdEiA672smKl2HaSPbV-BqSoTKNH9fR7bEnps03SWCqHS4jjq3FWfTZDlxjyaL-wUehlO4qvT9Gi4zL1uisaS8nD-ifw4bpEFomJrKYDpn3UKwpLCE__q0YHGp3eIj_E4orMeb4Q7S0OsS1jJpYyeaT6Bfu6tob2HXip9GY5GRJ_mdnQbNzZ7nL_Gdx21U6vHdDg8btAJvs3vPYVur-sDEzoA2b85RneI2ZXz5ZMrqQ0qEvZF92J_7hKsDVRp8QqM1CqLZ3KY0Vev5_p9-HcqIjaH-4EBPvtQ7pbkBOEtpm3WuDhhapvvu7yjezqfKIVu5DlQ9FKGJ5uu3UK9hZDEVZiFLPS8i44szKgCwdbvhl-L-h31TkJRxQXIz7CDUQ43vIrYXvgfI3XXr3C_1Hyyd8dTi_HXZBjstGJCjfJZhS5pxPFi3qjnWqyeBFIggqkhyJ2L3bRilDZfxDnvFM8RjN2rcqQbGgwAKtQAR6Qt543kiOzxHiUAlggMeEdh3Fnlcmpv3JZSYACJju9lx9pih9pZlS3o-Lcd2b-V_Rf94UvgTdDfwsJjjzx7XSEAmRdrw2pVIm7lI47VEUrVSEQy6djvp3Pz87duzAtjz9zzfqNMlPF07hUf7Cdj9Jq-spUaxmQ8Gdpesvszjb5y_OHUUesSKZEpwDIlxzz9hHyHWSWJFfc7J0wkHuL4zMyoIDe-HBxmViCEXiGnXWWeqALIXwgP5Nc6R-Z-j_ "Terminski načrt")
+
+Namen 1. poročila o stanju je dvojni:
+
+- ohraniti zagon projekta in
+- zagotoviti funkcionalne zahteve v obliki uporabniških zgodb.
+
+Ustrezno zajeta množica primerov uporabe zagotavlja pregled nad sistemom. Pri tem uporabniški cilji zagotavljajo pregled, osnovni tokovi pa opisujejo želeno funkcionalnost.
+
+1. poročilo o stanju uvaja odstavek z refleksijo, kjer ekipe analizirajo kaj je šlo dobro in kaj ne. Ekipe se čez semester pogosto izboljšajo pri spremljanju procesov in komunikaciji.
+
+> **Opomba**: Izogibajte se podvajanju informacij.
+
+Za izdelavo diagramov uporabite orodje [**PlantUML**](https://plantuml.com/) in v poročilo vključite izvorno kodo diagrama v jeziku PlantUML (v mapi [`gradivo`](gradivo)), sliko diagrama pa vključite s povezavo (in ne preko neposredne vključitve binarne datoteke) preko storitve <https://teaching.lavbic.net/plantuml>, kot prikazujejo primeri vključenih diagram v tej predlogi poročila.
+
+## :page_with_curl: Naslov projekta
+
+## :information_desk_person: Ime ekipe: Člani ekipe
+
+## 1 Uvod
+
+### 1.2 Poudarki
+
+- Kakšen je bil načrt za to iteracijo?
+  - Kaj je ekipa dosegla?
+
+### 1.3 Spremembe
+
+- Povzemite vse večje spremembe predloga projekta.
+- Vključite datum, motivacijo, opis in posledice vsake spremembe.
+- Če sprememb ni bilo, samo navedite, da jih ni bilo.
+
+## 2 Potrebe naročnika
+
+- Na kratko opišite želeno splošno izkušnjo naročnika.
+
+## 3 Cilji projekta
+
 ## 3 Cilji projekta
 
 - Povzamite naročnikove težave, ki jih projekt naslavlja.
@@ -479,6 +523,56 @@ V tabeli. Vsak primer uporabe vsaj en sprejemni test.
 
 
 #### 3.1.4 Diagram primerov uporabe
+PRVI GRAF
 
+ ![DPU3_1_1](https://teaching.lavbic.net/plantuml/png/VPB1Zfim48RlF8MLNZQ7xArIrSDAiBHH54MBGhdaDk1P0Y4siarIfUt3z4Lws_Vgs904irKlKVpFD__yOwCFbMX1mP7bK1nA9Jl12zb8nOm2eQc4mWJwHd5yXQunt_2x2Pkg54Sgiu9-K8seJcC16jcFW8rydvtlULyPjBfK75MlVVZuDVhqvPbKK4gUUp5lg3FuDRA5maWLZVfwP0hySs1WP8bcZuf2EOpDGdwin8o5AGklqWO4bCIqJVVs1qKDhhn9ACP099A3ESYJ0DhiqjUJA0WK5WP4sI2RfPKsU6IjvArKUFFgPku-1fyTDCX5nRI3dSqkfVBrwcQnr4QsZ4kcoRY6IQOuJfCndgYgXjEGPrnOIs7WO2fwpjg5ANjexL6Pmje1RxyDdgh6ZIlbYLN2Ig2CgFPsOzURfSdA7v_f8ogwvnDBuMYJrm9B68tBV7wB9IskeA3KJ6hCXxMsBvEbkCoTRIila3SrEjiITJEicYoz1gdbjUDzx2IDVDWexj07ZdDxHoUR1tis3iViwfBJ3R8Bx8a_zBDNE_-zEFHNsD6pGowg0OipV-YmXtHRo7xOaZwm86IBhbtyVBBV6_tdyYmMJ-p1llHyBFYdjN_idsOgUUVjYs-NBET1i4cc4yVAvBYUdBDtlFEajhkqI-V1DHrxjEgZ1TDepZxJLrOq7KS7ZAghdLUauFTQd7arEt5ak_IBTiezN4H9hFKTZqFYRxYj-RdjCB_VJlYFGbr_0G00)
+
+DRUGI GRAF
+
+![DPU3_1_2](https://teaching.lavbic.net/plantuml/png/VLJ1Zjem4BtdAonwWGChBLAbgeULmgP5kNGZKYwfUXXYDuG46paEMz7srthhVtLiXs0dqLuCUU_vpSoRG5EL_0mIJcGFULL8qNAQYrf8eYJm1Yd6LT3qAif-G5khh-od2kkou2UaIOu7auwgRLWE3IE_0kBuFXlVrqEfcCQ5f4nQxDtxp-iFdvuH1Id5gmNtDTuC_ZYsa2iXryuzAnaA9Wi6XYEpNQEWFZ9UadFT5ZCIfcINtCWKJg9HukYoQSycWeAgn8K33dK5moRh890iLy2Bcg51sIXs8cT1pq8oRVBlB-F7TcQYw7mog1d54eqH6viiHVgMsYnYKAdo0dbv1DE8hHKbhYYHo5wwBZn2D8AAFGvzmKQkiDVZ7ba1f61DtLr8DkwL-Bel9H0EjIZkNLjf_CLptx82svQsjrI_91KpkgqtGZWrGEWvlL0AI5_XW9rM-ajVsJg-PDbmiAfjYBntO7N9zj6NAKdDz1FArRHoJjcYpxpJHg6t4w6xnTRwXkrEieaSFKMSJTkq-8R0dfStevtVMRStOPOcR4UR03LHGfRV3YMbZ7zVcitxWDaidYveTuYd2vg5RLCNCWiAFLMt1FtXbJ6Pu-c3AmEkFD3aYASBcjYYpEjHGx47cKoYdUUsmN-4O8UzjEVbxoVzwzGFiYmEQlb4vid2Vmw7GDG1xlUUn8G620Qv289qK28TNKh7b-RRT44U3FYWmUtZWdma9S_hbh8nkngnTyCirNx96CBnN9CeT4q2FU1Rj5wgAuWodzUJENGyeFMOhlrcGEk1xwlJYlNY1j-pMflHzFXJsjLGQp6dvvsNM_PMge6DO1YY7difRyLlTIpgb2P3pDxMgGmpxjk99oxedCRbBEfFkXbU_Wy0)
+
+TRETJI GRAF
+
+![DPU3_1_3](https://teaching.lavbic.net/plantuml/png/VLD1Rjim4Bph5OHxYGyEa005YXu2o55h-E88LdNHRIqoiYoP52ZAATpsCVr8R_bNbwGiYxIGYs7kpCxE3gcsAda34eva1tbLID5ncejQIA8ay1OXnbNG3YpANg6hrG_sKuLrMV0ZmYJ77oP7hAvbERIC_0h8IFVPwBxjIyLqNKZAfArz-lnz-UNRCrP1Il5cYxiQEuC_8rd8bP3BKP-b-8J9WO71o6p392lALiaIzoDT8oJiU5dDI9YGJNfXfQs2-i1uIPgwAmoOnXSmqT5KOAh9K8IZQ9KuZ5kIeIKM55GbJXmmZxDjZPT185ckW1SrGm4qnOwa4HGzCIto_e_nGpSpAVOw6TICueZMa8rCbY1y2NmMQHCDeOBW1lm0WuwT6KNeQKJVsYmWBv5gzsA6k7LKOudugRSz1i9AbIVRhRUsZD2XH0ocI953Ug4K43x3Nh5JfVyCngsVbonp6jRd7LuWuL2BWdbBhZUnPvwA7Rw14uPxXfs-LrO0ALXRzol5AwT1j5NN4ddDndg8jmykJKbgP2UOZvwWk5Xu_wj0AbxkzKEmv6GvBNj7sNp8hXUEGlUsTMoOqP2SpJQRYCfXhBDfcU5xw8LIrrcVdZ3P2UjeXPzeaCPaqJMBtq_wpMzIig3YZI-Uo9r-S7EdiatcXduvn-unzCwHTyRBzVhZrJn8_8c9Cs1qqW_9XKs_QoZn1oR-GBq6kTUbUrtQFip9LrBolEuekm4VRy11BCCqSA9Nm116_L7ez4SVWMQzAnnb3gftkO9h5zHxZOHNBgWtl4QmrAxrNXEbw_3KaSW-2iNiuOQWlRloJiLmz0fU5jTbRzXw9y_mokNy1m00)
 
 #### 3.1.5 Funkcionalne zahteve, nefunkcionalne
+
+
+## 4 Opis sistema
+
+- Predstavite sistem in glavne izzive.
+
+## 5 Trenutno stanje
+
+- Kakšni dodatni cilji te iteracije, poleg tega, kar je že navedeno v [uvodu](#1-uvod)?
+  - Kaj deluje? Vključite posnetke zaslona.
+  - Kakšni izzivi?
+  - Uporabite blokovni diagram za razlago trenutnega sistema.
+- Katere teste ste izvedli?
+- Koliko vrstic kode ste napisali (skupno do tega trenutka)?
+
+## 6 Vodenje projekta
+
+_Nadaljujte z vzdrževanjem **dnevnika sprememb**. Dodaje vse nove spremembe v projektu, kjer vključite datum, opis, motivacijo in posledico vsake spremembe._
+
+- Prikažite dnevnik sprememb do tega trenutka.
+  - Kakšni so cilji za naslednjo iteracijo?
+  - Kakšen je načrt za preostanek semestra?
+
+### 6.2 Projektni načrt
+
+- Posodobljen Ganttov diagram in graf PERT.
+
+## 7 Ekipa
+
+- Kakšne so bile vloge v ekipi za to iteracijo?
+  - Kaj je prispeval vsak član ekipe?
+  - Navedite grobo oceno prispevka posameznega člana ekipe v odstotkih.
+
+## 9 Refleksija
+
+- Kaj je šlo po pričakovanjih?
+  - Kaj ni šlo po pričakovanjih?
+  - Kakšne težave so se pojavile pri ciljih, ki jih niste dosegli?
+  - Kako nameravate premagati te težave?
+  - Kaj boste naredili drugače v naslednji iteraciji?
