@@ -1,0 +1,82 @@
+@startuml
+skinparam backgroundColor transparent
+left to right direction
+
+scale 0.8
+
+<style>
+stateDiagram {
+  arrow {
+    LineColor black
+  }
+}
+</style>
+
+skinparam State {
+  BackgroundColor #e8f5fd
+  BorderColor #5FB8EC
+}
+
+skinparam defaultTextAlignment center
+'skinparam dpi 20'
+
+state "<color:Blue>2. iteracija</color>" as ITER2 #ffe6e6;line:Blue
+state "<color:Coral>Izvedba okrnjenega algoritma planiranja s pomočjo PyVRP</color>\nES: 22\nEF: 32\nLS: 22\nLF: 32" as PYVRP #ffe6e6;line:Coral
+state "<color:Coral>Začetni razvoj lastnega algoritma organizacije pluženja na podlagi hevristik</color>\nES: 32\nEF: 34\nLS: 32\nLF: 34" as CUSTOM_ALGOITHM_IT2 #ffe6e6;line:Coral
+state "<color:Green>Izdelava simulacije naključnega nabora voženj po mestu color>\nES: 22\nEF: 30\nLS: 22\nLF: 30" as SIMULATION #e8f5fd;line:Green
+state "<color:Green>Obdelava .shp datotek kot predpriprava za izvajanje algoritma</color>\nES: 22\nEF: 23\nLS: 22\nLF: 23" as SHP_FILES_PREP #e8f5fd;line:Green
+state "<color:Green>Home page UI: vsebuje zemljevid stanja cest, login</color>\nES: 22\nEF: 24\nLS: 22\nLF: 24" as HOME_PAGE #e8f5fd;line:Green
+state "<color:Green>Avtentikacija Admin-a in Ustaljenih Plugov</color>\nES: 24\nEF: 25\nLS: 24\nLF: 25" as AUTHENTICATION #e8f5fd;line:Green
+state "<color:Green>Admin UI - lokacije plugov, št plogov v bazah...</color>\nES: 25\nEF: 29\nLS: 25\nLF: 29" as ADMIN_UI #e8f5fd;line:Green
+state "<color:Green>Ustaljeni Plug GPS sharing - vsi aktivni Ustaljeni plugi delijo svojo lokacijo z Adminom.</color>\nES: 29\nEF: 32\nLS: 29\nLF: 32" as GPS_SHARING #e8f5fd;line:Green
+state "<color:Green>Ustaljeni Plug UI - navodila za pot glede na trenutno lok., možnost deaktivacije/pavze</color>\nES: 29\nEF: 32\nLS: 29\nLF: 32" as PLUG_UI #e8f5fd;line:Green
+state "<color:Green>Testiranje enot\nES: 34\nEF: 36\nLS: 34\nLF: 36" as UNIT_TEST #b3ffb3;line:Green
+state "<color:Aqua>Izdelava dokumentacije\nES: 36\nEF: 37\nLS: 36\nLF: 37" as CODE_DOCUMENTATION_IT2 #ffa366;line:Aqua
+state "<color:Green>Preurejanje programske kode (refactoring).\nES: 34\nEF: 36\nLS: 34\nLF: 36" as REFACTORING #b3ffb3;line:Green
+state "<color:Green>Planiranje naslednje iteracije\nES: 37\nEF: 47\nLS: 37\nLF: 47" as PLAN_IT3 #e8f5fd;line:Green
+state "<color:Red>Izvedba retrospektive iteracije\nES: 47\nEF: 48\nLS: 47\nLF: 48" as RETROSPEKTIVA_IT2 #ffe6e6;line:Red
+state "<color:Blue>3. iteracija</color>" as ITER3 #ffe6e6;line:Blue
+state "<color:Green>Vključitev kmetov v pluženje z VOC in Zelenice\nES: 48\nEF: 52\nLS: 48\nLF: 52" as FARMERS #e8f5fd;line:Green
+state "<color:Coral>Razvoj svojega algoritma organizacije pluženja\nES: 52\nEF: 66\nLS: 52\nLF: 66" as CUSTOM_ALGO #e8f5fd;line:Coral
+state "<color:Green>Ročno testiranje sistema kot celote\nES: 66\nEF: 70\nLS: 66\nLF: 70" as SYSTEM_TEST #b3ffb3;line:Green
+state "<color:Aqua>Izdelava dokumentacije sistema kot celote\nES: 70\nEF: 71\nLS: 70\nLF: 71" as SYSTEM_DOC #ffa366;line:Aqua
+state "<color:Blue>4. iteracija</color>" as ITER4 #ffe6e6;line:Blue
+state "<color:Green>Pregled uporabniške dokumentacije\nES: 71\nEF: 72\nLS: 71\nLF: 72" as USER_DOC #b3ffb3;line:Green
+state "<color:Green>Pregled kodo sistema\nES: 71\nEF: 74\nLS: 71\nLF: 74" as CODE_REVIEW #b3ffb3;line:Green
+state "<color:Aqua>Izdelava in priprava za oddajo seminarske naloge\nES: 74\nEF: 75\nLS: 74\nLF: 75" as SEMINAR_PAPER #ffa366;line:Aqua
+
+ITER2 --> PYVRP
+SHP_FILES_PREP --> CUSTOM_ALGOITHM_IT2
+SHP_FILES_PREP --> SIMULATION
+ITER2 --> SHP_FILES_PREP
+ITER2 --> HOME_PAGE
+ITER2 --> AUTHENTICATION
+AUTHENTICATION --> ADMIN_UI
+ADMIN_UI --> GPS_SHARING
+ADMIN_UI --> PLUG_UI
+PYVRP --> CUSTOM_ALGOITHM_IT2
+CUSTOM_ALGOITHM_IT2 --> UNIT_TEST
+SIMULATION --> UNIT_TEST
+SHP_FILES_PREP --> UNIT_TEST
+HOME_PAGE --> UNIT_TEST
+AUTHENTICATION --> UNIT_TEST
+GPS_SHARING --> UNIT_TEST
+PLUG_UI --> UNIT_TEST
+UNIT_TEST --> REFACTORING
+REFACTORING --> PLAN_IT3
+REFACTORING --> RETROSPEKTIVA_IT2
+REFACTORING --> CODE_DOCUMENTATION_IT2
+PLAN_IT3 --> ITER3
+ITER3 --> FARMERS
+ITER3 --> CUSTOM_ALGO
+ITER3 --> SYSTEM_TEST
+CUSTOM_ALGO --> SYSTEM_TEST
+SYSTEM_TEST --> SYSTEM_DOC
+SYSTEM_DOC --> ITER4
+ITER4 --> USER_DOC
+ITER4 --> CODE_REVIEW
+ITER4 --> SEMINAR_PAPER
+CODE_REVIEW --> SEMINAR_PAPER
+USER_DOC --> SEMINAR_PAPER
+@enduml
+ 
