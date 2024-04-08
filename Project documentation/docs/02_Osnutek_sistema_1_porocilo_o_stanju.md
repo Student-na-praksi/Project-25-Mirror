@@ -27,8 +27,8 @@ Sistem mora vsakemu od deležnikov biti preprost za uporabo, brez nepotrebnih fu
 
 ## 3 Cilji projekta
 
-- Povzamite naročnikove težave, ki jih projekt naslavlja.
-- Kakšne koristi bo prinesel projekt?
+Projekt bo samodejno organiziral pluženje po približku optimalnega načrta plužnih poti. Poti bo spremenil ob sprotnem dodajanju in odvemanju plugov, kar naročniku omogoča večjo prilagodljivost. Na ta način bo zmanjšal stroške goriva dela, ter občanom izboljšal izkušnjo s prometom na dni sneženja.
+Z delom aplikacije, ki samostojnim plugom omogoča povezovanje s pravnimi in fizičnimi osebami za pluženje parkirišč in dvorišč, bomo izboljšali kaotično stanje, ki nastane ob novozapadlem snegu. Tako bo delo lažje organizirano in razporejeno, saj se ne bo vsako podjetje potrebovalo dogovarjati z določenim opravljalcem plužnih storitev, da to poskrbi za njih. Prav tako lahko pomaga šibkejšim članom družbe, naprimer starejšim, ki svojih dvorišč ne morejo očistiti sami, kar povzroča tudi poledico in nevarnost poškodbe zaradi padca.
 
 ### 3.1 Primeri uporabe
 
@@ -484,12 +484,6 @@ Alternativni tokovi:
 
 
 
-
-
-
-
-
-
 #### 3.1.3 Sprejemni testi
 ![Sprejemni testi 1](gradivo/img/Strategije1.PNG)
 ![Sprejemni testi 2](gradivo/img/Strategije2.PNG)
@@ -509,6 +503,16 @@ DRUGI GRAF
 TRETJI GRAF
 
 ![DPU3_1_3](https://teaching.lavbic.net/plantuml/png/VLD1Rjim4Bph5OHxYGyEa005YXu2o55h-E88LdNHRIqoiYoP52ZAATpsCVr8R_bNbwGiYxIGYs7kpCxE3gcsAda34eva1tbLID5ncejQIA8ay1OXnbNG3YpANg6hrG_sKuLrMV0ZmYJ77oP7hAvbERIC_0h8IFVPwBxjIyLqNKZAfArz-lnz-UNRCrP1Il5cYxiQEuC_8rd8bP3BKP-b-8J9WO71o6p392lALiaIzoDT8oJiU5dDI9YGJNfXfQs2-i1uIPgwAmoOnXSmqT5KOAh9K8IZQ9KuZ5kIeIKM55GbJXmmZxDjZPT185ckW1SrGm4qnOwa4HGzCIto_e_nGpSpAVOw6TICueZMa8rCbY1y2NmMQHCDeOBW1lm0WuwT6KNeQKJVsYmWBv5gzsA6k7LKOudugRSz1i9AbIVRhRUsZD2XH0ocI953Ug4K43x3Nh5JfVyCngsVbonp6jRd7LuWuL2BWdbBhZUnPvwA7Rw14uPxXfs-LrO0ALXRzol5AwT1j5NN4ddDndg8jmykJKbgP2UOZvwWk5Xu_wj0AbxkzKEmv6GvBNj7sNp8hXUEGlUsTMoOqP2SpJQRYCfXhBDfcU5xw8LIrrcVdZ3P2UjeXPzeaCPaqJMBtq_wpMzIig3YZI-Uo9r-S7EdiatcXduvn-unzCwHTyRBzVhZrJn8_8c9Cs1qqW_9XKs_QoZn1oR-GBq6kTUbUrtQFip9LrBolEuekm4VRy11BCCqSA9Nm116_L7ez4SVWMQzAnnb3gftkO9h5zHxZOHNBgWtl4QmrAxrNXEbw_3KaSW-2iNiuOQWlRloJiLmz0fU5jTbRzXw9y_mokNy1m00)
+
+
+
+#### 3.1.5 Nefunkcionalne zahteve
+
+Sistem mora delovati za simultano organizacijo do 100 plugov.
+Plug pa je avtomatsko voden v smeri njemu začrtanega pluženja. Posodabljanje informacij se dogaja v realnem času, torej se za potrebe pluženja mora posodobiti v največ eni minuti od zadnje spremembe stanja plugov na cestah in sprememb informacij o štartnih bazah.
+Zemljevid stanja na cestah je na voljo tudi neregistriranim uporabnikom in prikazuje stanje za največ 5 minut nazaj.
+V okviru organizacije opravljanja zahtevkov za pluženje moramo v primeru MOC omogočati hranjenje vsaj 30.000 zahtevkov naenkrat.
+Omogočati moramo registriranost za vsaj 70.000 strank, ter hkratno prijavljenost za vsaj 5000 strank.
 
 ## 4 Opis sistema
 
