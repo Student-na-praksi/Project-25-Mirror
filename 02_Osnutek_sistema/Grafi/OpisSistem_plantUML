@@ -1,0 +1,78 @@
+@startuml
+skinparam componentStyle uml2
+
+actor "Neregistriran uporabnik" as UNREGS
+actor "Stranka" as S
+actor "Plug" as UP
+actor "Manager" as M
+actor "Admin" as A
+actor "Samostojni plug" as SP
+
+
+database "Vremenski podatki\n(Vremenska postaja Celje)" {
+    [vremenski podatki]
+}
+
+package "Snow Plow Route Optimization System" {
+
+  package "UI" {
+    [Home Page]
+    [Login]
+    [Stranka UI]
+    [Manager UI]
+    [Plug UI]
+    [Admin UI]
+    [Register]
+  }
+
+    database "SystemDB" {
+    [Users]
+    [VOC]
+    [Zelenice]
+    [MOC map]
+  }
+  
+  A --> [Home Page]
+  UNREGS --> [Home Page]
+  UP --> [Home Page]
+  SP --> [Home Page]
+  M --> [Home Page]
+  S ..> [Home Page]
+
+  'MUST HAVE'
+  [Home Page] --> [Register]
+  [Home Page] --> [Login]
+
+  [Login] --> [Plug UI] : voznik pluga
+  [Login] ..> [Manager UI] : manager
+  [Login] --> [Admin UI] : administrator sistema
+  [Login] ..> [Stranka UI] : naročnik sotritev
+  [Login] <-> [Users]
+  [Register] --> [Users]
+
+  (PlowNavigation algorithm) <--  (SnowOnRoads Service)  
+  [Plug UI] ..> (PlowNavigation algorithm) : lokacija
+  [Plug UI] <-- (PlowNavigation algorithm) : pot
+  [Admin UI] --> (PlowNavigation algorithm)
+  [Admin UI] -> [Users]
+  [Manager UI] --> (PlowNavigation algorithm) : parametri
+  [MOC map] -up-> (SnowOnRoads Service)
+  [Home Page] <-- (SnowOnRoads Service) : zemljevid \n trenutnega stanja
+  [Zelenice] -up-> (PlowNavigation algorithm)
+  [VOC] -up-> (PlowNavigation algorithm)
+  (SnowOnRoads Service) <-- (filter data + ARSO API)
+  (filter data + ARSO API) <-- [vremenski podatki]
+  
+  
+  'SHOULD HAVE'
+  [Manager UI] ..> (Plowing Orders)
+  [Stranka UI] ..> (Plowing Orders)
+  (Plowing Orders) ..> (PlowNavigation algorithm) : odobreno naročilo
+
+  'COULD HAVE - kmetje kot dodatni vozniki
+  [Home Page] <.. (TimeTillPlowArrive Service) : ura
+  [Home Page] ..> (TimeTillPlowArrive Service) : kdaj bo X splužen?
+  (TimeTillPlowArrive Service) <.. (SnowOnRoads Service)
+  (TimeTillPlowArrive Service) <.. (PlowNavigation algorithm)
+}
+@enduml

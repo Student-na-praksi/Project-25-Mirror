@@ -183,7 +183,7 @@ Business value: 4
 Pogostost uporabe: 3
 
 Osnovni tok:
-1. Ustaljeni plug na Ustaljeni plug UI klikne na gumb “Aktivacija”.
+1. Ustaljeni plug na Plug UI klikne na gumb “Aktivacija”.
 2. Sproži se tok dogodkov primera uporabe “Potrditev (de)aktivacije”.
 3. Primer uporabe “Potrditev (de)aktivacije” vrne sporočilo o uspešnosti, ki se uporabniku izpiše.
 4. Gumb “Aktivacija” se spremeni v gumb “Deaktivacija”
@@ -206,7 +206,7 @@ Business value: 4
 Pogostost uporabe: 2
 
 Osnovni tok:
-1. Ustaljeni plug na Ustaljeni plug UI klikne na gumb “Deaktivacija”.
+1. Ustaljeni plug na Plug UI klikne na gumb “Deaktivacija”.
 2. Sproži se tok dogodkov primera uporabe “Potrditev (de)aktivacije”.
 3. Primer uporabe “Potrditev (de)aktivacije” vrne sporočilo o uspešnosti, ki se uporabniku izpiše.
 4. Gumb “Deaktivacija” se spremeni v gumb “Aktivacija”
@@ -497,16 +497,37 @@ Alternativni tokovi:
 
 
 
-#### 3.1.4 Diagram primerov uporabe
+### 3.1.4 Diagram primerov uporabe
+PRVI GRAF
 
+ ![DPU3_1_1](https://teaching.lavbic.net/plantuml/png/VPB1Zfim48RlF8MLNZQ7xArIrSDAiBHH54MBGhdaDk1P0Y4siarIfUt3z4Lws_Vgs904irKlKVpFD__yOwCFbMX1mP7bK1nA9Jl12zb8nOm2eQc4mWJwHd5yXQunt_2x2Pkg54Sgiu9-K8seJcC16jcFW8rydvtlULyPjBfK75MlVVZuDVhqvPbKK4gUUp5lg3FuDRA5maWLZVfwP0hySs1WP8bcZuf2EOpDGdwin8o5AGklqWO4bCIqJVVs1qKDhhn9ACP099A3ESYJ0DhiqjUJA0WK5WP4sI2RfPKsU6IjvArKUFFgPku-1fyTDCX5nRI3dSqkfVBrwcQnr4QsZ4kcoRY6IQOuJfCndgYgXjEGPrnOIs7WO2fwpjg5ANjexL6Pmje1RxyDdgh6ZIlbYLN2Ig2CgFPsOzURfSdA7v_f8ogwvnDBuMYJrm9B68tBV7wB9IskeA3KJ6hCXxMsBvEbkCoTRIila3SrEjiITJEicYoz1gdbjUDzx2IDVDWexj07ZdDxHoUR1tis3iViwfBJ3R8Bx8a_zBDNE_-zEFHNsD6pGowg0OipV-YmXtHRo7xOaZwm86IBhbtyVBBV6_tdyYmMJ-p1llHyBFYdjN_idsOgUUVjYs-NBET1i4cc4yVAvBYUdBDtlFEajhkqI-V1DHrxjEgZ1TDepZxJLrOq7KS7ZAghdLUauFTQd7arEt5ak_IBTiezN4H9hFKTZqFYRxYj-RdjCB_VJlYFGbr_0G00)
 
+DRUGI GRAF
 
+![DPU3_1_2](https://teaching.lavbic.net/plantuml/png/VLJ1Zjem4BtdAonwWGChBLAbgeULmgP5kNGZKYwfUXXYDuG46paEMz7srthhVtLiXs0dqLuCUU_vpSoRG5EL_0mIJcGFULL8qNAQYrf8eYJm1Yd6LT3qAif-G5khh-od2kkou2UaIOu7auwgRLWE3IE_0kBuFXlVrqEfcCQ5f4nQxDtxp-iFdvuH1Id5gmNtDTuC_ZYsa2iXryuzAnaA9Wi6XYEpNQEWFZ9UadFT5ZCIfcINtCWKJg9HukYoQSycWeAgn8K33dK5moRh890iLy2Bcg51sIXs8cT1pq8oRVBlB-F7TcQYw7mog1d54eqH6viiHVgMsYnYKAdo0dbv1DE8hHKbhYYHo5wwBZn2D8AAFGvzmKQkiDVZ7ba1f61DtLr8DkwL-Bel9H0EjIZkNLjf_CLptx82svQsjrI_91KpkgqtGZWrGEWvlL0AI5_XW9rM-ajVsJg-PDbmiAfjYBntO7N9zj6NAKdDz1FArRHoJjcYpxpJHg6t4w6xnTRwXkrEieaSFKMSJTkq-8R0dfStevtVMRStOPOcR4UR03LHGfRV3YMbZ7zVcitxWDaidYveTuYd2vg5RLCNCWiAFLMt1FtXbJ6Pu-c3AmEkFD3aYASBcjYYpEjHGx47cKoYdUUsmN-4O8UzjEVbxoVzwzGFiYmEQlb4vid2Vmw7GDG1xlUUn8G620Qv289qK28TNKh7b-RRT44U3FYWmUtZWdma9S_hbh8nkngnTyCirNx96CBnN9CeT4q2FU1Rj5wgAuWodzUJENGyeFMOhlrcGEk1xwlJYlNY1j-pMflHzFXJsjLGQp6dvvsNM_PMge6DO1YY7difRyLlTIpgb2P3pDxMgGmpxjk99oxedCRbBEfFkXbU_Wy0)
 
+TRETJI GRAF
 
+![DPU3_1_3](https://teaching.lavbic.net/plantuml/png/VLD1Rjim4Bph5OHxYGyEa005YXu2o55h-E88LdNHRIqoiYoP52ZAATpsCVr8R_bNbwGiYxIGYs7kpCxE3gcsAda34eva1tbLID5ncejQIA8ay1OXnbNG3YpANg6hrG_sKuLrMV0ZmYJ77oP7hAvbERIC_0h8IFVPwBxjIyLqNKZAfArz-lnz-UNRCrP1Il5cYxiQEuC_8rd8bP3BKP-b-8J9WO71o6p392lALiaIzoDT8oJiU5dDI9YGJNfXfQs2-i1uIPgwAmoOnXSmqT5KOAh9K8IZQ9KuZ5kIeIKM55GbJXmmZxDjZPT185ckW1SrGm4qnOwa4HGzCIto_e_nGpSpAVOw6TICueZMa8rCbY1y2NmMQHCDeOBW1lm0WuwT6KNeQKJVsYmWBv5gzsA6k7LKOudugRSz1i9AbIVRhRUsZD2XH0ocI953Ug4K43x3Nh5JfVyCngsVbonp6jRd7LuWuL2BWdbBhZUnPvwA7Rw14uPxXfs-LrO0ALXRzol5AwT1j5NN4ddDndg8jmykJKbgP2UOZvwWk5Xu_wj0AbxkzKEmv6GvBNj7sNp8hXUEGlUsTMoOqP2SpJQRYCfXhBDfcU5xw8LIrrcVdZ3P2UjeXPzeaCPaqJMBtq_wpMzIig3YZI-Uo9r-S7EdiatcXduvn-unzCwHTyRBzVhZrJn8_8c9Cs1qqW_9XKs_QoZn1oR-GBq6kTUbUrtQFip9LrBolEuekm4VRy11BCCqSA9Nm116_L7ez4SVWMQzAnnb3gftkO9h5zHxZOHNBgWtl4QmrAxrNXEbw_3KaSW-2iNiuOQWlRloJiLmz0fU5jTbRzXw9y_mokNy1m00)
 
 ## 4 Opis sistema
 
-- Predstavite sistem in glavne izzive.
+![Opis sistema](https://teaching.lavbic.net/plantuml/png/ZLNDRjim3BxxAOXSsc983ZiMmuOiBTO2JMt4JJ1ixO69DK-n9HcoxA4T-WXxfPsszneb_yHndNH144YVI8hy-5794oupr2XWeqIc99CcD8yfWqAaRpqFDqPf6DqopMAU6yqrIYWofN4jUJ82p65vkxZy53QMeI6B1Dr92mPf4LUsGGFDKMBCj4Fd3JYD19SEchRnKAZSgAtaa3LHmi3pl0WDhZ5dC5ff9fZC4x9GX2RyNfus61AM6zmYp5YwPMSZ-Ea1VRwMVQS7xzdpCjmab1PTAzKF25BwMQZ2CF0pmmL_GiELXF0nDqpOK1IhTLbUjy6lb60G4FfGxMzKp6MzhWc2vNKDr4pi0ClMRkSusMqNhWzCs-spvx0T4rLY5n_RH9OvqtdjkV9dzUeBIvdacoQxkJy3WLaL4O2-KnYFt_VAgDeyT10CWE4GE1yoXCba7oFmPBuCx-1gkheyyVReh09qENXnM7FjjRHNS4Cgd4EfdaYxJaxOCNDvT9f1bgBQzMErBI4Jj6ix6MZbcjkyn8kedPwJYqIj_looAUIA9igmicF_pbxGjcrNQdLpVK0dfrQSjrZokD8afh6YMD_56OKOqxbLi2yN2YCQ6APBwlUPQ-wE2flRaJZdaAe4DtoBUrus_56lJ1clAroN-c6FdkrU-Trs78zYxxNF62D6lOweOLnard68ZfvyN663j9t34nFqV9GyWdi9HZDP6CbY17fRPCLFErJDZKSBjiFuFuR3-RXCl_6KXE6c7zx0T17wC0skdTE18-StzF8vNTYv2w_yvSt5RlAw_BTguJ86NqVK8rTALzm7RFhGwyfJaLeJoweU5fugzoxCslHW30arUyiWKGOYMmdzHLIZpVkDdKpWz8uBTiVJrDuwrPgNhDlVGcFFoQLut2c9S0jh1PyXfyVaxsycFzXYZpcvL0veyNN7mqfv_WS0"Opis sistema")
+*P.S. s črtkano črto so označene neobvezne ali pa priporočkjive razširitve sistema
+
+Predstavitev sistema glede na diagram:
+Na zgornjem diagramu je površinsko predstavljen sistem, ki ga želimo implementirati. Sistem lahko razdelimo na “Front-End”, ki je predstavljen v paketu UI, ter “Back-end”, ki obsega 2 glavna modula.
+- SnowOnRoads Service predstavlja podatke, ki na zemljevid mestne občine Celje proecira višino snežne odejo na vsaki izmed cest. Upošteva, kdaj se je nazadnje peljal mimo plug, kjer ob njegovem mimohodu ponastavimo višino snega na 0 cm.
+- Plow navigation algorithm pa je srce našega problema. Na podlagi stanja snega, prestavljenega z zgoraj opisanim servisom, izračuna najoptimalenjšo pot pluženja za vsakega voznika (na grafu Ustaljeni plug) podjetja VOC in Zelenice. Izračunano pot pošlje vozniku. Le administrator lahko vpliva na parametre algoritma (predstavljene v Manager UI). Algoritem upošteva vnaprej določeno prioritetno lestvico cest, kar v grobem pomeni da bodo državne, regionalne in medkrajvne ceste prej splužene kot stranske ulice. Ob intenzivnem sneženju se lahko zgodi, da bodo te ceste splužene večkrat, medtem ko bodo nekatere stranske ulice ostale nedotaknjene.
+- Plowing orders so ena izmed možnih razširitev sistema, ki jih sistem po našem mnenju naj bi vseboval (Should have). Občan, ki se je registriral, lahko postane stranka, torej naročnik storitev pluženja. Ko se odloči, pošlje povpraševanje po storitvi. V najkrajšem možnem času mu vodja plužne izmene (manager) odobri ali zavrne storitev. Če je povpraševanje odobreno, se vključi v Plow navigation Algorithm, ali pa se direktno dodeli vozniku pluga, če ta nima trenutno aktivne poti pluženja. 
+- TimeTillPlowArrive Service implementira funkcijonalnost povpraševanja po času, kdaj se željena ulica spluži. To ugotovimo na podlagi oddaljenosti plugov od ulice in njihovih plužnih poti. Je ena izmed opcijskih razširitev sistema (Could Have). 
+
+Sistem je v osnovi zastavljen, da zadosti štirim ciljnim množicam.
+- Občan predstavlja neregistriranega uporabnika. Ima dostop do zemljevida, na katerem je predstavljena trenutna snežna odeja na cestnem sistemu MOC
+- Stranka je vsak občan, ki se je registriral. Lahko oddaja povpraševanja po storitvi pluženja. 
+Manager povpraševanja odobri ali pa jih zavrne. Ima pregled nad strenutnin stanjem, vključno z lokacijami plugov. Ob kliku na vsak plug, se mu razširi njegova entita. Tam so prikazani vsi koristni podatki o plugu in vozniku. 
+- Voznik pluga (na grafu Ustaljeni plug) je zaposleni pri podjetju VOC ali Zelenice. Ob možni nadgradnji sistema je lahko to tudi kateri izmed lokalnih kmetov ali drugih oseb (na grafu Samostojni plug), ki imajo v privatni lasti mehanizacijo zmožno pluženja. Njigova glavna naloga je da plužijo po zagrtani poti.
+- Admin predstavlja le en administrativni profil, ki ima vso moč nad sistemom.
 
 ## 5 Trenutno stanje
 
