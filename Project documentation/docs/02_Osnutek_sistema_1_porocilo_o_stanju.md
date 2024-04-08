@@ -540,11 +540,18 @@ Manager povpraševanja odobri ali pa jih zavrne. Ima pregled nad strenutnin stan
 
 ## 6 Vodenje projekta
 
-_Nadaljujte z vzdrževanjem **dnevnika sprememb**. Dodaje vse nove spremembe v projektu, kjer vključite datum, opis, motivacijo in posledico vsake spremembe._
+#### Dnevnik sprememb:
+- 29.2. Začetni nabor idej za možne funkcionalnosti. Zažetek projekta.
+- 7.3. Omejitev idej, ki jih želimo podpirati. Želeli smo utrditi svojo vizijo projekta s povečanjem fokusa na manj idej. Napredovali smo hitreje.
+- 13.3. Ob stoječem sestanku smo dokončno razjasnili željene uporabniške zgodbe in arhitekturo. Želeli smo pojmovanja sistema združiti na enem mestu. Sedaj lahko definiramo potrebovane funkcionalnosti.
+- 27.3. Odločitev za dodato uporabo Google Maps in delitev razvijalskih vlog za specifične dele sistema. Želeli smo si olajšati delo navigacije na kratkih razdaljah, saj bi težko dosegli raven uporabnosti, ki ga že ponuja Google Maps. To nam bo omogočilo lažje napredovanje s projektom.
+- 28.3. Odločitev za hevristični algoritem. Sprva smo želeli napisati algoritem, ki bi iskal optimalne poti pluženja, a smo ugotovili, da je to prekompleksna naloga. V nadaljevanju bomo poskusili uporabiti hevristike, ki bodo našle dobre rešitve pluženja, četudi te ne bodo optimalne.
+- 3.4. Odločitev za kasnejši razvoj algoritma. Ker se je uporabniška zgodba uvedbe samostojnih plugov zdela dobro sprejeta in nas razlikuje od ostalih ekip, smo se odločili, da damo poudarek na njen razvoj. Razvili jo bomo preden začnemo razvijati algoritem.
 
-- Prikažite dnevnik sprememb do tega trenutka.
-  - Kakšni so cilji za naslednjo iteracijo?
-  - Kakšen je načrt za preostanek semestra?
+### Cilji nadaljnjih iteracij
+V 3. Iteraciji imamo namen obsežno programirati, da sistem vzpostavimo na funkcionalno raven. Sistem mora v celoti delovati. Želimo, da je napisana programska koda delujoča, ni pa še potrebno da je najbolje urejena, saj jo bomo olepšali v 4. iteraciji.
+V 4. Iteraciji imamo namen izvesti refactoring kode, da bo ta lažje dostopna za odpravljanje programskih hroščev. Nato imamo namen izvesti testiranje sistema kot celote ter odpraviti programske hrošče. Napisali bomo krajši program uvajanja novih uporabnikov v sistem in njegovo efektivnost preverili pri znancih brez tehničnega znanja. Tako bomo dobili vpogled v morebitne nejasnosti pri uporabi in jih naslovili. Napisali bomo tudi dokumentacijo za dele sistema, kjer je to nujno, saj tako olajšamo uvajanje razvijalcev, ki bi v prihodnosti projekt razvijali naprej in dodajali funkcionalnosti.
+
 
 ### 6.2 Projektni načrt
 
@@ -552,14 +559,16 @@ _Nadaljujte z vzdrževanjem **dnevnika sprememb**. Dodaje vse nove spremembe v p
 
 ## 7 Ekipa
 
-- Kakšne so bile vloge v ekipi za to iteracijo?
-  - Kaj je prispeval vsak član ekipe?
-  - Navedite grobo oceno prispevka posameznega člana ekipe v odstotkih.
+Filip je izvajal vlogo SCRUM master-ja, Matevž pa vlogo product owner-ja. Vsi smo sodelovali pri določitvi funkcionalnosti in primerov uporabe. Filip je vzpostavil začetno verzijo sistema. Matevž je izvedel obdelavo podatkov zemljevidov. Jošt je zasnoval zaslonske maske. Sebastjan je poizvedel o integraciji Google Maps.
+
+Groba ocena prispevkov:
+Filip 40%
+Matevž 30%
+Jošt 15%
+Sebastjan 15%
 
 ## 9 Refleksija
 
-- Kaj je šlo po pričakovanjih?
-  - Kaj ni šlo po pričakovanjih?
-  - Kakšne težave so se pojavile pri ciljih, ki jih niste dosegli?
-  - Kako nameravate premagati te težave?
-  - Kaj boste naredili drugače v naslednji iteraciji?
+Nameravali smo preskočiti risanje zaslonskih mask in takoj ustvariti frontend aplikacije, saj bi ta bil tudi interaktiven in deležnikom bolje dostopen. To nam ni uspelo, ker smo se dela lotili prepozno in komunicirali večino ob srečanjih v živo.
+Namen imamo povečati komunikacijo preko spletnih kanalov in se obveščati o napredku vsakih nekaj dni. Če napredek ni zadosten, bomo izvedli krizni sestanek, kjer bomo določili trdnejše roke za naloge vsakega od članov.
+
