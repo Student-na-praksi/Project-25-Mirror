@@ -1,44 +1,29 @@
-# :orange_square: Osnutek sistema (1. poročilo o stanju)
+# Celovita rešitev organizacije pluženja
 
-| [:arrow_backward:](01_Predlog_projekta.md) Prejšnji dokument |                       Trenutni dokument                       | Naslednji dokument [:arrow_forward:](03_Izvedljiv_sistem_2_porocilo_o_stanju.md) |
-| :----------------------------------------------------------- | :-----------------------------------------------------------: | -------------------------------------------------------------------------------: |
-| :yellow_square: **Predlog projekta**                         | :orange_square: **Osnutek sistema**<br>(1. poročilo o stanju) |                    :green_square: **Izvedljiv sistem**<br>(2. poročilo o stanju) |
 
-![Terminski načrt](https://teaching.lavbic.net/plantuml/svg/hPVRRjiu48Rl-HH4U-6i0RiHPJlk8WYAde2Y2xHOx5MDNamisg4bam99gniNVOGynBvBzhrsA2jAP547Tula8fcG_p-7JoFdbR6WxHgajVJPNrnlXJIne1BkxxHzHiYbiRS9loBvYRS2rXgsz3kXr8ejJuJa-I-K_e4_lb69qlJvYhclFFfUINk8uhrR3FrmDy74nQtNi8pNMkraLDpbyzLq5HqhJj-_dhzxKrm7hTMtkclbp5Oat5XLPlSpFij46Hur2NYBJCJwnfQL_Y2NBuhk4UofJC7rxlf8oMgG1l_4fIM36n5nkbBANgk_IG9olOCrfoOXgHRIcYKad7xZF4vkKHBiJaTmYmtXHRB4e6mrmixPP7IEtm4LvZZ8Bch1gUya1jcJ81aSmk4ecETXLmYsIaZwF3hdiBf-j6qwC2YLPrqdYYph9yXdhJPyQMdEiA672smKl2HaSPbV-BqSoTKNH9fR7bEnps03SWCqHS4jjq3FWfTZDlxjyaL-wUehlO4qvT9Gi4zL1uisaS8nD-ifw4bpEFomJrKYDpn3UKwpLCE__q0YHGp3eIj_E4orMeb4Q7S0OsS1jJpYyeaT6Bfu6tob2HXip9GY5GRJ_mdnQbNzZ7nL_Gdx21U6vHdDg8btAJvs3vPYVur-sDEzoA2b85RneI2ZXz5ZMrqQ0qEvZF92J_7hKsDVRp8QqM1CqLZ3KY0Vev5_p9-HcqIjaH-4EBPvtQ7pbkBOEtpm3WuDhhapvvu7yjezqfKIVu5DlQ9FKGJ5uu3UK9hZDEVZiFLPS8i44szKgCwdbvhl-L-h31TkJRxQXIz7CDUQ43vIrYXvgfI3XXr3C_1Hyyd8dTi_HXZBjstGJCjfJZhS5pxPFi3qjnWqyeBFIggqkhyJ2L3bRilDZfxDnvFM8RjN2rcqQbGgwAKtQAR6Qt543kiOzxHiUAlggMeEdh3Fnlcmpv3JZSYACJju9lx9pih9pZlS3o-Lcd2b-V_Rf94UvgTdDfwsJjjzx7XSEAmRdrw2pVIm7lI47VEUrVSEQy6djvp3Pz87duzAtjz9zzfqNMlPF07hUf7Cdj9Jq-spUaxmQ8Gdpesvszjb5y_OHUUesSKZEpwDIlxzz9hHyHWSWJFfc7J0wkHuL4zMyoIDe-HBxmViCEXiGnXWWeqALIXwgP5Nc6R-Z-j_ "Terminski načrt")
+### Jošt Eržen, Filip Gros, Sebastjan Kordiš, Matevž Vidovič
 
-Namen 1. poročila o stanju je dvojni:
-
-- ohraniti zagon projekta in
-- zagotoviti funkcionalne zahteve v obliki uporabniških zgodb.
-
-Ustrezno zajeta množica primerov uporabe zagotavlja pregled nad sistemom. Pri tem uporabniški cilji zagotavljajo pregled, osnovni tokovi pa opisujejo želeno funkcionalnost.
-
-1. poročilo o stanju uvaja odstavek z refleksijo, kjer ekipe analizirajo kaj je šlo dobro in kaj ne. Ekipe se čez semester pogosto izboljšajo pri spremljanju procesov in komunikaciji.
-
-> **Opomba**: Izogibajte se podvajanju informacij.
-
-Za izdelavo diagramov uporabite orodje [**PlantUML**](https://plantuml.com/) in v poročilo vključite izvorno kodo diagrama v jeziku PlantUML (v mapi [`gradivo`](gradivo)), sliko diagrama pa vključite s povezavo (in ne preko neposredne vključitve binarne datoteke) preko storitve <https://teaching.lavbic.net/plantuml>, kot prikazujejo primeri vključenih diagram v tej predlogi poročila.
-
-## :page_with_curl: Naslov projekta
-
-## :information_desk_person: Ime ekipe: Člani ekipe
 
 ## 1 Uvod
 
+Ob novozapadlem snegu se promet skoraj ustavi. Organizacije, ki se ukvarjajo s pluženjem, se na vso moč trudijo, da se situacija ne poslabša do te mere, da bi postala totalen prometni kolaps.
+Naš projekt želi biti celovita rešitev organizacije pluženja, da lahko s tem pomagamo pri koordinaciji in nadzorovanju le tega ter z algoritmičnimi pristopi pluženje naredimo učinkovitejše. Poleg tega želimo povezati pravne in fizične osebe, ki potrebujejo pluženje parkirišč in dvorišč, z izvajalci pluženja, kot so kmetje, da lahko zunaj plužne konice omogočimo to storitev, ki koristi obema stranema.
+Tako postanejo Vaši stroški pluženja nižji, občani pa so bolj zadovoljni, saj lahko kljub snegu normalno potujejo. Občani bodo zadovolni tudi s spremljanjem pluženja v realnem času, saj bodo tako lahko videli, kdaj je pot, na katero se odpravljajo splužena, in lahko tudi vidijo, da bo do tega tudi prišlo in niso pozabljeni. Največji vpliv pa zna imeti povezovanje pomoči potrebnih in samostojnih plugov, ki skupnosti omogoči, da se s snegom spopade kot celota in ne kot skupek posameznikov.
+
+
 ### 1.2 Poudarki
 
-- Kakšen je bil načrt za to iteracijo?
-  - Kaj je ekipa dosegla?
+Želeli smo dokončno določiti svojo vizijo in preveriti njeno izvedljivost. Pregledali smo razpoložljive podatke ter ugotovili, kako jih lahko predpripravimo za učenje algoritma. Ustvarili smo tudi osnovno funkcionalnost prijave in definirali zaslonske maske ter funkcionalnosti.
 
 ### 1.3 Spremembe
 
-- Povzemite vse večje spremembe predloga projekta.
-- Vključite datum, motivacijo, opis in posledice vsake spremembe.
-- Če sprememb ni bilo, samo navedite, da jih ni bilo.
+Iz večjega osredotočenja na algoritem organizacije pluženja smo postopoma pozornost v večji meri preusmerili na funkcionalnosti povezane z organizacijo samostojnih plugov za opravljanje dodatnih del.
 
 ## 2 Potrebe naročnika
+Podjetji, ki opravljata pluženje, si želita intuitiven in zanesljiv nadzor nad situacijo pluženja, ter zmanjšane stroške pluženja zaradi višje učinkovitosti.
+Občani in lokalna podjetja želijo možnost kontakta s kmeti, ki bi bili pripravljeni pomagati pri pluženju dvorišč in parkirišč, saj je to za večje površine izvajati ročno zelo zahtevno in zamudno, medtem ko kmet s plugom to nalogo opravi zelo hitro. Kmetje s plugom pa si želijo dostopa do nove potencialne storitvene dejavnosti.
+Sistem mora vsakemu od deležnikov biti preprost za uporabo, brez nepotrebnih funkcionalnosti, zaradi katerih bi postal zapleten. Sistem mora biti robusten, saj, če se deležniki nanj zanašajo, njegova napaka lahko povzroči prometni kolaps.
 
-- Na kratko opišite želeno splošno izkušnjo naročnika.
 
 ## 3 Cilji projekta
 
@@ -555,11 +540,18 @@ Manager povpraševanja odobri ali pa jih zavrne. Ima pregled nad strenutnin stan
 
 ## 6 Vodenje projekta
 
-_Nadaljujte z vzdrževanjem **dnevnika sprememb**. Dodaje vse nove spremembe v projektu, kjer vključite datum, opis, motivacijo in posledico vsake spremembe._
+#### Dnevnik sprememb:
+- 29.2. Začetni nabor idej za možne funkcionalnosti. Zažetek projekta.
+- 7.3. Omejitev idej, ki jih želimo podpirati. Želeli smo utrditi svojo vizijo projekta s povečanjem fokusa na manj idej. Napredovali smo hitreje.
+- 13.3. Ob stoječem sestanku smo dokončno razjasnili željene uporabniške zgodbe in arhitekturo. Želeli smo pojmovanja sistema združiti na enem mestu. Sedaj lahko definiramo potrebovane funkcionalnosti.
+- 27.3. Odločitev za dodato uporabo Google Maps in delitev razvijalskih vlog za specifične dele sistema. Želeli smo si olajšati delo navigacije na kratkih razdaljah, saj bi težko dosegli raven uporabnosti, ki ga že ponuja Google Maps. To nam bo omogočilo lažje napredovanje s projektom.
+- 28.3. Odločitev za hevristični algoritem. Sprva smo želeli napisati algoritem, ki bi iskal optimalne poti pluženja, a smo ugotovili, da je to prekompleksna naloga. V nadaljevanju bomo poskusili uporabiti hevristike, ki bodo našle dobre rešitve pluženja, četudi te ne bodo optimalne.
+- 3.4. Odločitev za kasnejši razvoj algoritma. Ker se je uporabniška zgodba uvedbe samostojnih plugov zdela dobro sprejeta in nas razlikuje od ostalih ekip, smo se odločili, da damo poudarek na njen razvoj. Razvili jo bomo preden začnemo razvijati algoritem.
 
-- Prikažite dnevnik sprememb do tega trenutka.
-  - Kakšni so cilji za naslednjo iteracijo?
-  - Kakšen je načrt za preostanek semestra?
+### Cilji nadaljnjih iteracij
+V 3. Iteraciji imamo namen obsežno programirati, da sistem vzpostavimo na funkcionalno raven. Sistem mora v celoti delovati. Želimo, da je napisana programska koda delujoča, ni pa še potrebno da je najbolje urejena, saj jo bomo olepšali v 4. iteraciji.
+V 4. Iteraciji imamo namen izvesti refactoring kode, da bo ta lažje dostopna za odpravljanje programskih hroščev. Nato imamo namen izvesti testiranje sistema kot celote ter odpraviti programske hrošče. Napisali bomo krajši program uvajanja novih uporabnikov v sistem in njegovo efektivnost preverili pri znancih brez tehničnega znanja. Tako bomo dobili vpogled v morebitne nejasnosti pri uporabi in jih naslovili. Napisali bomo tudi dokumentacijo za dele sistema, kjer je to nujno, saj tako olajšamo uvajanje razvijalcev, ki bi v prihodnosti projekt razvijali naprej in dodajali funkcionalnosti.
+
 
 ### 6.2 Projektni načrt
 
@@ -569,14 +561,16 @@ _Nadaljujte z vzdrževanjem **dnevnika sprememb**. Dodaje vse nove spremembe v p
 
 ## 7 Ekipa
 
-- Kakšne so bile vloge v ekipi za to iteracijo?
-  - Kaj je prispeval vsak član ekipe?
-  - Navedite grobo oceno prispevka posameznega člana ekipe v odstotkih.
+Filip je izvajal vlogo SCRUM master-ja, Matevž pa vlogo product owner-ja. Vsi smo sodelovali pri določitvi funkcionalnosti in primerov uporabe. Filip je vzpostavil začetno verzijo sistema. Matevž je izvedel obdelavo podatkov zemljevidov. Jošt je zasnoval zaslonske maske. Sebastjan je poizvedel o integraciji Google Maps.
+
+Groba ocena prispevkov:
+Filip 40%
+Matevž 30%
+Jošt 15%
+Sebastjan 15%
 
 ## 9 Refleksija
 
-- Kaj je šlo po pričakovanjih?
-  - Kaj ni šlo po pričakovanjih?
-  - Kakšne težave so se pojavile pri ciljih, ki jih niste dosegli?
-  - Kako nameravate premagati te težave?
-  - Kaj boste naredili drugače v naslednji iteraciji?
+Nameravali smo preskočiti risanje zaslonskih mask in takoj ustvariti frontend aplikacije, saj bi ta bil tudi interaktiven in deležnikom bolje dostopen. To nam ni uspelo, ker smo se dela lotili prepozno in komunicirali večino ob srečanjih v živo.
+Namen imamo povečati komunikacijo preko spletnih kanalov in se obveščati o napredku vsakih nekaj dni. Če napredek ni zadosten, bomo izvedli krizni sestanek, kjer bomo določili trdnejše roke za naloge vsakega od članov.
+
