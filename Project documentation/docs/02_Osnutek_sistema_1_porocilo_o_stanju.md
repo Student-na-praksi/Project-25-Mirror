@@ -535,12 +535,36 @@ Manager povpraševanja odobri ali pa jih zavrne. Ima pregled nad strenutnin stan
 
 ## 5 Trenutno stanje
 
-- Kakšni dodatni cilji te iteracije, poleg tega, kar je že navedeno v [uvodu](#1-uvod)?
-  - Kaj deluje? Vključite posnetke zaslona.
-  - Kakšni izzivi?
-  - Uporabite blokovni diagram za razlago trenutnega sistema.
-- Katere teste ste izvedli?
-- Koliko vrstic kode ste napisali (skupno do tega trenutka)?
+- Trenutno imamo narejen prijavni portal,
+
+![Prijavni portal](gradivo/img/login_screenshot.png)
+
+zaslonske maske za glavno stran,
+
+![Glavna stran](gradivo/img/homepage.png)
+
+stran za prijavljene stranke,
+
+![Stran za prijavljene stranke](gradivo/img/stranka.png)
+![Pojavno okno za oddajanje zahteve](gradivo/img/stranka_zahteva_popup.png)
+
+stran za administratorje,
+
+![Stran za administratorje](gradivo/img/admin.png)
+
+stran za nadzornike pluženja,
+
+![Stran za nadzornike pluženja](gradivo/img/manager.png)
+
+stran za voznike plugov,
+
+![Stran za voznike plugov](gradivo/img/plug.png)
+
+ter stran za samostojne voznike plugov.
+
+![Stran za samostojne voznike plugov](gradivo/img/plug_okrnjeni.png)
+
+Prav tako smo izvedli test izvedljivosti uporabe podatkov zemljevidov ter testirali delovanje podatkovne baze za prijavo.
 
 ## 6 Vodenje projekta
 
