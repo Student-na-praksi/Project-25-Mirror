@@ -510,7 +510,7 @@ Ekipo sestavljamo štirje študenti 3. letnika univerzitetnega programa Fakultet
 ### 7.2 Vloge
 
 
-Pri našem projektu bomo vsi člani razvijalci. Poleg vloge razvijalca pa bo Matevž Vidovič zaradi njegove predhodne komunikacije z stranko prevzel vlogo lastnika izdelka, Filip Gros pa bo prevzel vlogo SCRUM voditelja.
+Pri našem projektu bomo vsi člani razvijalci. Poleg vloge razvijalca pa bo Matevž Vidovič zaradi njegove predhodne komunikacije z stranko prevzel vlogo lastnika izdelka, Filip Gros pa bo prevzel vlogo SCRUM master-ja.
 
 
 ## 8 Omejitve in tveganja
@@ -519,7 +519,7 @@ Pri našem projektu bomo vsi člani razvijalci. Poleg vloge razvijalca pa bo Mat
 ### Matrika izpostavljenosti tveganj:
 Ustvarjamo aplikacijo, katere nedelovanje lahko povroči popolen prometni kolaps, kar ima velik vpliv na veliko število ljudi. Prav tako je etično problematično, da s tem onemogočimo urgentne zdravstvene prevoze, ki so lahko za ljudi usodni. Do tega ne sme priti, zato usodne napake niso dopustne niti v primerih z zelo nizko verjetnostjo.
 
-Na drugi strani manjše napake v sistemu niso tako hude - nihče ni tako zelo odvisen od podatkov sistema, da bi manjša napaka imela trajne posledice, zato je leva stran tabele lahko bolj zelena.
+Po drugi strani manjše napake v sistemu niso tako hude - nihče ni tako zelo odvisen od podatkov sistema, da bi manjša napaka imela trajne posledice, zato je leva stran tabele lahko bolj zelena.
 
 ![Matrika izpostavljenosti tveganj](./Gradivo/img/Tabela%20tveganj.PNG)
 
