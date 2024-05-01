@@ -1,14 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App.tsx'
 // import './index.css'
-// import './original-index.css'
-import LandingPage from './Landing-page.tsx'
 import './globals.css'
+import LandingPage from './LandingPage/LandingPage.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {/* <App /> */}
     <LandingPage />
   </React.StrictMode>,
 )

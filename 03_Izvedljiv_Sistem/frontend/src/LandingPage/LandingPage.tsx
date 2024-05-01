@@ -1,10 +1,10 @@
 
 import { useState } from "react";
 
-import { Band } from "./Band";
-import { Frame } from "./Frame";
-import "./desktop-style.css";
-import zemljevid from "./assets/Zemljevid.png";
+import { AdminSideBand } from "./AdminSideBand";
+import { MenuBurgerButton } from "./MenuBurgerButton";
+import "./LandingPage-style.css";
+import zemljevid from "@/assets/Zemljevid.png";
 
 function LandingPage() {
 
@@ -14,17 +14,18 @@ function LandingPage() {
     setBandPresent(!bandPresent);
   };
   
-
   return (
     <>
       <div className="desktop">
         <img className="zemljevid" alt="Zemljevid" src={zemljevid} />
+
         {bandPresent && 
-        <div className="main-band">
-          <Band />
+        <div className="main-band"> 
+          <AdminSideBand />
         </div>
         }
-        <button style={{border: 0, padding: 0}} onClick={toggleBandPresent} ><Frame className="frame-3" /></button>
+
+        <button style={{border: 0, padding: 0}} onClick={toggleBandPresent} ><MenuBurgerButton className="menu-burger" /></button>
       </div>
     </>
   )

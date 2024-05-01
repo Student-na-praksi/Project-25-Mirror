@@ -7,31 +7,28 @@
     border: 0px;
     margin: 0px;
     padding: 0px;
-    /* position: relative; */
-    }
+}
 
-    .desktop .main-band {
-        flex: 0 0 auto;
-        object-fit: cover;
+.desktop .main-band {
+    flex: 0 0 auto;
+    object-fit: cover;
 
-        width: 400px;
-        height: 100%;
-    }
-    
-    .desktop .zemljevid {
-    /* background-color: aqua; */
+    width: 400px;
+    height: 100%;
+}
+
+.desktop .zemljevid {
     align-self: stretch;
     flex: 1 1 0px;
-    /* flex-grow: 1; */
     object-fit: cover;
     position: relative;
 
     width: 100%;
     height: 100%;
-    }
-    
-    .desktop .frame-3 {
+}
+
+.desktop .menu-burger {
     right: 23px !important;
     position: absolute !important;
     top: 26px !important;
-    }
+}

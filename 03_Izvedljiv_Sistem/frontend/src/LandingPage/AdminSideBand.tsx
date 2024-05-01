@@ -1,6 +1,6 @@
-import "./band-style.css";
+import "./AdminSideBand-style.css";
 
-export const Band = () => {
+export const AdminSideBand = () => {
     return (
         <div className="band">
 
@@ -13,6 +13,7 @@ export const Band = () => {
                 <div className="rectangle"></div>
                 <div className="div"></div>
             </div>
+            
         </div>
     );
 };
