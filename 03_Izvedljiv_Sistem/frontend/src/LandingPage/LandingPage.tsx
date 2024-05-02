@@ -1,10 +1,13 @@
 
 import { useState } from "react";
 
-import { AdminSideBand } from "./AdminSideBand";
+import AdminSideBand from "./AdminSideBand";
 import { MenuBurgerButton } from "./MenuBurgerButton";
 import "./LandingPage-style.css";
-import zemljevid from "@/assets/Zemljevid.png";
+
+
+import GoogleMaps from "./GoogleMaps";
+
 
 function LandingPage() {
 
@@ -17,7 +20,9 @@ function LandingPage() {
   return (
     <>
       <div className="desktop">
-        <img className="zemljevid" alt="Zemljevid" src={zemljevid} />
+        <div className="zemljevid">
+          <GoogleMaps />
+        </div>
 
         {bandPresent && 
         <div className="main-band"> 

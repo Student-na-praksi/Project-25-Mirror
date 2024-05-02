@@ -1,6 +1,6 @@
 import "./AdminSideBand-style.css";
 
-export const AdminSideBand = () => {
+function AdminSideBand() {
     return (
         <div className="band">
 
@@ -17,3 +17,5 @@ export const AdminSideBand = () => {
         </div>
     );
 };
+
+export default AdminSideBand;
