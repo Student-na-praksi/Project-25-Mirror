@@ -2,11 +2,11 @@
 import { useState } from "react";
 
 import AdminSideBand from "./AdminSideBand";
-import { MenuBurgerButton } from "./MenuBurgerButton";
+import { MenuBurgerButton } from "@/general_components/MenuBurgerButton";
 import "./AdminPage-style.css";
 
 
-import GoogleMaps from "./GoogleMaps";
+import GoogleMaps from "@/general_components/GoogleMaps";
 
 
 function AdminPage() {

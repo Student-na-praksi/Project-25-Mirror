@@ -5,21 +5,15 @@
 
 "use client";
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import {
   APIProvider,
-  Map,
-  AdvancedMarker,
-  Pin,
-  InfoWindow,
-  // useMap,
-  // useMapsLibrary,
+  Map
 } from "@vis.gl/react-google-maps";
 
 import {GeoJsonLayer} from '@deck.gl/layers';
 import {DeckGlOverlay} from './deckgl-overlay';
 
-import snowplowIcon from "@/assets/snowplow.png";
 
 // const DATA_URL =
 //   'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart.geo.json';
@@ -28,30 +22,16 @@ import type {Feature, GeoJSON} from 'geojson';
 
 import roadsData from './roads.json';
 
+import MyLocation from "./MyLocation";
+import RouteMarker from "./RouteMarker";
+import Plug from "./Plug";
 
 
 
 
 
 
-let my_location: google.maps.LatLngLiteral | null = null;
 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(my_location_success, my_location_error);
-} else {
-  console.log("Geolocation not supported");
-}
-
-function my_location_success(position: any) {
-  const latitude = position.coords.latitude;
-  const longitude = position.coords.longitude;
-  my_location = { lat: latitude, lng: longitude };
-  console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-}
-
-function my_location_error() {
-  console.log("Unable to retrieve your location");
-}
 
 
 
@@ -67,8 +47,9 @@ function GoogleMaps() {
   // const [my_location, setMyLocation] = useState<Location>({});
   // const position = {lat: 37.74, lng: -122.4}
   // const position = {lat: 46.253145591316489, lng: 15.24886631345186}
-  const position = { lat: 46.2398, lng: 15.2677}
-  const [open, setOpen] = useState(false);
+  const celje_pos = { lat: 46.2398, lng: 15.2677};
+
+  const some_plug_pos = { lat: 46.2098, lng: 15.2877};
 
 
 
@@ -95,7 +76,7 @@ function GoogleMaps() {
       <div className="zemljevid">
         <Map 
           defaultZoom={13}
-          defaultCenter={position}
+          defaultCenter={celje_pos}
           mapId={import.meta.env.VITE_PUBLIC_MAP_ID}
           gestureHandling={'greedy'}>
 
@@ -103,37 +84,14 @@ function GoogleMaps() {
 
           {/* <Directions /> */}
 
-          <AdvancedMarker position={my_location} onClick={() => setOpen(true)}>
-            <Pin
-              background={"red"}
-              borderColor={"blue"}
-              glyphColor={"purple"}
-            />
-          </AdvancedMarker>
+          <MyLocation />
+
+          <RouteMarker position={celje_pos} num_in_row={1} />
+
+          <Plug position={some_plug_pos} tel_num={"031 123 456"} />
 
 
-          <AdvancedMarker position={my_location} onClick={() => setOpen(true)}>
-            <img src={snowplowIcon} alt="snowplow" style={{ width: "50px" }}/>
-          </AdvancedMarker>
 
-
-          <AdvancedMarker position={position} onClick={() => setOpen(true)}>
-            <Pin
-              background={"grey"}
-              borderColor={"green"}
-              glyphColor={"purple"}
-            />
-          </AdvancedMarker>
-
-          <AdvancedMarker position={position} onClick={() => setOpen(true)}>
-            <div style={{ width: "10px"}}><p style={{ fontSize: "15px", color: "white", textAlign: "center", backgroundColor: "purple" }}>1</p></div>
-          </AdvancedMarker>
-
-          {open && (
-            <InfoWindow position={position} onCloseClick={() => setOpen(false)}>
-              <p>I'm in Hamburg</p>
-            </InfoWindow>
-          )}
 
           {/* Tole rabimo: https://visgl.github.io/react-google-maps/examples/deckgl-overlay */}
           {/* https://visgl.github.io/react-google-maps/examples/directions */}
