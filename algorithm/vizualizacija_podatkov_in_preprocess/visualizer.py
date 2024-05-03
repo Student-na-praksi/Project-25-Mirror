@@ -344,6 +344,10 @@ roads_gdf.set_crs('epsg:4326', inplace=True, allow_override=True)
 def rgba_to_hex(r, g, b):
     return '#{:02x}{:02x}{:02x}'.format(r, g, b)
 
+
+# This line makes it so that there are only 7 colours. Trying to make things easier for the browser.
+rgba_road_colors = [plt.cm.viridis( (idx % 7) * (1/6)) for idx in range(0, len(roads_gdf))]
+
 hex_code_road_colors = [rgba_to_hex(int(rgba[0]*255), int(rgba[1]*255), int(rgba[2]*255)) for rgba in rgba_road_colors]
 
 # add the hex color property

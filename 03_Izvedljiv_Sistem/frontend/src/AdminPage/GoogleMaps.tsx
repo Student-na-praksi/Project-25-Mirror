@@ -12,6 +12,8 @@ import {
   AdvancedMarker,
   Pin,
   InfoWindow,
+  useMap,
+  useMapsLibrary,
 } from "@vis.gl/react-google-maps";
 
 import {GeoJsonLayer} from '@deck.gl/layers';
@@ -94,9 +96,12 @@ function GoogleMaps() {
         <Map 
           defaultZoom={9}
           defaultCenter={position}
-          mapId={import.meta.env.VITE_PUBLIC_MAP_ID}>
+          mapId={import.meta.env.VITE_PUBLIC_MAP_ID}
+          gestureHandling={'greedy'}>
 
           <DeckGlOverlay layers={getDeckGlLayers(roadsData)} />
+
+          {/* <Directions /> */}
 
           <AdvancedMarker position={my_location} onClick={() => setOpen(true)}>
             <Pin
@@ -168,3 +173,115 @@ function getDeckGlLayers(data: GeoJSON | null) {
     })
   ];
 }
+
+
+
+// function Directions() {
+
+//   const breadcrumbs = [
+//     { lat: 15.288974858778088, lng: 46.228298866878177 },
+//     { lat: 15.264821959821901, lng: 46.228551616117961 },
+//     { lat: 15.274667986171538, lng: 46.251323056553879 },
+//     { lat: 15.283619307236656, lng: 46.25681642416037 },
+//     { lat: 15.288974858778088, lng: 46.228298866878177}
+//   ];
+
+
+
+//   const map = useMap();
+//   const routesLibrary = useMapsLibrary('routes');
+//   const [directionsService, setDirectionsService] =
+//     useState<google.maps.DirectionsService>();
+//   const [directionsRenderer, setDirectionsRenderer] =
+//     useState<google.maps.DirectionsRenderer>();
+//   const [routes, setRoutes] = useState<google.maps.DirectionsRoute[]>([]);
+//   const [routeIndex, setRouteIndex] = useState(0);
+//   const selected = routes[routeIndex];
+//   const leg = selected?.legs[0];
+
+//   // Initialize directions service and renderer
+//   useEffect(() => {
+//     if (!routesLibrary || !map) return;
+//     setDirectionsService(new routesLibrary.DirectionsService());
+//     setDirectionsRenderer(new routesLibrary.DirectionsRenderer({map}));
+//   }, [routesLibrary, map]);
+
+
+
+
+
+
+//   // Use directions service
+//   useEffect(() => {
+//     if (!directionsService || !directionsRenderer) return;
+
+
+//     const waypoints = breadcrumbs.slice(1, breadcrumbs.length - 1).map(location => ({
+//       location: new google.maps.LatLng(location.lat, location.lng),
+//       stopover: true
+//     }));
+  
+//     const origin = breadcrumbs[0];
+//     const destination = breadcrumbs[breadcrumbs.length - 1];
+
+
+//     directionsService.route({
+//       origin: new google.maps.LatLng(origin.lat, origin.lng),
+//       destination: new google.maps.LatLng(destination.lat, destination.lng),
+//       waypoints: waypoints,
+//       travelMode: google.maps.TravelMode.WALKING,
+//       // travelMode: google.maps.TravelMode.DRIVING,
+//       provideRouteAlternatives: true
+//     })
+//     .then(response => {
+//       directionsRenderer.setDirections(response);
+//       setRoutes(response.routes);
+//     });
+
+//     // directionsService
+//     //   .route({
+//     //     origin: '100 Front St, Toronto ON',
+//     //     destination: '500 College St, Toronto ON',
+//     //     travelMode: google.maps.TravelMode.DRIVING,
+//     //     provideRouteAlternatives: true
+//     //   })
+//     //   .then(response => {
+//     //     directionsRenderer.setDirections(response);
+//     //     setRoutes(response.routes);
+//     //   });
+
+
+
+//     return () => directionsRenderer.setMap(null);
+//   }, [directionsService, directionsRenderer, breadcrumbs]);
+
+//   // Update direction route
+//   useEffect(() => {
+//     if (!directionsRenderer) return;
+//     directionsRenderer.setRouteIndex(routeIndex);
+//   }, [routeIndex, directionsRenderer]);
+
+//   if (!leg) return null;
+
+//   return (
+//     <div className="directions">
+//       <h2>{selected.summary}</h2>
+//       <p>
+//         {leg.start_address.split(',')[0]} to {leg.end_address.split(',')[0]}
+//       </p>
+//       <p>Distance: {leg.distance?.text}</p>
+//       <p>Duration: {leg.duration?.text}</p>
+
+//       <h2>Other Routes</h2>
+//       <ul>
+//         {routes.map((route, index) => (
+//           <li key={route.summary}>
+//             <button onClick={() => setRouteIndex(index)}>
+//               {route.summary}
+//             </button>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
