@@ -26,14 +26,44 @@ import type {Feature, GeoJSON} from 'geojson';
 
 
 
+
+
+let my_location: google.maps.LatLngLiteral | null = null;
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(my_location_success, my_location_error);
+} else {
+  console.log("Geolocation not supported");
+}
+
+function my_location_success(position: any) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  my_location = { lat: latitude, lng: longitude };
+  console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+}
+
+function my_location_error() {
+  console.log("Unable to retrieve your location");
+}
+
+
+
+
+
+
+
+
 function GoogleMaps() {
 
   // const position = { lat: 53.54, lng: 10 };
-  const [my_location, setMyLocation] = useState<google.maps.LatLngLiteral | null>(null);
+  // const [my_location, setMyLocation] = useState<google.maps.LatLngLiteral | null>(null);
   // const [my_location, setMyLocation] = useState<Location>({});
   const position = {lat: 37.74, lng: -122.4}
   const [open, setOpen] = useState(false);
 
+
+  
 
   const [data, setData] = useState<GeoJSON | null>(null);
 
@@ -46,24 +76,7 @@ function GoogleMaps() {
 
 
 
-  
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(success, error);
-  } else {
-    console.log("Geolocation not supported");
-  }
-  
-  function success(position: any) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    setMyLocation({ lat: latitude, lng: longitude });
-    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-  }
-  
-  function error() {
-    console.log("Unable to retrieve your location");
-  }
 
 
 
