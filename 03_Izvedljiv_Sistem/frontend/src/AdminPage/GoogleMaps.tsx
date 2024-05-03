@@ -12,8 +12,8 @@ import {
   AdvancedMarker,
   Pin,
   InfoWindow,
-  useMap,
-  useMapsLibrary,
+  // useMap,
+  // useMapsLibrary,
 } from "@vis.gl/react-google-maps";
 
 import {GeoJsonLayer} from '@deck.gl/layers';
@@ -94,7 +94,7 @@ function GoogleMaps() {
     <APIProvider apiKey={import.meta.env.VITE_PUBLIC_GOOGLE_MAPS_API_KEY} >
       <div className="zemljevid">
         <Map 
-          defaultZoom={9}
+          defaultZoom={13}
           defaultCenter={position}
           mapId={import.meta.env.VITE_PUBLIC_MAP_ID}
           gestureHandling={'greedy'}>
@@ -116,12 +116,17 @@ function GoogleMaps() {
             <img src={snowplowIcon} alt="snowplow" style={{ width: "50px" }}/>
           </AdvancedMarker>
 
+
           <AdvancedMarker position={position} onClick={() => setOpen(true)}>
             <Pin
               background={"grey"}
               borderColor={"green"}
               glyphColor={"purple"}
             />
+          </AdvancedMarker>
+
+          <AdvancedMarker position={position} onClick={() => setOpen(true)}>
+            <div style={{ width: "10px"}}><p style={{ fontSize: "15px", color: "white", textAlign: "center", backgroundColor: "purple" }}>1</p></div>
           </AdvancedMarker>
 
           {open && (
