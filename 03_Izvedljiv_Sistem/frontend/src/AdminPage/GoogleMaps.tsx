@@ -17,10 +17,12 @@ import {
 import {GeoJsonLayer} from '@deck.gl/layers';
 import {DeckGlOverlay} from './deckgl-overlay';
 
-const DATA_URL =
-  'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart.geo.json';
+// const DATA_URL =
+//   'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart.geo.json';
 
 import type {Feature, GeoJSON} from 'geojson';
+
+import roadsData from './roads.json';
 
 
 
@@ -59,19 +61,21 @@ function GoogleMaps() {
   // const position = { lat: 53.54, lng: 10 };
   // const [my_location, setMyLocation] = useState<google.maps.LatLngLiteral | null>(null);
   // const [my_location, setMyLocation] = useState<Location>({});
-  const position = {lat: 37.74, lng: -122.4}
+  // const position = {lat: 37.74, lng: -122.4}
+  // const position = {lat: 46.253145591316489, lng: 15.24886631345186}
+  const position = { lat: 46.2398, lng: 15.2677}
   const [open, setOpen] = useState(false);
 
 
-  
 
-  const [data, setData] = useState<GeoJSON | null>(null);
 
-  useEffect(() => {
-    fetch(DATA_URL)
-      .then(res => res.json())
-      .then(data => setData(data as GeoJSON));
-  }, []);
+  // const [data, setData] = useState<GeoJSON | null>(null);
+
+  // useEffect(() => {
+  //   fetch(DATA_URL)
+  //     .then(res => res.json())
+  //     .then(data => setData(data as GeoJSON));
+  // }, []);
 
 
 
@@ -90,7 +94,7 @@ function GoogleMaps() {
           defaultCenter={position}
           mapId={import.meta.env.VITE_PUBLIC_MAP_ID}>
 
-          <DeckGlOverlay layers={getDeckGlLayers(data)} />
+          <DeckGlOverlay layers={getDeckGlLayers(roadsData)} />
 
           <AdvancedMarker position={my_location} onClick={() => setOpen(true)}>
             <Pin
