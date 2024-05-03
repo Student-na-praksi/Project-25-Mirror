@@ -3,13 +3,13 @@ import { useState } from "react";
 
 import AdminSideBand from "./AdminSideBand";
 import { MenuBurgerButton } from "./MenuBurgerButton";
-import "./LandingPage-style.css";
+import "./AdminPage-style.css";
 
 
 import GoogleMaps from "./GoogleMaps";
 
 
-function LandingPage() {
+function AdminPage() {
 
   const [bandPresent, setBandPresent] = useState(false);
 
@@ -36,7 +36,7 @@ function LandingPage() {
   )
 }
 
-export default LandingPage
+export default AdminPage
 
 
 

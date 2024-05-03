@@ -23,15 +23,16 @@ const DATA_URL =
 import type {Feature, GeoJSON} from 'geojson';
 
 
+
+
+
 function GoogleMaps() {
 
   // const position = { lat: 53.54, lng: 10 };
+  const [my_location, setMyLocation] = useState<google.maps.LatLngLiteral | null>(null);
+  // const [my_location, setMyLocation] = useState<Location>({});
   const position = {lat: 37.74, lng: -122.4}
   const [open, setOpen] = useState(false);
-  
-  console.log(import.meta.env.VITE_PUBLIC_GOOGLE_MAPS_API_KEY)
-  console.log(import.meta.env.VITE_PUBLIC_MAP_ID)
-
 
 
   const [data, setData] = useState<GeoJSON | null>(null);
@@ -41,6 +42,31 @@ function GoogleMaps() {
       .then(res => res.json())
       .then(data => setData(data as GeoJSON));
   }, []);
+
+
+
+
+  
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  } else {
+    console.log("Geolocation not supported");
+  }
+  
+  function success(position: any) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    setMyLocation({ lat: latitude, lng: longitude });
+    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+  }
+  
+  function error() {
+    console.log("Unable to retrieve your location");
+  }
+
+
+
 
   // console.log(process.env.PUBLIC_GOOGLE_MAPS_API_KEY)
   return (
@@ -52,6 +78,14 @@ function GoogleMaps() {
           mapId={import.meta.env.VITE_PUBLIC_MAP_ID}>
 
           <DeckGlOverlay layers={getDeckGlLayers(data)} />
+
+          <AdvancedMarker position={my_location} onClick={() => setOpen(true)}>
+            <Pin
+              background={"red"}
+              borderColor={"blue"}
+              glyphColor={"purple"}
+            />
+          </AdvancedMarker>
 
           <AdvancedMarker position={position} onClick={() => setOpen(true)}>
             <Pin
