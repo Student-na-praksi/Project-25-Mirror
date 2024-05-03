@@ -17,6 +17,8 @@ import {
 import {GeoJsonLayer} from '@deck.gl/layers';
 import {DeckGlOverlay} from './deckgl-overlay';
 
+import snowplowIcon from "@/assets/snowplow.png";
+
 // const DATA_URL =
 //   'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart.geo.json';
 
@@ -102,6 +104,11 @@ function GoogleMaps() {
               borderColor={"blue"}
               glyphColor={"purple"}
             />
+          </AdvancedMarker>
+
+
+          <AdvancedMarker position={my_location} onClick={() => setOpen(true)}>
+            <img src={snowplowIcon} alt="snowplow" style={{ width: "50px" }}/>
           </AdvancedMarker>
 
           <AdvancedMarker position={position} onClick={() => setOpen(true)}>
