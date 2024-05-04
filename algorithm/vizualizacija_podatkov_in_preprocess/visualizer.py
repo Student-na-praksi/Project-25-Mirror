@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-ZMANJSAJ_OBSEG = True
+ZMANJSAJ_OBSEG = False
 
 
 
@@ -62,10 +62,12 @@ Kot seed se konstantno uporablja 50, da je lažje debuggat.
 
 shuffled_roads_gdf = roads_gdf.sample(frac=1, random_state=50).reset_index(drop=True)
 roads_gdf = shuffled_roads_gdf
+rgba_road_colors = [plt.cm.viridis(idx/len(roads_gdf)) for idx in range(0, len(roads_gdf))]
 
 # Iterate over each geometry and plot it with a different color
 for idx, geom in roads_gdf['geometry'].items():
-    roads_gdf.iloc[[idx]].plot(ax=ax, color=plt.cm.viridis(idx/len(roads_gdf)), linewidth=2)
+    roads_gdf.iloc[[idx]].plot(ax=ax, color=rgba_road_colors[idx], linewidth=2)
+    # roads_gdf.iloc[[idx]].plot(ax=ax, color=plt.cm.viridis(idx/len(roads_gdf)), linewidth=2)
 
 # Add title and labels
 plt.title('Plot of LINESTRINGs with Different Colors')
@@ -87,7 +89,7 @@ Podatki so v osnovi tako podani, da je posamezna cesta en LineString,
 ki gre od enega križišča do naslednega. Tako da podatki so že dobri - ni nič treba lomit cest.
 Kar pa je treba naredit, je najti njihova presečišča - pač na koncih se sekajo.
 
-S pomočjo roads_gdf.sindex lahko efektivno omejimo iskanje na kandidatov za presečišče.
+S pomočjo roads_gdf.sindex lahko efektivno omejimo iskanje kandidatov za presečišče.
 
 Ker se bo zgodilo, da bi prvi bil intersection z drugim, in drugi s prvim (bi bilo podvajanje)
 bomo omejili kandidate na le te, ki imajo višji index od trenutnega kandidata.
@@ -286,6 +288,77 @@ for idx, row in  remaining_intersection_gdf.iterrows():
 
 plt.show()
 
+
+
+
+
+
+
+
+
+
+
+""" Now let's make the lines and points into a GeoJSON file. """
+
+
+# Drop all of the properties except for geometry
+roads_gdf = roads_gdf[["geometry"]]
+
+
+
+
+# Transform these coordinates to the GPS coordinates
+
+from pyproj import Proj, Transformer
+from shapely.geometry import LineString
+
+# I gave Pluzenje_Zelenice.prj to gpt4 and it gave me this proj string:
+# Define the projection using the PROJ string from the .prj file
+proj_string = """
+    +proj=tmerc +lat_0=0 +lon_0=15 +k=0.9999 +x_0=500000 +y_0=-5000000
+    +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+"""
+in_proj = Proj(proj_string)
+out_proj = Proj(proj='latlong', datum='WGS84')
+
+transformer = Transformer.from_proj(in_proj, out_proj, always_xy=True)
+
+def transform_geometry(geometry, transformer):
+    if geometry.geom_type == 'LineString':
+        transformed_points = [transformer.transform(x, y) for x, y in geometry.coords]
+        return LineString(transformed_points)
+    
+    else:
+        return None
+
+# Apply the transformation to each geometry
+roads_gdf['geometry'] = roads_gdf['geometry'].apply(transform_geometry, transformer=transformer)
+
+# CRS Not Transformed: Setting the CRS using set_crs does not transform the geometries to the new CRS; it only assigns the CRS to the GeoDataFrame. 
+# If you need to transform the geometries to match the new CRS, you should use the to_crs method instead.
+roads_gdf.set_crs('epsg:4326', inplace=True, allow_override=True)
+
+
+
+
+def rgba_to_hex(r, g, b):
+    return '#{:02x}{:02x}{:02x}'.format(r, g, b)
+
+
+# This line makes it so that there are only 7 colours. Trying to make things easier for the browser.
+rgba_road_colors = [plt.cm.viridis( (idx % 7) * (1/6)) for idx in range(0, len(roads_gdf))]
+
+hex_code_road_colors = [rgba_to_hex(int(rgba[0]*255), int(rgba[1]*255), int(rgba[2]*255)) for rgba in rgba_road_colors]
+
+# add the hex color property
+roads_gdf["color"] = hex_code_road_colors
+roads_gdf.to_file("roads.json", driver='GeoJSON')
+
+
+
+
+
+# remaining_intersection_gdf.to_file("intersections.geojson", driver='GeoJSON')
 
 
 
