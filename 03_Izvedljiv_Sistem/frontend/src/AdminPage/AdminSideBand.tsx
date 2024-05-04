@@ -14,7 +14,6 @@ function AdminSideBand() {
                 if (response.ok) {
                     // Handle successful response (e.g., redirect, show success message)
                     console.log('Login successful');
-                    console.log(response)
                 } else {
                     // Handle error response (e.g., display error message)
                     console.error('Login failed');
