@@ -150,26 +150,10 @@ def get_roads():
     #TODO
     return jsonify(message='Plow is no'), 200
 
-@app.route('/get_roads', methods=['GET'])
+@app.route('/get_free_plows', methods=['GET'])
 def get_roads():
     #TODO
     return jsonify(message='Plow is no'), 200
-
-@app.route('/get_roads', methods=['GET'])
-def get_roads():
-    #TODO
-    return jsonify(message='Plow is no'), 200
-
-@app.route('/get_roads', methods=['GET'])
-def get_roads():
-    #TODO
-    return jsonify(message='Plow is no'), 200
-
-@app.route('/get_roads', methods=['GET'])
-def get_roads():
-    #TODO
-    return jsonify(message='Plow is no'), 200
-    
 
 # LEAVE THIS AT THE BOTTOM!!
 # Start the Flask application 
