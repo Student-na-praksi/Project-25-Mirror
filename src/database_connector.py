@@ -16,7 +16,7 @@ def connectToSQL():
 def  connectionEstablished():
         return connection is None
 
-def writeUserToDb(username: str, password: str, accountType: str):
+def writeUserToDb(username: str, password: str, telephone: str, accountType: str):
     # create a new cursor object, which is used to execute SQL commands, and define a SQL query
     cursor = connection.cursor()
     # Check if the username already exists in the database
@@ -25,11 +25,11 @@ def writeUserToDb(username: str, password: str, accountType: str):
     result = cursor.fetchall()
     if result:
         return False
-    query = "INSERT INTO users (username, password_hash, acc_type) VALUES (%s, %s, %s)"
+    query = "INSERT INTO users (username, password_hash, telephone_number, acc_type) VALUES (%s, %s, %s, %s)"
     # Hash the password before storing it
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-    cursor.execute(query, (username, hashed_password, accountType))
+    cursor.execute(query, (username, hashed_password, telephone, accountType))
     connection.commit()
     cursor.close()
     return True

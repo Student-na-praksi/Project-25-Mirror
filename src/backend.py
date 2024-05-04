@@ -41,10 +41,11 @@ def register():
         data = request.get_json()
         username = data['username']
         password = data['password']
+        telphone = data['telephone_number']
         accountType = data['type']
-        app.logger.info('Inserting user: %s with password: %s and account type: %s into DB', username, password, accountType)
+        app.logger.info('Inserting user: %s with password: %s and account type: %s into DB', username, password, telphone, accountType)
         
-        if(db_conn.writeUserToDb(username, password, accountType)):
+        if(db_conn.writeUserToDb(username, password, telphone, accountType)):
             return jsonify(message='User registered successfully'), 200
         else:
             app.logger.info('User %s ALREADY EXISTS!', username, password)
@@ -101,9 +102,13 @@ def login():
 def test():
     return jsonify(message='Test route called successfully'), 200
 
-@app.route('/api/register', methods=['POST'])
-def register_user():
-    return 'User registered successfully'
+@app.route('/activate_plow', methods=['POST'])
+def activate_plow():
+    return jsonify(message='Plow is yes'), 200
+
+@app.route('/deactivate_plow', methods=['POST'])
+def deactivate_plow():
+    return jsonify(message='Plow is no'), 200
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
