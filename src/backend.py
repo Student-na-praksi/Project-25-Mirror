@@ -110,10 +110,66 @@ def activate_plow():
 def deactivate_plow():
     return jsonify(message='Plow is no'), 200
 
-@app.route('/api/data', methods=['GET'])
-def get_data():
-    # Retrieve data from your backend or database
-    return {'message': 'Data retrieved successfully', 'data': {...}}
+@app.route('/get_plow_location', methods=['POST'])
+def get_plow_location():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/select_a_request', methods=['POST'])
+def select_a_request():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/submit_a_request', methods=['POST'])
+def submit_a_request():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/complete_a_request', methods=['POST'])
+def complete_a_request():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/get_roads', methods=['GET'])
+def get_roads():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/get_plows', methods=['GET'])
+def get_plows():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/get_next_requests', methods=['GET'])
+def get_roads():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/get_requests', methods=['GET'])
+def get_roads():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/get_roads', methods=['GET'])
+def get_roads():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/get_roads', methods=['GET'])
+def get_roads():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/get_roads', methods=['GET'])
+def get_roads():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+
+@app.route('/get_roads', methods=['GET'])
+def get_roads():
+    #TODO
+    return jsonify(message='Plow is no'), 200
+    
 
 # LEAVE THIS AT THE BOTTOM!!
 # Start the Flask application 
