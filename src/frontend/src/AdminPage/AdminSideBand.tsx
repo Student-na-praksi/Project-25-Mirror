@@ -20,6 +20,17 @@ function AdminSideBand() {
         });
     };
 
+    const showPlowsClick = () => {
+        fetch('http://localhost:5000/test', {
+            method: 'POST',
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    };
+
     const zahtevekClicked = (key: number) => {
         alert(zahtevki_test[key]);
     }
@@ -28,8 +39,8 @@ function AdminSideBand() {
         <div className="band">
 
             <div className="group">
-                    <div className="top-button" onClick={addPlowClick}>Dodaj uporabnika</div>
-                    <div className="top-button">Uredi štartne baze</div>
+                    <div className="top-button" onClick={addPlowClick}>Dodaj nov plug</div>
+                    <div className="top-button" onClick={showPlowsClick}>Uredi štartne baze</div>
             </div>
             
             <div className="frame-2">
