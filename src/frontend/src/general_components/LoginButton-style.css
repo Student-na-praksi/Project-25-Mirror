@@ -18,7 +18,7 @@
     cursor: pointer;
 }
 
-.frame .hamburger-icon {
+.frame .login-icon {
     align-self: stretch;
     flex: 1;
     flex-grow: 1;
