@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './globals.css'
 import AdminPage from './AdminPage/AdminPage.tsx'
 import LandingPage from './LandingPage/LandingPage.tsx'
+import UserPage from './UserPage/UserPage.tsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/user" element={<UserPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

@@ -1,0 +1,123 @@
+.band {
+    text-align: center; /* Centers the text horizontally */
+    align-items: center; /* Centers the text vertically */
+    justify-content: center; /* Ensures the text is centered horizontally in the flex container */
+    font-family: 'Helvetica', 'Arial', sans-serif; /* Sets the font to Helvetica, with Arial as a fallback */
+    font-size: 100%; /* Starts with 100% of the parent font size, adjust as needed */
+    overflow: hidden; /* Prevents text from spilling outside the container */
+}
+
+.band .group {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.band .rectangle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+.band {
+    align-items: flex-start;
+    background-color: #bddcd6;
+    border-color: #000000;
+    border-left-style: solid;
+    border-left-width: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 100px;
+    position: relative;
+    padding: 100px 38px;
+
+    /* This includes padding in the height. Remove and see what happens. */
+    box-sizing: border-box;
+
+    height: 100vh;
+    width: 100%;
+}
+
+.band .group {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+    position: relative;
+    width: 332px;
+}
+
+.band .top-button {
+    background-color: #93bfcf;
+    
+    border: 2px solid;
+    border-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px #00000040;
+    
+    position: relative;
+
+    height: 40px;
+    width: 144px;
+}
+
+.band .top-button:hover {
+    background-color: #f0f0f0; /* Example background color on hover */
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+}
+
+
+.band .frame-2 {
+    flex: 1;
+    position: relative;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    width: 332px;
+    height: 100%;
+}
+
+
+.band .frame-2 .rectangle {
+    background-color: #eee9da;
+    border: 2px solid black;
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+    height: 30px;
+    width: 100%;
+}
+
+.band .frame-2 .zahtevki {
+    background-color: #eee9da;
+    border-color: #000000;
+    border: solid black;
+    border-width: 0px 2px 2px 2px;
+    border-radius: 0px 0px 10px 10px;
+    border-right-style: solid;
+    border-right-width: 2px;
+    flex: 1 1 0;
+    position: relative;
+    width: 100%;
+
+    overflow-y: auto; 
+}
+
+.band .zahtevek {
+
+    border-bottom: 2px solid;
+    border-color: #000000;
+    /* border-radius: 10px; */
+    /* box-shadow: 0px 4px 4px #00000040; */
+    position: relative;
+    /* height: 100%; */
+    width: 100%;
+}
+
+.band .zahtevek:hover {
+    background-color: #f0f0f0; /* Example background color on hover */
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+}

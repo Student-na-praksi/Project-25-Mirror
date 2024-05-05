@@ -1,15 +1,19 @@
 import "./LoginSideBand-style.css";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function LoginSideBand() {
 
     const [name, setName] = useState('');
     const [pass, setPass] = useState('');
 
+    const navigate = useNavigate();
+
 
 
     const handleSubmit = () => {
-        alert("Prijava v obravnavi.");
+        navigate('/admin');
+        alert("Prijava uspešna.");
     }
 
     return (
@@ -25,14 +29,14 @@ function LoginSideBand() {
 
                     <form onSubmit={handleSubmit}>
                         <br/>
-                        <label htmlFor="name">Username:</label><br/>
+                        <label htmlFor="name">Uporabniško ime:</label><br/>
                         <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
                         <br/><br/>
-                        <label htmlFor="pass">Password:</label><br/>
+                        <label htmlFor="pass">Geslo:</label><br/>
                         <input type="text" id="pass" name="pass" value={pass} onChange={(e) => setPass(e.target.value)}/>
                         <br/><br/>
                         
-                        <input className="zahtevek" type="submit" value="Log in"></input>
+                        <input className="zahtevek" type="submit" value="Prijava"></input>
                     </form>
                 
                 </div>
