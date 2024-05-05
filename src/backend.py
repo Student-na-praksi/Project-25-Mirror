@@ -4,17 +4,47 @@ import mysql.connector
 import bcrypt
 import logging
 
+
+# singelton design pattern
+class DatabaseConnector:
+    def __init__(self):
+        # Create a connection to the MySQL database
+        self.connection = mysql.connector.connect(
+            host='localhost',
+            user='kurir',
+            password='kurir',
+            database='tpo25'
+        )
+
+    def connect(self):
+        return self.connection
+
+db_connector = DatabaseConnector()
 connection = None
 
-def connectToSQL():
-    # Create a connection to the MySQL database
-    conn = mysql.connector.connect(
-        host='localhost',
-        user='kurir',
-        password='kurir',
-        database='tpo25'
-    )
-    return conn
+# Command pattern
+class DatabaseHelper:
+    def queryExec(self, connection, query_type, args):
+        cursor = connection.cursor()
+        if query_type == 'login':
+            query = "SELECT * FROM users WHERE username = %s"
+            cursor.execute(query, (args['username'],))
+        elif query_type == 'register':
+            query = "INSERT INTO users (username, password) VALUES (%s, %s)"
+            cursor.execute(query, (args['username'], args['password']))
+        elif query_type == 'addplow':
+            query = """
+            INSERT INTO plows (plowusername, baza, plastlat, plastlong, plasttime, online, desc) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+            """
+            cursor.execute(query, (args['plowusername'], args['baza'], args['plastlat'], args['plastlong'], args['plasttime'], args['online'], args['desc']))
+        else:
+            raise ValueError('Invalid query type')
+        result = cursor.fetchall()
+        cursor.close()
+        return result
+
+db_helper = DatabaseHelper()
 
 # Create a new Flask web server from the Flask class
 app = Flask(__name__, static_url_path='/static')
@@ -44,7 +74,7 @@ def register():
         # If the connection to the database is not established try establishing a new connection
         if connection is None:
             try:
-                connection = connectToSQL()
+                connection = db_connector.connect()
             except Exception as e:
                 return jsonify(message='The database is unreachable'), 500 # + str(e)
              
@@ -102,18 +132,19 @@ def login():
         # If the connection to the database is not established try establishing a new connection
         if connection is None:
             try:
-                connection = connectToSQL()
+                connection = db_connector.connect()
             except Exception as e:
                 return jsonify(message='The database is unreachable'), 500 # + str(e)
             
         # create a new cursor object, which is used to execute SQL commands, and define a SQL query
-        cursor = connection.cursor()
-        query = "SELECT * FROM users WHERE username = %s"
-        # execute the query
-        cursor.execute(query, (username,))
-        result = cursor.fetchall()
-        app.logger.info('Response from DB: %s', result)
-        cursor.close()
+        # cursor = connection.cursor()
+        # query = "SELECT * FROM users WHERE username = %s"
+        # # execute the query
+        # cursor.execute(query, (username,))
+        # result = cursor.fetchall()
+        # app.logger.info('Response from DB: %s', result)
+        # cursor.close()
+        result = db_helper.queryExec(connection, 'login', {'username': username})
 
         # If user not found, db returns empty tuple
         if not result:
@@ -127,6 +158,35 @@ def login():
     except Exception as e:
         return jsonify(error=str(e)), 500
     
+@app.route('/addplow', methods=['POST'])
+def add_plow():
+    # Get the data from the request
+    data = request.get_json()
+
+    # # Check if all necessary data is provided
+    # if 'plowusername' not in data or 'baza' not in data or 'plastlat' not in data or 'plastlong' not in data or 'plasttime' not in data or 'online' not in data or 'desc' not in data:
+    #     return jsonify({'error': 'Missing data'}), 400
+
+    # Prepare the arguments for the query
+    args = {
+        'plowusername': data['plowusername'],
+        'baza': data['baza'],
+        'plastlat': data['plastlat'],
+        'plastlong': data['plastlong'],
+        'plasttime': data['plasttime'],
+        'online': data['online'],
+        'desc': data['desc']
+    }
+
+    # Execute the query
+    try:
+        db_helper.queryExec(connection, 'addplow', args)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+    # Return a success message
+    return jsonify({'message': 'Plow added successfully'}), 200
+
 # TEST BUTTON ROUTE    
 @app.route('/test', methods=['POST'])
 def test():
