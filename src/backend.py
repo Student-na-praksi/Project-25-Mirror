@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 import database_connector as db_conn
 import bcrypt
 import logging
@@ -6,6 +7,8 @@ import logging
 
 # Create a new Flask web server from the Flask class
 app = Flask(__name__, static_url_path='/static')
+# This will enable CORS for all routes, which allows the frontend to communicate with the backend.
+CORS(app) 
 # app will log all the messages which are at the level INFO or above.
 app.logger.setLevel(logging.INFO)
 
@@ -29,10 +32,10 @@ def register():
     global connection
     
     try:
-        if(not db_conn.connectionEstablished):
+        if(db_conn is None or not db_conn.connectionEstablished):
             try:
                 db_conn.connectToSQL()
-                if(not db_conn.connectionEstablished):
+                if(db_conn is None or not db_conn.connectionEstablished):
                      return jsonify(message='The database is unreachable'), 500 # + str(e)
             except Exception as e:
                 return jsonify(message='The database is unreachable'), 500 # + str(e)
@@ -74,15 +77,22 @@ def login():
 
         app.logger.info('U: %s, P: %s, HASH %s',username, password, hashed_password)
 
-        if(not db_conn.connectionEstablished):
+        
+        if(db_conn is None or not db_conn.connectionEstablished):
             try:
                 db_conn.connectToSQL()
-                if(not db_conn.connectionEstablished):
+                if(db_conn is None or not db_conn.connectionEstablished):
                      return jsonify(message='The database is unreachable'), 500 # + str(e)
             except Exception as e:
                 return jsonify(message='The database is unreachable'), 500 # + str(e)
         
-        success, log, code = db_conn.validateLogin(username, password)
+        if db_conn is None or not db_conn.connectionEstablished:
+            return jsonify(message='The database is unreachable'), 500
+        
+        try:
+            success, log, code = db_conn.validateLogin(username, password)
+        except Exception as e:
+            return jsonify(message='Error when trying to validate login'), 500
         app.logger.info('Response from DB: %s', log)
         
         if(code == 200):
