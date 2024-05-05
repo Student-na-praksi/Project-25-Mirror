@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-
+from datetime import datetime
 import mysql.connector
 import bcrypt
 import logging
@@ -168,15 +168,26 @@ def add_plow():
     #     return jsonify({'error': 'Missing data'}), 400
 
     # Prepare the arguments for the query
+    now = datetime.now()
+    timestamp = now.strftime('%Y-%m-%d %H:%M:%S')
     args = {
-        'plowusername': data['plowusername'],
-        'baza': data['baza'],
-        'plastlat': data['plastlat'],
-        'plastlong': data['plastlong'],
-        'plasttime': data['plasttime'],
-        'online': data['online'],
-        'desc': data['desc']
+        'plowusername': "test1",
+        'baza': "VOC",
+        'plastlat': "46.17040",
+        'plastlong': "14.31384",
+        'plasttime': timestamp,
+        'online': True,
+        'desc': "opisni opis"
     }
+    # args = {
+    #     'plowusername': data['plowusername'],
+    #     'baza': data['baza'],
+    #     'plastlat': data['plastlat'],
+    #     'plastlong': data['plastlong'],
+    #     'plasttime': data['plasttime'],
+    #     'online': data['online'],
+    #     'desc': data['desc']
+    # }
 
     # Execute the query
     try:

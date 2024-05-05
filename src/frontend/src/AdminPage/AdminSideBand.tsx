@@ -9,8 +9,8 @@ function AdminSideBand() {
     }
 
 
-    const handleClick = () => {
-        fetch('http://localhost:5000/test', {
+    const addPlowClick = () => {
+        fetch('http://localhost:5000/addplow', {
             method: 'POST',
         })
         .then(response => response.json())
@@ -28,7 +28,7 @@ function AdminSideBand() {
         <div className="band">
 
             <div className="group">
-                    <div className="top-button" onClick={handleClick}>Dodaj uporabnika</div>
+                    <div className="top-button" onClick={addPlowClick}>Dodaj uporabnika</div>
                     <div className="top-button">Uredi štartne baze</div>
             </div>
             
