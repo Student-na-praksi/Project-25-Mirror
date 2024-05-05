@@ -20,6 +20,10 @@ function AdminSideBand() {
         });
     };
 
+    const zahtevekClicked = (key: number) => {
+        alert(zahtevki_test[key]);
+    }
+
     return (
         <div className="band">
 
@@ -32,7 +36,7 @@ function AdminSideBand() {
                 <div className="rectangle">Zahtevki</div>
                 <div className="zahtevki">
                         {zahtevki_test.map((item, index) => (
-                            <div className="zahtevek" key={index}>{item}</div>
+                            <div className="zahtevek" key={index} onClick={() => zahtevekClicked(index)}>{item}</div>
                         ))}
                 </div>
             </div>

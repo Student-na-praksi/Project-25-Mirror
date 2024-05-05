@@ -1,4 +1,25 @@
 .band {
+    text-align: center; /* Centers the text horizontally */
+    align-items: center; /* Centers the text vertically */
+    justify-content: center; /* Ensures the text is centered horizontally in the flex container */
+    font-family: 'Helvetica', 'Arial', sans-serif; /* Sets the font to Helvetica, with Arial as a fallback */
+    font-size: 100%; /* Starts with 100% of the parent font size, adjust as needed */
+    overflow: hidden; /* Prevents text from spilling outside the container */
+}
+
+.band .group {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.band .rectangle {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+
+.band {
     align-items: flex-start;
     background-color: #bddcd6;
     border-color: #000000;
@@ -66,7 +87,7 @@
     border: 2px solid black;
     border-radius: 10px 10px 0px 0px;
     position: relative;
-    height: 70px;
+    height: 30px;
     width: 100%;
 }
 
