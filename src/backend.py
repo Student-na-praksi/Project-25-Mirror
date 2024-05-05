@@ -104,55 +104,74 @@ def test():
 
 @app.route('/activate_plow', methods=['POST'])
 def activate_plow():
+    # Validate the user is a manager?
+    # Validate the target username is a plo¸w
+    # Send the message to the plow 
+    # After the ack, inform the client
     return jsonify(message='Plow is yes'), 200
 
 @app.route('/deactivate_plow', methods=['POST'])
 def deactivate_plow():
+    # Validate the user is a manager?
+    # Validate the target username is a plow
+    # Send the message to the plow 
+    # After the ack, inform the client
     return jsonify(message='Plow is no'), 200
 
 @app.route('/get_plow_location', methods=['POST'])
 def get_plow_location():
-    #TODO
+    # Validate the target username is a plow
+    # Return plow's location to the client
     return jsonify(message='Plow is no'), 200
 
 @app.route('/select_a_request', methods=['POST'])
 def select_a_request():
-    #TODO
+    # Set a request as in progress and the plow
+    # Notify the plow
     return jsonify(message='Plow is no'), 200
 
 @app.route('/submit_a_request', methods=['POST'])
 def submit_a_request():
-    #TODO
+    # Create a new request to clear the road location
+    # Notify the client
     return jsonify(message='Plow is no'), 200
 
 @app.route('/complete_a_request', methods=['POST'])
 def complete_a_request():
-    #TODO
+    # Mark a request as completed for the client/plow
+    # Notify the client
     return jsonify(message='Plow is no'), 200
 
 @app.route('/get_roads', methods=['GET'])
 def get_roads():
-    #TODO
+    # Return the roads and the state
     return jsonify(message='Plow is no'), 200
 
 @app.route('/get_plows', methods=['GET'])
 def get_plows():
-    #TODO
+    # Get all the plows from DB and return all active ones
     return jsonify(message='Plow is no'), 200
 
 @app.route('/get_next_requests', methods=['GET'])
-def get_roads():
-    #TODO
+def get_next_requests():
+    # Validate the client is a plow or manager
+    # Return the next <n> requests for a plow
     return jsonify(message='Plow is no'), 200
 
 @app.route('/get_requests', methods=['GET'])
-def get_roads():
-    #TODO
+def get_requests():
+    # Validate the client is a plow or manager
+    # Return all available requests
     return jsonify(message='Plow is no'), 200
 
 @app.route('/get_free_plows', methods=['GET'])
-def get_roads():
+def get_free_plows():
     #TODO
+
+    # Validate the user is a manager?
+    # Get from DB users who are plows
+    # Get their location
+    # Send the message to the client
     return jsonify(message='Plow is no'), 200
 
 # LEAVE THIS AT THE BOTTOM!!

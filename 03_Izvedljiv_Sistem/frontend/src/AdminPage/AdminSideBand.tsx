@@ -18,6 +18,11 @@ function AdminSideBand() {
                     // Handle error response (e.g., display error message)
                     console.error('Login failed');
                 }
+                return response.json();
+            })
+            .then(data =>
+            {
+                console.log(data.message)
             })
             .catch((error) => {
                 console.error('Error during login:', error);
