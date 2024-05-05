@@ -1,14 +1,23 @@
 from flask import Flask, request, jsonify, render_template
-from flask_cors import CORS
-import database_connector as db_conn
+
+import mysql.connector
 import bcrypt
 import logging
 
+connection = None
+
+def connectToSQL():
+    # Create a connection to the MySQL database
+    conn = mysql.connector.connect(
+        host='localhost',
+        user='kurir',
+        password='kurir',
+        database='tpo25'
+    )
+    return conn
 
 # Create a new Flask web server from the Flask class
 app = Flask(__name__, static_url_path='/static')
-# This will enable CORS for all routes, which allows the frontend to communicate with the backend.
-CORS(app) 
 # app will log all the messages which are at the level INFO or above.
 app.logger.setLevel(logging.INFO)
 
@@ -32,11 +41,10 @@ def register():
     global connection
     
     try:
-        if(db_conn is None or not db_conn.connectionEstablished):
+        # If the connection to the database is not established try establishing a new connection
+        if connection is None:
             try:
-                db_conn.connectToSQL()
-                if(db_conn is None or not db_conn.connectionEstablished):
-                     return jsonify(message='The database is unreachable'), 500 # + str(e)
+                connection = connectToSQL()
             except Exception as e:
                 return jsonify(message='The database is unreachable'), 500 # + str(e)
              
@@ -47,11 +55,25 @@ def register():
         accountType = data['type']
         app.logger.info('Inserting user: %s with password: %s and account type: %s into DB', username, password, accountType)
         
-        if(db_conn.writeUserToDb(username, password, accountType)):
-            return jsonify(message='User registered successfully'), 200
-        else:
+        # create a new cursor object, which is used to execute SQL commands, and define a SQL query
+        cursor = connection.cursor()
+        # Check if the username already exists in the database
+        query = "SELECT * FROM users WHERE username = %s"
+        cursor.execute(query, (username,))
+        result = cursor.fetchall()
+        if result:
             app.logger.info('User %s ALREADY EXISTS!', username, password)
             return jsonify(message='Username already exists, please choose a different username'), 409
+          
+        query = "INSERT INTO users (username, password_hash, acc_type) VALUES (%s, %s, %s)"
+        # Hash the password before storing it
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+        cursor.execute(query, (username, hashed_password, accountType))
+        connection.commit()
+        cursor.close()
+
+        return jsonify(message='User registered successfully'), 200
     except Exception as e:
         return jsonify(error=str(e)), 500
 
@@ -77,32 +99,31 @@ def login():
 
         app.logger.info('U: %s, P: %s, HASH %s',username, password, hashed_password)
 
-        
-        if(db_conn is None or not db_conn.connectionEstablished):
+        # If the connection to the database is not established try establishing a new connection
+        if connection is None:
             try:
-                db_conn.connectToSQL()
-                if(db_conn is None or not db_conn.connectionEstablished):
-                     return jsonify(message='The database is unreachable'), 500 # + str(e)
+                connection = connectToSQL()
             except Exception as e:
                 return jsonify(message='The database is unreachable'), 500 # + str(e)
-        
-        if db_conn is None or not db_conn.connectionEstablished:
-            return jsonify(message='The database is unreachable'), 500
-        
-        try:
-            success, log, code = db_conn.validateLogin(username, password)
-        except Exception as e:
-            return jsonify(message='Error when trying to validate login'), 500
-        app.logger.info('Response from DB: %s', log)
-        
-        if(code == 200):
-            message = 'Login successful'
-        elif(code == 401):
-            message = 'Wrong password'
-        elif(code == 404):
-            message = 'User not found'
+            
+        # create a new cursor object, which is used to execute SQL commands, and define a SQL query
+        cursor = connection.cursor()
+        query = "SELECT * FROM users WHERE username = %s"
+        # execute the query
+        cursor.execute(query, (username,))
+        result = cursor.fetchall()
+        app.logger.info('Response from DB: %s', result)
+        cursor.close()
 
-        return jsonify(message=message), code
+        # If user not found, db returns empty tuple
+        if not result:
+            return jsonify(message='User not found'), 404
+
+        # Check if the hashed password matches the one in the database
+        if bcrypt.checkpw(password.encode('utf-8'), result[0][2].encode('utf-8')):
+            return jsonify(message='Login successful'), 200
+        else:
+            return jsonify(message='Wrong password'), 401
     except Exception as e:
         return jsonify(error=str(e)), 500
     
@@ -110,15 +131,6 @@ def login():
 @app.route('/test', methods=['POST'])
 def test():
     return jsonify(message='Test route called successfully'), 200
-
-@app.route('/api/register', methods=['POST'])
-def register_user():
-    return 'User registered successfully'
-
-@app.route('/api/data', methods=['GET'])
-def get_data():
-    # Retrieve data from your backend or database
-    return {'message': 'Data retrieved successfully', 'data': {...}}
 
 # LEAVE THIS AT THE BOTTOM!!
 # Start the Flask application 
