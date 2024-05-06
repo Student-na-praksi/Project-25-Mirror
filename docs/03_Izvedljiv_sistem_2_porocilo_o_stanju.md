@@ -41,16 +41,24 @@ Z delom aplikacije, ki samostojnim plugom omogoča povezovanje s pravnimi in fiz
 
 ### 4.2 Osrednji arhitekturni pogledi
 
-- Za vsak pogled zagotovite osrednji diagram (npr. postavitveni ([deployment](https://plantuml.com/deployment-diagram)), paketni ([class](https://plantuml.com/class-diagram)) diagram oz. komponentni ([component](https://plantuml.com/component-diagram)) diagram).
-
-  - **Komponenti diagram**
+  - #### **Komponenti diagram**
   ![Komponenti diagram](https://teaching.lavbic.net/plantuml/png/RLBBRi8m4BpxAqQvq1xu0Gv88AGs9w8YkBGzECa6h0HlP9j4IjL_hvFoSk1cxypipdWzmOeAfGbAEpA5pCYYO0EIsG4P7slMf9sueeYQ8rcjIdJoIsCfEvbmBbt9JGHfiLh65-gzQ1kZfTHoLfAp0t4RFoMcXbjB1c_91lPKrspSGFVtWIN4vEBuwiwAwp4m98Aw7wtp3PccRt83rhLJHzL9noPXfyGzjlNZPQgLBTNkdFf709y-JUADVMCQnFZrub4xJ7DkzJHubi0AnjZD_WXwOkQ_-VpkSKQzp_X3nX5j7iHup337o-9ZiyOYYL_x1Ipo73dPp2ZFP6t5HBCZ6BK_E70HB04pHEz6QeMAO9si_ERg0QD83BAAYa4r7kk5E-FPtDVFEgVyf-ia6akGfLDDNwrEUz_h3m00 "Komponenti diagram")
 
-  - **Deployment diagram**
+  - #### **Deployment diagram**
   ![Deployment diagram](https://teaching.lavbic.net/plantuml/png/TLJBRjim4BppAnQ--6J4FVHM572G10tG6e83dGeVrk929YoJAKarJGB_UvUa7fGV5vapmnrobmDZvOs5sKeUbPu1EbW9JDIQBDNAUQiiQcXVZSMTLeUugLptkugchHDL2A6D96WCLjZiZVFmAG2upYiDNvVBPOTCwnb-2P09h0vO4ypAvrdS3_3xXpaI5Cnk4ouTsG6V17_YGJik9Iq_9pwDgPNUKEsKvwAaiSNFG6zxj8cDaTsAo9p4nEA8cd-AnhovqM0bvPsa1bwP7dnUzkODi4cisrup-y2zfxy7DJezQsx7nnAbQx3qfoNdUqy6BJVFuYO9hgzx_4TLwoaMJgjE_LWaUjoXusc-l7D_nuVxVgQE7ojS9upIJPZOPs_GEgf2lUF6qW0oiYR_orXw8lIj9PSfAEMQOi6Kx5eGxBs2nU9xIa6vpjR5k0wVYF80PEkedL_Y3CSzamo8UVVuoJhBqdpCmONMPUk2dyPhKDsvycsn69IiFbOCmxrGiZcEotJAD7_Z-qJnF8TvWiE6T5hEXlibzjeb-dSRb-cSMz6z9Go73rdEGVAy7klhT9SL_kkOXs-4PV4V "Deployment diagram")
 
- - **Diagram zaporedja**
+ - #### **Diagram zaporedja**
  ![Diagram zaporedja](https://teaching.lavbic.net/plantuml/svg/dPBTRjf048Nlzob6z8PAZL0iZAeeGYBfZo9LZGMbLxqPsmCic1rtl3Ofxz2toeDrR4Cn3RreBuo0_SuvSsQziYd1Wjd7_6HCiR4kHy4jn9XibiAbInFEMC0BkaAFoFaEbT82oyn_eIS_oUpIRVKO4lqWwL2OU9OxbfJalZ6BCtL_0VnERA7TodhgGYAyw-W1EeS5VI_99VJ9BlHnr4rx5NwuU_l-_W8TeNYRs1oT_tV1nN5DKmLwyy9ZjYPd8S_APGycCvXVm-rjSpmU6vEVdA0tQ24iO1eg5DUkA3-KEyFgI7AfJYCLISi7oYVil73s9_wOUxkrUwm7ojdRLZ3yks0odJt297femT7v94qrMw4dRMAqpDLOfxs1TrnnPg7CMJ1c-1ZDJk0qD5ge1eCR7Q7Wb6EhH5-VrnqiCDgZneQAYQsfY7q_AKNcMlRDDrVxLWMj8bqKLrtjq6YbMZkg8rBq6_jLI5z4x9zZf-yZe-Mk3dc30UmnTMjxL6iOwryvfXdfpJjQbYQbhhhxQsYE-Uhri1Ty_bcwPjrduHSaXxLe_cSiCgf7M448MvGDoPegdMEFSDp12uUWTGZ_po5eBaODvjS70zXHNB2-O1uuhgZmxI8Er-4hU_8rlm00)
+
+
+- #### **Diagram aktivnosti**
+  ![Diagram aktivnosti](https://teaching.lavbic.net/plantuml/svg/NP8xRiCm341tdOB8b5mX7dg0ea2NBaKN6c9i-aCPakp1HO_WG_GWxUJSgtJY-5DD0YK-yb4A4NqqvlpME8-fS0dEMeGUyqWTbRg1fcglloG59URy_eWN1A7nL51CJAC8Zkm43jSVxgg299G8rgKFK8a7-3IWw_nQjHa32xoWO4P-mIC41oxjwFez3YGCxf7S9hTKli3nsJhWFYLFJoU8EGaS9-0SWu3rwNPtBgI4SH227YnLhhvpg0e4nqtvh8KFqNOhDmwygEz1whlsfgtDjsF7CrGiN-w6ouoqZ8wenb98-Tnhe1Ui4R2Ct0dd6fqLNGSrMN2DHvqV2YLcNzk6w57VOE9ecajv7B0God0pG9tgT3P35fCjwtQeaalXUigQA2vwEyjiViC_xnLFGlNoG9EUG7GBvMl_LNRjhvQSh_w9CI6wvWy0)
+
+
+- #### **Razredni diagram**
+  ![Razredni diagram](https://teaching.lavbic.net/plantuml/svg/RP1DReCm48Ntd694DxI4gDcogvAqMQS7G8EPEbOisxLDMXHnzuB3dqGtbkRDc-zvXabq3jwxz_fc33oLoAwv5FpYIrdJFG98iQeA8_LFyfp3JOkgrwJcGYq5IrmuJtRIsYWo7GivmG4zbkXee9-fWdlK3R6GFNRtMYbYNbleKm4ozX24Lg5EXxfFs2zRxPfr8cbe1ANVDTdc-4iicP5BnWQ2e_2DeHm-lHMARm0jTpaS1FFpccstrYFfJCZyVB4FIwH2Nggq5rzDmYweE5K5Mi8HkhZDTF5u5sTPlDjkN-9_Jf53xSWjtA-zSJKmxBjo1tOOcJuS_G40)
+
+
 ## 5 Trenutno stanje
 
 - Kakšni dodatni cilji te iteracije, poleg tega, kar je že navedeno v [uvodu](#1-uvod)?
