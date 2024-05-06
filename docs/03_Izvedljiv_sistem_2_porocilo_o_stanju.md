@@ -81,7 +81,7 @@ Ostaja pa nam iziv pridobivanja ter procesiranja vremenskih podatkov.
 
 Trenutno stranke lahko dostopajo do glavne strani, kjer s pomočjo google maps API-ja ter podatkov MOC izrišemo zemljevid. Neprijavljene in neregistrirane stranke imajo dostop do prijave ter registracije.
 
-Izvedli smo test registracije, test prijave, test dodajanja pluga, test prikaza zemljevida ter test prikaza cest na zemljevidu. 
+Izvedli smo test registracije, test prijave, test dodajanja pluga, test prikaza zemljevida ter test prikaza cest na zemljevidu. Trenutno naša koda obsega približno 1400 vrstic kode.
 
 ## 6 Vodenje projekta
 
