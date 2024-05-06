@@ -43,36 +43,14 @@ Z delom aplikacije, ki samostojnim plugom omogoča povezovanje s pravnimi in fiz
 
 - Za vsak pogled zagotovite osrednji diagram (npr. postavitveni ([deployment](https://plantuml.com/deployment-diagram)), paketni ([class](https://plantuml.com/class-diagram)) diagram oz. komponentni ([component](https://plantuml.com/component-diagram)) diagram).
 
-  - Pri predlogu upoštevajte arhitekturne in načrtovalske vzorce.
-  - Priporoča se uporaba naslednjih diagramskih tehnik (ne nujno vseh):
+  - **Komponenti diagram**
+  ![Komponenti diagram](https://teaching.lavbic.net/plantuml/png/RLBBRi8m4BpxAqQvq1xu0Gv88AGs9w8YkBGzECa6h0HlP9j4IjL_hvFoSk1cxypipdWzmOeAfGbAEpA5pCYYO0EIsG4P7slMf9sueeYQ8rcjIdJoIsCfEvbmBbt9JGHfiLh65-gzQ1kZfTHoLfAp0t4RFoMcXbjB1c_91lPKrspSGFVtWIN4vEBuwiwAwp4m98Aw7wtp3PccRt83rhLJHzL9noPXfyGzjlNZPQgLBTNkdFf709y-JUADVMCQnFZrub4xJ7DkzJHubi0AnjZD_WXwOkQ_-VpkSKQzp_X3nX5j7iHup337o-9ZiyOYYL_x1Ipo73dPp2ZFP6t5HBCZ6BK_E70HB04pHEz6QeMAO9si_ERg0QD83BAAYa4r7kk5E-FPtDVFEgVyf-ia6akGfLDDNwrEUz_h3m00 "Komponenti diagram")
 
-    - **Razredni diagram** ([Class Diagram](https://plantuml.com/class-diagram), izvorna koda :bar_chart: [PlantUML](./gradivo/plantuml/RD.puml))
+  - **Deployment diagram**
+  ![Deployment diagram](https://teaching.lavbic.net/plantuml/png/TLJBRjim4BppAnQ--6J4FVHM572G10tG6e83dGeVrk929YoJAKarJGB_UvUa7fGV5vapmnrobmDZvOs5sKeUbPu1EbW9JDIQBDNAUQiiQcXVZSMTLeUugLptkugchHDL2A6D96WCLjZiZVFmAG2upYiDNvVBPOTCwnb-2P09h0vO4ypAvrdS3_3xXpaI5Cnk4ouTsG6V17_YGJik9Iq_9pwDgPNUKEsKvwAaiSNFG6zxj8cDaTsAo9p4nEA8cd-AnhovqM0bvPsa1bwP7dnUzkODi4cisrup-y2zfxy7DJezQsx7nnAbQx3qfoNdUqy6BJVFuYO9hgzx_4TLwoaMJgjE_LWaUjoXusc-l7D_nuVxVgQE7ojS9upIJPZOPs_GEgf2lUF6qW0oiYR_orXw8lIj9PSfAEMQOi6Kx5eGxBs2nU9xIa6vpjR5k0wVYF80PEkedL_Y3CSzamo8UVVuoJhBqdpCmONMPUk2dyPhKDsvycsn69IiFbOCmxrGiZcEotJAD7_Z-qJnF8TvWiE6T5hEXlibzjeb-dSRb-cSMz6z9Go73rdEGVAy7klhT9SL_kkOXs-4PV4V "Deployment diagram")
 
-      ![RD](https://teaching.lavbic.net/plantuml/svg/TPDDRi8m48NtFiN8tK2heEOFQ1O8bRO7oBeR4xlWujYLROf4sxjtY0KaG3RHwFbblZVnPEuyitvRAoXVYDj8_SKigw5Ip3du8G1BLcrMrcmrNnXbBEpMqek3RYmNDcXt-Tlpz7M1AhFMx8AuLFWc-MirFRUg6eUtJ3iy4jgJjUG2Acah9GXPD7HQihqL768Ap44PDt4YvgrSRdrSm8Sop2FWmfu4UzAn9mKuhFIgfQLjBSB7GosyuImUD76H8BKV5ZYfKOBfQr8QI6c7b1N0cHTUrgAbvZsi9B1EyOR7iKwET33i7JKB0R9EWF6vnL6QzD2pmJKl3udIynZz_3pmymv_Uir_wk6FR_0dDxHfo9JTk17y-ZG62YQAi1YDxh4kqKZ12LpjR_KfzBkMUvXHWZj17uEbSH-iES75YgBV6TxZmN0ioLneZh_5Fm00)
-
-    - **Diagram zaporedja** ([Sequence Diagram](https://plantuml.com/sequence-diagram), izvorna koda :bar_chart: [PlantUML](./gradivo/plantuml/DZ.puml))
-
-      ![DZ](https://teaching.lavbic.net/plantuml/svg/bPDFRvj04CNlyob6xiKvL14OgYfAhVnhJvLQkN4EKIu3Z9EjOOSk2qvTzRjt5YU69kwX1v1sv_VUl9s5iyQJysrLujKjm8Cf65SYFfD7W6PjR4sEAimeNzyxQMsHIoaElIFRQ8cj7r45hwWj_JK_-lFItDjAovZhYzs8ejoBkn1NiBlipR9ItLy1-uuxQFDWF8yXvsGpqYEEYWt_QDdc_DcizB4yxlOc_NJn_kFb0Vgh3iBafYRh_rzmC2xqHy79iXP7cJLhZ2Pu_WsN4PwUzhNv7A0UR72oeAtZ0jC9KeEBLBaik9BxgUWXCjwHiPAvME-a_0UOxC14GRqIuuDX26WwygoHG5EzdMlF4wmZFFc05NifwDtqQA0MAMYcGCLAnGCLJQFPc8i1If4QjuHTGsl1JYDOQJnWo1eS4dMO3Gw9za4S79909dio6SXqQcKpFJgCFsSBwuB_hhzSFmLH_FWOhzJvE_wgPq7y-yxgLgStlRLK0Ti28D1Fyz7QJSFxCvcUbgpWaYp3k4tSpqjbowYNVSawLW6spry40PoflVw0Vm00)
-
-    - **Diagram aktivnosti** ([Activity Diagram](https://plantuml.com/activity-diagram-beta), izvorna koda :bar_chart: [PlantUML](./gradivo/plantuml/DA.puml))
-
-      ![DA](https://teaching.lavbic.net/plantuml/svg/VL5DJyCm3BtxLqJY0gTfV4Y8JcDbWpCI_06lyRhGrAaIbpAX_NVSRaWH1mwnvFTU_9wJLHACqhVUR4g0r3ZkC69hBEsmz_9ENr9wLtDBBARIGZ5JRR5gwXXwjbNm8Hg9o4afrMMgj4SR1iUrsQ5Fb35LOEl41NwJWoTZ7RQA02pIs2y1At6VJWuRX_Me_mQJUQudps7lX1JtZkc4NDozFDq_hnN36CCmtShvhTSHYXtrd2t_qHnXCJl7WUcn029rX68UoaRZSKXYveLgi_xwJtzJm9Xxm6WpzBRu7QLBwFwNhw4E7sR-U3LQXGvWHMprStu0)
-
-    - **Diagram stanj** ([State Diagram](https://plantuml.com/state-diagram), izvorna koda :bar_chart: [PlantUML](./gradivo/plantuml/DS.puml))
-
-      ![DS](https://teaching.lavbic.net/plantuml/svg/NP91Ri8m44NtFiK8TfMG6Zkqm09HABs0kwkw66ANXYHsvJYYKjMxTuABIRoneZVFyx-bR5gFpdTD3S-IiROgpHSwRE20HNLqjZEgiBLru1sQbaRQ-86bz0TsjN_Lt_wfBe-ceJ4KT6WtiD0vUzvTrXngsZiOKRhNyCC0jZ4mcEVFqkkUMwUq2smwVzakzZkYic-TmltrxXNzqeik0HFopKb3DW5iGMPCPYjGTWLO5UK98Kj57aJE91-98XL540MJOYJEKp4FOivaFewcxBUxTvYj-rvK36Rz9uy2Zqn4Hbj4wZrGrzHxZDwDBIBB8rjIgz3WrkkU_KDgnzX66qL_oHy0)
-
-    - **Psevdokoda**
-
-      > **assume** vrednost1 &subseteq; C, vrednost2 &subseteq; C  
-      > **let** maxVrednost1 = max {r | (s,r) &in; vrednost1}  
-      > **for** (s, r) **in** vrednost2:  
-      > &nbsp;&nbsp;&nbsp;&nbsp;**if** r &le; maxVrednost1 **return false**  
-      > **return true**
-
-- Za arhitekturne elemente v diagramu dodajte katalog elementov z imenom in namenom vsakega elementa.
-- Za vsak element določite enega člana ekipe (tudi, če je več članov ekipe prispevalo k elementu), ki bo njen skrbnik.
-
+ - **Diagram zaporedja**
+ ![Diagram zaporedja](https://teaching.lavbic.net/plantuml/svg/dPBTRjf048Nlzob6z8PAZL0iZAeeGYBfZo9LZGMbLxqPsmCic1rtl3Ofxz2toeDrR4Cn3RreBuo0_SuvSsQziYd1Wjd7_6HCiR4kHy4jn9XibiAbInFEMC0BkaAFoFaEbT82oyn_eIS_oUpIRVKO4lqWwL2OU9OxbfJalZ6BCtL_0VnERA7TodhgGYAyw-W1EeS5VI_99VJ9BlHnr4rx5NwuU_l-_W8TeNYRs1oT_tV1nN5DKmLwyy9ZjYPd8S_APGycCvXVm-rjSpmU6vEVdA0tQ24iO1eg5DUkA3-KEyFgI7AfJYCLISi7oYVil73s9_wOUxkrUwm7ojdRLZ3yks0odJt297femT7v94qrMw4dRMAqpDLOfxs1TrnnPg7CMJ1c-1ZDJk0qD5ge1eCR7Q7Wb6EhH5-VrnqiCDgZneQAYQsfY7q_AKNcMlRDDrVxLWMj8bqKLrtjq6YbMZkg8rBq6_jLI5z4x9zZf-yZe-Mk3dc30UmnTMjxL6iOwryvfXdfpJjQbYQbhhhxQsYE-Uhri1Ty_bcwPjrduHSaXxLe_cSiCgf7M448MvGDoPegdMEFSDp12uUWTGZ_po5eBaODvjS70zXHNB2-O1uuhgZmxI8Er-4hU_8rlm00)
 ## 5 Trenutno stanje
 
 - Kakšni dodatni cilji te iteracije, poleg tega, kar je že navedeno v [uvodu](#1-uvod)?
@@ -96,7 +74,16 @@ Izvesti želimo tusi splošen refactoring kode, da bo ta lažje dostopna za odpr
 
 ### 6.2 Projektni načrt
 
-- Posodobljen Ganttov diagram in graf PERT.
+![Ganttov diagram](https://teaching.lavbic.net/plantuml/png/dPRXRk964CU_-ob6rm_DvKFQa4HDfLDr71YEYc1a7DJhwOGMF9Z5zYxQNRY6wXuX3z4NwQVSUtNM6336HwvHK33htVdDpFvdTjzgmvI9c306NhNjbrn1o5caMFhASTveyv3WRquseRaPXhyT0CDJJBZ0x0T0bnuRCf4AVfZMx5yssfB2R4PftGCDVR4hcOxpLU_O98wKN8emNuktqvjfMBPuqtftwpRovVHXIidFn-23QIbFK1kvS_0bg4aYDORVCb0PPyAZcTa5-yLvyrEUG4V7N2oOJT-uPCae9ZIzGc6S6GyHfbAQiVpBIPY8bYn2q8dZB9ISuyH0jbyQp0pXybSp0pc55exLaga7gFrSktOqCqiLiWTDUS8y1aSJhJJaV3m_lxe0Rb2n2P-pytCugzr2AFZhJy0qVEm4hd_r2HAcYNSDdn5Z3NRLC4xcowT7Mhc2E4Mhc1KiakNNVr7C4TOmz1h01Vo92Ge-GMlvkc2uLVVlN7-mDvsvPYtxRBsISz3q3oC6B8cauYPb81KfaA-jexX3PIvVrWgM6_U3mBiRrRjjRslTlj-Pbq-FGe8XPN1AEfdIN1ia-x4qCC54cYDd1ny6WNit2jn1K7AOYN2x6ymSid_KW2AqoCuwn8Ij68GoNgQqnPiGghcrOsxJQsonjKfiqRyzja_QoKCKJ2SOsgVjLcUioyi2hD-jzqOzzuzWr1owkyoTubc_Yb6kC1mpK6YKr0kC3LyX2HlD4RP0zTt0zpBii7OQUkXVphNWw-S4V5qMSDdqHkNxK7hiwL6HfBFSBQJX851Xn9KsYbDIKrWkf69ZmMEPMcIHsEuFHeFtTR_JQu_kUxxRtj9lAyCwPeSicOiv1xKfXESAu88So6lgtW_Uk_wewGvtgVpb_mX6QXdASLRJ2vbYEXQIgeIUDKjnBVYCTAeDHAGbgoaWBsTo9M6XE7M3SJ97k-3YQ8-zUdFKz_htNSfAyE7qDXU3A6pozvJjnOcw7Nb3rwztkwVhj-nfGTt2O9HfJCS7RfG53fhIWVEl_r1oKbRsgDCBtBPV3pfUxplQoRVT2VOEKCxDKUJtlKwmYVlgfOXctgnoJ2p3e_xKy9gkxG9xI7L_AdfJa9l29MLgKsHAsck5ZZSWW3E5KpOnf7mHlRueWtstLMy4NbPZBs9x-r9Ya1shiSagwUocs19zxtUtGThn2vXgsHvwz5nNF6Y7LvNjy4N0x6Ic_DcKzlEeB2Ah3y7XwP7fNRWvSkWrTwJz2NzmYd8D4xgcq6w5zaptwUPmU2PMJJZeHbKJZjh2CvXz2LTQEvH4rPJITbPDoP9HUj6rzxcsGXJEMqfoTWt-3m00 "Ganttov diagram")
+
+*Ganttov diagram*
+
+![PERT](https://teaching.lavbic.net/plantuml/png/bLDBRjim4Dtp58DcaLM-_jH83GEEemG6d3gGd1Gj0XYqDL9fqQHBKMxh8aV88NgHhf9xbQJaW7QIVZQIPaQSzzxCOvuniQ2Apc52frcgP27YdkHIWLPKvAQ4GXEEYGOjGR7qiuQOAPng9WKX-PHoXCFz5Y7jN7_ds26vfXhF64rjqny4W2eblxelW04JMBQVS8DdSdVaZhGFghCaVw8JsJRkrEaMiHri9OqajXMfObHLjd5-sWfwfflN9CQ45boFy9lkSfQAkH43K_D0HNQztnOCZWztISaTthIdjkN9AI-mKzi7PdwdKpQZxGDNwBm1caD_58Grs4aIR6Bp7JV2t86j7XSAKNHkCZuh7kvDeoLaSzHo2KjOyEBn5uePmWfkXZrW0ZuXHy6cU2k2w0JgBVC-Fu76yQqOLF70nOx0UJUy3C9eFO-IWiFRuj2JYl9EI5TBEOFSF32bG7ag5TDp2bAbLB2LLOXFf6X9mK9R2ircIS5HSR6ZqBkEHiFBSNTmCToauI1V74Ke7-w518svPiPX1Z9dkKR38vDsDrpgIhx5jDXl3qjiny753Zlw68s2o_4eY4QmCwaboQJs-WYwNmhQwQzYv7H98PPPOQrGIduDt-8w_ACIt_5miOz_PZPdJ41hpSe45keb8zN_PAJwFnhfIc7ACOPYOGOy4UpnPuQRSYhkHnNtoZfEWuiTv7KKX2Nplmrk4pQJiLpFQmkelWLKBmqoF0l6ON3J3pxyxvBCTLWejb3sUsLS6iTqPi1npWHLkP4jA9VfMc-zej6eQDGh6eroLy5b_tqt75zrhuBmXNMHyZBlxNNMjyhBU2RtifxzY7yDjck-JRsQ6Jxn76GhpWUaT8EDrqloKjuulUo6EkAF_7drQVFFIhy1 "PERT")
+
+*PERTov diagram**
+**Opomba: dnevi so se začeli številčiti z prvim dnevom dela na prjektu. Zato je ES (earliest start) prve aktivnosti v 2. iteraciji 22, ker je 22. dan dela na projektu
+
+
 
 ## 7 Ekipa
 

@@ -1,0 +1,21 @@
+@startuml
+
+class FlaskApp {
+  +add_plow(): void
+  +login(): void
+  +register(): void
+}
+
+class DatabaseConnector {
+  -connection
+  +connect(): Connection
+}
+
+class DatabaseHelper {
+  +queryExec(connection: Connection, query_type: String, args: Dict): void
+}
+
+FlaskApp --> DatabaseConnector : uses
+FlaskApp --> DatabaseHelper : uses
+
+@enduml

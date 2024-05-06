@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 from datetime import datetime
 import mysql.connector
 import bcrypt
@@ -35,10 +36,13 @@ class DatabaseHelper:
             cursor.execute(query, (args['username'], args['password']))
         elif query_type == 'addplow':
             query = """
-            INSERT INTO plows (plowusername, baza, plastlat, plastlong, plasttime, online, desc) 
+            INSERT INTO plows (plowusername, baza, plastlat, plastlong, plasttime, online, `desc`) 
             VALUES (%s, %s, %s, %s, %s, %s, %s)
             """
             cursor.execute(query, (args['plowusername'], args['baza'], args['plastlat'], args['plastlong'], args['plasttime'], args['online'], args['desc']))
+            connection.commit()
+            cursor.close()
+            return None
         else:
             raise ValueError('Invalid query type')
         result = cursor.fetchall()
@@ -49,6 +53,7 @@ db_helper = DatabaseHelper()
 
 # Create a new Flask web server from the Flask class
 app = Flask(__name__, static_url_path='/static')
+CORS(app) # This line enables CORS support on the Flask app. This allows the frontend to make requests to the backend.
 # app will log all the messages which are at the level INFO or above.
 app.logger.setLevel(logging.INFO)
 
@@ -166,12 +171,20 @@ def login():
 @app.route('/addplow', methods=['POST'])
 def add_plow():
     # Get the data from the request
-    data = request.get_json()
+    #data = request.get_json()
 
     # # Check if all necessary data is provided
     # if 'plowusername' not in data or 'baza' not in data or 'plastlat' not in data or 'plastlong' not in data or 'plasttime' not in data or 'online' not in data or 'desc' not in data:
     #     return jsonify({'error': 'Missing data'}), 400
 
+    global connection
+
+    if connection is None:
+        try:
+            connection = db_connector.connect()
+        except Exception as e:
+            return jsonify(message='The database is unreachable'), 500 # + str(e)
+        
     # Prepare the arguments for the query
     now = datetime.now()
     timestamp = now.strftime('%Y-%m-%d %H:%M:%S')
@@ -181,7 +194,7 @@ def add_plow():
         'plastlat': "46.17040",
         'plastlong': "14.31384",
         'plasttime': timestamp,
-        'online': True,
+        'online': 1,
         'desc': "opisni opis"
     }
     # args = {

@@ -1,0 +1,34 @@
+@startuml
+' Define interfaces for each component
+interface "vmesnik za\n BazaPodatkov" as DBInterface
+interface "UI websockets" as UIInterface
+interface "browser GPS support" as GPSinter
+
+' Define components
+component BazaPodatkov
+
+component BackendServer
+
+component OptimizatorPoti
+
+
+component UporabniskiVmesnik {
+  [UI Port] - UIInterface
+}
+
+
+OptimizatorPoti -down- DBInterface
+BackendServer - DBInterface
+BazaPodatkov - DBInterface
+UporabniskiVmesnik -down-> GPSinter
+
+BackendServer -down-> OptimizatorPoti
+
+BackendServer -> UIInterface
+
+OptimizatorPoti -> (ARSO API)
+
+' Add descriptions
+'note right of BazaPodatkov : "Hrani le stalne podatke"
+note left of OptimizatorPoti : "Vrne optimalne poti\n za vse aktivne pluge"
+@enduml

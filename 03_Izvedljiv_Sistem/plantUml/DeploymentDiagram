@@ -1,0 +1,68 @@
+@startuml
+actor "Admin" as A
+actor "Neregistriran uporabnik" as UN
+actor "Plug" as UP
+
+node loacalhost {
+  portin 5000
+  portout 5010
+    package "UI" {
+    [Home Page]
+    [User Page]
+  }
+
+  node backend{
+    package loginRegsiter {
+      [Login]
+      [Register]
+
+    }
+
+    package managePlows {
+      [Add/del plow]
+      [Show all plows]
+    }
+
+    package zahtevki {
+      [Insert plowing request]
+      queue PlowRequests
+      [Execute plow request]
+    }
+  }
+
+  database "SystemDB" {
+    storage Users
+    storage Plows
+  }
+
+  usecase showPlows 
+  usecase getMoreFeatures
+  usecase addNewPlow
+  usecase addRequest
+}
+
+A --> 5000
+UN --> 5000
+UP --> 5000
+5000 --> [Home Page]
+[Home Page] --> getMoreFeatures
+getMoreFeatures --> loginRegsiter
+'[Login] --> [User Page]
+'[Register] --> [User Page]
+backend --> [User Page]
+loginRegsiter --> [Users]
+loginRegsiter <-- [Users]
+[User Page] --> showPlows
+[User Page] --> addNewPlow
+addNewPlow --> [Add/del plow]
+showPlows --> [Show all plows]
+managePlows --> Plows
+managePlows <-- Plows
+
+[User Page] --> addRequest
+addRequest --> [Insert plowing request]
+[Insert plowing request] --> PlowRequests
+PlowRequests --> [Execute plow request]
+[Execute plow request] --> 5010
+'5010 --> UP
+@enduml
