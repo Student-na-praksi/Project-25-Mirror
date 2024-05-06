@@ -1,0 +1,8 @@
+1. Naloži si MySQL wokrbench, full version
+2. Nato iz gita potegni tpo24.sql file
+3. V wtokbenchu poišči data import:
+    -import self contain file, izberi .sql file 
+    -Default schema klikni New.. in napisi tpo25
+    -start import
+
+4. importano bazo vidiš levo, pod schemas

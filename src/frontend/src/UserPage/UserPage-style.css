@@ -1,0 +1,34 @@
+.desktop {
+    align-items: flex-start;
+    background-color: #999999;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.desktop .main-band {
+    flex: 0 0 auto;
+    object-fit: cover;
+
+    width: 400px;
+    height: 100%;
+}
+
+.desktop .zemljevid {
+    align-self: stretch;
+    flex: 1 1 0px;
+    object-fit: cover;
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+}
+
+.desktop .menu-burger {
+    right: 23px !important;
+    position: absolute !important;
+    top: 26px !important;
+}

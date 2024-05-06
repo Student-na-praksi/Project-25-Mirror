@@ -13,7 +13,12 @@
     width: 39px;
 }
 
-.frame .hamburger-icon {
+.frame:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.frame .login-icon {
     align-self: stretch;
     flex: 1;
     flex-grow: 1;

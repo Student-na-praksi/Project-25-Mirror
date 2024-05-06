@@ -1,0 +1,3 @@
+1. merge na main
+2. git fetch -p origin
+3. git push --mirror https://github.com/Student-na-praksi/Projekt-25-Mirror.git

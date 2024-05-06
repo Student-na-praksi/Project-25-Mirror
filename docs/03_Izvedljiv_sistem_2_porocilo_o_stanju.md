@@ -1,42 +1,34 @@
-# :green_square: Izvedljiv sistem (2. poročilo o stanju)
+# Celovita rešitev organizacije pluženja
 
-| [:arrow_backward:](02_Osnutek_sistema_1_porocilo_o_stanju.md) Prejšnji dokument |                       Trenutni dokument                       | Naslednji dokument [:arrow_forward:](04_Koncna_izdaja_celovito_koncno_porocilo.md) |
-| :------------------------------------------------------------------------------ | :-----------------------------------------------------------: | ---------------------------------------------------------------------------------: |
-| :orange_square: **Osnutek sistema**<br>(1. poročilo o stanju)                   | :green_square: **Izvedljiv sistem**<br>(2. poročilo o stanju) |                      :blue_square: **Končna izdaja**<br>(celovito končno poročilo) |
-
-![Terminski načrt](https://teaching.lavbic.net/plantuml/svg/hPVTRjCm5CVl_HGMk-YerB8uRLVGD26-90GI276rYekpnktSf7Paku4LxH7s4BpBU2-EipPR6YTD0MqNsvdz-v-FVqwwbyQ2jdEGrj8dNxbU2cbYGINStMhxX90pOwyJVaxo4sy4p3KiwKz2gHLBdWZ9yrye_OW_lbQ9qlHenjnN7dsdfBsFuhrh3Dsucs3YpQrNC8tdMgrajBdBnxFXBDeb3j-z6hzzlRaEMgllLTNIcQL8kB6goEvlTAQ9CZog0tYBJCJyoXQLtf2pPvlk4UofJC7rxdA7P3L8Wt_YqfBEbOWudIbbBzKFae2Shs3EgKb8geMqPWe9fzyvZvDhH89TwGYkiI5yaomnY2r7s0aRz4xmEw32x0RPQIKuz9t487iK99txSDWBnddO5OAj4f8UHISSPfVR4_XTTw8WZveHmssMrHFairOBFhKqzx2XznTOBtXEoEGil_2Y6Cdv1LgQMnvJiSvW0N81D4NWabkWny7pFki_FNkMNph_HgyWJRaq5EnZQcVI1Daevc8jWPuqkzttwrGbSi4pn7EQfHf-_u94YXYwNLT-jvjgDHE9qEu0neu3Qdd4vICvC7Jo9lX64p3Oc255LnXC_o_WvQhQ2Vcg-WBh21U6vHdDg8bNAJvsMqcnlaGzxEbQPD1G42lfK93HTlJOLfT6nr0kexpGG_JQrDXMc_HwDEXJ5DOm5UYFNiy_vi_ecqJDqJzeujZcTOTEMufTxN2h7TmtkABEd7eUo6lte4ib_WUPQaMVeWWsZmDgGo6EqnptmyPdmIqIJBoMK9vFAvhl-P-h31Tk1L_kmiMEcIjD21zSLeiy5ELCmzgOvfEHAxT-Z32MBviyCoo6ETXRXu_RnZ3jDMhjWezAghIwknK9KEKkoyMA7e_xWyOPknVBWsFya585hO3rfl4gx1Y7xPdsi6eSB_PGd3DFk6kUZl_Dag5H5oBRpDdPP-0VxQWOxNYF_CJBBJN_dpKwjVvXVl-C-iF6SRlF7MJIo2XLq8hNgVSFQ-6VSC_0HqN76wc7qfnz1crspmSbxswbUsswhZMide3jUv6C7k-U2hVDwZb0ezOxSIxCtTukkdZCJlUEcfq-h1uVevH_ErwzSpm2ExuPx9bqmAgBnqCzcEP96aV9fzuFs66mjmrXW0dM4igcQ4KZBp7D_1_NFm00 "Terminski načrt")
-
-Do 11. tedna naj bi bila implementirana osnovna funkcionalnost sistema v obliki demo prototipa. 2. poročilo o stanju je osredotočeno na razdelka [**4 Opis sistema**](#4-opis-sistema) in [**5 Trenutno stanje**](#5-trenutno-stanje). Pri opisu sistema se je treba osredotočiti predvsem na opis arhitekture sistema.
-
-Izogibajte se nepotrebnemu podvajanju pri opisovanju sistema. Vključite ostale informacije na najbolj ustrezna mesta, med [uvodom](#1-uvod) in [opisom sistema](#4-opis-sistema).
-
-Za izdelavo diagramov uporabite orodje [**PlantUML**](https://plantuml.com/) in v poročilo vključite izvorno kodo diagrama v jeziku PlantUML (v mapi [`gradivo`](gradivo)), sliko diagrama pa vključite s povezavo (in ne preko neposredne vključitve binarne datoteke) preko storitve <https://teaching.lavbic.net/plantuml>, kot prikazujejo primeri vključenih diagram v tej predlogi poročila.
-
-## :page_with_curl: Naslov projekta
-
-## :information_desk_person: Ime ekipe: Člani ekipe
+### Jošt Eržen, Filip Gros, Sebastjan Kordiš, Matevž Vidovič
 
 ## 1 Uvod
 
+Tretja iteracija je temeljila na pisanju kode ter opisu sistema.
+V dokumentu predstavimo:
+večje spremembe projekta, do katerih je prišlo v zadnji iteraciji (razdelki 1, 2 in 3)
+diagrame opisa sistema (razdelek 4),
+stanje projekta (razdelek 5)
+in stanje ekipe in ovrednotenje procesa dela (razdelka 7 in 9).
+
 ### 1.2 Poudarki
 
-- Kakšen je bil načrt za to iteracijo?
-  - Kaj je ekipa dosegla?
+Cilj je bil vzpostaviti spletni sistem za prikaz stanja cest, navigacijo plugov, ter upravljanje z zahtevki za pluženje. Osnove sistema smo uspešno postavili, a je razvoj šel počasneje kot pričakovano, saj smo zelo neizkušena ekipa, zato nas v naslednji iteraciji čaka še zaključno delo na spletnem sistemu.
 
 ### 1.3 Spremembe
 
-- Povzemite vse večje spremembe predloga projekta.
-- Vključite datum, motivacijo, opis in posledice vsake spremembe.
-- Če sprememb ni bilo, samo navedite, da jih ni bilo.
+Večjih sprememb v tej iteraciji ni bilo.
 
 ## 2 Potrebe naročnika
 
-- Na kratko opišite želeno splošno izkušnjo naročnika.
+Podjetji, ki opravljata pluženje, si želita intuitiven in zanesljiv nadzor nad situacijo pluženja, ter zmanjšane stroške pluženja zaradi višje učinkovitosti.
+Občani in lokalna podjetja želijo možnost kontakta s kmeti, ki bi bili pripravljeni pomagati pri pluženju dvorišč in parkirišč, saj je to za večje površine izvajati ročno zelo zahtevno in zamudno, medtem ko kmet s plugom to nalogo opravi zelo hitro. Kmetje s plugom pa si želijo dostopa do nove potencialne storitvene dejavnosti.
+Sistem mora vsakemu od deležnikov biti preprost za uporabo, brez nepotrebnih funkcionalnosti, zaradi katerih bi postal zapleten. Sistem mora biti robusten, saj, če se deležniki nanj zanašajo, njegova napaka lahko povzroči prometni kolaps.
 
 ## 3 Cilji projekta
 
-- Povzamite naročnikove težave, ki jih projekt naslavlja.
-- Kakšne koristi bo prinesel projekt?
+Projekt bo samodejno organiziral pluženje po približku optimalnega načrta plužnih poti. Poti bo spremenil ob sprotnem dodajanju in odvemanju plugov, kar naročniku omogoča večjo prilagodljivost. Na ta način bo zmanjšal stroške goriva dela, ter občanom izboljšal izkušnjo s prometom na dni sneženja.
+Z delom aplikacije, ki samostojnim plugom omogoča povezovanje s pravnimi in fizičnimi osebami za pluženje parkirišč in dvorišč, bomo izboljšali kaotično stanje, ki nastane ob novozapadlem snegu. Tako bo delo lažje organizirano in razporejeno, saj se ne bo vsako podjetje potrebovalo dogovarjati z določenim opravljalcem plužnih storitev, da to poskrbi za njih. Prav tako lahko pomaga šibkejšim članom družbe, naprimer starejšim, ki svojih dvorišč ne morejo očistiti sami, kar povzroča tudi poledico in nevarnost poškodbe zaradi padca.
 
 ## 4 Opis sistema
 
@@ -92,11 +84,15 @@ Za izdelavo diagramov uporabite orodje [**PlantUML**](https://plantuml.com/) in 
 
 ## 6 Vodenje projekta
 
-_Nadaljujte z vzdrževanjem **dnevnika sprememb**. Dodaje vse nove spremembe v projektu, kjer vključite datum, opis, motivacijo in posledico vsake spremembe._
+- 17.4. Dogovorili smo se, da bomo znotraj obstoječega repozitorija imeli povezavo na nov repozitorij, od koder se bo naša spletna aplikacija avtomatsko deploy-ala.
+- 18.4. Za frontend bomo namesto create-react-app uporabljali Vite, saj omogoča delo s Shadcn in je bolj splošno uporabljano, zato zanj obstaja več pomoči na forumih. 
+- 24.4. Namesto izrisa poti navigiranja bomo plugu le izrisali oštevilčene marker-je na križiščih. To olajša rešitev, saj dosedanje rešitve za prikaz poti navigiranja niso delovale dobro. Poleg tega nova zastavitev bolje deluje z našim algoritmom in za uporabnika ne bi smela predstavljati problema.
+- 3.5. Stanje cest v največ 7 barvah. Sprva smo stanje cest želeli prikazovati z barvo na zvezen način, a se je izkazalo, da brskalnik to težko podpira in začne delati bolj počasi. Iz tega razloga se omejimo na 7 barv.
 
-- Prikažite dnevnik sprememb do tega trenutka.
-  - Kakšni so cilji za naslednjo iteracijo?
-  - Kakšen je načrt za preostanek semestra?
+Cilji naslednje iteracije:
+Dokončati želimo delovanje spletne aplikacije. Želeli smo, da bi bila že dokončana, a nam to ni uspelo. Zaradi uporabe nekaterih slabše zamisljenih rešitev imamo nekaj tehnološkega dolga, ki ga moramo nadoknaditi, saj bo kasneje postal večji problem.
+Izvesti želimo tusi splošen refactoring kode, da bo ta lažje dostopna za odpravljanje programskih hroščev. Nato imamo namen izvesti testiranje sistema kot celote ter odpraviti programske hrošče. Napisali bomo krajši program uvajanja novih uporabnikov v sistem in njegovo efektivnost preverili pri znancih brez tehničnega znanja. Tako bomo dobili vpogled v morebitne nejasnosti pri uporabi in jih naslovili. Napisali bomo tudi dokumentacijo za dele sistema, kjer je to nujno, saj tako olajšamo uvajanje razvijalcev, ki bi v prihodnosti projekt razvijali naprej in dodajali funkcionalnosti.
+
 
 ### 6.2 Projektni načrt
 
@@ -104,14 +100,30 @@ _Nadaljujte z vzdrževanjem **dnevnika sprememb**. Dodaje vse nove spremembe v p
 
 ## 7 Ekipa
 
-- Kakšne so bile vloge v ekipi za to iteracijo?
-  - Kaj je prispeval vsak član ekipe?
-  - Navedite grobo oceno prispevka posameznega člana ekipe v odstotkih.
+Filip je izvajal vlogo SCRUM master-ja, Matevž pa vlogo product owner-ja.
+Sebastjan in Matevž sta delala na razvoju frontend-a, Jošt in Filip pa na razvoju backenda.
+Filip je namenil veliko časa Continuous Deploymentu preko repozitorija vsebovanega znotraj trenutnega repozitorija. Tovrsten deployment nam še ni uspel, kljub temu da je Filip v to vložil ogromno dela. Upamo, da nam uspe v naslednji iteraciji.
+Jošt in Matevž sta se ukvarjala z Google Maps API-jem, namreč kako naše podatke cest pretvoriti v pravilen format, da jih lahko v React-u prikažemo nad prikazanim Google Maps-om, ter kako prikazati markerje v različne namene.
+Matevž je postavil okolje Vite in omogočil delo s Shadcn (po dolgotrajnem neuspelem poskusu s create-react-app) ter osnoval osnovno obliko strani z osnovnimi gumbi in pasico.
+Sebastjan je nadgradil frontend, da gumbi delujejo pravilno in kličejo backend, se zahtevki pravilno izpisujejo in so lahko izbrani, ter ustvaril prijavno okno za login.
+Jošt in Filip sta vložila veliko časa v raziskovanje možnosti deploymenta, saj smo želeli, da bi ga postavili preden zares razvijamo backend, saj bi tako sproti videli vse probleme realnega okolja. Prav tako je problem s podatkovno bazo, saj ko ni host-ana lokalno, temveč v deploymentu, deluje drugače. To nam še ni uspelo. Iz tega razloga sta bila primorana backend postaviti na lokalni bazi.
+
+Groba ocena prispevkov:
+Filip 30%
+Matevž 30%
+Jošt 25%
+Sebastjan 15%
+
 
 ## 9 Refleksija
 
-- Kaj je šlo po pričakovanjih?
-  - Kaj ni šlo po pričakovanjih?
-  - Kakšne težave so se pojavile pri ciljih, ki jih niste dosegli?
-  - Kako nameravate premagati te težave?
-  - Kaj boste naredili drugače v naslednji iteraciji?
+
+Glede na cilj refleksije predhodne iteracije smo uspešno povečali komunikacijo prek spletnih kanalov in bili bolj aktivni na platformi Discord ter bolje obveščeni o dogajanju.
+Spodletelo pa nam je s sklicevanjem kriznih sestankov v primeru prepočasnega napredka. Sklicali nismo nobenega kriznega sestanka, kljub temu da je napredek bil prepočasen.
+V naslednji iteraciji se moramo dogovorili za redni termin, na katerega se bo zgodil krizni sestanek, če je napredek prepočasen. Tako je zmanjšana neprijetnost sklicevanja sestanka in je veliko verjetneje, da si ga posameznik odloči sklicati.
+
+V tej iteraciji smo imeli veliko težav, saj smo na področju spletnega razvoja zelo neizkušena ekipa. Iz tega razloga se je razvoj zelo zavlekel in nismo uspeli doseči začrtanih ciljev. Glede tega težko na običajni način uvedemo neko rešitev, ki bi to zlahka odpravila. Kar lahko naredimo je, da sprejmemo svojo neizkušenost in se pri implementaciji rešitve sprva ne obremenjujemo s podrobnostmi (manjše kozmetične napake pri UI-ju, nestandardna postavitev sistema). Raje najprej privedimo sistem do v celoti delujočega stanja in, če ostane čas, nato izboljšujmo podrobnosti. Res je, da je bolj praktično in hitreje, če podrobnostno napako odpravljamo takoj, a to vseeno vzame dodaten razvojni čas, še posebej ker smo neizkušeni in takih napak še nismo odpravljali. Bolje je torej, da se najprej poskušamo prebiti do delujočega sistema, da smo sploh lahko prepričani, da nam bo to uspelo v zadanih časovnih okvirjih. Šele nato gremo nazaj in poskušamo popraviti najbolj pereče podrobnostne napake.
+
+Pojavila se je težava pri delitvi na frontend in backend. Sebastjan in Matevž sta delala na frontendu ter o sistemu komunicirala večinoma en z drugim, Jošt in Filip pa sta delala na backendu ter prav tako o razvoju komunicirala večinoma en z drugim. Pri združevanju obeh sistemov so se pojavili problemi, saj smo se o povezavah med sistemoma začeli pogovarjati šele na koncu.
+Kot rešitev bomo ob nadaljnjem razvoju zagotovili, da vsake toliko en član dela ekipe (npr. Matevž iz frontend dela ekipe in Filip iz backend dela ekipe) poskusi vzpostaviti sistem drugega dela ekipe ter se pozanimati o njegovem delovanju in stanju. Tako bosta oba dela ekipe v svoji komunikaciji imela vizijo tega, kako se bo v resnici njihov sistem združil z drugim.
+
