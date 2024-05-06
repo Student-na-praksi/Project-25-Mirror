@@ -79,6 +79,8 @@ Izziv nam je predstavljala izbira primernega ogrodja ter orodij za razvijanje fr
 Ostaja pa nam iziv pridobivanja ter procesiranja vremenskih podatkov.
 ![Opis sistema](https://teaching.lavbic.net/plantuml/png/RLF1Rfmm4BtxAqPxINiWXnwhAD9s4tKZXO2MaaEJ72RB27d1DhBDHjagdz2_weVLni2o6n12dZVFu-TvWwcuR52ZWAqIZP8aRMRVQu9MrDyOmwrL6XOFfAdancgkKKBRA8slabSBG0Fvm-RsPpOmC-iO5NQP4KphjWpST81Yb5YIxj1u09U5uBA3bcCz5CfOjPCScg5AbZB66jnMhe9ZIFK6QUq-6zLQWgInNF03MguaPE_6abZ07yO0nYtvdKV0FKzh9GXIXxw4-5wLNFRh_YwGt_L0B_e8-8iTeqx-CTnqBIFjmm_MOGLQV4NZLNV2RdwCGd93slGx7vDLl_fDDKc-7TJ5oGe4Dg4YW7kN44NNPzS8ZimbqXamcmFZEI9SNfvY3ho8y-mNh9UFjnVif9sXmBG7dv9zhzdOzW0FJONli5S7DsQTypYXTJecPZYc2D5vhT4IHq6_zaECVhACroK-LPruxhP8rEhVNo_1A3VyblOJ_fK_OBJjUDLmSfzWqxc0qns3cn2rZSjyyPESo8t2miquwRtp_UjPtwwYQ9xdn1v8r3lQymAU9LXDihMIIWHZKUumZ8jtB5id-VrDxva7LcCC4LI2x8wWKXOAvURL_NZ11Su-_WC0 "Opis sistema")
 
+Trenutno stranke lahko dostopajo do glavne strani, kjer s pomočjo google maps API-ja ter podatkov MOC izrišemo zemljevid. Neprijavljene in neregistrirane stranke imajo dostop do prijave ter registracije.
+
 Izvedli smo test registracije, test prijave, test dodajanja pluga, test prikaza zemljevida ter test prikaza cest na zemljevidu. 
 
 ## 6 Vodenje projekta
