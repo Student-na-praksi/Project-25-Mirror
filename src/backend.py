@@ -10,13 +10,13 @@ import logging
 class DatabaseConnector:
     def __init__(self):
         # Create a connection to the MySQL database
-        self.connection = True
-        #self.connection = mysql.connector.connect(
-        #    host='localhost',
-        #    user='kurir',
-        #    password='kurir',
-        #    database='tpo25'
-        #)
+        #self.connection = True
+        self.connection = mysql.connector.connect(
+           host='localhost',
+           user='kurir',
+           password='kurir',
+           database='tpo25'
+        )
 
     def connect(self):
         return self.connection
