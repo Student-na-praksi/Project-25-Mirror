@@ -424,6 +424,7 @@ for i, line_ix_list in enumerate(remaining_intersections_line_ix_lists):
 
 
 
+from matplotlib.colors import LinearSegmentedColormap, Normalize
 
 import numpy as np
 from multiprocessing import Pool
@@ -442,6 +443,25 @@ class Connection:
         def set_severity(self, severity):
             self.severity = severity
     
+
+
+def set_severity_helper(args):
+    connection, severity = args
+    connection.set_severity(severity)
+    return connection
+
+
+def node_severities_helper(args):
+
+    # list_of_connection_tuples are all (ix, conn_obj) for the
+    # current intersection
+    list_of_connection_tuples, node_severities = args
+
+    severity = 0
+
+    for pair_inter_ix, _ in list_of_connection_tuples:
+        severity += node_severities[pair_inter_ix]
+    return severity
 
 class Graph:
 
@@ -486,27 +506,35 @@ class Graph:
 
     def set_connection_severities(self, severities):
 
-        # for road_ix in range(0, self.num_of_roads):
-        #     self.connections[road_ix].set_severity(severities[road_ix])
+        for road_ix in range(0, self.num_of_roads):
+            self.connections[road_ix].set_severity(severities[road_ix])
 
-        def set_severity_helper(args):
-            connection, severity = args
-            connection.set_severity(severity)
-            return connection
 
-        # Create a list of (connection, severity) tuples
-        args = zip(self.connections, severities)
+        # # Create a list of (connection, severity) tuples
+        # args = zip(self.connections, severities)
 
-        # Use multiprocessing Pool to parallelize the task
-        with Pool() as pool:
-            self.connections = pool.map(set_severity_helper, args)
+        # # Use multiprocessing Pool to parallelize the task
+        # with Pool() as pool:
+        #     self.connections = np.array(pool.map(set_severity_helper, args))
         
     
     def normalize_node_severities(self):
-        max_severity = np.max(self.node_severities)
-        min_severity = np.min(self.node_severities)
 
-        self.node_severities = (self.node_severities - min_severity) / (max_severity - min_severity)
+        self.node_severities = np.clip(self.node_severities, 0, 1)
+
+        mean = np.mean(self.node_severities)
+        # make the new mean 0.5
+        self.node_severities =  (self.node_severities / mean) * 0.5
+
+        self.node_severities = np.clip(self.node_severities, 0, 1)
+
+
+
+        # max_severity = np.max(self.node_severities)
+        # min_severity = np.min(self.node_severities)
+
+        # divisor = (max_severity - min_severity)
+        # self.node_severities = (self.node_severities - min_severity) / divisor if divisor != 0 else (self.node_severities - min_severity)
 
 
     def update_node_severities(self):
@@ -519,14 +547,22 @@ class Graph:
     # meant to initialize the severities
     def node_severities_from_roads(self):
 
-        # self.next_node_severities = np.zeros(self.num_of_intersections)
-        # for road_ix in range(0, self.num_of_roads):
-        #     for intersection_ix in self.connections[road_ix].intersections:
-        #         node_severity = self.connections[road_ix].severity * self.connections[road_ix].length
-        #         self.next_node_severities[intersection_ix] += node_severity
+        self.next_node_severities = np.zeros(self.num_of_intersections)
+
+        for road_ix in range(0, self.num_of_roads):
+            
+            # There are only a few such roeads for some reason. We don't want them to mess up normalization.
+            intersects = self.connections[road_ix].intersections
+            if len(intersects) > 2:
+                continue
+
+            for intersection_ix in intersects:
+                node_severity = self.connections[road_ix].severity * self.connections[road_ix].length
+                self.next_node_severities[intersection_ix] += node_severity
         
-        blabla bla  To še ne dela
-        def node_severities_from_roads_helper(args):
+        
+        # To nisem testiral pa pomoje ni treba. To se itak redko izvaja.
+        """def node_severities_from_roads_helper(args):
             connection, node_severities = args
             for intersection_ix in connection.intersections:
                 node_severity = connection.severity * connection.length
@@ -539,7 +575,7 @@ class Graph:
         # Use multiprocessing Pool to parallelize the task
         with Pool() as pool:
             self.next_node_severities = pool.map(node_severities_from_roads_helper, args)
-
+        """
 
 
         self.update_node_severities()
@@ -548,18 +584,50 @@ class Graph:
 
     def node_severities_from_nodes(self):
 
+
+
         for inter_ix in range(0, self.num_of_intersections):
 
             # This should never hold. Let us fail.
-            # if self.intersection_to_connections[i] is None:
+            # if self.intersection_to_connections[inter_ix] is None:
             #     continue
             
+
             node_severity = 0
-            for pair_inter_ix, _ in self.intersection_to_connections[inter_ix]:
+            curr_conns = self.intersection_to_connections[inter_ix]
+
+            for pair_inter_ix, _ in curr_conns:
                 node_severity += self.node_severities[pair_inter_ix]
 
             self.next_node_severities[inter_ix] = node_severity
         
+
+
+
+
+        # def node_severities_helper(args):
+
+        #     # list_of_connection_tuples are all (ix, conn_obj) for the
+        #     # current intersection
+        #     list_of_connection_tuples, node_severities = args
+
+        #     severity = 0
+
+        #     for pair_inter_ix, _ in list_of_connection_tuples:
+        #         severity += node_severities[pair_inter_ix]
+
+        #     return severity
+
+
+        # # This passes the reference to node_severities to all helper functions.
+        # args = zip(self.intersection_to_connections, [self.node_severities for _ in range(len(self.intersection_to_connections))])
+
+        # # Use multiprocessing Pool to parallelize the task
+        # with Pool() as pool:
+        #     self.next_node_severities = np.array(pool.map(node_severities_helper, args))
+
+
+
         self.update_node_severities()
     
 
@@ -574,16 +642,34 @@ class Graph:
         rgba_road_colors = [green_to_red(road.severity) for road in self.connections]
         # rgba_road_colors = [plt.cm.viridis(road.severity) for road in self.connections]
 
+        roads_gdf['severity'] = [road.severity for road in self.connections]
+        roads_gdf.plot(ax=ax, column='severity', cmap=green_to_red, linewidth=2)
 
-        for idx, geom in roads_gdf['geometry'].items():
-            roads_gdf.iloc[[idx]].plot(ax=ax, color=rgba_road_colors[idx], linewidth=2)
+        # for idx, geom in roads_gdf['geometry'].items():
+        #     roads_gdf.iloc[[idx]].plot(ax=ax, color=rgba_road_colors[idx], linewidth=2)
 
 
-        # remaining_intersection_gdf['severity'] = self.node_severities
-        remaining_intersection_gdf['severity'] = [1 for i in range(0, len(remaining_intersection_gdf))]
-        # remaining_intersection_gdf.plot(ax=ax, column='severity', cmap=green_to_red, markersize=30)
-        for idx, geom in remaining_intersection_gdf['geometry'].items():
-            remaining_intersection_gdf.iloc[[idx]].plot(ax=ax, color=green_to_red(self.node_severities[idx]), markersize=30)
+
+        remaining_intersection_gdf['severity'] = self.node_severities
+        # remaining_intersection_gdf['severity'] = [1 for i in range(0, len(remaining_intersection_gdf))]
+        
+        # remaining_intersection_gdf.plot(ax=ax, column='severity', cmap=green_to_red)
+        
+        # for idx, geom in remaining_intersection_gdf['geometry'].items():
+        #     remaining_intersection_gdf.iloc[[idx]].plot(ax=ax, color=green_to_red(self.node_severities[idx]), markersize=30)
+
+        
+
+        # Create a normalization instance with mean at 0.5
+        norm = Normalize(vmin=0, vmax=1)
+
+        # Extract x and y coordinates
+        x = remaining_intersection_gdf.geometry.x
+        y = remaining_intersection_gdf.geometry.y
+
+        # Plot the points with colors based on the 'severity' attribute
+        sc = ax.scatter(x, y, c=remaining_intersection_gdf['severity'], cmap=green_to_red, s=30, norm=norm, edgecolors='black', linewidths=0.5) #, edgecolor='k')
+
 
 
         """
@@ -605,18 +691,33 @@ class Graph:
 
 
 
+PRINTOUT = False
 
 graph = Graph(roads_gdf, remaining_intersection_gdf, lines_to_remaining_intersections_ix_lists)
 
 severities = [ix/graph.num_of_roads for ix in range(0, graph.num_of_roads)]
+
+if PRINTOUT:
+    print("severities")
+    print(severities)
+
 graph.set_connection_severities(severities)
 
+if PRINTOUT:
+    print("[conn.severity for conn in graph.connections]")
+    print([conn.severity for conn in graph.connections])
+
 graph.node_severities_from_roads()
+print("graph.node_severities")
+print(graph.node_severities)
 graph.plot()
 
-for i in range(0, 10):
-    for j in range(0, 5):
+
+for i in range(0, 1000):
+    for j in range(0, 10):
         graph.node_severities_from_nodes()
+    print("graph.node_severities")
+    print(graph.node_severities)
     graph.plot()
 
 
