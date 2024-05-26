@@ -118,7 +118,7 @@ function GoogleMaps() {
 
     // Fetch data immediately and then every 300 milliseconds
     getLocation();
-    const intervalId = setInterval(getLocation, 3000);
+    const intervalId = setInterval(getLocation, 100);
 
     // Clear the interval on component unmount
     return () => clearInterval(intervalId);
