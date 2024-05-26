@@ -623,11 +623,36 @@ ZA POPRAVIT
 - Kateri so bili ključni dogodki med projektom? Vključite tudi datume.
 - Še kaj drugega?
 
+#### Dnevnik sprememb:
+- 29.2. Začetni nabor idej za možne funkcionalnosti. Zažetek projekta.
+- 7.3. Omejitev idej, ki jih želimo podpirati.
+- 13.3. Ob stoječem sestanku smo dokončno razjasnili želje uporabniške zgodbe in arhitekturo. Sedaj definiramo potrebovane funkcionalnosti.
+- 29.2. Začetni nabor idej za možne funkcionalnosti. Zažetek projekta.
+- 7.3. Omejitev idej, ki jih želimo podpirati. Želeli smo utrditi svojo vizijo projekta s povečanjem fokusa na manj idej. Napredovali smo hitreje.
+- 13.3. Ob stoječem sestanku smo dokončno razjasnili željene uporabniške zgodbe in arhitekturo. Želeli smo pojmovanja sistema združiti na enem mestu. Sedaj lahko definiramo potrebovane funkcionalnosti.
+- 27.3. Odločitev za dodato uporabo Google Maps in delitev razvijalskih vlog za specifične dele sistema. Želeli smo si olajšati delo navigacije na kratkih razdaljah, saj bi težko dosegli raven uporabnosti, ki ga že ponuja Google Maps. To nam bo omogočilo lažje napredovanje s projektom.
+- 28.3. Odločitev za hevristični algoritem. Sprva smo želeli napisati algoritem, ki bi iskal optimalne poti pluženja, a smo ugotovili, da je to prekompleksna naloga. V nadaljevanju bomo poskusili uporabiti hevristike, ki bodo našle dobre rešitve pluženja, četudi te ne bodo optimalne.
+- 3.4. Odločitev za kasnejši razvoj algoritma. Ker se je uporabniška zgodba uvedbe samostojnih plugov zdela dobro sprejeta in nas razlikuje od ostalih ekip, smo se odločili, da damo poudarek na njen razvoj. Razvili jo bomo preden začnemo razvijati algoritem.
+- 17.4. Dogovorili smo se, da bomo znotraj obstoječega repozitorija imeli povezavo na nov repozitorij, od koder se bo naša spletna aplikacija avtomatsko deploy-ala.
+- 18.4. Za frontend bomo namesto create-react-app uporabljali Vite, saj omogoča delo s Shadcn in je bolj splošno uporabljano, zato zanj obstaja več pomoči na forumih. 
+- 24.4. Namesto izrisa poti navigiranja bomo plugu le izrisali oštevilčene marker-je na križiščih. To olajša rešitev, saj dosedanje rešitve za prikaz poti navigiranja niso delovale dobro. Poleg tega nova zastavitev bolje deluje z našim algoritmom in za uporabnika ne bi smela predstavljati problema.
+- 3.5. Stanje cest v največ 7 barvah. Sprva smo stanje cest želeli prikazovati z barvo na zvezen način, a se je izkazalo, da brskalnik to težko podpira in začne delati bolj počasi. Iz tega razloga se omejimo na 7 barv.
+
+
+#### Izvajani procesi in prakse
+Uporabljali smo SCRUM in Extreme Programing.
+Tedensko smo se dobivali na stoječih sestankih ob tabli pred enem izmed laboratorijev, ki imajo tablo. Začeli smo z naslovitvijo težav zadnjega tedna ter kako daleč je vsak posameznik prišel, potem pa skupaj zasnovali delo naslednjega tedna. SCRUM master je razdelil naloge.
+
+V naslednji iteraciji želimo zgraditi glavno stran z zemljevidom, ki prikazuje trenutno snežno stanje na cestah ter osnovno delovanje algoritma. Podpirati želimo začeti osnovne pluge in administratorske dožnosti.
+
 ### 6.1 Usklajevanje ekipe
 
-- Kdaj in kako pogosto se je ekipa sestajala?
-- Kako ste komunicirali?
-- Kaj ste dosegli med sestanki?
+
+Sestajali smo se vsako sredo po predavanjih ter komunicirali preko Discord-a.
+Po potrebi smo se sestali tudi v četrtek pred vajami.
+Med sestanki smo pregledali stanje projekta, ocenili napredek od zadnjega sestanka ter razdelili naloge, ki naj bi jih člani ekipe morali opraviti do naslednjega sestanka. Pogovorili smo se o problemih, ki so se pojavili v preteklem tednu in jih poskusili nasloviti. Začrtali smo delovanje nadaljnjih funkcionalnosti ter definirali njihovo arhitekturo.
+
+
 
 ### 6.2 Projektni načrt
 
@@ -675,8 +700,95 @@ ZA POPRAVIT
 *Graf PERT**
 
 ### 6.3 Finančni načrt
+Časovno zahtevnost izdelave aplikacije bomo ocenili s pomočjo modela COCOMO 2 za zgodnji model načrta.
 
-- Finančni načrt projekta po metodi COCOMO II.
+Pri tem bomo za izračun uporabili sledečo formulo:
+
+$$ effort_{ČM} = A * size^B * M $$
+
+kjer bomo dobili rezultat v človek-mesecih.
+
+Za parameter A bomo privzeli vrednost 2,94.
+
+#### 6.3.1 Ocena obsega aplikacija
+Velikost aplikacije ocenimo tako, da jo razdelimo na funkcionalnosti in vsaki od njih določimo utež glede na njen obseg. Tipi funkcionalnosti so sledeči:
+- Zunanji vhod (External Input - EI)
+- Zunanja poizvedba (External Query - EQ)
+- Zunanji izhod (External Output - EO)
+- Notranja logična datoteka (Internal Logical File - ILF)
+- Zunanja vmesniška datoteka (External Interface File - EIF)
+
+| Vrsta FP | Ime funkcionalnosti | Obseg | Utež |
+|----------|---------------------|-------|------|
+| EI       | Prijava v sistem						| LOW | 3
+| EI       | Zahteva za predviden čas prihoda		| LOW | 3
+| EI       | Zahteva za izračun plužnih poti		| AVG | 4
+| EI       | Posodobitev podatkov o voznem parku	| LOW | 3
+| EI       | Oddaja naročila za pluženje			| LOW | 4
+| EI       | Potrditev naročila za pluženje			| AVG | 3
+| EQ       | Prikaz stanja na cestah				| LOW | 3
+| EQ       | Izpis podatkov o določenem plugu		| LOW | 3
+| EQ       | Izpis naročil za pluženje				| LOW | 3
+| EO       | Izračun optimalnih plužnih poti		| AVG | 5
+| ILF      | Interna podatkovna baza				| LOW | 7
+| EIF      | Baza vremenskih podatkov				| LOW | 5
+| EIF      | Baza geografskih podatkov				| LOW | 5
+| vsota ||| 51
+
+Pri implementaciji bomo večinoma uporabljali jezik JavaScript, za katerega velja, da ena funkcijska točka ustreza približno 47 vrsticam izvorne kode. Izračunani obseg je torej
+$$ size = 51 * 47 = 2.397 KSLOC $$
+
+#### 6.3.2 Parameter B
+Parameter B izračunamo iz 5 dejavnikov, ki opisujejo lastnosti projektne skupine.
+
+| Dejavnik | Opis | Vrednost | Utež |
+|----------|------|----------|------|
+| PREC	   | Stopnja precedenčnosti 			 			 | zelo nizka | 5
+| FLEX	   | Stopnja fleksibilnosti zahtev 		 			 | visoka 	  | 2
+| RESL	   | Stopnja pripravljenosti na tveganja			 | nominalna  | 3
+| TEAM	   | Stopnja uigranosti skupine 					 | nominalna  | 3
+| PMAT	   | Zrelostni nivo razvojnega procesa po modelu CMM | zelo nizek | 5
+| vsota    |      |			 | 18
+
+Vrednost B je za naš projekt torej enaka
+$$ B = 1.01 + 0.01 * 18 = 1.19$$
+
+#### 6.3.3 Parameter M
+Parameter M izračunamo iz 7 dejavnikov, ki dodatno vplivajo na trud, ki bo potreben pri razvoju aplikacije.
+
+| Dejavnik | Opis | Vrednost | Razpon uteži | Utež |
+|----------|------|----------|--------------|------|
+| PERS     | Stopnja usposobljenosti članov ekipe | nominalna | 1.5 - 0.5 | 1.0
+| PREX     | Stopnja izkušenosti članov ekipe z uporabljeno tehnologijo | nizka | 1.5 - 0.5 | 1.2
+| RCPX     | Ocena kompleksnosti projekta | visoka | 0.5 - 1.5 | 1.2
+| RUSE     | Potreba po izdelavi komponent, namenjenih za ponovno uporabo |zelo nizka | 0.5 - 1.5 | 0.5
+| PDIF     | Kombinacija spremenljivosti platforme in potrebe po učinkovitosti | nizka | 0.5 - 1.5 | 0.7
+| *SCED*   | Krčitev/raztezanje predvidene porabe časa ||| 1.0
+| FCIL     | Kombinacija razpoložljivosti razvojnih orodij in komunikacijskih sredstev | zelo visoka | 1.5 - 0.5 | 0.7
+| produkt |||| 0.3528
+
+Vrednost M je za naš projekt torej enaka
+$$ M = \prod{dejavnik_i} = 0.3528 $$
+
+#### 6.3.4 Končni izračun časovne zahtevnosti
+
+Vrednosti *A*, *size*, *B* in *M* vstavimo v formulo za izračun:
+$$ effort_{ČM} = 2.94 * 2.397^{1.19} * 0.3528 = 2.94 ČM $$
+
+Ocena časovne zahtevnosti za naš projekt je torej približno **2,94** človek-mesecev dela.
+
+#### 6.3.5 Finance
+
+| Strošek		     | Cena v € |
+|----------------|----------|
+| Delo			     | 8400
+| Elektrika	     | 250
+| Kosila		     | 1400
+| Pijače		     | 560
+| Kava			     | 200
+| Potni stroški	 | 370
+| Skupaj         | 11180
+
 
 ## 7 Ekipa
 
@@ -705,6 +817,7 @@ Vzpostavil je velik del backend-a.
 
 Matevž je izvedel obdelavo podatkov zemljevidov. Ukvarjal se je z Google Maps API-jem, namreč kako naše podatke cest pretvoriti v pravilen format, da jih lahko v React-u prikažemo nad prikazanim Google Maps-om, ter kako prikazati markerje v različne namene.
 Vzpostavil je okolje Vite in omogočil delo s Shadcn (po dolgotrajnem neuspelem poskusu s create-react-app) ter osnoval osnovno obliko strani z osnovnimi gumbi in pasico.
+Vzpostavil je ves izdelani frontend.
 
 
 Jošt je zasnoval zaslonske maske. Ukvarjal se je s postavitvijo baze in ustvaril največji del backend-a.
