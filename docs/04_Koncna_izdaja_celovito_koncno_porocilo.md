@@ -78,6 +78,10 @@ Z delom aplikacije, ki samostojnim plugom omogoča povezovanje s pravnimi in fiz
 - GitHubCopilot - kot ChatGPT za programsko kodo.
 - programski hrošč - napaka v kodi.
 - refactoring - izboljšava preglednosti sicer delujoče kode.
+- penetration tester - oseba, ki obvlada preverjanje ranljivosti vdorov v sistem.
+- SQL injection - zlonamerna uporaba vnosnega besedila za spremembo baze.
+- PyVRP - algoritem za optimizacijo poti.
+- hosting - najem strežnika, od koder je dostopna aplikacija.
 
 #### 3.1.1 Akterji, katere funkcionalnosti imajo na voljo.
 
@@ -692,9 +696,308 @@ ZA POPRAVIT
 
 ## 8 Omejitve in tveganja
 
-- Ali so bile kakšne družbene, etične, politične ali pravne omejitve?
-- Ali ste imeli dostop do podatkov, storitev in virov, ki ste jih potrebovali?
-- Ali je bilo še kaj drugega, kar ste potrebovali?
+
+### Matrika izpostavljenosti tveganj:
+Ustvarjamo aplikacijo, katere nedelovanje lahko povroči popolen prometni kolaps, kar ima velik vpliv na veliko število ljudi. Prav tako je etično problematično, da s tem onemogočimo urgentne zdravstvene prevoze, ki so lahko za ljudi usodni. Do tega ne sme priti, zato usodne napake niso dopustne niti v primerih z zelo nizko verjetnostjo.
+
+Po drugi strani manjše napake v sistemu niso tako hude - nihče ni tako zelo odvisen od podatkov sistema, da bi manjša napaka imela trajne posledice, zato je leva stran tabele lahko bolj zelena.
+
+![Matrika izpostavljenosti tveganj](./gradivo/img/Tabela_tveganj.PNG)
+
+
+### Družbene, etične, politične in pravne omejitve
+
+- Potrebno se bo pozanimati o zbiranju osebnih podatkov, na primer za lokacijo, ter uporabnike obvestiti o zbiranju ter uporabi teh podatkov pri ponudbi storitve.
+- Če v aplikaciji pride do napake in to povzroči prometni kolaps je to lahko etično sporno, sploh recimo v primeru onemogočenih urgentnih zdravstvenih prevozov. Preveriti moramo tudi našo pravno odgovornost v tej situaciji - če je edini razlog za kolaps prav težava v naši aplikaciji, smo morda lahko za to odgovorni.
+- Pogledati si moramo, kako bomo obravnavali povezovanje kmetov s strankami - če bo plačilo potekalo preko nas moramo za to pridobiti ustrezna dovoljenja in pravne nastavke. Če prepustimo, da plačilo izvedejo sami, je lahko etično sporno, če je s tem omogočena siva ekonomija.
+
+### Opredelitev tveganj in strategij njihovega obvladovanja
+
+Za opredelitev resnosti tveganj smo uporabili svojo matriko, ki je vidna na zgornji sliki.
+Najprej bomo našteli tveganja padajoče po njihovi izpostavljenosti, nato pa jih opisali po kategorijah.
+
+
+
+#### Našteta tveganja (padajoče po izpostavljenosti)
+
+##### Visoka izpostavljenost:
+- Vdor v sistem (T17)
+- SQL injection (T18)
+
+##### Srednjevisoka izpostavljenost:
+- Algoritem (T3):
+- Geografske datoteke (T4):
+- Specifična tehnologija (T9):
+- Bolezen (T10):
+- Sprememba zahtev (T13):
+- Algoritem slabši od trenutnega sistema (T14):
+- Precenitev sposobnosti (T15):
+
+##### Srednja izpostavljenost:
+- ARSO API (T1)
+- SCRUM težave (T7):
+- Kljužni razvijalec (T8):
+- Cena host-anja (T11):
+
+##### Srednjenizka izpostavljenost:
+- Github merging(T6):
+- MOC rez v proračunu (T12):
+- Scam uporabniki (T16):
+
+##### Nizka izpostavljenost:
+- Nepreverjenost PyVRP (T5):
+
+
+
+
+
+#### Tehnologija:
+
+##### Ime in oznaka: ARSO API (T1)
+- Verjetnost: Majhna
+- Učinek: Dopusten
+- Izpostavljenost: Srednja
+
+- Opis tveganja: Ob izgubi dostopa do podatkov ARSO bi izgubili možnost napovedovanja vremenskih pogojev.
+
+- Vpliva na: Izdelek, Posel
+
+- Strategija obvladovanja: Strategija zmanjševanja.
+- Opis obvladovanja: Sistem mora biti na to pripravljen in v tem primeru vseeno delovati, četudi manj precizno. Recimo celotnemu Celju pripisati neko konstantno padanje snega glede na zadnje podatke, ki jih imamo.
+
+
+
+##### Okvara transponderja (T2):
+- Verjetnost: Visoka
+- Učinek: Dopusten
+- Izpostavljenost: Srednjevisoka
+
+- Opis tveganja: Obstaja možnost okvare transponderja (recimo da telefonu zmanjka baterije), v temu primeru ne bi imeli informacij o danemu plugu
+
+- Vpliva na: Izdelek
+
+- Strategija obvladovanja: Strategija izogibanja
+Opis obvladovanja: Za obvladovanje zahtevamo od uporabnikov, da imajo polne telefone in da imajo na voljo power bank. Morda celo nek poceni rezervni telefon. Če tudi ta ne deluje, naj se vrnejo v bazo.
+
+
+
+##### Algoritem (T3):
+- Verjetnost: Zmerna
+- Učinek: Resen
+- Izpostavljenost: Srednjevisoka
+
+- Opis tveganja: Zaradi pomanjkanja znanja o tem tipu algoritmov nismo sposobni razviti približno optimalnega algoritma.
+
+- Vpliva na: Projekt, Izdelek, Posel
+
+- Strategija obvladovanja: Strategija zmanjševanja
+- Opis obvladovanja: Izvedli bomo okrnjeno neoptimalno verzijo algoritma, za kar bomo kompenzirali z boljšo spletno aplikacijo in uporabniško izkušnjo. Dodelane ideje za relaksirane vrste algoritma že imamo, zato smo v to opcijo sigurni.
+
+##### Geografske datoteke (T4):
+- Verjetnost: Zmerna
+- Učinek: Resen
+- Izpostavljenost: Srednjevisoka
+
+- Opis tveganja: Nismo še delali z geografskimi datotekami, kar bi lahko povzročilo težave, saj ne vemo, kaj so optimalna orodja zanje - tako bi lahko zašli v suboptimalna orodja, kjer bi že zgradili velik del kode.
+
+- Vpliva na: Izdelek
+
+- Strategija obvladovanja: Strategija izogibanja
+- Opis obvladovanja: Že v prvi iteraciji bomo poskusili narediti osnovno rokovanje s temi datotekami in se pozanimati o optimalnih orodjih za delo z njimi. Tako se verjetnost kasnejših težav zmanjša. Dober začetni projekt je vizualizacija podatkov ter njihova pretvorba v človeku berljivo obliko.
+
+##### Nepreverjenost PyVRP (T5):
+- Verjetnost: Majhna
+- Učinek: Neznaten
+- Izpostavljenost: Nizka
+
+- Opis tveganja: Nihče v ekipi še ni delal s knjižnico PyVRP. Izkazalo bi se lahko, a ni preveč uporabna, ali je polna hroščev.
+
+- Vpliva na: Projekt
+
+- Obvladovanje ni potrebno: Ker je knjižnica javna, je pogosto uporabljana in zato verjetno že nekoliko testirana. Poleg tega ni naša edina ideja za izvedbo algoritma in njena neuporabnost ni tako kritična.
+
+
+
+#### Orodja:
+##### Github merging(T6):
+- Verjetnost: Zelo majhna
+- Učinek: Dopusten
+- Izpostavljenost: Srednjenizka
+
+- Opis tveganja: Ker še nismo sodelovali pri večjih projektnih nismo vešči pri uporabi sistema Git, še posebej ne pri merge-anju v situacijah, kjer smo nespretno delali z Git-om (ne pull-ali pred commitanjem; ne odprli svojega brancha, čeprav bi to bilo potrebno; ustvarili preobsežen commit).
+
+- Vpliva na: Projekt
+
+- Strategija obvladovanja: Krizni načrt
+- Opis obvladovanja: V primeru incidenta se bomo takoj obvestili ter priskočili na pomoč. Ker smo majhna ekipa bi to moralo zadostovati za premostitev težav.
+
+
+##### SCRUM težave (T7):
+- Verjetnost: Zmerna
+- Učinek: Dopusten
+- Izpostavljenost: Srednja
+
+- Opis tveganja: SCRUM ne uspe najbolje in se aktivnost na kritični poti podaljša.
+
+- Vpliva na: Projekt
+
+- Strategija obvladovanja: Strategija izogibanja
+- Opis obvladovanja: Developerji bomo glede aktivnosti na kritični poti s SCRUM master-jem pogosteje komunicirali, da lahko ta dodeli dodatno pomoč, če se aktivnost zavleče.
+
+
+
+#### Ljudje:
+
+##### Kljužni razvijalec (T8):
+- Verjetnost: Zmerna
+- Učinek: Dopusten
+- Izpostavljenost: Srednja
+
+- Opis tveganja: Jošt zaradi bolezni ali drugega razloga za odsotnost ni na voljo. Kot najbolj izkušen s programiranjem backenda njegova odsotnost pusti velik primankljaj v tej vrsti del, kar vpliva na kritično pot.
+
+- Vpliva na: Projekt
+
+- Strategija obvladovanja: Strategija zmanjševanja
+- Opis obvladovanja: Poskusili bomo z deli na backendu opraviti čim prej ter si frontend-ovske aktivnosti pustiti za kasneje. Tako bomo v primeru Joštove odsotnosti imeli blazino aktivnosti, na katerih lahko delamo s polno paro v času odsotnosti in tako ni vpliva na kritično pot.
+
+
+##### Specifična tehnologija (T9):
+- Verjetnost: Majhna
+- Učinek: Resen
+- Izpostavljenost: Srednjevisoka
+
+- Opis tveganja: Ob razvoju odkrijemo potrebo po uporabi bolj specifične tehnologije, ki pa je ne znamo uporabljati in osebno ne poznamo osebe, ki bi nam lahko svetovala.
+
+- Vpliva na: Projekt
+
+- Strategija obvladovanja: Krizni načrt
+- Opis obvladovanja: Pristopimo do profesorja ali asistenta, ki se spozna na to področje ter nas usmeri na učne materiali, s čimer lahko prebrodimo svoj problem.
+
+
+
+##### Bolezen (T10):
+- Verjetnost: Zmerna
+- Učinek: Resen
+- Izpostavljenost: Srednjevisoka
+
+- Opis tveganja: Kot ekipa le 4 članov obstaja večja možnost, da zboli večji del ekipe (2 ali 3 bolni predstavlja večjo ustavitev sposobnosti, kot bi pri ekipi 5 članov). To bi lahko močno zamaknilo kritično pot.
+
+- Vpliva na: Projekt
+
+- Strategija obvladovanja: Strategija izogibanja
+- Opis obvladovanja: Poskusili bomo čim bolje ohraniti svoje zdravje. V primeru tudi blage bolezni oseba ne bo prišla na sestanek, saj bi okužba še enega člana pomenila ogromen izpad v projektu.
+
+
+#### Organizacija:
+
+##### Cena host-anja (T11):
+- Verjetnost: Zmerna
+- Učinek: Dopusten
+- Izpostavljenost: Srednja
+
+- Opis tveganja: Za hostanje potrenujemo denar, ki nam ni na voljo, kar oteži izdelavo izdelka.
+
+- Vpliva na: Posel
+
+- Strategija obvladovanja: Krizni načrt
+- Opis obvladovanja: Profesor je omenil, da bi se v takšnem primeru dalo prositi za povračilo stroškov. Sicer pa bi lahko poiskali znanca, ki bi nam lahko storitev priskrbel po nizki ceni.
+
+
+##### MOC rez v proračunu (T12):
+- Verjetnost: Zelo majhna
+- Učinek: Usoden
+- Izpostavljenost: Srednjenizka
+
+- Opis tveganja: MOC zaradi rezov v proračunu prekliče projekt.
+
+- Vpliva na: Posel
+
+- Strategije obvladovanja ne definiramo. Izpostavljenot je zaradi nizke verjetnosti dovolj nizka.
+
+
+
+#### Zahteve:
+
+##### Sprememba zahtev (T13):
+- Verjetnost: Majhna
+- Učinek: Resen
+- Izpostavljenost: Srednjevisoka
+
+- Opis tveganja: MOC vmes spremeni zahteve do te mere, da je dotedanja koda neuporabna.
+
+- Vpliva na: Projekt
+
+- Strategija obvladovanja: Strategija izogibanja
+- Opis obvladovanja: Že med iteracijami bomo poskusili preveriti, če gremo v pravo smer in če se rešitev ujema z njihovimi zahtevami.
+
+##### Algoritem slabši od trenutnega sistema (T14):
+- Verjetnost: Visoka
+- Učinek: Resen
+- Izpostavljenost: Srednjevisoka
+
+- Opis tveganja: Razvit algoritem je slabši od obstoječega sistema pluženja. To se lahko hitro zgodi, saj je težko modelirati vse majhne dejavnike, ki jih domenski eksperti posedujejo.
+
+- Vpliva na: Posel
+
+- Strategija obvladovanja: Strategija izogibanja
+- Opis obvladovanja: Sprogramirali bomo simulacijo vožnje po mestu v določenih razmerah pluženja. Skozi celoten proces bomo primerjali rezultate ob pluženju nastavljenem po metodi ostrega očesa, z rezultati našega trenutnega algoritma. Tako bomo bolje vedeli, da razvijamo v pravi smeri.
+
+
+#### Ocenjevanje:
+
+##### Precenitev sposobnosti (T15):
+- Verjetnost: Majhna
+- Učinek: Resen
+- Izpostavljenost: Srednjevisoka
+
+- Opis tveganja: Hudo smo precenili trajanje aktivnosti razvoja spletne aplikacije zaradi slabe ocene svojega znanja.
+
+- Vpliva na: Projekt
+
+- Strategija obvladovanja: Krizni načrt
+- Opis obvladovanja: Zmanjšali bomo nabor funkcionalnosti, ki jih imamo namen implementirali, ter povečali komunikacijo, saj vsaj nekdo o tej stvari ve nekoliko več.
+
+#### Varnost:
+
+##### Scam uporabniki (T16):
+- Verjetnost: Zelo majhna
+- Učinek: Dopusten
+- Izpostavljenost: Srednjenizka
+
+- Opis tveganja: Registracija ljudi, ki namerno želijo škodovati sistemu z veliko količino zahtevkov.
+
+- Vpliva na: Izdelek
+
+- Strategija obvladovanja: Strategija zmanjševanja
+- Opis obvladovanja: Omejimo število zahtevkov, ki jih uporabnik lahko odda.
+
+#### Vdor v sistem (T17)
+- Verjetnost: Zelo majhna
+- Učinek: Usoden
+- Izpostavljenost: Visoka
+
+- Opis tveganja: Zlonameren vdor hekerjev, ki onemogočijo delovanje sistema.
+
+- Vpliva na: Izdelek
+
+- Strategija obvladovanja: Strategija izogibanja
+- Opis obvladovanja: Pred uvedbo produkcijske aplikacije, bomo za testiranje varnosti
+najeli izkušenega penetration testerja. Obseg dela za našo aplikacijo je majhen, zato cenovno to ni večji problem.
+
+
+#### SQL injection (T18)
+- Verjetnost: Zelo majhna
+- Učinek: Usoden
+- Izpostavljenost: Visoka
+
+- Opis tveganja: Zlonamerno spreminjanje podatkovne baze po nepredvideni poti.
+
+- Vpliva na: Izdelek
+
+- Strategija obvladovanja: Strategija izogibanja
+- Opis obvladovanja: Vsi dostopi do podatkovne baze se izvajajo na backend-u. Poskrbeli bomo za pravilno preverjanje vnosnega besedila v zahtevkih.
+
+
 
 ## 9 Refleksija
 
