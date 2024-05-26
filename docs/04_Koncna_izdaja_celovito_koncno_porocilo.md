@@ -16,38 +16,73 @@ Končno poročilo naj bo edini vir za pregled poljubnega vidika projekta. Priča
 
 ### Začetni odstavek
 
-- Kaj je projekt?
-  - Kakšna je motivacija za ta projekt?
-- Kaj je pri tem izvirnega?
-  - Še kakšen vidik za orientacijo bralca?
+Ob novozapadlem snegu se promet skoraj ustavi. Organizacije, ki se ukvarjajo s pluženjem, se na vso moč trudijo, da se situacija ne poslabša do te mere, da bi postala totalen prometni kolaps.
+Naš projekt želi biti celovita rešitev organizacije pluženja, da lahko s tem pomagamo pri koordinaciji in nadzorovanju le tega pluženje naredimo učinkovitejše. Poleg tega želimo povezati pravne in fizične osebe, ki potrebujejo pluženje parkirišč in dvorišč, z izvajalci pluženja, kot so kmetje, da lahko zunaj plužne konice omogočimo to storitev, ki koristi obema stranema.
+Tako postanejo Vaši stroški pluženja nižji, občani pa so bolj zadovoljni, saj lahko kljub snegu normalno potujejo. Občani bodo zadovolni tudi s spremljanjem pluženja v realnem času, saj bodo tako lahko videli, kdaj je pot, na katero se odpravljajo splužena, in lahko tudi vidijo, da bo do tega tudi prišlo in niso pozabljeni. Največji vpliv pa zna imeti povezovanje pomoči potrebnih in samostojnih plugov, ki skupnosti omogoči, da se s snegom spopade kot celota in ne kot skupek posameznikov.
+
 
 ### 1.1 Izzivi
 
-- Na kratko opišite glavne izzive za ekipo.
-  - Kako ste jih naslovili?
-  - Je bila tehnologija ekipi znana ali nova?
+Člani ekipe se bežno poznamo, ker smo se že nekajkrat videli na faksu, vendar še nikoli nismo med seboj sodelovali na projektu. Predvidevamo, da bodo največji izzivi za ekipo medsebojno usklajevanje, torej organizacija časa, čim bolj ustrezna delitev dela in dobra medsebojna komunikacija.
+Prav tako noben član ekipe še ni sodeloval na projektu, ki bi vseboval ravno te tehnologije, kar predstavlja svojevrsten izziv. Večina nas pozna posamezne tehnologije, vendar njihovo povezovanje v nek celoten sistem nam je precej tuje. Algoritem za rešitev problema je zelo kompleksen, vendar obstaja na internetu že veliko rešitev, zato bo iskanje najprimernejše za naš specifičen problem tudi izziv. Ocenjevanje zahtevnosti posameznih nalog nam je tudi tuje področje.
+Razvoj algoritma za rešitev problema optimizacije pluženja zna biti zelo kompleksna naloga. Tudi uporaba obstoječe rešitve bo verjetno zahtevno, saj ne bo perfektno naslavljala našega problema, temveč jo bo treba pametno prilagoditi. To zna biti zahtevno, saj takšna implementacija hitro izgubi na efektivnosti, če nismo previdni in iznajdljivi.
+Prvi sestanek bo bolj družaben. Cilj njega bo team-building. Nato se bomo dobivali vsak teden, kjer bo vsak povedal napredek na svojem delu projekta, izzive in probleme, ki jih je srečal, ter predstavil tudi možne rešitve. Cilj nam je, da celotna ekipa ve, kaj se dogaja na vsakem področju projekta. Same delitve dela v skupini se bomo lotili po principu javljanja, torej bomo poskusili ustrezati željam vseh članom ekipe. Kjer bosta dva imela enako željo, bomo prišli do kompromisa. Za področja, kjer noben želja ne bo izražena, bo tisti z največ izkušnjami prevzel nalogo. Pri programiranju se bomo držali dobrih praks (sprotno pisanje komentarjev, sprotno testiranje, pred implementiranjem funkcije premislek kaj bodo vhodi in izhodi, grafična predstavitev, vnaprej definirane podatkovne strukture, programiranje po nekaj ur na dan več dni, ne pa en dan 10 ur…)
+Ekipi sta že znana jezika Python in JavaScript, ostale tehnologije ter njihovo povezovanje pa nam še nista znana.
 
 ### 1.2 Poudarki
 
-- Izpostavite, kaj ste v okviru projekta dosegli.
+V okviru projekta smo ustvarili spletni vmesnik za vpogled in posodabljanje stanja na cestah MOC. Naš sistem podpira posodabljanje stanja na cestah ter dodajanje zahtevkov za pluženje.
 
 ### 1.3 Spremembe
 
-- Povzemite vse večje spremembe predloga katerega koli vidika projekta med semestrom.
-- Vključite datum, motivacijo, opis in posledice vsake spremembe.
+- 24.4. Namesto izrisa poti navigiranja bomo plugu le izrisali oštevilčene marker-je na križiščih. To olajša rešitev, saj dosedanje rešitve za prikaz poti navigiranja niso delovale dobro. Poleg tega nova zastavitev bolje deluje z našim algoritmom in za uporabnika ne bi smela predstavljati problema.
+- 3.5. Stanje cest v največ 7 barvah. Sprva smo stanje cest želeli prikazovati z barvo na zvezen način, a se je izkazalo, da brskalnik to težko podpira in začne delati bolj počasi. Iz tega razloga se omejimo na 7 barv.
+
 
 ## 2 Potrebe naročnika
 
-- Kdo je primarni naročnik (zunaj ekipe)?
-  - Opišite dejanskega naročnika.
-- Kdo so sekundarni deležniki?
-- Kaj so deležniki želeli? Zakaj?
-- Kakšna je njihova želena splošna izkušnja?
+Podjetji, ki opravljata pluženje, si želita intuitiven in zanesljiv nadzor nad situacijo pluženja, ter zmanjšane stroške pluženja zaradi višje učinkovitosti.
+Občani in lokalna podjetja želijo možnost kontakta s kmeti, ki bi bili pripravljeni pomagati pri pluženju dvorišč in parkirišč, saj je to za večje površine izvajati ročno zelo zahtevno in zamudno, medtem ko kmet s plugom to nalogo opravi zelo hitro. Kmetje s plugom pa si želijo dostopa do nove potencialne storitvene dejavnosti.
+Sistem mora vsakemu od deležnikov biti preprost za uporabo, brez nepotrebnih funkcionalnosti, zaradi katerih bi postal zapleten. Sistem mora biti robusten, saj, če se deležniki nanj zanašajo, njegova napaka lahko povzroči prometni kolaps.
 
 ### 2.1 Uporabniške zahteve
 
-- Zapišite **SMART** uporabniške zgodbe s pomočjo predloge "Kot **_\<vloga\>_** želim **_\<akcija\>_**, da **_\<posledica\>_**."
-- Za uporabniške zgodbe zapišite teste sprejemljivosti z uporabo predloge "Glede **\<pogoj\>**, ko **\<akcija\>**, potem **\<posledica\>**."
+Kot neregistriran uporabnik želim:
+- imeti dostop do zemljevida stanja spluženosti cest, da lahko preverim razmere.
+- imeti možnost registracije, da lahko postanem Stranka.
+
+Glede na to, da sem neregistriran uporabnik:
+- ko zahtevam možnost registracije, sem preusmerjen na stran ki mi to omogoča.
+
+Kot Administrator želim:
+- na zemljevidu videti lokacije Ustaljenih Plugov, da imam pregled nad izvajanjem pluženja.
+- ob kliku na Usataljeni Plug dobiti njihovo telefonsko številko, da ga lahko kontaktiram.
+- imeti možnost urejanja števila plugov v štartni bazi in lokacije štartnih baz, da se podatki v zaledju spremenijo v realnem času.
+
+Glede na to, da sem admin:
+- ko kliknem na Ustaljeni Plug na zemljevidu, dobim njegovo telefonsko številko.
+- ko zahtevam urejanje števila plugov v štartni bazi in lokacije štartnih baz, se te podatki posodobijo v roku 1 minute po oddani zahtevi.
+
+Kot Ustaljeni Plug želim:
+- da se mi glede na trenuten GPS izpisujejo navodila za nadaljno pot, da sledim optimalni poti pluženja.
+- imeti možnost deaktivacije, da se lahko umaknem iz pluženja (zaradi malice, okvare, premora).
+
+Glede na to, da sem Ustaljeni Plug:
+- ko zahtevam deaktivacijo, je ta objavljena v roku 30 sekund.
+
+
+Kot Stranka želim:
+- imeti možnost oddaje zahtevka za pluženje, da lahko s tem naročim pluženje snega za zasebnem zemljišču.
+
+Kot Samostojni Plug želim:
+- videti trenutno nalogo, da se lahko odpeljem do nje in jo opravim.
+
+Kot Manager želim:
+- videti lokacije Samostojnih Plugov in ob kliku na dotičen plug dobiti njegovo telefonsko številko, da ga lahko kontaktiram.
+- imeti možnost usmeriti dotičen Samostojni Plug na zemljevidu na določeno opravilo, da se mu posodobi trenutno opravilo.
+
+Glede na to, da sem Manager:
+- ko Samostojnemu Plugu spremenim opravilo, je ta o njem obveščen v roku 2 minut.
 
 ## 3 Cilji projekta
 
