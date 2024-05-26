@@ -51,19 +51,519 @@ Končno poročilo naj bo edini vir za pregled poljubnega vidika projekta. Priča
 
 ## 3 Cilji projekta
 
-- Za katero težavo naročnika ste se odločili, da jo boste obravnavali?
-  - Brez tehničnih podrobnosti opišite koristi sistema za naročnika.
-  - Kako bodo koristi podprle želeno splošno izkušnjo naročnika?
-  - Kako ste potrdili ustreznost vaše ideje?
+Projekt bo samodejno organiziral pluženje po približku optimalnega načrta plužnih poti. Poti bo spremenil ob sprotnem dodajanju in odvemanju plugov, kar naročniku omogoča večjo prilagodljivost. Na ta način bo zmanjšal stroške goriva dela, ter občanom izboljšal izkušnjo s prometom na dni sneženja.
+Z delom aplikacije, ki samostojnim plugom omogoča povezovanje s pravnimi in fizičnimi osebami za pluženje parkirišč in dvorišč, bomo izboljšali kaotično stanje, ki nastane ob novozapadlem snegu. Tako bo delo lažje organizirano in razporejeno, saj se ne bo vsako podjetje potrebovalo dogovarjati z določenim opravljalcem plužnih storitev, da to poskrbi za njih. Prav tako lahko pomaga šibkejšim članom družbe, naprimer starejšim, ki svojih dvorišč ne morejo očistiti sami, kar povzroča tudi poledico in nevarnost poškodbe zaradi padca.
 
 ### 3.1 Primeri uporabe
 
-- Zapišite primer uporabe za vsak osrednji cilj primarnega oz. sekundarnega naročnika.
-- Pri vsakem primeru uporabe opredelitev naslov, cilj uporabnika in osnovni tok. Izberite opisne naslove primerov uporabe.
-- Pri alternativnih tokih dogodkov, ki ste jih implementirali, zapišite zgolj naslov, opis v enem stavku in kako se alternativni tok povezuje s pripadajočim osnovnim tokom.
 
-DIAGRAM PRIMEROV UPORABE
-https://teaching.lavbic.net/plantuml/png/VLDDZzem4BtdLrZqm79WfKMgLFMmKjYqY0iRaNB9pObdGqYmaUEm5Mr_JFz8R_k_EhR9Xxsq5uJVl7dpvjbfgfAVgAH7aj6yAgHeESj5BIHHal86Iy1LqFGi1Y-qhTKt-Ax2kYpu4Siann-G8rRRG4uR83y2Cj9zChgl-rA1neLa82tsuUFNvQSlJuXIASMh1RCQEuDV8rcQAo6NepvByGat1mQcHYORa52KZP8bxaVQav0qusKr8M52DhkE5TTjOQ1Tt4693gIY1as2QOVIesYKEF2IdBgU9ExBiM1KLUBCAUPmiStnCWWav8hoeWPKG3Dm92V1q0jebRS_m0_jnAHtrKbf3GndD8PiPD84ortGaqYxE14cI8F21zhhs9bHXAP6zAtDWEObKkrcO8XRHpMMM3zVROyBOQNAi-tMQrj6w50YeBT8aKDwPenY-KBt2iwL_jCRjtwUqzHfM5yol3Z2QIqAy9PSRsBFF1CPtlqPmxtGh3u0XuAI0fhwkbAymeRfq26Qgcs87CAn9kBjWyTJaXdX6zI5Boaw5s-_5PMAbtlz5YmxMVv3-8x1hC_lAXs5xethw32dFZsRRteZBeUnJfsPWqx_CLoLTawQNOJ212YifHL-dy5q5vDvUvh_VDHFVxCZSoPU-VoHtEbdDtEGRJ8BDBqxn-unzCwHTyOhzlhZrIn8_8c9Cs1qqi_9BUl-QU8wSivcfCimFNeLSg-nUurj7sRaCobvNhSCtbSNuwefzd8fHe9JFI3q41BeC3oIMMSO4wNE5EryAAxTebvYP73bkZVh30ilPmPRtCQ6-JjN9VrF1jWRXTu-KxE1Cy95B4blqikQ7DRlINeZLyb1aFGN
+
+##### Slovar pojmov
+
+- UI - uporabniški vmesnik (User Interface). Je grafična podoba in osnovno delovanje spletne strani.
+- Baza - podatkovna baza, baza podatkov.
+- SCRUM master - vodja delovnega procesa skupine.
+- Product owner - oseba, ki zajema uporabniške zahteve in jih komunicira ekipi.
+- Samostojni plug - plužilec zunaj osnovnega okvira pluženja (npr. kmetje).
+- Ustaljeni plug - običajni plug, ki je del sistema (npr. plug družbe Zelenice).
+- API - aplikacijski vmesnik. Zunanja storitev, od katere prejmemo podatke.
+- frontend - spletna stran in uporabniška izkušnja aplikacije.
+- backend - zaledni sistem, kjer se procesirajo podatki in se izvaja poslovna logika.
+- hevristični algoritem - algoritem, ki ne išče popolne rešitve, temveč čim boljšo rešitev na osnovi vmesnih približnih ocen prave smeri izvajanja. Je veliko hitrejši od algoritma, ki bi našel najboljšo rešitev. 
+- Vite - okolje za razvoj frontend-a.
+- Continuous Deploymentu - posodabljanje aplikacije ob vsaki spremembi kode.
+- Python - programski jezik, ki ga uporabljamo za backend.
+- JavaScript - programski jezik, ki ga uporabljamo za frontend.
+- node.js - razširitev jezika JavaScript.
+- GitHubCopilot - kot ChatGPT za programsko kodo.
+- programski hrošč - napaka v kodi.
+- refactoring - izboljšava preglednosti sicer delujoče kode.
+
+#### 3.1.1 Akterji, katere funkcionalnosti imajo na voljo.
+
+Poznamo 6 vrst akterjev.
+Neregistriran uporabnik je vsakdo, ki obišče osnovno spletno stran. Vidi lahko zemljevid stanja spluženosti cest in ima možnost registracije, da postane Stranka.
+Admin je glavni upravitelj s sistemom. Njegova glavna naloga je upravljanje s štartnimi bazami pluženja in dodajanje novih akterjev (razen teh tipa Stranka).
+Ustaljeni plug predstavlja plug znotraj obstoječega sistema pluženja, Samostojni plug pa je neodvisen delavec, ki pomaga pri pluženju, kot so pogosto kmetje, ki jim je pluženje dodatna dejavnost.
+Stranka je lahko vsakdo, ki želi oddati zahtevek za pluženje neke površine na področju MOC. To so lahko fizične ali pravne osebe.
+Manager pluženja opravlja koordinacijo plugov pri napotitvah na zahtevke za pluženje.
+
+Akterjem je na voljo 12. funkcionalnosti, ki v ozadju uporabljajo še 8 podpornih funkcionalnosti. Določenemu tipu akterja je dostopen določen nabor funkcionalnosti. Ta nabor je predstavljen s terko številk.Oštevilčenost funkcionalnosti je na voljo spodaj.
+
+Neregistriran uporabnik: (1, 2)
+Admin: (1, 3, 4, 5, 10, 11, 12)
+Ustaljeni plug (3, 6, 7, 9, 12)
+Stranka (1, 3, 8, 12)
+Samostojni plug (3, 9, 12)
+Manager pluženja (1, 3, 4, 10, 12)
+
+Uporabniške funkcionalnosti:
+1. Dostop do stanja pluženja 
+2. Registracija Stranke
+3. Prijava
+4. Kontaktiranje pluga
+5. Urejanje števila plugov in štartnih baz
+6. Aktivacija pluga
+7. Deaktivacija pluga
+8. Oddaja zahtevka za pluženje
+9. Izbira naloge pluženja
+10. Usmeritev Samostojnega pluga
+11. Registracija osebja
+12. Pridobitev pozabljenega gesla
+
+Podporne funkcionalnosti:
+13. Poskus registracije
+14. Potrditev registracije
+15. Posodobitev štartnih baz
+16. Potrditev (de)aktivacije
+17. Dodajanje zahtevka
+18. Izbira zahtevka
+19. Dodajanje uporabnika
+
+
+
+
+
+#### 3.1.2 Primeri uporabe
+
+Business value ocenjujemo na skali od 1 do 10, kjer 1 pomeni “zelo majhna poslovna vrednost” in 10 pomeni “ogromna poslovna vrednost”.
+Pogostost uporabe ocenjujemo na skali od 1 do 10, kjer 1 pomeni “skoraj nikoli uporabljeno” in 10 pomeni “uporabljeno ves čas”.
+
+##### 1. Dostop do stanja pluženja (MUST HAVE)
+Dostop do stanja pluženja uporabniku izriše zemljevid pluženja, kjer so cest pobarvane glede na zasneženost oziroma čas od zadnjega pluženja, ter so vidne trenutne lokacije plugov.
+Business value: 8
+Pogostost uporabe: 10
+
+Osnovni tok:
+1. Uporabnik dostopa do začetne spletne strani sistema.
+2. Zaslonska maska kliče GoogleMaps API in pridobi zemljevid območja.
+3. Zaslonska maska od zalednega sistema pridobi stanje cest.
+4. Kot del strani se izriše zemljevid stanja pluženja.
+
+
+##### 2. Registracija Stranke (SHOULD HAVE)
+Neregistriran uporabnik se lahko registrira v sistem in tako postane Stranka.
+Business value: 6
+Pogostost uporabe: 2
+
+Osnovni tok:
+1. Uporabnik dostopa do začetne spletne strani sistema.
+2. Uporabnik klikne na gumb “Registracija”.
+2. Izriše se registracijsko okno.
+3. Uporabnik vnese svoje podatke (e-poštni naslov, uporabniško ime, geslo), pri čemer geslo vnese dvakrat, ter klikne na gumb “Registriraj me”.
+4. Sproži se tok dogodkov primera uporabe “Poskus registracije”.
+5. Primer uporabe “Poskus registracije” vrne sporočilo o uspešnosti.
+6. Uporabnik je preusmerjen na začetno spletno stran sistema.
+7. Sproži se tok dogodkov primera uporabe “Potrditev registracije”
+
+Predpogoj: Uporabnik še ni registriran v sistem kot Stranka.
+Popogoj: Uporabnik prejme e-poštno sporočilo, kjer lahko potrdi prijavo.
+
+Alternativni tok:
+Če na koraku 5 “Poskus registracije” vrne sporočilo, da registracija ni uspešna, uporabnika obvesti o napaki. (Primer: “Uporabnik s tem e-poštnim naslovom že obstaja). Tok se zaključi.
+
+
+
+##### 3. Prijava (MUST HAVE)
+Prijava obstoječim uporabnikom omogoči vstop v sistem in dostop do funkcionalnosti, ki so namenjene njihovemu tipu uporabnika.
+Business value: 10
+Pogostost uporabe: 8
+
+Osnovni tok:
+1. Uporabnik dostopa do začetne spletne strani sistema.
+2. Kot del strani se izriše prijavno okno.
+3. Uporabnik vnese prijavne podatke ter klikne na gumb “Prijava”.
+4. Zalednemu sistemu je poslan zahtevek za prijavo.
+5. Zaledni sistem vrne sporočilo o sprejetju prijave.
+6. Uporabnik je preusmerjen na spletno stran, ki je primerna njegovemu tipu uporabnika.
+
+Predpogoj: Uporabnik je potrjeno registriran.
+Popogoj: Uporabnik lahko uporablja funkcionalnosti, ki so na voljo njegovemu tipu uporabnika.
+
+Alternativni tok:
+Če je koraku 5 vrnjeno sporočilo o zavrnitvi prijave, se o tem izpiše obvestilo. (Primer: “V podanem uporabniškem imenu ali geslu je prisotna napaka.”) Tok se zaključi.
+
+
+
+##### 4. Kontaktiranje pluga (COULD HAVE)
+Admin in Manager preko uporabe Kontaktiranje pluga pridobita kontaktne podatke izbranega pluga.
+Business value: 2
+Pogostost uporabe: 2
+
+Osnovni tok:
+1. Admin/Manager na strani Admin UI/Manager UI klikne na enega od plugov na zemljevidu ali enega od plugov v tabeli deaktiviranih plugov.
+2. Odpre se okno s kontaktnimi podatki izbranega pluga.
+
+Predpogoji:
+Uporabnik je prijavljen kot Admin ali Manager.
+
+
+
+##### 5. Urejanje števila plugov in štartnih baz (COULD HAVE)
+Primer uporabe omogoča Admin-u, da spremeni lokacije štartnih baz in število plugov, ki posamezni bazi pripadajo. Tako vpliva na algoritem izbire najboljših poti.
+Business value: 4
+Pogostost uporabe: 2
+
+
+Osnovni tok:
+1. Admin na strani Admin UI klikne na gumb “Uredi štartne baze”.
+2. Izriše se okno s tabelo štartnih baz, njihovih lokacij ter njihovo številčnostjo pripadajočih plugov.
+3. Admin v oknu ureja podatke in klikne na gumb “Shrani”.
+4. Izrisano okno s tabelo štartnih baz se zapre. 
+5. Sproži se tok dogodkov primera uporabe “Posodobitev štartnih baz”.
+6. Primer uporabe “Posodobitev štartnih baz” vrne sporočilo o uspešnosti, ki se uporabniku izpiše.
+
+Predpogoj: Uporabnik je prijavljen kot Admin.
+Popogoj: Podatki štartnih baz so posodobljeni.
+
+
+
+
+
+
+##### 6. Aktivacija pluga (SHOULD HAVE)
+Ustaljeni plug preko Aktivacija pluga svoj plug vrne v med aktivne pluge v stanju pluženja, če je bil predhodno deaktiviran.
+Business value: 4
+Pogostost uporabe: 3
+
+Osnovni tok:
+1. Ustaljeni plug na Plug UI klikne na gumb “Aktivacija”.
+2. Sproži se tok dogodkov primera uporabe “Potrditev (de)aktivacije”.
+3. Primer uporabe “Potrditev (de)aktivacije” vrne sporočilo o uspešnosti, ki se uporabniku izpiše.
+4. Gumb “Aktivacija” se spremeni v gumb “Deaktivacija”
+
+Predpogoji:
+Uporabnik je prijavljen kot Ustaljeni plug.
+Ustaljeni plug je deaktiviran.
+
+Popogoj: Ustaljeni plug je dodan na seznam aktivnih plugov.
+
+Alternativni tok:
+Če na koraku 3 “Potrditev (de)aktivacije” vrne sporočilo, da aktivacija ni uspešna, se o tem izpiše obvestilo. Tok se zaključi.
+
+
+
+
+##### 7. Deaktivacija pluga (SHOULD HAVE)
+Ustaljeni plug izvzame svoj plug vrne iz stanja pluženja.
+Business value: 4
+Pogostost uporabe: 2
+
+Osnovni tok:
+1. Ustaljeni plug na Plug UI klikne na gumb “Deaktivacija”.
+2. Sproži se tok dogodkov primera uporabe “Potrditev (de)aktivacije”.
+3. Primer uporabe “Potrditev (de)aktivacije” vrne sporočilo o uspešnosti, ki se uporabniku izpiše.
+4. Gumb “Deaktivacija” se spremeni v gumb “Aktivacija”
+
+Predpogoji:
+Uporabnik je prijavljen kot Ustaljeni plug.
+Ustaljeni plug je aktiviran.
+
+Popogoj: Ustaljeni plug je odstranjen iz seznama aktivnih plugov.
+
+Alternativni tok:
+Če na koraku 3 “Potrditev (de)aktivacije” vrne sporočilo, da deaktivacija ni uspešna, se o tem izpiše obvestilo. Tok se zaključi.
+
+
+
+
+
+##### 8. Oddaja zahtevka za pluženje (SHOULD HAVE)
+Primer uporabe omogoči Stranki, da je njihov zahtevek dodan v bazo trenutnih zahtevkov.
+Business value: 6
+Pogostost uporabe: 5
+
+Osnovni tok:
+1. Stranka na Stranka UI v okno zahtevka vnese podatke zahtevka ter klikne na gumb “Oddaj zahtevek”.
+2. Sproži se tok dogodkov primera uporabe “Dodajanje zahtevka”.
+3. Primer uporabe “Dodajanje zahtevka” vrne sporočilo o uspešnosti, ki se uporabniku izpiše.
+
+Predpogoj: Uporabnik je prijavljen kot Stranka.
+Popogoj: Zahtevek je dodan med trenutne zahtevke.
+
+
+
+
+
+##### 9. Izbira naloge pluženja (SHOULD HAVE)
+
+Samostojni plug ali Ustaljeni plug prevzame opravljanje zahtevka pluženja, ki je odstranjen iz baze trenutnih zahtevkov.
+Business value: 6
+Pogostost uporabe: 3
+
+Osnovni tok:
+1. Samostojni plug ali Ustaljeni plug klikne na gumb “Izberi nalogo”.
+2. Odpre se okno z nalogami, ki so na voljo, in so uporabniku blizu po geolokaciji.
+3. Uporabnik označi nalogo in klikne na gumb “Izberi”.
+4. Okno z nalogami se zapre.
+5. Sproži se tok dogodkov primera uporabe “Izbira zahtevka”.
+6. Primer uporabe “Izbira zahtevka” vrne sporočilo o uspešnosti, ki se uporabniku izpiše.
+
+Predpogoj: Uporabnik je prijavljen kot Samostojni plug ali Ustaljeni plug.
+
+Popogoj: Zahtevek je odstranjen iz trenutnih zahtevkov.
+
+
+
+##### 10. Usmeritev Samostojnega pluga (COULD HAVE)
+Admin ali Manager lahko napotita Samostojni plug na nalogo iz množice trenutnih zahtevkov, če opazita, da je ta res nujna.
+Business value: 1
+Pogostost uporabe: 2
+
+Osnovni tok:
+1. Uporabnik klikne na plug na izrisanem zemljevidu.
+2. Poleg kontaktnih podatkov se pojavi gumb “Usmeri”, ki ga klikne.
+3. Izbranemu plugu je na njegov UI dodano rdeče obvestilo o usmeritvi z gumbom “Sprejmi”. Klikne ga takoj, ko lahko.
+4. Sproži se tok dogodkov primera uporabe “Izbira zahtevka”.
+5. Primer uporabe “Izbira zahtevka” vrne sporočilo o uspešnosti, ki se izbranemu plugu izpiše.
+6. Izbranemu plugu se iz UI odstrani rdeče obvestilo.
+
+Predpogoj: Uporabnik je prijavljen kot Admin ali Manager in izbrani plug je prijavljen kot Samostojni plug ali Ustaljeni plug.
+
+Popogoj: Zahtevek je odstranjen iz trenutnih zahtevkov.
+
+
+
+##### 11. Registracija osebja (MUST HAVE)
+Admin lahko v sistem doda kateregakoli od akterjev.
+Business value: 10
+Pogostost uporabe: 2
+
+Osnovni tok:
+1. Admin klikne na gumb “Dodaj uporabnika”.
+2. Izriše se okno v katerem lahko izbere tip uporabnika in vnese njegove podatke. Klikne na gumb “Dodaj”.
+3. Sproži se tok dogodkov primera uporabe “Dodajanje uporabnika”.
+4. Primer uporabe “Dodajanje uporabnika” vrne sporočilo o uspešnosti, ki se izpiše.
+
+Predpogoj: Uporabnik je prijavljen kot Admin.
+Popogoj: Uporabniški profil je dodan v sistem.
+
+Alternativni tok:
+Če na koraku 3 “Dodajanje uporabnika” vrne sporočilo, da dodajanje ni uspešno, se le-to izpiše.
+
+
+##### 12. Pridobitev pozabljenega gesla (MUST HAVE)
+Če uporabnik pozabi geslo ga lahko pridobi preko e-pošte.
+Business value: 10
+Pogostost uporabe: 4
+
+Osnovni tok:
+1. Uporabnik klikne na gumb “Pozabil sem geslo”.
+2. Izriše se okno za vnos e-poštnega naslova. Uporabnik klikne na gumb “Potrdi”.
+3. Sproži se tok dogodkov primera uporabe “Pozabljeno geslo”.
+4. Primer uporabe “Pozabljeno geslo” vrne sporočilo o uspešnosti, ki se izpiše.
+
+Predpogoj: Uporabnik je predhodno že bil dodan v bazo uporabnikov.
+Popogoj: Uporabnik je prejel e-pošto z geslom.
+
+
+
+
+
+ Podporne funkcionalnosti:
+
+##### 13. Poskus registracije (SHOULD HAVE)
+Poskus registracije uporabnika pripravi, da lahko potrdi svojo registracijo.
+Business value: 6
+Pogostost uporabe: 2
+
+Osnovni tok:
+1. Dobimo zahtevek za registracijo s podatki o uporabniku.
+2. Preverimo, če uporabnik s tem e-poštnim naslovom že obstaja.
+3. Dodamo ga v bazo še nepotrjenih uporabnikov.
+4. Vrnemo sporočilo o uspešnem vpisu.
+
+Popogoj: Uporabnik je vpisan v bazo nepotrjenih uporabnikov.
+
+Alternativni tok:
+Če v koraku 2 ugotovimo, da je uporabnik že v naši bazi, vrnemo sporočilo o neuspelem vpisu.
+
+
+##### 14. Potrditev registracije (SHOULD HAVE)
+Potrditev registracije zaključi registracijo uporabnika po tem, ko jo je potrdil na prejetem e-poštnem sporočilu.
+Business value: 6
+Pogostost uporabe: 2
+
+Osnovni tok:
+1. Zaledni sistem pošlje e-poštni naslov uporabnika.
+2. Preverimo, če je uporabnik s takšnim e-pošnim naslovom prisoten v bazi nepotrjenih uporabnikov, ter pridobimo njegove ostale podatke.
+3. Sproži se tok dogodkov primera uporabe “Dodajanje uporabnika”.
+4. Primer uporabe “Dodajanje uporabnika” vrne sporočilo o uspešnosti.
+5. Uporabnika odstranimo iz baze še nepotrjenih uporabnikov.
+6. O uspešni prijavi ga obvestimo na e-poštni naslov.
+
+Predpogoji:
+Uporabnik je vpisan v bazo nepotrjenih uporabnikov.
+Uporabnik še ni vpisan v bazo uporabnikov.
+
+Popogoj: Uporabnik je vpisan v bazo uporabnikov.
+
+Alternativni tokovi:
+Če v koraku 2 ugotovimo, da uporabnik še ni v naši bazi uporabnikov, ga na e-poštni naslov opozorimo o nenavadnem delovanju. Tok se ustavi.
+Če v koraku 4 dobimo sporočilo o neuspešnem dodajanju, uporabniku na e-pošto posredujemo vzrok napake. Tok je zaključen.
+
+##### 15. Posodobitev štartnih baz (COULD HAVE)
+V zaledju se spremenijo podatki o štartnih bazah.
+Business value: 4
+Pogostost uporabe: 2
+
+
+Osnovni tok:
+1. Dobimo podatke o željeni spremembi podatkov o štartnih bazah.
+2. V bazi spremenimo podatke.
+3. Vrnemo sporočilo o uspešnosti.
+
+Popogoj: Podatki o štartnih bazah so posodobljeni.
+
+Alternativni tokovi:
+Če je sprememba podatkov v koraku 2 neuspešna, vrnemo sporočilo o neupešni spremembi.
+
+
+##### 16. Potrditev (de)aktivacije (SHOULD HAVE)
+Sprememba stanja aktivnosti pluga.
+Business value: 4
+Pogostost uporabe: 5
+
+Osnovni tok:
+1. Dobimo zahtevek za spremembo, ki vsebuje šifro pluga in željeno stanje (aktiviran/deaktiviran).
+2. Preverimo trenutno stanje pluga.
+3. Spremenimo stanje pluga.
+4. Vrnemo sporočilo o uspešni spremembi.
+
+Predpogoj: Plug je že zaveden v bazi.
+Popogoj: Stanje pluga je enako kot v zahtevku.
+
+Alternativni tokovi:
+Če v koraku 2 ugotovimo, da je trenutno stanje že enako željenemu stanju, vrnemo sporočilo o uspehu, ter sporočilu dodamo, da se stanje ni spremenilo.
+Če v koraku 2 ugotovimo, da plug ni zaveden v bazi, vrnemo sporočilo o neuspehu ter povemo, da pluga ni v bazi.
+Če v koraku 3 ne uspemo spremeniti stanja pluga, vrnemo sporočilo o neupehu, kjer dodamo, da je prišlo do neznane napake in naj uporabnik poskusi kasneje.
+
+
+
+##### 17. Dodajanje zahtevka (SHOULD HAVE)
+Zahtevek za pluženje je dodan med trenutne zahtevke.
+Business value: 6
+Pogostost uporabe: 5
+
+Osnovni tok:
+1. Dobimo podatke zahtevka.
+2. Preverimo, da uporabnik, ki je zaveden na zahtevku, res obstaja.
+3. Zahtevek dodamo na seznam trenutnih zahtevkov.
+4. Vrnemo sporočilo o uspehu.
+
+Predpogoj: Uporabnik v podatkih zahtevka je vpisan v bazo Strank.
+Popogoj: Zahtevek je dodan med trenutne zahtevke.
+
+Alternativni tokovi:
+Če v koraku 2 ugotovimo, da uporabnik še ni v naši bazi Strank, ali v koraku 3 ne moremo dodati zahtevka na seznam trenutnih zahtevkov, vrnemo sporočilo o neuspetju. Tok se ustavi.
+
+
+
+##### 18. Izbira zahtevka (SHOULD HAVE)
+Plug je izbral zahtevek, zato zahtevek ne bo več na voljo.
+Business value: 6
+Pogostost uporabe: 3
+
+Osnovni tok:
+1. Dobimo identifikator zahtevka in podatke o plugu.
+2. Preverimo, da je zahtevek na seznamu trenutnih zahtevkov in da plug res obstaja.
+3. Z namenom deaktivacije se sproži tok dogodkov primera uporabe “Potrditev (de)aktivacije”.
+4. Primer uporabe “Potrditev (de)aktivacije” vrne sporočilo o uspešnosti.
+5. Preverimo, da je zahtevek še vedno na seznamu trenutnih zahtevkov.
+6. Zahtevek odstranimo iz trenutnih zahtevkov.
+7. Zahtevek dodelimo plugu.
+8. Vrnemo sporočilo o uspešnosti.
+
+Predpogoji:
+Zahtevek je na seznamu trenutnih zahtevkov.
+Plug je v bazi plugov.
+
+Popogoji:
+Zahtevek ni več med trenutnimi zahtevki.
+Plug je deaktiviran.
+
+Alternativni tokovi:
+Če v koraku 2 odkrijemo napako, vrnemo sporočilo o neuspešnosti z navedenim razlogom.
+Če v koraku 3 dobimo sporočilo o neuspešnosti, vrnemo sporočilo o neuspešnosti z navedenim razlogom.
+Če v koraku 5 ugotovimo, da zahtevek ni več na voljo, vrnemo sporočilo o neuspešnosti in opozorimo plug, da je morda bil deaktiviran kljub neuspetju pridobitve zahtevka.
+
+
+##### 19. Dodajanje uporabnika (MUST HAVE)
+Admin lahko dodaja vse vrste uporabnikov.
+Business value: 10
+Pogostost uporabe: 2
+
+Osnovni tok:
+1. Dobimo zahtevek za dodajanje uporabnika.
+2. Uporabnika dodamo v bazo.
+3. Vrnemo sporočilo o uspešnosti.
+
+Popogoj: Novi uporabnik je prisoten v bazi uporabnikov.
+
+Alternativni tokovi:
+Če v koraku 2 ugotovimo, da je uporabnik že prisoten, uspešnemu sporočil dodamo obvestilo, da je uporabnik že predhodno obstajal.
+
+
+##### 20. Pozabljeno geslo (MUST HAVE)
+Pošiljanje pozabljenega gesla na e-pošto uporabnika.
+Business value: 10
+Pogostost uporabe: 4
+
+Osnovni tok:
+1. Dobimo zahtevek o pozabljenem geslu z e-pošto uporabnika.
+2. Dobimo geslo iz baze uporabnikov.
+3. Pošljemo geslo in uporabniško ime na e-poštni naslov.
+4. Vrnemo sporočilo o uspešnosti.
+
+Popogoj: Uporabnik s takšno e-pošto obstaja v bazi uporabnikov.
+
+Alternativni tokovi:
+Če v koraku 2 ugotovimo, da takšnega uporabnika ni, prekinemo tok.
+
+
+
+
+
+
+
+
+
+#### 3.1.3 Sprejemni testi
+![Sprejemni testi 1](gradivo/img/Strategije1.PNG)
+![Sprejemni testi 2](gradivo/img/Strategije2.PNG)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 3.1.4 Diagram primerov uporabe
+
+![DPU3_1_1](https://teaching.lavbic.net/plantuml/png/VLJ1Zjem4BtdAonwO7DWfKMgLFMmKjYqYCEo5YaNRfFO3I71Zco7hMZxCVsHtlQ_Eev9Y5FQ2yBllNapyspGPI5gK70aAMHbhcGZM2OhgOXH83HIN9X0zoh6lq9JcI_ycucg8XT7f4c67rmDL8tc6MXElWTauFlK-hxk2yCjBXNZoc7ltdzUVFZqX2We9LyTc5PO6VmSs49cf5eCwfnaBBZPC6WvCbbpnVD26rNWVgIffO9K5EM4H0bPRpiLhPgyXRQqWn8RI0ajcdJWKigyuizGwuYk9WGqMJu7qwu2Zb8RUH05gJk_XFOqbGnCAKy2CAEpCwQB850yCo3G5XrmK7uajMGu9xSkRx-vE3IJDjakvKbiszI4IQAnyW2zq9d6CNOTo3Sk0CWAbBgrU2lS94CPLSYVBdCDYQWqnSbLsxsS8l8aCOTRejWJlJ06I9zXR_Yfj5_wmTqyBxkTLx0wftXhH40bSpvQShMce-6PJF7YJvZU6TBgm0NFWUHSLvULw18BfjSAgSj64tKDnmr1DmyZdL6iDRuXdOyjPJV5soy3oeXYRo_RgPF5Fupl60_x_2xMSUI9Oscpmw3w-5p0kwadkoJcQLOZpTMg_pLSpBRuwmkcMqfcJJtxyMWVxtfBPao-YjaZkRFlAlIGJH86LjwTgN-CHkTuTCOx7DNJPHWauuw9rs1mik_5fstzDF4dyivjIr_HrjXLoBt5xYssUGZ9HrA8h6eO_vkT-smxnvMFTmDwYdnhTssu25jiVXkxscpzBhl_pe0FPk27MiJi85uB5sYFuN_N7m00)
+
+![DPU3_1_2](https://teaching.lavbic.net/plantuml/png/https://teaching.lavbic.net/plantuml/png/RPAnRjim48PtFGNX3ew7P2jGT0WWHwrX64Q4g5gydSIhB5ac1PAo2xTzcBv8jxnNZvGSaqeNm_plk__-8wKFjUX0mP4LK1ug9Nl1IzbAnOm2eQc4maJwZUBu7VhMVCCV9cxhIXofp4hwGULHlSOIDBAV4VDydvplULyRjBfK7DMWVVZuTVdfonEfe9Gy3sBHKcVqsxE5qaYrzFe6P0hyTs1aP8LcZuf2EOpDOdwinOp56OklqXO4LCHqRV_w5qK3hhnDASPyH5B9mHpaIG2jTXc0T1b52ai3ecgHpR9Q6pooJl9EAdmpwsVkGaQV7RJ8HSsqWvtDBgFozUvcYTH6TenBficuWKce9CbI7qzLtS1fpECNDb8OE9YQthDnOQe1sWHKhh1nmEiVWwUwTUCgUMAri18e8-gztTZrvbcw3iVd-eYABlh4CZZQv8t02hnnUSY_O4MBAoWfDPCQYt6jb-V9KbmMphQJ5oZQ1frjXReTLqrNGOFKyjhnFdQQBKFOAExGEuuBUqSdcmS7DebzTdqfw0RP1VR47uRPwrtuNXo6A-pfsQ4GzOWbUJXqt4EwBUGmR4LVM1Ip-xwx__LeFpZwp-LPt3-oE_lI2ry8JvlmE3pDL0hEBy-XNRfQHD4sdKxqbSbnCpddxtZdIMqtQPSjeciwzc3L1mjcomNxJ5zPsVOS7U1LrxkWIC5ljIGFQdQYPxloY_DXp2tTag9OxnkVnDJmPcPhGV2v6nSOpDsGq3DGgEyV)
+
+
+
+
+#### 3.1.5 Nefunkcionalne zahteve
+
+Sistem mora delovati za simultano organizacijo do 100 plugov.
+Plug pa je avtomatsko voden v smeri njemu začrtanega pluženja. Posodabljanje informacij se dogaja v realnem času, torej se za potrebe pluženja mora posodobiti v največ eni minuti od zadnje spremembe stanja plugov na cestah in sprememb informacij o štartnih bazah.
+Zemljevid stanja na cestah je na voljo tudi neregistriranim uporabnikom in prikazuje stanje za največ 5 minut nazaj.
+V okviru organizacije opravljanja zahtevkov za pluženje moramo v primeru MOC omogočati hranjenje vsaj 30.000 zahtevkov naenkrat.
+Omogočati moramo registriranost za vsaj 70.000 strank, ter hkratno prijavljenost za vsaj 5000 strank.
 
 ### 3.2 Merila uspeha
 
