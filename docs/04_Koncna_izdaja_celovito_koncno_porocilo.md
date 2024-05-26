@@ -601,27 +601,48 @@ To smo uspeli zagotoviti s svojim algoritmom ter podprtjem ideje zahtevkov za pl
 
 ## 4 Opis sistema
 
+![Opis sistema](https://teaching.lavbic.net/plantuml/png/ZLNDRXen4BxxAKPSQ0zGgSUeQeKsbH8f5CG6L8NaCB2ZhTcrlV9wgKALHyWhzTI-L-tzPrb8EI3ccx_FCvzD6d6Pe4O1MoKI9KaQtpp719c8FpA6MwCq3DJcpolA0M0A2wy29MhrvrNoACUzkLyvzkfWKKZYBCJSvy-l6r-mG-Vw-riIy8CWIHy4IWn9vx5JVrx5OY1uqNJ2XYLso2JA7OUJ7W-hEMCiG8CRJ0a6AqssTXfnI9H58_uetrMO9Q1IWvQ8H_6EtW_W5mFxMU-xIK_ifLtqWOIDt_E0rochcVTK_7gWc2JVKcbEPnu8J0fhkBucWpoc0AOEEwgwJ4cdHS7r98uXSxQBIN0RsS70m9Vg9ynZ-xLGcI6O9OOBVa33bGJ_EJKaNBujKASiRskADqeGp2rQChjJ8PVbxssM6klMiBmjaN8P3H1elc_R4xUMnbnGo2q1xSmNHs42ez7dJjU5rmDQMVIWLW0zg9KNZCV7g8M7qwL_3pUJrTSXEpffKQBDxSHPZe7L4odWvhXmTIIpLc3Ef3Ke6rbQtMhri6n8hcVBHwEJSkgOYPEgxONOdFgIGQgCveRshOHFUOT6CUrjbEqRf_Cw2Nt3FGyBvM0SAblpXt2bHjRlT3QJ2uM1lRIazqxD0En810NDyvMk85OHRlaEEtcknSMyH1dMrbTnXBCPdTYJKRJtSxcIw-tUGB8JPgsh2wCiSObzO-aeAZzSx_Yku52z6l0emMYIcP4K8jWdI1PJgf-EgkF5Gxidvxy2U_daJ7iUkdpFG_zcjhoxRcvKUuZruhaCOQQ3Qj17aZqNr87ULf4ArCREIfLNWCSgl_1UpGz64DcLxGWYPI1mvv3L7mFlhcSyXlKz5tJFuzXrdMWdpFQMCesTf9pYvQGem1ri57o7DFzF8_d55RcKb5CvfwWt4y_l-uNz0m00 "Opis sistema")
+*P.S. s črtkano črto so označene neobvezne ali pa priporočkjive razširitve sistema
+
+Predstavitev sistema glede na diagram:
+Na zgornjem diagramu je površinsko predstavljen sistem, ki ga želimo implementirati. Sistem lahko razdelimo na “Front-End”, ki je predstavljen v paketu UI, ter “Back-end”, ki obsega 2 glavna modula.
+- SnowOnRoads Service predstavlja podatke, ki na zemljevid mestne občine Celje proecira višino snežne odejo na vsaki izmed cest. Upošteva, kdaj se je nazadnje peljal mimo plug, kjer ob njegovem mimohodu ponastavimo višino snega na 0 cm.
+- Plow navigation algorithm pa je srce našega problema. Na podlagi stanja snega, prestavljenega z zgoraj opisanim servisom, izračuna najoptimalenjšo pot pluženja za vsakega voznika podjetja VOC in Zelenice. Izračunano pot pošlje vozniku. Le administrator lahko vpliva na parametre algoritma (predstavljene v manager UI). Algoritem upošteva vnaprej določeno prioritetno lestvico cest, kar v grobem pomeni da bodo državne, regionalne in medkrajvne ceste prej splužene kot stranske ulice. Ob intenzivnem sneženju se lahko zgodi, da bodo te ceste splužene večkrat, medtem ko bodo nekatere stranske ulice ostale nedotaknjene.
+- Plowing orders so ena izmed možnih razširitev sistema, ki jih sistem po našem mnenju naj bi vseboval (Should have). Občan, ki se je registriral, lahko postane naročnik storitev pluženja. Ko se odloči, pošlje povpraševanje po storitvi. V najkrajšem možnem času mu vodja plužne izmene (manager)odobri ali zavrne storitev. Če je povpraševanje odobreno, se vključi v Plow navigation Algorithm, ali pa se direktno dodeli vozniku pluga, če ta nima trenutno aktivne poti pluženja. 
+- TimeTillPlowArrive Service implementira funkcijonalnost povpraševanja po času, kdaj se željena ulica spluži. To ugotovimo na podlagi oddaljenosti plugov od ulice in njihovih plužnih poti. Je ena izmed opcijskih razširitev sistema (Could Have). 
+
+
+Sistem je v osnovi zastavljen, da zadosti štirim ciljnim množicam.
+- Občan predstavlja “navadnega” uporabnika (regular user). Ima dostop do zemljevida, na katerem je predstavljena trenutna snežna odeja na cestnem sistemu MOC
+- Naročnik je vsak občan, ki se je registriral. Lahko oddaja povpraševanja po storitvi pluženja. 
+vodja plužne izmene ali manager povpraševanja odobri ali pa jih zavrne. Ima pregled nad strenutnin stanjem, vključno z lokacijami plugov. Ob kliku na vsak plug, se mu razširi njegova entita. Tam so prikazani vsi koristni podatki o plugu in vozniku. 
+- Voznik pluga je zaposleni pri podjetju VOC ali Zelenice. Ob možni nadgradnji sistema je lahko to tudi kateri izmed lokalnih - - kmetov ali drugih oseb, ki imajo v privatni lasti mehanizacijo zmožno pluženja. Njigova glavna naloga je da plužijo po zagrtani poti.
+- Admin predstavlja le en administrativni profil, ki ima vso moč nad sistemom.
+
 ### 4.1 Pregled sistema
 
-- Predstavite sistem in glavne izzive.
-  - Povzemite utemeljitve izbranih načrtovalskih odločitev.
-  - Narišite kontekstni diagram, ki prikazuje, kako sistem sodeluje z zunanjimi storitvami, podatkovnimi bazami ipd. Jasno označite meje sistema.
-  ![Kontekstni diagram](https://teaching.lavbic.net/plantuml/png/TLAxRkCm4Epr5GkdIAKoG8h0GCnSofnnYbCORjRIMgP5aG99sNSE_6lfybzPaXVv0QUHkCkPqUneNIDrXnPRA1Kw1-yPm1BBfhQcrvKmobZOhQMdq3Us8fjwDtVFa_jVWhjehTcbvb8nCpjaRX0zIfKHuIrgnrUaVNPxXBarLcOdTGqhL8vE12fQOQ_yA_trZqhMkcKcbFmWcwrbHL1AMofAvvRQ9LcNPHr_5ck2KV7FUMf7SImH1nmLChHWZw1nAsiivSOiTAVwscn7W0vUfl3m02uoOJo-nkoiR72_qCwZtY3xSJvI2_4JjREqeLPBviXaAS2_k_-LV-1giuDEyOE3zBJGflEobNlqqkYe8umbE6F33TslxbRL5VCBlSUrfsr3BDf_VX1F45LcytC3pBt84Puc4VaqEGrqvZZpf11EGSJZKj7P45Fsdq3nT1qqJyPan7qNrw55I9x44FnGNi0FOOpaA--x_39olan-ukNBbElXkx4rctFhH3s9YA3AFpjM8NqkUMroNc8zD2x_xlajftra7uuh-_Yd-7sQxfibtddNyD8PNZVUDa5gGt7gjwa8L7v1de_Pq1S0 "Kontekstni diagram")
 
-- Na kratko pojasnite zunanje interakcije sistema.
+MVC uporabljamo, ker nam omogoča učinkovito komunikacijo s frontend-om in urejen dostop do baze.
+Za upravljanje z bazo uporabljamo Mediator, saj olajša kode strežnika, ker se ni treba ukvarjati s podrobnostmi baze.
+Za dostop do baze uporabljamo Singleton, saj je najbolj smiselna ureditev dostopa.
+
+ARSO API nam omogoča ažurne podatke o vremenu, ki jih preberemo na nek časovni interval. Iz njega dobimo količino zapadlega snega v časovnem obdobju, prek česar lahko posodobimo stanje cest glede na prejšnje stanje in vmesno pluženje.
+
+GoogleMapsAPI nam omogoča pridobitev zemljevida območja in postavitev položajev plugov.
 
 ### 4.2 Osrednji arhitekturni pogledi
 
-- Za vsak pogled zagotovite osrednji diagram.
-- Za arhitekturne elemente v diagramu dodajte katalog elementov z imenom in namenom vsakega elementa.
-- Za vsak element določite enega člana ekipe (tudi, če je več članov ekipe prispevalo k elementu), ki bo njen skrbnik.
+  #### Arhitekturni elementi
+  - ReactApp (skrbnik: Sebastjan)
+  - FalskApp (skrbnik: Jošt)
+  - Database (skrbnik: Filip)
+  - AlgorithmHandling (skrbnik: Matevž)
 
     - #### **Komponenti diagram**
-  ![Komponenti diagram](https://teaching.lavbic.net/plantuml/png/RLBBRi8m4BpxAqQvq1xu0Gv88AGs9w8YkBGzECa6h0HlP9j4IjL_hvFoSk1cxypipdWzmOeAfGbAEpA5pCYYO0EIsG4P7slMf9sueeYQ8rcjIdJoIsCfEvbmBbt9JGHfiLh65-gzQ1kZfTHoLfAp0t4RFoMcXbjB1c_91lPKrspSGFVtWIN4vEBuwiwAwp4m98Aw7wtp3PccRt83rhLJHzL9noPXfyGzjlNZPQgLBTNkdFf709y-JUADVMCQnFZrub4xJ7DkzJHubi0AnjZD_WXwOkQ_-VpkSKQzp_X3nX5j7iHup337o-9ZiyOYYL_x1Ipo73dPp2ZFP6t5HBCZ6BK_E70HB04pHEz6QeMAO9si_ERg0QD83BAAYa4r7kk5E-FPtDVFEgVyf-ia6akGfLDDNwrEUz_h3m00 "Komponenti diagram")
+  ![Komponenti diagram](https://teaching.lavbic.net/plantuml/svg/RLBBRi8m4BpxAqQvf3tm0pqWWP1e3eYe22vj3oRPW9NWZMmJf5JzzveqF1ousJipkpDhnvXHeJH1QKUca1bP56n0CjiZuqFDchGJLnHHSo2hLObMVcbCPIjJpgKhkOaWBMRJv4Az5wqJd6XhEIl9sOwuJfuIjuPFbWpcwGhsMDTiN4VtzuubH7nnV7LdnVKO6191tO_M-OfCSsvo0vQrKmVLIiScPQV4FRRsu-LMArkgJP_wHm2VFatgZNrZ5CJu5NT8pYSz6kDbphohQ25hEqcJLzz-CB1d1eiBp6A8tG8Ee2TsBpPkwnlqxl67BGneuo3eOmOVTFAnMk8_Oun9dYCdcndbcQojY3KxWb6xlGCNmJFX3T6xaLgX8bWdA_-sTOTH93fPHKMd6exrmetnR3xNUvrJ_bks4eqboDAfvbojZZkA_W00 "Komponenti diagram")
 
   - #### **Deployment diagram**
-  ![Deployment diagram](https://teaching.lavbic.net/plantuml/png/TLJBRjim4BppAnQ--6J4FVHM572G10tG6e83dGeVrk929YoJAKarJGB_UvUa7fGV5vapmnrobmDZvOs5sKeUbPu1EbW9JDIQBDNAUQiiQcXVZSMTLeUugLptkugchHDL2A6D96WCLjZiZVFmAG2upYiDNvVBPOTCwnb-2P09h0vO4ypAvrdS3_3xXpaI5Cnk4ouTsG6V17_YGJik9Iq_9pwDgPNUKEsKvwAaiSNFG6zxj8cDaTsAo9p4nEA8cd-AnhovqM0bvPsa1bwP7dnUzkODi4cisrup-y2zfxy7DJezQsx7nnAbQx3qfoNdUqy6BJVFuYO9hgzx_4TLwoaMJgjE_LWaUjoXusc-l7D_nuVxVgQE7ojS9upIJPZOPs_GEgf2lUF6qW0oiYR_orXw8lIj9PSfAEMQOi6Kx5eGxBs2nU9xIa6vpjR5k0wVYF80PEkedL_Y3CSzamo8UVVuoJhBqdpCmONMPUk2dyPhKDsvycsn69IiFbOCmxrGiZcEotJAD7_Z-qJnF8TvWiE6T5hEXlibzjeb-dSRb-cSMz6z9Go73rdEGVAy7klhT9SL_kkOXs-4PV4V "Deployment diagram")
-
+  ![Deployment diagram](https://teaching.lavbic.net/plantuml/svg/RP11Ri9034NtSmelmu8S8L8gKTG5AaeeYnQ4tC64OGPxD9EcQgiUeRVgmPg42X74xjko_t_wMevUcBY69oy1Nzb4QvP7YcmiV2c0bu9Gru3UhzifIOcRKISQKzD62-zCbHwYSB_qg2rMzBzGt-g6wNWhxppE89cAL8vcw6C-VsYlbJwptBK-nDkIGaFXX77lCDeE0rQS59DoqMepMl62Vdy8667dFb8ZwRgB7VwV4_EYV8HJs2smR9Wx8CfT9PSuqu1-FqDBeQzbxju-YG-qUIP7R3IbSU_x1gvPiWihfVu0)
  - #### **Diagram zaporedja**
  ![Diagram zaporedja](https://teaching.lavbic.net/plantuml/svg/dPBTRjf048Nlzob6z8PAZL0iZAeeGYBfZo9LZGMbLxqPsmCic1rtl3Ofxz2toeDrR4Cn3RreBuo0_SuvSsQziYd1Wjd7_6HCiR4kHy4jn9XibiAbInFEMC0BkaAFoFaEbT82oyn_eIS_oUpIRVKO4lqWwL2OU9OxbfJalZ6BCtL_0VnERA7TodhgGYAyw-W1EeS5VI_99VJ9BlHnr4rx5NwuU_l-_W8TeNYRs1oT_tV1nN5DKmLwyy9ZjYPd8S_APGycCvXVm-rjSpmU6vEVdA0tQ24iO1eg5DUkA3-KEyFgI7AfJYCLISi7oYVil73s9_wOUxkrUwm7ojdRLZ3yks0odJt297femT7v94qrMw4dRMAqpDLOfxs1TrnnPg7CMJ1c-1ZDJk0qD5ge1eCR7Q7Wb6EhH5-VrnqiCDgZneQAYQsfY7q_AKNcMlRDDrVxLWMj8bqKLrtjq6YbMZkg8rBq6_jLI5z4x9zZf-yZe-Mk3dc30UmnTMjxL6iOwryvfXdfpJjQbYQbhhhxQsYE-Uhri1Ty_bcwPjrduHSaXxLe_cSiCgf7M448MvGDoPegdMEFSDp12uUWTGZ_po5eBaODvjS70zXHNB2-O1uuhgZmxI8Er-4hU_8rlm00)
 
@@ -631,7 +652,7 @@ To smo uspeli zagotoviti s svojim algoritmom ter podprtjem ideje zahtevkov za pl
 
 
 - #### **Razredni diagram**
-  ![Razredni diagram](https://teaching.lavbic.net/plantuml/svg/RP1DReCm48Ntd694DxI4gDcogvAqMQS7G8EPEbOisxLDMXHnzuB3dqGtbkRDc-zvXabq3jwxz_fc33oLoAwv5FpYIrdJFG98iQeA8_LFyfp3JOkgrwJcGYq5IrmuJtRIsYWo7GivmG4zbkXee9-fWdlK3R6GFNRtMYbYNbleKm4ozX24Lg5EXxfFs2zRxPfr8cbe1ANVDTdc-4iicP5BnWQ2e_2DeHm-lHMARm0jTpaS1FFpccstrYFfJCZyVB4FIwH2Nggq5rzDmYweE5K5Mi8HkhZDTF5u5sTPlDjkN-9_Jf53xSWjtA-zSJKmxBjo1tOOcJuS_G40)
+  ![Razredni diagram](https://teaching.lavbic.net/plantuml/svg/TLHDRnen4BtpAonwA2aGaLCbRfIqYQBGef3sL6bbl9F5mTXRsvi4HVptZhrhhu7DOLUQUJFpvjDCxKebGLgo-3Cdxpqcg37a1_wtix8adzQKRQU25nkx5XMyzmWPqZpFIg5U1nTJibPAE9rG1PTEyQ9uxXGQ2cuiw5H7cUKlr8BphegDW-vMltuwA8SEC0Glm3RQJ2X6BLSozJKWWDcCPXh-LM1iwcggzOv_W34iNG0oTgAEL2kQcvIgpUHCBU7DXZXdu4Vw9mrm5h1twFLAR3ijW5nJIzVKG3E81yXnHkZDujXMN1POXPB43QSUN_2QAocnDKfxZ90ngnNOG2yF6zbHprFeuByZdWNad8PGnpIt84e874EiLE-_lm4Rj6nf-17n5fdTbp0bAwknW16XkZ1JSisPRHUcpkBGxEI3Mv5s9s-mTNNDGwaiVzeFs8RA0lACQg0XS0Y6nSITxb_rn-F-rUNbbtv7fwQaCc0IwuapF7DeQZwpzh6zIqpOaSU1Fj8rhcipH5_NRmFQHEd1hLoKbdXc2TPiaT-GaqIQelg1e4ci9VwcAfbJlP-xK63QATvJcMEdbcWKTRDyn-MHPa4bYlf8vp8_KLWgda7ofQYE0wxeJXchdXFeq8iJJRkMfjDbqARMXQPfTk4nvMxmDFqkguvIaZRFHA4qjvjRB4DW7VMvn2kQgzqEaUI8dCETKTBCPBxaR2l0X4lQqIrapmxBdfIkNwE_CkCItrKpyEA8rDA8E35ZIYXjBeukEBAiGB_4C_qyB9MsK_9rCfdKRFWUZSFpwX-Z-o0qBrOIxaRJShF0zEBL6_yoLWKVN2J9UqtsIlUbmZnDm8fWt49PKHfCN-cyjah8LfAMZyeTHYH3JOPzt7ilgtnh6ZTqJ8gDPv5at9n6eebM2LKueDDdev_qyWFmP9nkFVu3)
 
 
 ## 5 Končno stanje
