@@ -630,14 +630,13 @@ To smo uspeli zagotoviti s svojim algoritmom ter podprtjem ideje zahtevkov za pl
   ![Diagram aktivnosti](https://teaching.lavbic.net/plantuml/svg/NP8xRiCm341tdOB8b5mX7dg0ea2NBaKN6c9i-aCPakp1HO_WG_GWxUJSgtJY-5DD0YK-yb4A4NqqvlpME8-fS0dEMeGUyqWTbRg1fcglloG59URy_eWN1A7nL51CJAC8Zkm43jSVxgg299G8rgKFK8a7-3IWw_nQjHa32xoWO4P-mIC41oxjwFez3YGCxf7S9hTKli3nsJhWFYLFJoU8EGaS9-0SWu3rwNPtBgI4SH227YnLhhvpg0e4nqtvh8KFqNOhDmwygEz1whlsfgtDjsF7CrGiN-w6ouoqZ8wenb98-Tnhe1Ui4R2Ct0dd6fqLNGSrMN2DHvqV2YLcNzk6w57VOE9ecajv7B0God0pG9tgT3P35fCjwtQeaalXUigQA2vwEyjiViC_xnLFGlNoG9EUG7GBvMl_LNRjhvQSh_w9CI6wvWy0)
 
 
-ZA POPRAVIT
 - #### **Razredni diagram**
   ![Razredni diagram](https://teaching.lavbic.net/plantuml/svg/RP1DReCm48Ntd694DxI4gDcogvAqMQS7G8EPEbOisxLDMXHnzuB3dqGtbkRDc-zvXabq3jwxz_fc33oLoAwv5FpYIrdJFG98iQeA8_LFyfp3JOkgrwJcGYq5IrmuJtRIsYWo7GivmG4zbkXee9-fWdlK3R6GFNRtMYbYNbleKm4ozX24Lg5EXxfFs2zRxPfr8cbe1ANVDTdc-4iicP5BnWQ2e_2DeHm-lHMARm0jTpaS1FFpccstrYFfJCZyVB4FIwH2Nggq5rzDmYweE5K5Mi8HkhZDTF5u5sTPlDjkN-9_Jf53xSWjtA-zSJKmxBjo1tOOcJuS_G40)
 
 
 ## 5 Končno stanje
 
-Poleg spletnega vmesnika sta bila cilja te iteracija vzpostavitev podatkovne baze v oblaku - ta cilj smo opustili zaradi prekomernih ovir - ter prikaz vremenskih podatkov na posameznih cestah.
+Izdelan imamo algoritem določitve poti pluženja. Njegovo pravilnost smo preverjali z izrisom grafa cest in križišč, kjer so križišča pravilno obarvana glede na njihovo pomembnost v dani situaciji, kar nam omogoča navigiranje plugov.
 
 Trenutno uspešno prikazujemo spletni vmesnik za neregistrirane stranke,
 
@@ -664,7 +663,9 @@ Izziv nam je predstavljala izbira primernega ogrodja ter orodij za razvijanje fr
 
 Trenutno stranke lahko dostopajo do glavne strani, kjer s pomočjo google maps API-ja ter podatkov MOC izrišemo zemljevid. Neprijavljene in neregistrirane stranke imajo dostop do prijave ter registracije.
 
-Izvedli smo test registracije, test prijave, test dodajanja pluga, test prikaza zemljevida ter test prikaza cest na zemljevidu. Trenutno naša koda obsega približno 1400 vrstic kode.
+Izvedli smo test registracije, test prijave, test dodajanja pluga, test prikaza zemljevida ter test prikaza cest na zemljevidu.
+
+Trenutno naša koda obsega približno 2000 vrstic kode (brez praznih vrstic).
 
 
 ## 6 Vodenje projekta
