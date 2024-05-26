@@ -637,10 +637,35 @@ ZA POPRAVIT
 
 ## 5 Končno stanje
 
-- Kaj deluje? Vključite posnetke zaslona.
-- Katere teste ste izvedli?
-- Ocenite ustreznost testov.
-- Koliko vrstic kode ste napisali (vse skupaj)?
+Poleg spletnega vmesnika sta bila cilja te iteracija vzpostavitev podatkovne baze v oblaku - ta cilj smo opustili zaradi prekomernih ovir - ter prikaz vremenskih podatkov na posameznih cestah.
+
+Trenutno uspešno prikazujemo spletni vmesnik za neregistrirane stranke,
+
+![Glavna stran](gradivo/img/homepage_rg.png)
+
+spletni vmesnik za registrirane stranke,
+![Stranka stran](gradivo/img/homepage_user_rg.png)
+
+spletni vmesnik za administratorje,
+
+![Admin stran](gradivo/img/homepage_admin_rg.png)
+
+spletni vmesnik za pluge,
+
+![Plug stran](gradivo/img/homepage_plow_rg.png)
+
+ter delujeta prijava in registracija uporabnika ter dodajanje pluga.
+
+![Prijava registracija](gradivo/img/login_registration.png)
+
+Izziv nam je predstavljala izbira primernega ogrodja ter orodij za razvijanje frontend dela, prav tako pa smo imeli nekaj problemov s pretvarjanjem podatkov o cestah, da so bili primerni za prikaz na zemljevidu. Težave smo imeli tudi s povezovanjem frontend dela aplikacije z zaledjem, ki smo jih rešili z preusmerjanjem api klicev iz node.js strežnika na flask (python) strežnik.
+
+![Opis sistema](https://teaching.lavbic.net/plantuml/png/RLF1Rfmm4BtxAqPxINiWXnwhAD9s4tKZXO2MaaEJ72RB27d1DhBDHjagdz2_weVLni2o6n12dZVFu-TvWwcuR52ZWAqIZP8aRMRVQu9MrDyOmwrL6XOFfAdancgkKKBRA8slabSBG0Fvm-RsPpOmC-iO5NQP4KphjWpST81Yb5YIxj1u09U5uBA3bcCz5CfOjPCScg5AbZB66jnMhe9ZIFK6QUq-6zLQWgInNF03MguaPE_6abZ07yO0nYtvdKV0FKzh9GXIXxw4-5wLNFRh_YwGt_L0B_e8-8iTeqx-CTnqBIFjmm_MOGLQV4NZLNV2RdwCGd93slGx7vDLl_fDDKc-7TJ5oGe4Dg4YW7kN44NNPzS8ZimbqXamcmFZEI9SNfvY3ho8y-mNh9UFjnVif9sXmBG7dv9zhzdOzW0FJONli5S7DsQTypYXTJecPZYc2D5vhT4IHq6_zaECVhACroK-LPruxhP8rEhVNo_1A3VyblOJ_fK_OBJjUDLmSfzWqxc0qns3cn2rZSjyyPESo8t2miquwRtp_UjPtwwYQ9xdn1v8r3lQymAU9LXDihMIIWHZKUumZ8jtB5id-VrDxva7LcCC4LI2x8wWKXOAvURL_NZ11Su-_WC0 "Opis sistema")
+
+Trenutno stranke lahko dostopajo do glavne strani, kjer s pomočjo google maps API-ja ter podatkov MOC izrišemo zemljevid. Neprijavljene in neregistrirane stranke imajo dostop do prijave ter registracije.
+
+Izvedli smo test registracije, test prijave, test dodajanja pluga, test prikaza zemljevida ter test prikaza cest na zemljevidu. Trenutno naša koda obsega približno 1400 vrstic kode.
+
 
 ## 6 Vodenje projekta
 
@@ -844,7 +869,7 @@ Vzpostavil je okolje Vite in omogočil delo s Shadcn (po dolgotrajnem neuspelem 
 Izvedel je obdelavo geografskih podatkov v graf cest ter zasnoval algoritem, ki na grafu skozi iterativno podajanje nujnosti med križišči določi naslednjih k križišč, ki jih mora vsak plug obiskati. Poskusil je vzpostaviti simulacijo plugov in njihovih gps-ov ter tako algoritem integrirati v rešitev za namen prikaza, a se je integracija simulacije izkazala za prezahtevno za trenutno iteracijo. 
 
 
-Jošt je zasnoval zaslonske maske. Ukvarjal se je s postavitvijo baze in ustvaril največji del backend-a.
+Jošt je naredil zaslonske maske, vzporedno z Matevžem se je ukvarjal z Maps API-jem. Delal je na zalednem delu aplikacije ter zasnoval API vmesnike, poskrbel je za povezavo API vmesnikov Vite in Flask strežnika. Prav tako je Filipu malo pomagal z podatkovno bazo.
 
 Sebastjan je poizvedel o integraciji Google Maps. V prvi iteraciji je naredil finančni načrt. Na frontend-u je poskusil dodati funkcionalnost dodajanja zahtevkov in izpolnitve polj.
 
