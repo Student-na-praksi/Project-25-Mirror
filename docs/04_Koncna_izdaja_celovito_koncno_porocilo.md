@@ -680,12 +680,15 @@ ZA POPRAVIT
 
 ## 7 Ekipa
 
+
 ### 7.1 Predznanje
 
-- Kakšno je bilo predznanje ekipe?
-  - Kakšne predhodne delovne izkušnje pri razvoju programske opreme?
-  - Je kateri član ekipe že razvil kaj podobnega?
-  - Ali so bila orodja ekipi znana ali nova?
+Ekipo sestavljamo štirje študenti 3. letnika univerzitetnega programa Fakultete za računalništvo in informatiko. Izkušenj z realnimi projekti imamo koolektivno bolj malo. Tudi naše znanje spletnega programiranja ni na zavidljivem nivoju. To bomo poskusili nadoknaditi z večjim interesom in zagnanostjo.
+
+- **Matevž Vidovič** je vešč programer v Python-u, s spletnimi tehnologijami pa nima veliko izkušenj. Zanimata ga tako backend kot frontend, zato glede tega nima preferenc. Razvijanje algoritma pluženja se mu zdi zanimiv izziv, za katerega že ima nekaj idej.
+- **Filip Gros** je moralni steber naše ekipe. Izkušen programer umetnega zaznavanja v programskemu jeziku Python bo poskrbel za celovito povezanost aplikacije. Poleg Pythona je vešč tudi v jezikih Go, Java, C.
+- **Jošt Eržen** je izkušen programer pri večjem projektu v programskemu jeziku Java, prav tako pa ima nekaj znanja v programskih jezikih Python, C in JavaScript ter SQL.
+- **Sebastjan Kordiš**, naš strokovnjak matematike, bo poskrbel za optimalne algoritme. Ima izkušnje programiranja v programskih jezikih Python, Go, Java, C ter Javascript.
 
 ### 7.2 Vloge
 
@@ -693,6 +696,29 @@ ZA POPRAVIT
 - Kaj je prispeval vsak član ekipe?
 - Za določitev posameznih prispevkov uporabite kataloge elementov.
 - Navedite grobo oceno prispevka posameznega člana ekipe v odstotkih.
+
+Vsi člani smo razvijalci izvorne kode. Poleg vloge razvijalca je Matevž Vidovič zaradi njegove predhodne komunikacije z stranko prevzel vlogo lastnika izdelka, Filip Gros pa prevzel vlogo SCRUM master-ja.
+
+Filip je vzpostavil začetno verzijo sistema, vključno s prijavo in lokalno podatkovno bazo.
+Veliko časa je namenil Continuous Deploymentu preko repozitorija vsebovanega znotraj trenutnega repozitorija. Tovrsten deployment nam ni uspel, zato je Filip delo nadaljeval še s tremi potencialnimi rešitvami. Rešitev s fly.io je končno uspela.
+Vzpostavil je velik del backend-a.
+
+Matevž je izvedel obdelavo podatkov zemljevidov. Ukvarjal se je z Google Maps API-jem, namreč kako naše podatke cest pretvoriti v pravilen format, da jih lahko v React-u prikažemo nad prikazanim Google Maps-om, ter kako prikazati markerje v različne namene.
+Vzpostavil je okolje Vite in omogočil delo s Shadcn (po dolgotrajnem neuspelem poskusu s create-react-app) ter osnoval osnovno obliko strani z osnovnimi gumbi in pasico.
+
+
+Jošt je zasnoval zaslonske maske. Ukvarjal se je s postavitvijo baze in ustvaril največji del backend-a.
+
+Sebastjan je poizvedel o integraciji Google Maps. V prvi iteraciji je naredil finančni načrt. Na frontend-u je poskusil dodati funkcionalnost dodajanja zahtevkov in izpolnitve polj.
+
+
+Groba ocena prispevkov:
+Filip 30%
+Matevž 30%
+Jošt 30%
+Sebastjan 10%
+
+
 
 ## 8 Omejitve in tveganja
 
