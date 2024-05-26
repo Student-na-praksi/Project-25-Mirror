@@ -26,7 +26,7 @@ import MyLocation from "./MyLocation";
 import RouteMarker from "./RouteMarker";
 import Plug from "./Plug";
 
-
+import { FeatureCollection, Geometry, GeoJsonProperties } from 'geojson';
 
 
 
@@ -34,18 +34,18 @@ import Plug from "./Plug";
 
 let plugi: any[] = []
 for (let i = 0; i < 10; i++) {
-  let ix = Math.floor(Math.random() * roadsData.features.length);
+  let ix = Math.floor(Math.random() * (roadsData?.features?.length || 0));
 
-  let pos_array = roadsData.features[ix].geometry.coordinates[0];
-  let real_pos = { lat: pos_array[1], lng: pos_array[0] };
+  let pos_array = roadsData?.features?.[ix]?.geometry?.coordinates?.[0];
+  let real_pos = { lat: pos_array?.[1], lng: pos_array?.[0] };
   plugi.push({pos: real_pos, tel_num: ("0" + (31123456 + i) + "")  });
 }
 
 let waypoints: any[] = []
-let init_ix = Math.floor(Math.random() * roadsData.features.length);
+let init_ix = Math.floor(Math.random() * (roadsData?.features?.length || 0));
 for (let i = 0; i < 5; i++) { 
-  let pos_array = roadsData.features[init_ix+i].geometry.coordinates[0];
-  let real_pos = { lat: pos_array[1], lng: pos_array[0] };
+  let pos_array = roadsData?.features?.[init_ix+i]?.geometry?.coordinates?.[0];
+  let real_pos = { lat: pos_array?.[1], lng: pos_array?.[0] };
   waypoints.push(real_pos);
 }
 
@@ -64,6 +64,8 @@ function GoogleMaps() {
 
 
 
+  const roadsData: FeatureCollection<Geometry, GeoJsonProperties> = require('./roads.json');
+
 
   return (
     <APIProvider apiKey={import.meta.env.VITE_PUBLIC_GOOGLE_MAPS_API_KEY} >
@@ -73,6 +75,7 @@ function GoogleMaps() {
           defaultCenter={celje_pos}
           mapId={import.meta.env.VITE_PUBLIC_MAP_ID}
           gestureHandling={'greedy'}>
+
 
           <DeckGlOverlay layers={getDeckGlLayers(roadsData)} />
 

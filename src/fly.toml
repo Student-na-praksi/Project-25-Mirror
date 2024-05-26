@@ -1,0 +1,23 @@
+app = "tpo25v1"
+
+[build]
+  builder = "paketobuildpacks/builder:base"
+  buildpacks = ["gcr.io/paketo-buildpacks/python"]
+
+[[services]]
+    internal_port = 5000
+    protocol = "tcp"
+
+    [services.concurrency]
+        hard_limit = 25
+        soft_limit = 20
+
+    [[services.ports]]
+        handlers = ["http"]
+        port = 5050
+
+    [[services.http_checks]]
+        interval = 10000
+        timeout = 2000
+        method = "POST"
+        path = "/test"
