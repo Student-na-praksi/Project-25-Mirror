@@ -1,0 +1,73 @@
+@startuml
+skinparam backgroundcolor transparent
+skinparam defaultTextAlignment center
+skinparam usecase {
+  backgroundColor white
+  borderColor #5FB8EC
+  arrowColor black
+}
+skinparam actorBorderColor black
+skinparam actorBackgroundColor white
+
+actor "Neregistriran uporabnik" AS NU
+actor "Plug" AS UP
+actor "Stranka" AS S
+'actor "Samostojni plug" AS SP
+'actor "Podatkovna baza" AS PB
+
+rectangle "Sistem podpore pluženju" {
+  actor "Zaledni sistem" AS ZS
+  usecase "Dostop do stanja pluženja" AS DDSP
+  usecase "Registracija Stranke" AS RS
+  usecase "Prijava" AS P
+  usecase "Aktivacija pluga" AS AP
+  usecase "Deaktivacija pluga" AS DP
+  usecase "Oddaja zahtevka za pluženje" AS OZZP
+  usecase "Izbira naloge pluženja" AS INP
+  usecase "Pridobitev pozabljenega gesla" AS PPG
+  'usecase "Poskus registracije" AS PR1
+  'usecase "Potrditev registracije" AS PR2
+  'usecase "Posodobitev štartnih baz" AS PSB
+  'usecase "Potrditev (de)aktivacije" AS PDA
+  usecase "Dodajanje zahtevka" AS DZ
+  usecase "Izbira zahtevka" AS IZ
+  'usecase "Dodajanje uporabnika" AS DU
+  usecase "Pozabljeno geslo" AS PG
+}
+
+'UP -up-|> SP
+NU -down-> (DDSP)
+NU -down-> (RS)
+UP -down-> (P)
+UP -down-> (AP)
+UP -down-> (DP)
+UP -down-> (INP)
+UP -down-> (PPG)
+S -down-> (DDSP)
+S -down-> (P)
+S -down-> (OZZP)
+S -down-> (PPG)
+'SP -down-> (P)
+'SP -down-> (INP)
+'SP -down-> (PPG)
+'(RS) .down.> (PR1) : include
+'(RS) .down.> (PR2) : include
+(RS) -down-> (ZS)
+(P) -down-> (ZS)
+(AP) -down-> (ZS) 
+(DP) -down-> (ZS)
+(OZZP) .down.> (DZ) : include
+(INP) .down.> (IZ) : include
+(PPG) .down.> (PG) : include
+'(PR1) -down-> (PB)
+'(PR2) -down-> (PB)
+'(PR2) .down.> (DU) : include
+'(ZS) .down.> (PR2) : include
+'(PDA) -down-> (ZS)
+'(DZ) -down-> (PB)
+(DZ) -down-> (ZS)
+'(IZ) .down.> (ZS)
+(IZ) -down-> (ZS)
+'(PG) -down-> (PB)
+(PG) -down-> (ZS)
+@enduml

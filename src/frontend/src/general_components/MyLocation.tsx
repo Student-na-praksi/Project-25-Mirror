@@ -17,7 +17,7 @@ import snowplowIcon from "@/assets/snowplow.png";
 
 
 
-let my_location: google.maps.LatLngLiteral | null = null;
+let google_location: google.maps.LatLngLiteral | null = null;
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(my_location_success, my_location_error);
@@ -28,7 +28,7 @@ if (navigator.geolocation) {
 function my_location_success(position: any) {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
-  my_location = { lat: latitude, lng: longitude };
+  google_location = { lat: latitude, lng: longitude };
   console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
 }
 
@@ -38,8 +38,10 @@ function my_location_error() {
 
 
 
-function MyLocation() {
+function MyLocation(props: any) {
     const [open, setOpen] = useState(false);
+
+    let my_location = props.loc || google_location;
 
     return(
         <>
