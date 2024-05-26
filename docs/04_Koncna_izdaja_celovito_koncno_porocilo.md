@@ -606,8 +606,8 @@ Omogočati moramo registriranost za vsaj 70.000 strank, ter hkratno prijavljenos
 
 ### 3.2 Merila uspeha
 
-- Kako veste, ali je naročnik dobil želene koristi?
-- Katera merila uspeha so pomembna naročniku?
+Naročnik je izražil željo za algoritmično podprto določitev poti plugov, spremljanje dela plugov, ter za dodatne funkcionalnosti, ki izboljšajo izkušnjo občanov v okviru pluženja.
+To smo uspeli zagotoviti s svojim algoritmom ter podprtjem ideje zahtevkov za pluženje dvorišč in parkirišč, na katere se lahko prijavijo kmetje in prosti plugi.
 
 ## 4 Opis sistema
 
@@ -654,9 +654,6 @@ ZA POPRAVIT
 
 ## 6 Vodenje projekta
 
-- Opišite uporabljen razvojni proces.
-- Kateri so bili ključni dogodki med projektom? Vključite tudi datume.
-- Še kaj drugega?
 
 #### Dnevnik sprememb:
 - 29.2. Začetni nabor idej za možne funkcionalnosti. Zažetek projekta.
@@ -672,6 +669,8 @@ ZA POPRAVIT
 - 18.4. Za frontend bomo namesto create-react-app uporabljali Vite, saj omogoča delo s Shadcn in je bolj splošno uporabljano, zato zanj obstaja več pomoči na forumih. 
 - 24.4. Namesto izrisa poti navigiranja bomo plugu le izrisali oštevilčene marker-je na križiščih. To olajša rešitev, saj dosedanje rešitve za prikaz poti navigiranja niso delovale dobro. Poleg tega nova zastavitev bolje deluje z našim algoritmom in za uporabnika ne bi smela predstavljati problema.
 - 3.5. Stanje cest v največ 7 barvah. Sprva smo stanje cest želeli prikazovati z barvo na zvezen način, a se je izkazalo, da brskalnik to težko podpira in začne delati bolj počasi. Iz tega razloga se omejimo na 7 barv.
+- 9.5. Namesto prvotne ideje izdelave algoritma s konvolucijo slike cest in plugov smo se odločili za izvedbo algoritma s pomočjo grafa, ki predstavlja kričišča in ceste, ter vključuje pluge preko križišč, ob katerih se nahajajo.
+- 21.5. Namesto vmesnih idej za deployment smo se odločili za fly.io, saj nam edini omogoča vzpostavitev aplikacije zaradi njenih posebnosti v smislu ločenega serverja za frontend in za backend.
 
 
 #### Izvajani procesi in prakse
@@ -851,8 +850,8 @@ Veliko časa je namenil Continuous Deploymentu preko repozitorija vsebovanega zn
 Vzpostavil je velik del backend-a.
 
 Matevž je izvedel obdelavo podatkov zemljevidov. Ukvarjal se je z Google Maps API-jem, namreč kako naše podatke cest pretvoriti v pravilen format, da jih lahko v React-u prikažemo nad prikazanim Google Maps-om, ter kako prikazati markerje v različne namene.
-Vzpostavil je okolje Vite in omogočil delo s Shadcn (po dolgotrajnem neuspelem poskusu s create-react-app) ter osnoval osnovno obliko strani z osnovnimi gumbi in pasico.
-Vzpostavil je ves izdelani frontend.
+Vzpostavil je okolje Vite in omogočil delo s Shadcn (po dolgotrajnem neuspelem poskusu s create-react-app) ter osnoval obliko strani z osnovnimi gumbi in pasico. Dodal je prikaz cest in plugov.
+Izvedel je obdelavo geografskih podatkov v graf cest ter zasnoval algoritem, ki na grafu skozi iterativno podajanje nujnosti med križišči določi naslednjih k križišč, ki jih mora vsak plug obiskati. Poskusil je vzpostaviti simulacijo plugov in njihovih gps-ov ter tako algoritem integrirati v rešitev za namen prikaza, a se je integracija simulacije izkazala za prezahtevno za trenutno iteracijo. 
 
 
 Jošt je zasnoval zaslonske maske. Ukvarjal se je s postavitvijo baze in ustvaril največji del backend-a.
@@ -1175,15 +1174,16 @@ najeli izkušenega penetration testerja. Obseg dela za našo aplikacijo je majhe
 
 ## 9 Refleksija
 
-- Kaj ste se naučili pri tem projektu?
-- Kaj je šlo po pričakovanjih?
-  - Katero od vaših praks bi opredelili kot najboljšo prakso?
-- Kaj ni šlo po pričakovanjih?
-- Kaj ne deluje in kako ste to rešili?
-  - Kakšne težave ste imeli pri funkcionalnostih, ki jih niste implementirali?
+Pri projektu smo se s skupinskim delom naučili kopico mehkih veščin, za katere sploh nismo vedeli, da jih ne zmoremo, kaj šele obvladamo. Naučili smo se sodelovanja pri razvoju programske kode, saj je za to potrebno veliko komunikacije, ko več oseb dela na isti funkcionalnosti in morajo razumeti kodo en drugega, ter zagotoviti, da bo na koncu en del kode deloval z drugim.
+Tehnično smo se naučili ogromno, saj nam je bilo pred projektom področje spletnega programiranja povsem tuje. Tako smo se naučili vzpostaviti profesionalno frontend okolje, programiranja v Reactu, vzpostavitve in deployment podatkovne baze, deployment izvorne kode na strežniku, in še veliko podrobnosti.
+Komunicirali smo uspešno. Stoječi sestanki so bila naša najboljša praksa, saj smo le tako lahko določili skupno vizijo željene rešitve. Pred prvim stoječim sestankom smo namreč imeli velike probleme s komunikacijo, saj še nismo razvili skupnega jezika za posamezne dele sistema in tega, kako naj se povezujejo.
+Tehnično večina stvari ni šla po pričakovanjih. Zaradi neizkušenosti smo za vse dele sistema potrebovali veliko več časa, kot smo si sprva predstavljali. Največje probleme smo imeli z deploymentom in pa tudi integracijo komponent.
+Veliko težav smo imeli zudi z vzpostavitvijo frontend okolja, saj so nam vse napake bile nove in smo jih s težavo in počasi odpravljali.
+Sedaj nam je jasno, da smo si zadali prevelik zalogaj, sploh za tako neizkušeno ekipo.
+
 
 ## 9.1 Priporočila
 
-- Kaj bi naredili drugače?
-- Kaj svetujete ostalim ekipam?
-- Kaj bi priporočili naročniku?
+Če bi se projekta lotili še enkrat, bi ga zastavili v bolj omejenem obsegu. Uporabljali bi manj napredne tehnologije, ki pa so nam že znane (npr. vanilla JavaScript namesto React-a).
+Ostalim ekipam bi svetovali prakso stoječih sestankov, če le te še niso uporabljale. Te so nam namreč najbolj pomagali pri razumevanju stanja projekta in potrebnih nadaljnjih korakov.
+Ker smo neizkušena ekipa, bi naročniku priporočili bolj podrobno definirano zastavljen problem. Odprtost problema je bil svojevrsten izziv in nam je dopustil kreativno odločanje o željeni končni rešitvi, a smo zaradi svoje neizklušenosti zašli v preveč idejnih smeri naenkrat.
