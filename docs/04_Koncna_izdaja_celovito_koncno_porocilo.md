@@ -1,16 +1,6 @@
-# :blue_square: Končna izdaja (celovito končno poročilo)
+# Celovita rešitev organizacije pluženja
 
-| [:arrow_backward:](03_Izvedljiv_sistem_2_porocilo_o_stanju.md) Prejšnji dokument |                       Trenutni dokument                       | Naslednji dokument |
-| :------------------------------------------------------------------------------- | :-----------------------------------------------------------: | -----------------: |
-| :green_square: **Izvedljiv sistem**<br>(2. poročilo o stanju)                    | :blue_square: **Končna izdaja**<br>(celovito končno poročilo) |                    |
-
-![Terminski načrt](https://teaching.lavbic.net/plantuml/svg/hPVBRjiu58RtV0gYNJWrO3UYxCGT147HTWeKCq2BegiQNPnOj4DB9WMILXiFyWXvY7cNzBrwgCXAP54NTmRn8Zuc__zSFbBsQsD1snL8Q-cpBrnlX3Ine1BkxxHzHiY5iJS9loJvYdS2LXesz1z2gHKRdWZ9ypUK_et_lbM9qlJvahc_FFfUIViGnNqt6BfrEy74nQuti8XNMcrbLEpbi-Lq6HqgJj-_cVtvjjWEMgllTTVAcer8kB6gpEvtV1Q9CZng4l0McOZLjIqhlIKNBulk4UofJC7rxkf0oMgG1Z_YqfB1jOWuNIfbhzGFae1SRM75gKb8geMqPW49fzyvZvCRb0IxrH7SO4DuaImnA5kDi5Cs6PtYAw3270RPUIquzQt487iI98E7S3WAPddO5OAj4f8-ZquvBA_sA_3LiGAbpnfMx1SKMTONa4zQhVd2qfnXGnysi57mYf3vHRxXZt8abryHQMvvJCKkWpN8DT0K1JVS0Zq9NetP-CN5otpJvJTw3MdAfQ5WdweEvcqYXMDkrbFGa-Pm-66NgaIkUORod6QfXf__GY953CEXAtyuJBLQYaHejm1Z9m6rFEBoYHqOEdyNVAC966pCb28L1jF_3V5gLVsCV5LzXbs45uRb6SseYRSf7hkzfTXTeH_sT2SoQ2c8LNmeo6W_UcohIsDWA9THNkWnVdrgxEjDHYCQZ2aQQrW8v6Cqye_v4tAJg1NoWn37DgyxTDvI77g7U-_WeS4rT-RSyq1UkqUwKkB_O5Elw6CKGN4Sq1jASvpcR1osdWLtaM3YZGhL-VHIyvt_bShmmgt9LxlmzG3cMXF2HyeQ9O-LSj2mFj1yD7BhhXyZZEMRDcQcvJ0ddNNuTFi0qz-Z4HSyAgdIwlvE942LsopNMteo6qzQP-mUB8_4-4Kg5VGIR8R6wt003kkOzhGEZbVsM3a7JzW7dW-x33bTYwmOiwDduf_iMJdPMMSnNk5Ay_-pIIC-p8_FsNZQEctthUCH7zQDJo_1PdnO3tp2ZdcVrV5XBVZqbdFuJ0xn6VZu-Kl9-plfdfkkRIrtJy2wdYIb-zmZs-VgES9Yq4XFd3jpTt6NRJnXvvspPkTatY9HoR-VtA2P7O_30JcJZb47hEnsY-ZHOXxUSPHyuVs27GQTRGW3R4EZGXMANchaDQQP_t3z1G00 "Terminski načrt")
-
-Končno poročilo naj bo edini vir za pregled poljubnega vidika projekta. Pričakuje se, da vsebuje posodobljene podatke o dodani vrednosti za naročnika iz [predloga projekta](01_Predlog_projekta.md), opredelitvi problema iz [1. poročila o stanju](02_Osnutek_sistema_1_porocilo_o_stanju.md) in opis sistema iz [2. poročila o stanju](03_Izvedljiv_sistem_2_porocilo_o_stanju.md). Razdelek [**9 Refleksija**](#9-refleksija) predstavlja retrospektiven pogled na celoten pogled. Vsebino iz prejšnjih poročil lahko ponovno uporabite, vključno z uporabniškimi zgodbami, primeri uporabe, kontekstnim diagramom in osrednjimi arhitekturnimi pogledi.
-
-## :page_with_curl: Opisni naslov, osredotočen na prednosti za naročnika
-
-## :information_desk_person: Ime ekipe: Člani ekipe
+### Jošt Eržen, Filip Gros, Sebastjan Kordiš, Matevž Vidovič
 
 ## 1 Uvod
 
