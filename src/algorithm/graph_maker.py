@@ -22,6 +22,7 @@ import numpy as np
 
 from snap_to_road import SnapToRoad
 
+import pickle
 
 
 
@@ -59,7 +60,6 @@ plt.show()
 
 
 
-import pickle
 
 # Deserialize (unpickle) the objects
 with open('data.pkl', 'rb') as f:
@@ -112,23 +112,25 @@ with open('data.pkl', 'rb') as f:
 
 class Plugi:
 
-    def __init__(self, lines_to_remaining_intersections_ix_lists):
+    def __init__(self):
 
         self.snap_to_road = SnapToRoad()
         self.plugi_gps_coord_tuples = []
         self.plugi_current_connection_ixs = []
         self.plugi_intersection_ixs = []
+        self.length = 0
 
     
     def set_plugi(self, gps_coord_tuple_list):
 
         self.plugi_gps_coord_tuples = gps_coord_tuple_list
 
+        self.length = len(gps_coord_tuple_list)
+
         self.plugi_current_connection_ixs = self.snap_to_road.snap_many_gps_to_road(gps_coord_tuple_list)
 
         self.plugi_intersection_ixs = [lines_to_remaining_intersections_ix_lists[ix] for ix in self.plugi_current_connection_ixs]
         
-
 
 
 
@@ -141,13 +143,13 @@ from multiprocessing import Pool
 
 class Connection:
     
-        def __init__(self, line_ix, roads_gdf, lines_to_remaining_intersections_ix_lists):
+        def __init__(self, line_ix):
                         
             self.road_idx = line_ix
 
             self.intersections = lines_to_remaining_intersections_ix_lists[line_ix]
 
-            self.length = roads_gdf.iloc[[line_ix]].geometry.length
+            self.length = roads_gdf.iloc[line_ix].geometry.length
             self.severity = 1
 
         def set_severity(self, severity):
@@ -158,7 +160,7 @@ class Connection:
 
 class Graph:
 
-    def __init__(self, roads_gdf, remaining_intersection_gdf, lines_to_remaining_intersections_ix_lists):
+    def __init__(self): #, roads_gdf, remaining_intersection_gdf, lines_to_remaining_intersections_ix_lists):
         
         self.num_of_intersections = len(remaining_intersection_gdf)
         self.num_of_roads = len(roads_gdf)
@@ -169,14 +171,14 @@ class Graph:
         self.node_severities = np.zeros(self.num_of_intersections)
         self.next_node_severities = np.zeros(self.num_of_intersections)
 
-        self.plugi = Plugi(lines_to_remaining_intersections_ix_lists)
+        self.plugi = Plugi()
         self.plugi_waypoints = []
 
 
         for road_ix in range(0, self.num_of_roads):
 
             # Create the connection
-            self.connections[road_ix] = Connection(road_ix, roads_gdf, lines_to_remaining_intersections_ix_lists)
+            self.connections[road_ix] = Connection(road_ix)
 
 
             # Add corresponding (pair_intersection_ix, connection_ix) to the 
@@ -198,6 +200,61 @@ class Graph:
                     self.intersection_to_connections[intersection_ix].append((pair_intersection_ix, road_ix))
 
 
+    def set_plugi(self, gps_coord_tuple_list):
+        self.plugi.set_plugi(gps_coord_tuple_list)
+    
+    def make_plugi_waypoints(self, delete_first_waypoint=False):
+
+        new_waypoints = []
+
+        for ix in range(0, self.plugi.length):
+
+            curr_wps = []
+
+            already_chosen_ixs = []
+
+            try:
+                neighbouring_intersections = self.plugi.plugi_intersection_ixs[ix]
+                curr_ix = np.argsort([self.node_severities[ix] for ix in neighbouring_intersections])[0]
+                curr_waypoint_ix = neighbouring_intersections[curr_ix] # direktno podani ix-i, torej brez [0]
+                curr_wps.append(curr_waypoint_ix)
+                already_chosen_ixs.append(curr_waypoint_ix)
+
+
+                for i in range(2):
+                    new_neighbours = self.intersection_to_connections[curr_waypoint_ix]
+                    new_neighbours = [tup[0] for tup in new_neighbours if tup[0] not in already_chosen_ixs]
+                    curr_ix = np.argsort([self.node_severities[ix] for ix in new_neighbours])[0] 
+                    curr_waypoint_ix = neighbouring_intersections[curr_ix]
+                    curr_wps.append(curr_waypoint_ix)
+                    already_chosen_ixs.append(curr_ix)
+                
+                if delete_first_waypoint:
+                    del curr_wps[0]
+
+                new_waypoints.append(curr_wps)
+
+            except:
+                new_waypoints.append([[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]) # some fake stuff that should get a plug to some 
+                # road that has nodes, and then it works fine from there
+                continue
+        
+        
+        self.plugi_waypoints = new_waypoints
+
+
+    def get_plugi_waypoints_gps_coords(self):
+        returner = []
+        for wps in self.plugi_waypoints:
+            curr_wps = []
+            for wp in wps:
+                x, y = (remaining_intersection_gdf.iloc[wp].geometry.x, remaining_intersection_gdf.iloc[wp].geometry.y)
+                x, y = self.plugi.snap_to_road.project_from_slovene_to_gps_system(x, y)
+                curr_wps.append((x, y))
+            returner.append(curr_wps)
+        
+        return returner
+            
 
 
     def set_connection_severities(self, severities):
@@ -239,7 +296,13 @@ class Graph:
                 continue
 
             for intersection_ix in intersects:
+                # print("self.connections[road_ix].severity")
+                # print(self.connections[road_ix].severity)
+                # print("self.connections[road_ix].length")
+                # print(self.connections[road_ix].length)
                 node_severity = self.connections[road_ix].severity * self.connections[road_ix].length
+                # print("node_severity")
+                # print(node_severity)
                 self.next_node_severities[intersection_ix] += node_severity
         
         self.update_node_severities()
@@ -271,7 +334,7 @@ class Graph:
         self.update_node_severities()
     
 
-    def perform_severity_passing_steps(self, num_steps):
+    def perform_severity_passing_steps(self, num_steps=5):
         for _ in range(num_steps):
             self.node_severities_from_nodes()
 
@@ -319,7 +382,7 @@ class Graph:
 if __name__ == "__main__":
 
     PRINTOUT = False
-    graph = Graph(roads_gdf, remaining_intersection_gdf, lines_to_remaining_intersections_ix_lists)
+    graph = Graph()#roads_gdf, remaining_intersection_gdf, lines_to_remaining_intersections_ix_lists)
 
 
     severities = [ix/graph.num_of_roads for ix in range(0, graph.num_of_roads)]

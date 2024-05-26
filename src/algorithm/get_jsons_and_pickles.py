@@ -34,6 +34,14 @@ class AlgoJsonsAndPickles:
     def __init__(self, road_severities=None):
 
 
+        # Možni paths
+        shapefile_paths = ['pluzenje_MOC/Pluzenje_Zelenice.shp', "pluzenje_MOC/Pluzenje_intervencijske_poti_brvi.shp", 'pluzenje_MOC/Pluzenje_parkirisca.shp', 'pluzenje_MOC/Pluzenje_VOC.shp']
+
+        # Trenutno beremo le zelenice - lahko bi gledali tudi ostale.
+        roads_gdf = gpd.read_file('pluzenje_MOC/Pluzenje_Zelenice.shp')
+
+
+
         # This line makes it so that there are only 7 colours. Trying to make things easier for the browser.
         green_to_red = plt.colormaps['RdYlGn_r']
 
@@ -44,12 +52,6 @@ class AlgoJsonsAndPickles:
             roads_rgba = [green_to_red(severity) for severity in road_severities]
         
 
-
-        # Možni paths
-        shapefile_paths = ['pluzenje_MOC/Pluzenje_Zelenice.shp', "pluzenje_MOC/Pluzenje_intervencijske_poti_brvi.shp", 'pluzenje_MOC/Pluzenje_parkirisca.shp', 'pluzenje_MOC/Pluzenje_VOC.shp']
-
-        # Trenutno beremo le zelenice - lahko bi gledali tudi ostale.
-        roads_gdf = gpd.read_file('pluzenje_MOC/Pluzenje_Zelenice.shp')
 
 
         # Razreže roads_gdf po teh koordinatah [xmin:xmax, ymin:ymax]
@@ -379,3 +381,6 @@ class AlgoJsonsAndPickles:
             pickle.dump((roads_gdf, remaining_intersection_gdf, remaining_intersections_line_ix_lists, lines_to_remaining_intersections_ix_lists), f)
 
 
+if __name__ == "__main__":
+
+    AlgoJsonsAndPickles()
