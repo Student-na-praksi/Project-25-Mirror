@@ -693,10 +693,10 @@ Trenutno naša koda obsega približno 2000 vrstic kode (brez praznih vrstic).
 
 
 #### Dnevnik sprememb:
-- 29.2. Začetni nabor idej za možne funkcionalnosti. Zažetek projekta.
+- 29.2. Začetni nabor idej za možne funkcionalnosti. Začetek projekta.
 - 7.3. Omejitev idej, ki jih želimo podpirati.
 - 13.3. Ob stoječem sestanku smo dokončno razjasnili želje uporabniške zgodbe in arhitekturo. Sedaj definiramo potrebovane funkcionalnosti.
-- 29.2. Začetni nabor idej za možne funkcionalnosti. Zažetek projekta.
+- 29.2. Začetni nabor idej za možne funkcionalnosti. Začetek projekta.
 - 7.3. Omejitev idej, ki jih želimo podpirati. Želeli smo utrditi svojo vizijo projekta s povečanjem fokusa na manj idej. Napredovali smo hitreje.
 - 13.3. Ob stoječem sestanku smo dokončno razjasnili željene uporabniške zgodbe in arhitekturo. Želeli smo pojmovanja sistema združiti na enem mestu. Sedaj lahko definiramo potrebovane funkcionalnosti.
 - 27.3. Odločitev za dodato uporabo Google Maps in delitev razvijalskih vlog za specifične dele sistema. Želeli smo si olajšati delo navigacije na kratkih razdaljah, saj bi težko dosegli raven uporabnosti, ki ga že ponuja Google Maps. To nam bo omogočilo lažje napredovanje s projektom.
