@@ -4,6 +4,7 @@ from datetime import datetime
 import mysql.connector
 import bcrypt
 import logging
+import json
 
 
 # singelton design pattern
@@ -43,6 +44,9 @@ class DatabaseHelper:
             connection.commit()
             cursor.close()
             return None
+        elif query_type == 'getroads':
+            query = "SELECT * FROM roads"
+            cursor.execute(query)
         else:
             raise ValueError('Invalid query type')
         result = cursor.fetchall()
@@ -50,6 +54,16 @@ class DatabaseHelper:
         return result
 
 db_helper = DatabaseHelper()
+
+def ensureConnection():
+    global connection
+    # If the connection to the database is not established try establishing a new connection
+    if connection is None:
+        try:
+            connection = db_connector.connect()
+        except Exception as e:
+            return False
+    return True
 
 # Create a new Flask web server from the Flask class
 app = Flask(__name__, static_url_path='/static')
@@ -139,12 +153,8 @@ def login():
 
         app.logger.info('U: %s, P: %s, HASH %s',username, password, hashed_password)
 
-        # If the connection to the database is not established try establishing a new connection
-        if connection is None:
-            try:
-                connection = db_connector.connect()
-            except Exception as e:
-                return jsonify(message='The database is unreachable'), 500 # + str(e)
+        if not ensureConnection():
+            return jsonify(message='The database is unreachable'), 500 # + str(e)
             
         # create a new cursor object, which is used to execute SQL commands, and define a SQL query
         # cursor = connection.cursor()
@@ -179,11 +189,8 @@ def add_plow():
 
     global connection
 
-    if connection is None:
-        try:
-            connection = db_connector.connect()
-        except Exception as e:
-            return jsonify(message='The database is unreachable'), 500 # + str(e)
+    if not ensureConnection():
+        return jsonify(message='The database is unreachable'), 500 # + str(e)
         
     # Prepare the arguments for the query
     now = datetime.now()
@@ -263,8 +270,67 @@ def complete_a_request():
 
 @app.route('/get_roads', methods=['GET'])
 def get_roads():
-    # Return the roads and the state
-    return jsonify(message='Plow is no'), 200
+    
+    global connection
+
+    print("hi")
+    
+    if not ensureConnection():
+        return jsonify(message='The database is unreachable'), 500 # + str(e)
+
+    result = db_helper.queryExec(connection, 'getroads', None)
+    rows = result
+
+    features = []
+
+    for row in rows:
+        coord_data_str = row[1]
+        try:
+            coordinates = json.loads(coord_data_str)
+        except json.JSONDecodeError:
+            print(f"Warning: Skipping invalid JSON data: {coord_data_str}")
+            continue
+
+        # Create a feature object with LineString geometry
+        color = "#a50026"
+        if(row[2] < 2):
+            color = "#006837"
+        elif(row[2] < 5):
+            color = "#4baf5c"
+        elif(row[2] < 8):
+            color = "#b7e075"
+        elif(row[2] < 11):
+            color = "#fefebd"
+        elif(row[2] < 14):
+            color = "#fdbe6f"
+        elif(row[2] < 17):
+            color = "#e95739"
+        feature = {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": coordinates,
+            },
+            "properties": {"color": color},  # Add any additional properties you want in the GeoJSON
+        }
+
+        features.append(feature)
+
+    # Create a GeoJSON feature collection
+    geojson_data = {
+        "type": "FeatureCollection",
+        "features": features,
+    }
+
+    # Write the GeoJSON data to a file
+    #with open(output_file, 'w') as f:
+    #    json.dump(geojson_data, f, indent=4)  # Indent for readability
+
+    # Close the connection
+    print(jsonify(geojson_data))
+    #print(f"GeoJSON file created: {output_file}")
+
+    return jsonify(geojson_data), 200
 
 @app.route('/get_plows', methods=['GET'])
 def get_plows():
