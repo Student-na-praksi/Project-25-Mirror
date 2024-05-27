@@ -47,11 +47,31 @@ class DatabaseHelper:
         elif query_type == 'getroads':
             query = "SELECT * FROM roads"
             cursor.execute(query)
+        elif query_type == 'getallrequests':
+            query = "SELECT id, coordinates, description, size FROM requests WHERE plug_id IS NULL"
+            cursor.execute(query)
         else:
             raise ValueError('Invalid query type')
         result = cursor.fetchall()
         cursor.close()
         return result
+    
+    def validateLogin(self, connection, username, password, required_acc_level):
+        result = self.queryExec(connection, "login", {'username': username})
+        if not result:
+            return False, 404, 'User not found'
+
+        # Check if the hashed password matches the one in the database
+        if bcrypt.checkpw(password.encode('utf-8'), result[0][2].encode('utf-8')):
+            # validate that user has valid permissions
+            acc_level = getAccLevel(result[0][3])
+            if acc_level >= required_acc_level:
+                return True, 200, 'Login successful'
+            else:
+                return False, 403, 'Insufficient permissions'
+        else:
+            return False, 401, 'Wrong password'
+
 
 db_helper = DatabaseHelper()
 
@@ -64,6 +84,21 @@ def ensureConnection():
         except Exception as e:
             return False
     return True
+
+def getAccLevel(enum):
+    # This function sucks. We should get the level from the DB
+    if enum == "občan":
+        return 1
+    elif enum == "naročnik":
+        return 2
+    elif enum == "voznik pluga":
+        return 3
+    elif enum == "vodja izmene":
+        return 4
+    elif enum == "admin":
+        return 5
+    else:
+        return 0
 
 # Create a new Flask web server from the Flask class
 app = Flask(__name__, static_url_path='/static')
@@ -155,26 +190,9 @@ def login():
 
         if not ensureConnection():
             return jsonify(message='The database is unreachable'), 500 # + str(e)
-            
-        # create a new cursor object, which is used to execute SQL commands, and define a SQL query
-        # cursor = connection.cursor()
-        # query = "SELECT * FROM users WHERE username = %s"
-        # # execute the query
-        # cursor.execute(query, (username,))
-        # result = cursor.fetchall()
-        # app.logger.info('Response from DB: %s', result)
-        # cursor.close()
-        result = db_helper.queryExec(connection, 'login', {'username': username})
 
-        # If user not found, db returns empty tuple
-        if not result:
-            return jsonify(message='User not found'), 404
-
-        # Check if the hashed password matches the one in the database
-        if bcrypt.checkpw(password.encode('utf-8'), result[0][2].encode('utf-8')):
-            return jsonify(message='Login successful'), 200
-        else:
-            return jsonify(message='Wrong password'), 401
+        result, code, message = db_helper.validateLogin(connection, username, password, 0)
+        return jsonify(message = message), code
     except Exception as e:
         return jsonify(error=str(e)), 500
     
@@ -273,17 +291,13 @@ def get_roads():
     
     global connection
 
-    print("hi")
-    
     if not ensureConnection():
         return jsonify(message='The database is unreachable'), 500 # + str(e)
-
+    
     result = db_helper.queryExec(connection, 'getroads', None)
-    rows = result
-
     features = []
 
-    for row in rows:
+    for row in result:
         coord_data_str = row[1]
         try:
             coordinates = json.loads(coord_data_str)
@@ -292,19 +306,19 @@ def get_roads():
             continue
 
         # Create a feature object with LineString geometry
-        color = "#a50026"
+        color = "#a50026" #dark red
         if(row[2] < 2):
-            color = "#006837"
+            color = "#006837" #dark green
         elif(row[2] < 5):
-            color = "#4baf5c"
+            color = "#4baf5c" #green
         elif(row[2] < 8):
-            color = "#b7e075"
+            color = "#b7e075" #greenyellow
         elif(row[2] < 11):
-            color = "#fefebd"
+            color = "#fefebd" #yellow
         elif(row[2] < 14):
-            color = "#fdbe6f"
+            color = "#fdbe6f" #orange
         elif(row[2] < 17):
-            color = "#e95739"
+            color = "#e95739" #red
         feature = {
             "type": "Feature",
             "geometry": {
@@ -321,15 +335,6 @@ def get_roads():
         "type": "FeatureCollection",
         "features": features,
     }
-
-    # Write the GeoJSON data to a file
-    #with open(output_file, 'w') as f:
-    #    json.dump(geojson_data, f, indent=4)  # Indent for readability
-
-    # Close the connection
-    print(jsonify(geojson_data))
-    #print(f"GeoJSON file created: {output_file}")
-
     return jsonify(geojson_data), 200
 
 @app.route('/get_plows', methods=['GET'])
@@ -345,9 +350,59 @@ def get_next_requests():
 
 @app.route('/get_requests', methods=['GET'])
 def get_requests():
-    # Validate the client is a plow or manager
-    # Return all available requests
-    return jsonify(message='Plow is no'), 200
+    global connection
+    data = request.get_json()
+    username = data['username']
+    password = data['password']
+
+    if not ensureConnection():
+        return jsonify(message='The database is unreachable'), 500 # + str(e)
+    
+    valid_login, code, message = db_helper.validateLogin(connection, username, password, 2)
+    if not valid_login:
+        return jsonify(message=message), code 
+    
+    result = db_helper.queryExec(connection, 'getallrequests', None)
+
+    # Create an empty list to store features
+    features = []
+
+    # Loop through each row and convert data
+    for row in result:
+        marker_id = row[0]
+        try:
+            coordinates = json.loads(row[1])
+        except json.JSONDecodeError:
+            print(f"Warning: Skipping invalid JSON data for marker {marker_id}")
+            continue
+
+        description = row[2]
+        size = int(row[3])  # Assuming size is an integer
+
+        # Create a feature object with Point geometry and properties
+        feature = {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": coordinates,
+            },
+            "properties": {
+                "id": marker_id,
+                "description": description,
+                "size": size,
+            },
+        }
+
+        features.append(feature)
+
+    # Create a GeoJSON feature collection
+    geojson_data = {
+        "type": "FeatureCollection",
+        "features": features,
+    }
+
+
+    return jsonify(geojson_data), 200
 
 @app.route('/get_free_plows', methods=['GET'])
 def get_free_plows():
