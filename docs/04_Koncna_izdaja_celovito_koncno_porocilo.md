@@ -20,14 +20,14 @@ Najhujše pa je bilo spoznavanje novih tehnologij, saj smo na področju spletneg
 
 ### 1.2 Poudarki
 
-V okviru projekta smo ustvarili spletni vmesnik za vpogled in posodabljanje stanja na cestah MOC. Naš sistem podpira posodabljanje stanja na cestah ter dodajanje zahtevkov za pluženje.
+V okviru projekta smo ustvarili spletni vmesnik za vpogled in posodabljanje stanja na cestah MOC. Naš sistem podpira posodabljanje stanja na cestah ter dodajanje zahtevkov za pluženje. Zahtevki za pluženje so tisto, kar si lastniki hiš velikokrat pravijo. "Odmetavam sneg iz dvorišča že 3h, medtem ko bi plug, ki pelje mimo potreboval pičle 3 minute." Znotraj naše aplikacije smo omogočili, da bo posameznik ali podjetje lahko oddalo zahtevek, ki bo vseboval naslov, opis ter denarno vsoto, ki jo je pripravljen plačati za storitev pluženja zasebnega zemljišča.
 
 ### 1.3 Spremembe
 
-- 28.3. Odločitev za hevristični algoritem določitve optimalnih poti pluženja. ne bomo iskali popolne rešitve, le eno izmed boljših.
+- 28.3. Odločitev za hevristični algoritem določitve optimalnih poti pluženja. Ne bomo iskali popolne rešitve, le eno izmed boljših.
 - 5.4. Iz večjega osredotočenja na algoritem organizacije pluženja smo postopoma pozornost v večji meri preusmerili na funkcionalnosti povezane z organizacijo samostojnih plugov za opravljanje dodatnih del.
 - 24.4. Namesto izrisa poti navigiranja bomo plugu le izrisali oštevilčene marker-je na križiščih. To olajša rešitev, saj dosedanje rešitve za prikaz poti navigiranja niso delovale dobro. Poleg tega nova zastavitev bolje deluje z našim algoritmom in za uporabnika ne bi smela predstavljati problema.
-
+- 1.5. Opustili bomo CD, ampak bomo ročno vzpostavili novo verzijo projekta vsakič ko bo dovolj napredka, saj tako lahko lažje spremljamo kaj je šlo pri postavitvi narobe in prepustimo to področje le enemu članu ekipe, ker se nam zdi dokaj specifično.
 
 ## 2 Potrebe naročnika
 
@@ -100,12 +100,12 @@ Z delom aplikacije, ki samostojnim plugom omogoča povezovanje s pravnimi in fiz
 - Python - programski jezik, ki ga uporabljamo za backend.
 - JavaScript - programski jezik, ki ga uporabljamo za frontend.
 - node.js - razširitev jezika JavaScript.
-- GitHubCopilot - kot ChatGPT za programsko kodo.
-- programski hrošč - napaka v kodi.
+- GitHubCopilot - orodje, ki deluje na podlagi umetne inteligence, pomaga pri pisanju kode.
+- programski hrošč ali bug - napaka v kodi.
 - refactoring - izboljšava preglednosti sicer delujoče kode.
 - penetration tester - oseba, ki obvlada preverjanje ranljivosti vdorov v sistem.
 - SQL injection - zlonamerna uporaba vnosnega besedila za spremembo baze.
-- PyVRP - algoritem za optimizacijo poti.
+- PyVRP - algoritem za optimizacijo poti, implementiran v jeziku Python.
 - hosting - najem strežnika, od koder je dostopna aplikacija.
 
 #### 3.1.1 Akterji, katere funkcionalnosti imajo na voljo.
@@ -119,12 +119,12 @@ Manager pluženja opravlja koordinacijo plugov pri napotitvah na zahtevke za plu
 
 Akterjem je na voljo 12. funkcionalnosti, ki v ozadju uporabljajo še 8 podpornih funkcionalnosti. Določenemu tipu akterja je dostopen določen nabor funkcionalnosti. Ta nabor je predstavljen s terko številk.Oštevilčenost funkcionalnosti je na voljo spodaj.
 
-Neregistriran uporabnik: (1, 2)
-Admin: (1, 3, 4, 5, 10, 11, 12)
-Ustaljeni plug (3, 6, 7, 9, 12)
-Stranka (1, 3, 8, 12)
-Samostojni plug (3, 9, 12)
-Manager pluženja (1, 3, 4, 10, 12)
+Neregistriran uporabnik: (1, 2)<br>
+Admin: (1, 3, 4, 5, 10, 11, 12)<br>
+Ustaljeni plug (3, 6, 7, 9, 12)<br>
+Stranka (1, 3, 8, 12)<br>
+Samostojni plug (3, 9, 12)<br>
+Manager pluženja (1, 3, 4, 10, 12)<br>
 
 Uporabniške funkcionalnosti:
 1. Dostop do stanja pluženja 
@@ -602,7 +602,7 @@ To smo uspeli zagotoviti s svojim algoritmom ter podprtjem ideje zahtevkov za pl
 ## 4 Opis sistema
 
 ![Opis sistema](https://teaching.lavbic.net/plantuml/png/ZLNDRXen4BxxAKPSQ0zGgSUeQeKsbH8f5CG6L8NaCB2ZhTcrlV9wgKALHyWhzTI-L-tzPrb8EI3ccx_FCvzD6d6Pe4O1MoKI9KaQtpp719c8FpA6MwCq3DJcpolA0M0A2wy29MhrvrNoACUzkLyvzkfWKKZYBCJSvy-l6r-mG-Vw-riIy8CWIHy4IWn9vx5JVrx5OY1uqNJ2XYLso2JA7OUJ7W-hEMCiG8CRJ0a6AqssTXfnI9H58_uetrMO9Q1IWvQ8H_6EtW_W5mFxMU-xIK_ifLtqWOIDt_E0rochcVTK_7gWc2JVKcbEPnu8J0fhkBucWpoc0AOEEwgwJ4cdHS7r98uXSxQBIN0RsS70m9Vg9ynZ-xLGcI6O9OOBVa33bGJ_EJKaNBujKASiRskADqeGp2rQChjJ8PVbxssM6klMiBmjaN8P3H1elc_R4xUMnbnGo2q1xSmNHs42ez7dJjU5rmDQMVIWLW0zg9KNZCV7g8M7qwL_3pUJrTSXEpffKQBDxSHPZe7L4odWvhXmTIIpLc3Ef3Ke6rbQtMhri6n8hcVBHwEJSkgOYPEgxONOdFgIGQgCveRshOHFUOT6CUrjbEqRf_Cw2Nt3FGyBvM0SAblpXt2bHjRlT3QJ2uM1lRIazqxD0En810NDyvMk85OHRlaEEtcknSMyH1dMrbTnXBCPdTYJKRJtSxcIw-tUGB8JPgsh2wCiSObzO-aeAZzSx_Yku52z6l0emMYIcP4K8jWdI1PJgf-EgkF5Gxidvxy2U_daJ7iUkdpFG_zcjhoxRcvKUuZruhaCOQQ3Qj17aZqNr87ULf4ArCREIfLNWCSgl_1UpGz64DcLxGWYPI1mvv3L7mFlhcSyXlKz5tJFuzXrdMWdpFQMCesTf9pYvQGem1ri57o7DFzF8_d55RcKb5CvfwWt4y_l-uNz0m00 "Opis sistema")
-*P.S. s črtkano črto so označene neobvezne ali pa priporočkjive razširitve sistema
+*P.S. s črtkano črto so označene neobvezne ali pa priporočljive razširitve sistema
 
 Predstavitev sistema glede na diagram:
 Na zgornjem diagramu je površinsko predstavljen sistem, ki ga želimo implementirati. Sistem lahko razdelimo na “Front-End”, ki je predstavljen v paketu UI, ter “Back-end”, ki obsega 2 glavna modula.
@@ -634,7 +634,7 @@ GoogleMapsAPI nam omogoča pridobitev zemljevida območja in postavitev položaj
 
   #### Arhitekturni elementi
   - ReactApp (skrbnik: Sebastjan)
-  - FalskApp (skrbnik: Jošt)
+  - FlaskApp (skrbnik: Jošt)
   - Database (skrbnik: Filip)
   - AlgorithmHandling (skrbnik: Matevž)
 
@@ -655,42 +655,51 @@ GoogleMapsAPI nam omogoča pridobitev zemljevida območja in postavitev položaj
   ![Razredni diagram](https://teaching.lavbic.net/plantuml/svg/TLHDRnen4BtpAonwA2aGaLCbRfIqYQBGef3sL6bbl9F5mTXRsvi4HVptZhrhhu7DOLUQUJFpvjDCxKebGLgo-3Cdxpqcg37a1_wtix8adzQKRQU25nkx5XMyzmWPqZpFIg5U1nTJibPAE9rG1PTEyQ9uxXGQ2cuiw5H7cUKlr8BphegDW-vMltuwA8SEC0Glm3RQJ2X6BLSozJKWWDcCPXh-LM1iwcggzOv_W34iNG0oTgAEL2kQcvIgpUHCBU7DXZXdu4Vw9mrm5h1twFLAR3ijW5nJIzVKG3E81yXnHkZDujXMN1POXPB43QSUN_2QAocnDKfxZ90ngnNOG2yF6zbHprFeuByZdWNad8PGnpIt84e874EiLE-_lm4Rj6nf-17n5fdTbp0bAwknW16XkZ1JSisPRHUcpkBGxEI3Mv5s9s-mTNNDGwaiVzeFs8RA0lACQg0XS0Y6nSITxb_rn-F-rUNbbtv7fwQaCc0IwuapF7DeQZwpzh6zIqpOaSU1Fj8rhcipH5_NRmFQHEd1hLoKbdXc2TPiaT-GaqIQelg1e4ci9VwcAfbJlP-xK63QATvJcMEdbcWKTRDyn-MHPa4bYlf8vp8_KLWgda7ofQYE0wxeJXchdXFeq8iJJRkMfjDbqARMXQPfTk4nvMxmDFqkguvIaZRFHA4qjvjRB4DW7VMvn2kQgzqEaUI8dCETKTBCPBxaR2l0X4lQqIrapmxBdfIkNwE_CkCItrKpyEA8rDA8E35ZIYXjBeukEBAiGB_4C_qyB9MsK_9rCfdKRFWUZSFpwX-Z-o0qBrOIxaRJShF0zEBL6_yoLWKVN2J9UqtsIlUbmZnDm8fWt49PKHfCN-cyjah8LfAMZyeTHYH3JOPzt7ilgtnh6ZTqJ8gDPv5at9n6eebM2LKueDDdev_qyWFmP9nkFVu3)
 
 
-## 5 Končno stanje
+## 5 Končno stanje ter linki do dodatnih repozitorijev
 
 Izdelan imamo algoritem določitve poti pluženja. Njegovo pravilnost smo preverjali z izrisom grafa cest in križišč, kjer so križišča pravilno obarvana glede na njihovo pomembnost v dani situaciji, kar nam omogoča navigiranje plugov.
 
 Trenutno uspešno prikazujemo spletni vmesnik za neregistrirane stranke,
 
 ![Glavna stran](gradivo/img/homepage_rg.png)
+**Glavna stran**
 
 spletni vmesnik za registrirane stranke,
+
 ![Stranka stran](gradivo/img/homepage_user_rg.png)
+**Stran stranke**
 
 spletni vmesnik za administratorje,
 
 ![Admin stran](gradivo/img/homepage_admin_rg.png)
+**Stran administratorja**
 
 spletni vmesnik za pluge,
 
 ![Plug stran](gradivo/img/homepage_plow_rg.png)
+**Stran voznika pluga**
 
-ter delujeta prijava in registracija uporabnika ter dodajanje pluga.
+ter delujeta prijava in registracija uporabnika in pa voznika pluga.
 
 ![Prijava registracija](gradivo/img/login_registration.png)
+**Prijavna stran**
+
+### 5.1 Opis sistema
 
 Izziv nam je predstavljala izbira primernega ogrodja ter orodij za razvijanje frontend dela, prav tako pa smo imeli nekaj problemov s pretvarjanjem podatkov o cestah, da so bili primerni za prikaz na zemljevidu. Težave smo imeli tudi s povezovanjem frontend dela aplikacije z zaledjem, ki smo jih rešili z preusmerjanjem api klicev iz node.js strežnika na flask (python) strežnik.
 
 ![Opis sistema](https://teaching.lavbic.net/plantuml/png/RLF1Rfmm4BtxAqPxINiWXnwhAD9s4tKZXO2MaaEJ72RB27d1DhBDHjagdz2_weVLni2o6n12dZVFu-TvWwcuR52ZWAqIZP8aRMRVQu9MrDyOmwrL6XOFfAdancgkKKBRA8slabSBG0Fvm-RsPpOmC-iO5NQP4KphjWpST81Yb5YIxj1u09U5uBA3bcCz5CfOjPCScg5AbZB66jnMhe9ZIFK6QUq-6zLQWgInNF03MguaPE_6abZ07yO0nYtvdKV0FKzh9GXIXxw4-5wLNFRh_YwGt_L0B_e8-8iTeqx-CTnqBIFjmm_MOGLQV4NZLNV2RdwCGd93slGx7vDLl_fDDKc-7TJ5oGe4Dg4YW7kN44NNPzS8ZimbqXamcmFZEI9SNfvY3ho8y-mNh9UFjnVif9sXmBG7dv9zhzdOzW0FJONli5S7DsQTypYXTJecPZYc2D5vhT4IHq6_zaECVhACroK-LPruxhP8rEhVNo_1A3VyblOJ_fK_OBJjUDLmSfzWqxc0qns3cn2rZSjyyPESo8t2miquwRtp_UjPtwwYQ9xdn1v8r3lQymAU9LXDihMIIWHZKUumZ8jtB5id-VrDxva7LcCC4LI2x8wWKXOAvURL_NZ11Su-_WC0 "Opis sistema")
 
 Trenutno stranke lahko dostopajo do glavne strani, kjer s pomočjo google maps API-ja ter podatkov MOC izrišemo zemljevid. Neprijavljene in neregistrirane stranke imajo dostop do prijave ter registracije.
+Celotna aplikacija, skupaj s konfiguracijskimi datotekami se nahaja v repozitoriju https://github.com/Student-na-praksi/Projekt-25-Mirror.git. Kot je že v samem imenu namignjeno, je to mirror ing originalnega repozitorija. Zakaj? Noben iz ekipe še nikoli ni postavil full-stack aplikacije na nekem gosotvanem servisu, zato smo se odločili, da kreiramo nov repozitorij, na katerem si lahko prosto eksperimentiramo brez strahu, da bomo kako pokvarili trenutno (lokalno delujočo) kodo.
 
 Izvedli smo test registracije, test prijave, test dodajanja pluga, test prikaza zemljevida ter test prikaza cest na zemljevidu.
+Vse teste smo izvajali na drugem repozitoriju (https://github.com/Student-na-praksi/SnowPlowNavigationSystem.git). S strani profesorja smo bili
+opozorjeni, da imamo na repozitoriju znotraj organizacije na voljo le določeno število minut za testiranje, medtem ko jih ima novo ustvarjeni repozitorij, ki se ne nahaja znotraj organizacije neomejeno.
 
-Trenutno naša koda obsega približno 2000 vrstic kode (brez praznih vrstic).
-
+Trenutno naša koda obsega približno 2100 vrstic kode (brez praznih vrstic).
 
 ## 6 Vodenje projekta
-
 
 #### Dnevnik sprememb:
 - 29.2. Začetni nabor idej za možne funkcionalnosti. Začetek projekta.
@@ -728,13 +737,14 @@ Med sestanki smo pregledali stanje projekta, ocenili napredek od zadnjega sestan
 ### 6.2 Projektni načrt
 
 **SEZNAM IZDELKOV**
+Spodaj je naveden seznam vseh izdelkov, ki smo jih tekom semestra izdelali v okviru projekta. Zaradi preglednosti so ločeni po iteracijah. Večina jih je v digitalni pisni obliki (kode ali zapiskov), ostali pa so v papirnati obliki.
 
 1. iteracija (21 dni)
 - Pregledani podatki in začetna vizualizacija (1 dni)
 - Zapisnik snovanja idej pristopa k algoritmu (2 dni)
 - Zapisnik pregled obstoječih rešitev (2 dni)
 - Definiranje uporabniških zgodb in funkcionalnih zahtev (2 dni)
-- Predloga projekta (4 dni)
+- Skica predloge projekta (4 dni)
 2. iteracija (21 dni)
 - Izvedba okrnjenega algoritma planiranja s pomočjo PyVRP (10 dni)
 - Izdelava simulacije naključnega nabora voženj po mestu - kot merilo uspešnosti algoritma pluženja (8 dni)
@@ -744,7 +754,7 @@ Med sestanki smo pregledali stanje projekta, ocenili napredek od zadnjega sestan
 - Admin UI - lokacije plugov, št plogov v bazah... (8 dni)
 - Ustaljeni Plug GPS sharing - vsi aktivni Ustaljeni plugi delijo svojo lokacijo z Adminom. (3 dni)
 - Ustaljeni Plug UI - glede na trenuten GPS se mu izpisujejo navodila za nadaljno pot, možnost deaktivacije/pavze (3 dni)
-- Testi enot. (2 dni)
+- Testi enot (2 dni)
 3. iteracija (28 dni)
 - Vključitev kmetov v pluženje z VOC in Zelenice (4 dni)
 - Razvoj svojega algoritma organizacije pluženja (14 dni)
@@ -762,13 +772,13 @@ Med sestanki smo pregledali stanje projekta, ocenili napredek od zadnjega sestan
 
 ![Ganttov diagram](https://teaching.lavbic.net/plantuml/png/dLdTRgD65BxtKupQYswZhhjnicfQLLLPcpXi7MFX7tMtggoncTXZOCQ2WJQk-WXvY7sHNYNlrJC3XW4JuqI950UO-Rxpyvrp6FyQ2HoA5MP2eA_wyWzFa4lnAiJ1LwtMpv6uzyalBVL0BxsC_caX96X0VCg8-WUX0NpiSf-7wEkxZlnHLwyv4-bLM7SFb_wLAt7aPQi-uAMt2ddCt6mjkRfxV-TMTtn__U7Ax6RBuHU78V_h4BZqM41z4WcU4tmDrDBd4N6Vsw3MJf-krY8tzj_Mpzzd3cn57cLRBDstgEmaGimYk4MOQAsfIz0TvsB1_sxvcArYl28eybkjRSWtP2cGYbU4n9gWyn_56l4xT4qMOOp3UzHvrxbiHLZ4eOll8_0JoMneHO1MkTJwu-ni519t6z9jY1DoTeRU_81SHh_z4-48_J5opDwVoCSHeC5rMAsMdBSH5IJ4Ixh1PsTlEkVQ4cjYEkVxDHVeBq8yW6JkdZGMsRRVH8Z0PRcVjLlG42Ewsz44_Z34iBp0DWI1BpQILGdYymVBCVOOvoYrwbc8pCYL3t7SSXSB3z8RG7RuyO48Xb52Tp7swIwpfmm66_K7XHVgqJ961TwOyIJdZy2za8TRZ3o4_HKFgGXYYTFHSCP3UsOCFvfxeCvpPYasXvRn1K1ioEC3NQEGF7s102LLZ6prt377vl3ZIv7682RCF8fSSaUPYWz6J_yHVqD0OYbccaAw_yRcU68CVxCQmwKpAq1xEHP1yPQ7UC7eqnSFZDojkBkGSRoBcRUad66VoSjuNMDvpxosXX2YHWVdT3KFWmOp1Wn7u6iLrop_oO6F1yP9G3gZmsYwt8i3A0Rr49cpUdRtDHZMpYK-1g5jGVa-NyaFa3cUKBb_MH9QpnmOirngbqTZ9-deA0bn5nZoGeGysiBsDAcuJKyJnvmuTYb73ZMMaIam7B8ZOS8W8p4xsD3wV7Ix533RIsxMAHKrT5ZLEWrLBQryfRAMke1x8PCQ0K_lvGy-tsSLHX6KfO0_Fcmu6jtFd94ovPqUy4zmDRVcNNq9qj0b-EUqkb4Kubt2DsfnXG8FeQMdPOy0dnYqBEb0HOGowUCLHMkIoD95lMeATgVZYNqxDmPzsx4cDxSDjKJnrtoTfs14WzXF2J3i-PluyK6HX0O0MaS9Lvo03mgW-iJeBVAuWCyXzJcA8QsUlZ0E14kEpGoHdA_qIcJTJWV6nBA7UxPN9tdINcHasz5w2oi45yHJFBP5wyHGUA219NYZ2aLEvw0Stepc89XHGp-fKBZX0KH8ZW5JwoUKH6GH0yYE151x4wgMoiWjmKVV8P0qPTM0tTYtvdnaz1kgKXNOI0HK8UefLI333IXxgphq51R9mWyLT-J7AvvK3JMcanjpEB6w9O_NcrkGqv0b5fWB-xu5axmyIm7hE_Jq1RmFXa8dJs2OWgBVRhVBuJPwjzPmFhME5wyApG8_Dr3PX_gZCOhMEAHi1NoI239ELZIuNJmeoSdkw5DGSWIYutlY7ErIv_6WBHrreV64dUVZ6yEnXlsYmDHItHlqBCcf1Tna_v1gWfcIi1Z2bt8dA8WXGRSqWjG1GWmdtAM-obk6NTY6ST0Pv4y0efEY0akKZShptszniYDLxgF1jA-v-6JU4qZKhAKInaMxcgtJeJMPJw0L7y_MWogapGrP0yrGFEwITZL5ktRFr9jeVN8MN4fjEWv9AdLedlADAF9I5FGc97TuARXCbMyFB7FCQwCxiVLelzYsve6at3rW8faFpTydn-tKcRseZLUx-0bO1IMjALnK6_1LfG5V559-jW5tDEwpjA78IHXv0H6gMEpR0vHFDBExifPz9Zv8Q4cguy-ruToQplXu0Qc2EccxbV8_fTkgQ5tMTzRSXvSlpH07fWcGioXa5a4R9y12jgqbyQ65LQqTVnfFpDkIwXfnwwRAqkZw36xd4BTncDNvlKWBvtLQcFTcvl4SrNWroG4ghTWq3RSATjOvKHYAdoQEooPnN5R5KPUe5vefGnWGGv6zfaBXfuWHUFkWOIH22auDylSjZmVLMKfhMlFf45u0caUgChPgE9jyEcsIYQoZcIYd3dHiPzupPxahVtX9ml28ktoXYWACtIHOf0FabaSu83ivqCWngcYZm7BD4ovVug6SB6IxXGK7pSInZTvyP8zWn0GrVZeUPjq8BSYdoBPzHBTpUsOwnc1mNBzLfbfsCq5MAiSYhqIZck3obGNw7mpV6neSlZOE9sRVKGFL2UNaUJfrKy9btPGmltWjHCsOSF2gaqq91KZd-9mmlpXnKZXzL7WTjbr8gNZ7Lp3lIwS9zaUp2xdZQ32D8q89w8GXuQAs7BuAKBLsy9zqwKWxkL3wW57uyG57kRaPvCpkQTtqX4F9_HaZZT2I-nnYwCfHmI5WS7uaM7UpECSxiZG_WQlT8JyngxjREicgXT0Ee8vHK0stxe7YrAVkRdPGKtjB7hdKGgRd5tMt3WyI6fvwncVwy5BtGAbjr9Alrky6cABMrdkffDtwE9HqL_U8ojhAZO7yTg4V4i9QlqAggYzb_WS0 "Ganttov diagram")
 
-*Ganttov diagram*
+**Ganttov diagram**
 
 ![PERT diagram12](https://teaching.lavbic.net/plantuml/png/jLZRSjiu4dtdLtHD7cQtod4iIhuaut8LOz4sDxQaeYHlZMkgL908oH0fGilRxcWodv2Fo8_CK_9Vsm0l8aZAaJAL5qewe823HgFxT8SkyzSa82kOafcx27ZiEzVSum540V537A9-f7bq7a748M2BvmWS5j1PnBYlQU6CU1HEZYyqxJACVlVebHP69A9THXPYqZyq0184_B_o6y0zysaw_TJ3zH3xK_jJktoJ_LSB2pf3COtyr_iAiLVqOduwTyG83nmQPEZfpViBynfdAqtYq3c9lMX4_nSP7bluAzmCpF110-tdqcjh1lg9bbA7dovdOiPtjm6b_jKWI0WGDsA9pyFeyeqSk_e9I0W3s-mER6jW6uy6l9hFwHaz-yN37RvpIE06r85tS9dXHzddrKSuXuzm0lBpD_-ZiCh95gbmUE_5zAfr30mPanbR4eM0DJBjbhgo-4FpidehNG7q2sNX76hSlRMPie00ssmOce7vu1C1-4iApA5BbStJUyisykD9wSXP99yKFSe-aKzEfyvc5vb1G1SUMdND7HAvF15yDkJB9nhv11AsYOd7DdKhuJ7TtflTWuWX1NYh4CkGHc93doU5JM0Ti33YQm8k46_10nQjOeNGiDT_D7h_ClTcfAThGwkbKCgX5ut5fqXcIRzyOiyGqA-VqPEI9lDC1lskCVhGV_oXh8OKKTzbucOoNteIWQz_KMz9VPhnIwXgBNCuCdeVh8FEhoKVkaAim1gPTGj25E8r3yZKPry_ksYrpO8xK-5hyzXtPnZsYESBc3nNJTarRwmUte53pxOb7nsLROurdwv7Sh8-2V6SfVTbGKArt-3U-2vE7V4uKpdbs8iUvt0t5e6sWKhcQjt-zG_cOcqSwX4CMMiCmnvVY2zu2zoe4a2VkkQzZDvxiiaNnNIXiicnflXjRHBgJ0cwTnJmS4r5CjbrMhOvill3WVbXP3qQ4skqTtXlPGHad2ynAx0cPZRTq23nyJeIlqBZoRIhMUqRYyk7UkKAh6bn_QMqfX-KriGIq6chQ-TOPUrhlDjUSIRS3NmHUz13yc2DlfBVBW8XPfiL__9foM7m-wCzKFtvLqHKedBs7KOgMBNrEjEsleFfKvhX60Haa_0bU2ICAdnvi432ClLH91zZG1NSCIjYglJ8Wi4pJKHMOgx2_tey7FKV9iRzRTyQtJsWk-bxxoRd36qrRXNOo_SoPAlOImdxnFMMyPTFSbEeBt1DIBZS0_A75QQC6Ce9mNeOtniZgz_R-zfU55O-QR3yoGwo_Mb6zZXyNkCLYNX4NN1v9ACAflbr84OtGXybP2cZSN4eQWwx6qnkh7jpEC4GE3WeaqcAUeDhw-qTjE_u2hs0B2YChNUGX7GQ8x4DNM6IJPW38WEZTypGhaU0iP6fL_-k_s1E1iRjOUaYfTHfeBdB5OmamYJ1N7d_mN1Mp7yj9UOOtnPw07Fim8iNNCsnndXqP_P6rlLX7j3Ag81-gdBCiMQEWXMQ4LwZeTpYVY6d8_Zw6Vq0pOSwDC7Y2UN0yV6nIhNxOFKcO-kWx2AuWAvgpm9h95dOIveBRWT329z9mFm5qav2bbKlR6jOkGUXmJo6SIt4gCBp_N7Of6V1L-fcSDh9yCwmhTxjtljfPxHh0UzjSy1ht8-qlayIxZ1FNhOrNa0XD4Jam2gL-d7aI_x7Hx32k27gDDoRtBKyiZThacogecXyUyZ9VDzEHdZ5CfL6VQuMZ-EUDPgCKDl2gsbxFf-sgnnIz2Zxp2EkS96sgeGAhCB1-4zCjW5tjogxxdTD8Sd63tYlvAtA4m5fdsM9GCoLvG417icvqribLeQsMimMs2wX60SqZPSeoqIZ87Gf1bOyqdy4MBBF8YxSzv_75KroOroF-ga7_Y2RVPUwHdErzmz49vbfe5EnMOvLADdK-LiAifBIxLrjYLQsF7JKYhp0cZHS-oKDrzvRmrraIy2vUam5rdXCZwbk41Kjk2iQoKYSon_CUF28TGR6xoVgOJIPgMQwCUm7qnuU59ibdLEzJl5qbtYpKyqcGkm-acsNEbDPRbLPtRiw6HiuKorPO8sMj57XOWoDjl4gHBL8aQTGEpFgeV9H1Sslmv7vS5ZywcGCu5mLOGMsV_pQavwiC_SCO-Uo-wJMJWNMvFgTbro_Sv3hYoNWhPhp2-p5MhlKgQ0lXFZnqBHJQ-nvLgsSmRbUPtMkVuCLHdAU7r4zrTZcesN-UsygxMBPJWELpZVS1gz_MQXpno52yb1KE2GGMSSdgE6g7IVKROQD8dXWslixaF3lSrLT5fYcAStYrw-lqkQjbhPmvM_PFjMoBgf0idQ9bZSm1PRt3XMmsiBJQZqz-TUiaQOL_KSLpVji0YrrihHoLqkkLZIKwaFR1ezMRlQa-qjxBLhHT15ehTzHiaZMXD1A7QpSSBgMDWdaeg8AroebbXXeA6-RNjlMawL9rVTA0qLvLCBKcaIhb2ZoZQmKq8gQGA0bJQqEPF9KIniCk_RILBwBTmjfgPLAvSf0tGpRmMq5gE8D-zeEbki3TIJNsYgwrR_fKHVQJYlhlDpVXCIg3TIKJksDPcch5Q8jTwUsbkeLyJiJ1YMaPESIMag1vPEeZPLJPMbCN95IcigPTBGqVKXZPL6x19K2Q0bL0fPM3hBrqI8Lr8R-3m00 "PERT diagram12")
 
 ![PERT diagram34](https://teaching.lavbic.net/plantuml/png/bPJjRjem58R_-ogErh_qY-zsA1AbQOLKHXLefqsJa24dcS7Op35iO_GIUX6xaVrgxsjs4b02Q6L_yl4U-VZ9UrudcZ0neufEOKX7ar39kV1Raai5Mb4HcH8AJJW66hG4nSAl6docSAIP58H48yeHpaxgX3GY_PEZGo9DDLup6jgclmW0LKf-Zvy0xfZ0fFsGc_sCzaIUIECqNKkY3KxFjebNNMs17M4zg0I-hKZbeqhLoirLtMsPRfacFWPqpdKVV-WcPw6Oce-1aRcW8Wael6kCxFhBApv7ftG2pDJeY8rfupGkEE-0Hj3kkru9Ze80grXzpyrNn0lW4XgfM4ZlpWgATLX1sLvgLLXz4IlxvMTPRMllMuKedCS97yzVdWt00YPJr7812vZn-UiV56E49JnsMy04V4QEWeqm1tZJz3gkrrkRao36VMF6H2saTyDONkDKYhk8Ljj2R4b5kUFHvKAE8J8N32bG7ah5z9I2L24LR6cDmmrptiBMGw_VxGoQTxVTF6NSUZ_bUJcbWMhUoOssrqbFlZmB2HeZpKoA3LB48es6SoBj_BdKUVTwdtfzjpFekxq-70rBGJ0iRJkOg8NqdZfe2Q1sbaFRQ5jepMzpwhINFdAweE3BoTocCN7iCBnhCt-JCbggfX6qBTC8Mh4GRs5SIm6WTfuZssZxeb_-L_JB_nLzkmLSNEJtNcjx1tQlCEJemtnciZ0KxFNt1FCMvP0UUgwNk77WhCxN1BNYBbMj-0RLHFfoFQ9yfBlNxi1p7zlknuDHIfjjotjGoc_4nXp_cM8pPP-NvjZvFXqRDfmoGLLaJ1EKot0hFMwd_Q7f3UwRzwvtU81ilckLFEDQ8oJv8HuVE-i_JqR9dFICcZbZ9FilsAvbpsAcPiPDCkV0Lk9aaYIVzdqTYuoKcL16pJb2ibFShMwojblw2m00 "PERT diagram34")
 
-*Graf PERT**
+**Graf PERT**
 
 ### 6.3 Finančni načrt
 Časovno zahtevnost izdelave aplikacije bomo ocenili s pomočjo modela COCOMO 2 za zgodnji model načrta.
@@ -1223,4 +1233,5 @@ Sedaj nam je jasno, da smo si zadali prevelik zalogaj, sploh za tako neizkušeno
 
 Če bi se projekta lotili še enkrat, bi ga zastavili v bolj omejenem obsegu. Uporabljali bi manj napredne tehnologije, ki pa so nam že znane (npr. vanilla JavaScript namesto React-a).
 Ostalim ekipam bi svetovali prakso stoječih sestankov, če le te še niso uporabljale. Te so nam namreč najbolj pomagali pri razumevanju stanja projekta in potrebnih nadaljnjih korakov.
-Ker smo neizkušena ekipa, bi naročniku priporočili bolj podrobno definirano zastavljen problem. Odprtost problema je bil svojevrsten izziv in nam je dopustil kreativno odločanje o željeni končni rešitvi, a smo zaradi svoje neizklušenosti zašli v preveč idejnih smeri naenkrat.
+Ker smo neizkušena ekipa, bi naročniku priporočili bolj podrobno definirano zastavljen problem. Odprtost problema je bil svojevrsten izziv in nam je dopustil kreativno odločanje o željeni končni rešitvi, a smo zaradi svoje neizkušenosti zašli v preveč idejnih smeri naenkrat.
+Poleg tega, bi svetoval prihodnjim ekipam, da takoj, ko se implementira osnovna delujoča osnova vzpostavi CI in CD, saj je to končni rezultat dela celotne ekipe. Tudi lažje je že na začetku razmišljati, kako organizirati samo kodo znotraj projekta, saj smo v našem primeru omejeni, koliko prostora in procesorske moči nam Fly.io zagotavlja brez vložka finančnih sredstev. 
