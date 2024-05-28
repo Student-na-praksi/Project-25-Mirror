@@ -1,0 +1,20 @@
+app = "tpo25v1front"
+
+[build]
+    dockerfile = "Dockerfile"
+  
+[[services]]
+    internal_port = 6000
+    protocol = "tcp"
+
+    [services.concurrency]
+        hard_limit = 25
+        soft_limit = 20
+
+    [[services.ports]]
+        handlers = ["http"]
+        port = 6050
+
+    [[services.http_checks]]
+        interval = 10000
+        timeout = 2000

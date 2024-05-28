@@ -15,9 +15,9 @@ import {GeoJsonLayer} from '@deck.gl/layers';
 import {DeckGlOverlay} from './deckgl-overlay';
 
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchPloughLocationsAndWaypoints } from './api';
-import { LocationResponse, Location, Coordinates  } from './types';
+import { Location  } from './types';
 
 
 // const DATA_URL =
@@ -31,31 +31,31 @@ import MyLocation from "./MyLocation";
 import RouteMarker from "./RouteMarker";
 import Plug from "./Plug";
 
-
-
-
+import { FeatureCollection } from 'geojson';
 
 
 
 let fake_ploughs: Location[] = []
 for (let i = 0; i < 10; i++) {
-  let ix = Math.floor(Math.random() * (roadsData?.features?.length || 0));
+  let ix = Math.floor(Math.random() * roadsData.features.length);
 
-  let pos_array = roadsData.features[ix].geometry.coordinates[0];
-  let real_pos = { lat: pos_array[1], lng: pos_array[0] };
+  let pos_array = roadsData.features[ix]?.geometry?.coordinates[0];
+  
+ let real_pos = { lat: pos_array?.[1] ?? 46.2398, lng: pos_array?.[0] ?? 15.2677 };
 
   let curr_plug = {id: i, coordinates: real_pos, tel_num: ("0" + (31123456 + i) + "")  };
   fake_ploughs.push(curr_plug);
 }
 
-let fake_waypoints: Location[] = []
+ let fake_waypoints: Location[] = []
 let init_ix = Math.floor(Math.random() * roadsData.features.length);
 for (let i = 0; i < 5; i++) { 
-  let pos_array = roadsData.features[init_ix+i].geometry.coordinates[0];
-  let real_pos = { lat: pos_array[1], lng: pos_array[0] };
-
-  let curr_waipoint = {id: i, coordinates: real_pos, tel_num: ""};
-  fake_waypoints.push(curr_waipoint);
+  let pos_array = roadsData.features[init_ix+i]?.geometry?.coordinates[0];
+  if (pos_array) {
+    let real_pos = { lat: pos_array[1], lng: pos_array[0] };
+    let curr_waipoint = {id: i, coordinates: real_pos, tel_num: ""};
+    fake_waypoints.push(curr_waipoint);
+  }
 }
 
 
@@ -86,8 +86,8 @@ function GoogleMaps() {
   const [my_location, setMyLocation] = useState<Location>(my_loc);
   const [plough_locations, setPloughLocations] = useState<Location[] | []>(fake_ploughs);
   const [waypoints, setWaypoints] = useState<Location[] | []>(fake_waypoints);
-  const [error, setError] = useState<string | null>(null);
-  const [id, setId] = useState<number>(0);
+  //const [setError] = useState<string | null>(null);
+  const [id] = useState<number>(0);
 
   useEffect(() => {
     const getLocation = async () => {
@@ -102,7 +102,7 @@ function GoogleMaps() {
           setMyLocation(data.my_location);
           setPloughLocations(data.plough_locations);
           setWaypoints(data.waypoints);
-          setError(null);
+          setError("");
         }
       } catch (err) {
         if (err instanceof Error) {
@@ -118,14 +118,17 @@ function GoogleMaps() {
 
     // Fetch data immediately and then every 300 milliseconds
     getLocation();
-    const intervalId = setInterval(getLocation, 100);
+    // const intervalId = setInterval(getLocation, 100);
 
-    // Clear the interval on component unmount
-    return () => clearInterval(intervalId);
+    // // Clear the interval on component unmount
+    // return () => clearInterval(intervalId);
   }, [id]); // Add id as a dependency. The effect will run every time the id changes, and not on every render.
 
 
-
+  const roadsData: FeatureCollection = {
+    type: 'FeatureCollection',
+    features: [],
+  };
 
   return (
     <APIProvider apiKey={import.meta.env.VITE_PUBLIC_GOOGLE_MAPS_API_KEY} >
@@ -136,6 +139,7 @@ function GoogleMaps() {
           mapId={import.meta.env.VITE_PUBLIC_MAP_ID}
           gestureHandling={'greedy'}>
 
+          
 
           <DeckGlOverlay layers={getDeckGlLayers(roadsData)} />
 
@@ -192,5 +196,9 @@ function getDeckGlLayers(data: GeoJSON | null) {
       getElevation: 30
     })
   ];
+}
+
+function setError(message: string) {
+  throw new Error("Err msg: " + message + "!");
 }
 

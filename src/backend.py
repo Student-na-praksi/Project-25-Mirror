@@ -1,28 +1,32 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_cors import CORS
 from datetime import datetime
 import mysql.connector
 import bcrypt
 import logging
+import os
 
+import mysql.connector
+from mysql.connector import Error
 
-# singelton design pattern
 class DatabaseConnector:
     def __init__(self):
-        # Create a connection to the MySQL database
-        #self.connection = True
-        self.connection = mysql.connector.connect(
-           host='localhost',
-           user='kurir',
-           password='kurir',
-           database='tpo25'
-        )
+        self.connection = None
+        try:
+            self.connection = mysql.connector.connect(
+               host='localhost',
+               user='kurir',
+               password='kurir',
+               database='tpo25'
+            )
+        except Error as e:
+            print(f"Error: '{e}' occurred while connecting to MySQL")
 
     def connect(self):
         return self.connection
 
 db_connector = DatabaseConnector()
-connection = None
+connection = db_connector.connect()
 
 # Command pattern
 class DatabaseHelper:
@@ -51,8 +55,11 @@ class DatabaseHelper:
 
 db_helper = DatabaseHelper()
 
-# Create a new Flask web server from the Flask class
-app = Flask(__name__, static_url_path='/static')
+# ABSOLUTE PATH TO THE FRONTEND BUILD FOLDER
+# app = Flask(__name__, static_url_path='/static', static_folder='C:/Users/Uporabnik/Faks local/Git Repos/TPO/Projekt-25-Mirror/src/frontend/dist')
+# RELATIVE PATH TO THE FRONTEND BUILD FOLDER
+app = Flask(__name__, static_url_path='/static', static_folder='frontend/dist')
+
 CORS(app) # This line enables CORS support on the Flask app. This allows the frontend to make requests to the backend.
 # app will log all the messages which are at the level INFO or above.
 app.logger.setLevel(logging.INFO)
@@ -61,10 +68,18 @@ app.logger.setLevel(logging.INFO)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
     
 # Handle the index page
-@app.route('/')
-def renderHtml():
-    return render_template('loginRegister.html')
+# @app.route('/')
+# def renderHtml():
+#     return render_template('loginRegister.html')
   
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
+    
 # Log every incoming request
 # @app.before_request
 # def log_request():
@@ -296,4 +311,6 @@ def get_free_plows():
 # LEAVE THIS AT THE BOTTOM!!
 # Start the Flask application 
 if __name__ == '__main__': #check in Python is used to determine whether the script is being run directly or it's being imported as a module.
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=8080)
+
+#app.run(host='0.0.0.0', port=8080)
